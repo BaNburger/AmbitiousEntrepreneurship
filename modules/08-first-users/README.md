@@ -11,16 +11,16 @@
 3. The first-user funnel: from stranger to activated user
 4. Charge early — the €1 test separates users from fans
 
-**This week's bar:** first outside-€ (pass) · 3 paying users (stretch) — dashboard-verified. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.pdf).
+**This week's bar:** first outside-€ (pass) · 3 paying users (stretch) — dashboard-verified. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 ## Materials
 
 | Part | File |
 |---|---|
 | Lecture | [M08_Lecture_Finding-First-Users.pdf](M08_Lecture_Finding-First-Users.pdf) |
-| Workshop — *The Collison Installation* | [M08_Workshop_Collison-Installation.md](M08_Workshop_Collison-Installation.pdf) ([slides PDF](M08_Workshop_Slides.pdf)) |
-| Case — *Stripe* | [M08_Case_Stripe.md](M08_Case_Stripe.pdf) ([PDF](M08_Case_Stripe.pdf), [discussion slides](M08_Case_Slides.pdf)) |
-| Homework | [M08_Homework.md](M08_Homework.pdf) |
+| Workshop — *The Collison Installation* | [M08_Workshop_Collison-Installation.md](M08_Workshop_Collison-Installation.md) ([slides PDF](M08_Workshop_Slides.pdf)) |
+| Case — *Stripe* | [M08_Case_Stripe.md](M08_Case_Stripe.md) ([PDF](M08_Case_Stripe.pdf), [discussion slides](M08_Case_Slides.pdf)) |
+| Homework | [M08_Homework.md](M08_Homework.md) |
 
 **The case in one line:** Walking to users' laptops and installing the product yourself
 

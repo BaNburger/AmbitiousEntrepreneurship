@@ -11,20 +11,20 @@
 3. Pitch structure that works: the Sequoia format
 4. Demo day: proof beats promises — show the revenue
 
-**Revenue bar this week:** pass €1,000 verified (Demo Day bar) · stretch the €10,000 club — outside your social graph, verified. Full rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.pdf).
+**Revenue bar this week:** pass €1,000 verified (Demo Day bar) · stretch the €10,000 club — outside your social graph, verified. Full rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 ## Materials
 
 | Part | File |
 |---|---|
 | Lecture | [M12_Lecture_Fundraising-Demo-Day.pdf](M12_Lecture_Fundraising-Demo-Day.pdf) |
-| Workshop — *Pitch Forge* | [M12_Workshop_Pitch-Forge.md](M12_Workshop_Pitch-Forge.pdf) ([slides PDF](M12_Workshop_Slides.pdf)) |
-| Case — *Celonis* | [M12_Case_Celonis.md](M12_Case_Celonis.pdf) ([PDF](M12_Case_Celonis.pdf), [discussion slides](M12_Case_Slides.pdf)) |
-| Homework | [M12_Homework.md](M12_Homework.pdf) |
+| Workshop — *Pitch Forge* | [M12_Workshop_Pitch-Forge.md](M12_Workshop_Pitch-Forge.md) ([slides PDF](M12_Workshop_Slides.pdf)) |
+| Case — *Celonis* | [M12_Case_Celonis.md](M12_Case_Celonis.md) ([PDF](M12_Case_Celonis.pdf), [discussion slides](M12_Case_Slides.pdf)) |
+| Homework | [M12_Homework.md](M12_Homework.md) |
 
 **The case in one line:** From Munich seminar project to decacorn — mostly without VC money
 
-**Bring these frameworks:** [Default Alive Calculator](../../frameworks/04_Default_Alive_Calculator.pdf)
+**Bring these frameworks:** [Default Alive Calculator](../../frameworks/04_Default_Alive_Calculator.md)
 
 ---
 

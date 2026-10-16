@@ -11,20 +11,20 @@
 3. The Mom Test: interview questions that produce signal, not polite lies
 4. Hair-on-fire segments: find who feels the pain most urgently
 
-**This week's bar:** Pain Map with budget column + JTBD + 5 hair-on-fire interviews. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.pdf).
+**This week's bar:** Pain Map with budget column + JTBD + 5 hair-on-fire interviews. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 ## Materials
 
 | Part | File |
 |---|---|
 | Lecture | [M03_Lecture_Problem-Space.pdf](M03_Lecture_Problem-Space.pdf) |
-| Workshop — *Pain Mining* | [M03_Workshop_Pain-Mining.md](M03_Workshop_Pain-Mining.pdf) ([slides PDF](M03_Workshop_Slides.pdf)) |
-| Case — *Personio* | [M03_Case_Personio.md](M03_Case_Personio.pdf) ([PDF](M03_Case_Personio.pdf), [discussion slides](M03_Case_Slides.pdf)) |
-| Homework | [M03_Homework.md](M03_Homework.pdf) |
+| Workshop — *Pain Mining* | [M03_Workshop_Pain-Mining.md](M03_Workshop_Pain-Mining.md) ([slides PDF](M03_Workshop_Slides.pdf)) |
+| Case — *Personio* | [M03_Case_Personio.md](M03_Case_Personio.md) ([PDF](M03_Case_Personio.pdf), [discussion slides](M03_Case_Slides.pdf)) |
+| Homework | [M03_Homework.md](M03_Homework.md) |
 
 **The case in one line:** Listening to Munich's HR managers before writing a line of code
 
-**Bring these frameworks:** [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.pdf)
+**Bring these frameworks:** [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.md)
 
 ---
 

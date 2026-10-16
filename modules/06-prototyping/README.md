@@ -11,20 +11,20 @@
 3. Just enough architecture: APIs, webhooks, deployment that survives iteration
 4. Build to learn, not to last — prototypes are disposable
 
-**This week's bar:** deployed prototype + 10 non-friend reactions logged + 2 fixes shipped. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.pdf).
+**This week's bar:** deployed prototype + 10 non-friend reactions logged + 2 fixes shipped. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 ## Materials
 
 | Part | File |
 |---|---|
 | Lecture | [M06_Lecture_Prototyping.pdf](M06_Lecture_Prototyping.pdf) |
-| Workshop — *Show & Build* | [M06_Workshop_Show-and-Build.md](M06_Workshop_Show-and-Build.pdf) ([slides PDF](M06_Workshop_Slides.pdf)) |
-| Case — *Bolt* | [M06_Case_Bolt.md](M06_Case_Bolt.pdf) ([PDF](M06_Case_Bolt.pdf), [discussion slides](M06_Case_Slides.pdf)) |
-| Homework | [M06_Homework.md](M06_Homework.pdf) |
+| Workshop — *Show & Build* | [M06_Workshop_Show-and-Build.md](M06_Workshop_Show-and-Build.md) ([slides PDF](M06_Workshop_Slides.pdf)) |
+| Case — *Bolt* | [M06_Case_Bolt.md](M06_Case_Bolt.md) ([PDF](M06_Case_Bolt.pdf), [discussion slides](M06_Case_Slides.pdf)) |
+| Homework | [M06_Homework.md](M06_Homework.md) |
 
 **The case in one line:** Speed of execution as the whole strategy
 
-**Bring these frameworks:** [AI Startup Playbook](../../frameworks/05_AI_Startup_Playbook.pdf) · [Best Practices: Coding with AI](../../resources/Best_Practices_Coding_with_AI.pdf)
+**Bring these frameworks:** [AI Startup Playbook](../../frameworks/05_AI_Startup_Playbook.md) · [Best Practices: Coding with AI](../../resources/Best_Practices_Coding_with_AI.pdf)
 
 ---
 

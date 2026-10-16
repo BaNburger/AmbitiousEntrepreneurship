@@ -11,20 +11,20 @@
 3. Test the riskiest assumption, not the easiest one
 4. Go / Pivot / Kill — decide with criteria you committed to in advance
 
-**This week's bar:** GPK scorecard + provisional verdict + monkey-first test run. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.pdf).
+**This week's bar:** GPK scorecard + provisional verdict + monkey-first test run. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 ## Materials
 
 | Part | File |
 |---|---|
 | Lecture | [M07_Lecture_Rapid-Validation.pdf](M07_Lecture_Rapid-Validation.pdf) |
-| Workshop — *Kill Your Darlings* | [M07_Workshop_Kill-Your-Darlings.md](M07_Workshop_Kill-Your-Darlings.pdf) ([slides PDF](M07_Workshop_Slides.pdf)) |
-| Case — *Quibi* | [M07_Case_Quibi.md](M07_Case_Quibi.pdf) ([PDF](M07_Case_Quibi.pdf), [discussion slides](M07_Case_Slides.pdf)) |
-| Homework | [M07_Homework.md](M07_Homework.pdf) |
+| Workshop — *Kill Your Darlings* | [M07_Workshop_Kill-Your-Darlings.md](M07_Workshop_Kill-Your-Darlings.md) ([slides PDF](M07_Workshop_Slides.pdf)) |
+| Case — *Quibi* | [M07_Case_Quibi.md](M07_Case_Quibi.md) ([PDF](M07_Case_Quibi.pdf), [discussion slides](M07_Case_Slides.pdf)) |
+| Homework | [M07_Homework.md](M07_Homework.md) |
 
 **The case in one line:** $1.75B of assumptions nobody was willing to kill
 
-**Bring these frameworks:** [Go/Pivot/Kill Framework](../../frameworks/03_GPK_Decision_Framework.pdf)
+**Bring these frameworks:** [Go/Pivot/Kill Framework](../../frameworks/03_GPK_Decision_Framework.md)
 
 ---
 

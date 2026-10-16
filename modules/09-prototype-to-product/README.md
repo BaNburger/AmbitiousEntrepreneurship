@@ -11,7 +11,7 @@
 3. Conversion mechanics: from activated user to paying customer
 4. Payments and legal plumbing without drowning in it
 
-**Revenue bar this week:** pass €500 · stretch €1,000 — outside your social graph, verified. Full rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.pdf).
+**Revenue bar this week:** pass €500 · stretch €1,000 — outside your social graph, verified. Full rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 **The arc:** you arrive with first euros; M09–M10 turn them into a repeatable engine — €10k by Demo Day is the ambition, €100k is the road after.
 
@@ -20,9 +20,9 @@
 | Part | File |
 |---|---|
 | Lecture | [M09_Lecture_Prototype-to-Product.pdf](M09_Lecture_Prototype-to-Product.pdf) |
-| Workshop — *Revenue Sprint* | [M09_Workshop_Revenue-Sprint.md](M09_Workshop_Revenue-Sprint.pdf) ([slides PDF](M09_Workshop_Slides.pdf)) |
-| Case — *Superhuman* | [M09_Case_Superhuman.md](M09_Case_Superhuman.pdf) ([PDF](M09_Case_Superhuman.pdf), [discussion slides](M09_Case_Slides.pdf)) |
-| Homework | [M09_Homework.md](M09_Homework.pdf) |
+| Workshop — *Revenue Sprint* | [M09_Workshop_Revenue-Sprint.md](M09_Workshop_Revenue-Sprint.md) ([slides PDF](M09_Workshop_Slides.pdf)) |
+| Case — *Superhuman* | [M09_Case_Superhuman.md](M09_Case_Superhuman.md) ([PDF](M09_Case_Superhuman.pdf), [discussion slides](M09_Case_Slides.pdf)) |
+| Homework | [M09_Homework.md](M09_Homework.md) |
 
 **The case in one line:** The engine behind charging $30/month for an email client
 
