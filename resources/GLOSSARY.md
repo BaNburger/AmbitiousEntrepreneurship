@@ -1,5 +1,7 @@
 # Glossary — Words We Use Precisely
 
+Updated: 2026-10-19.
+
 This course brainwashes you into an ambitious, conversion-heavy mindset — and vocabulary is the delivery mechanism. These definitions are fixed. We will correct you in check-ins. Kindly. Every time.
 
 ## The Core Five
@@ -29,10 +31,12 @@ This course brainwashes you into an ambitious, conversion-heavy mindset — and 
 | **Threshold** | A pass/fail number written and dated BEFORE the test (Kill Criteria Log). Anything committed after seeing data is commentary, not a threshold. |
 | **Monkey first** | Test the hardest, most uncertain assumption first — never the pedestal that feels like progress. |
 | **GPK** | Go / Pivot / Kill — decided on pre-committed criteria, scored on artifacts ([framework 03](../frameworks/03_GPK_Decision_Framework.md)). |
+| **Founder-problem fit** | Where your unique insight, a problem worth solving and what your team can execute overlap. Said in one to three sentences, it is your early-stage pitch (Module 02). |
+| **DVF** | Module 02's one gate from many ideas to one. Desirable, viable, feasible, each score marked heard (name the person) or assumed. Viable asks what people spend today, not what they say they would pay. |
 
 ## Say This, Not That
 
-| ✗ Don't say | ✓ Say |
+| Don't say | Say |
 |---|---|
 | "We validated the problem with 10 interviews." | "We collected strong interview *signal*. Validation starts when a wallet opens." |
 | "We have 50 users!" | "We have 50 users and 0 customers — conversion is this week's job." |

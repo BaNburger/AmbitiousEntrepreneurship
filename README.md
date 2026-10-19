@@ -1,5 +1,7 @@
 # Prototyping Entrepreneurial Ideas for Artificial Intelligence
 
+Updated: 2026-10-19.
+
 > A hands-on course for technical founders learning to validate AI startup ideas before writing a single line of code.
 
 **Lecturer:** Bastian Burger · [TUM Venture Labs](https://www.tum.de/en/innovation/entrepreneurship/venture-labs)
@@ -64,7 +66,7 @@ resources/      Reading list, tools & links, Student Toolkit, bonus cases
 Standalone one-pagers in [`frameworks/`](frameworks/) — each one exists to change a decision, not to decorate a slide:
 
 - [**Mom Test Cheatsheet**](frameworks/01_Mom_Test_Cheatsheet.md) — interview questions that produce signal instead of polite lies
-- [**Validation Hierarchy of Evidence**](frameworks/02_Validation_Hierarchy.md) — opinions < surveys < behavior < money
+- [**Validation Hierarchy of Evidence**](frameworks/02_Validation_Hierarchy.md) — the course pyramid, from anecdotes and interviews through quantitative evidence and prototypes to a payment
 - [**Go / Pivot / Kill Framework**](frameworks/03_GPK_Decision_Framework.md) — structured decisions when the data is ambiguous
 - [**Default Alive Calculator**](frameworks/04_Default_Alive_Calculator.md) — are you on track to survive, or burning toward zero?
 - [**AI Startup Playbook**](frameworks/05_AI_Startup_Playbook.md) — patterns and anti-patterns specific to AI ventures

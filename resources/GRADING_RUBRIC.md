@@ -1,5 +1,7 @@
 # Grading & The Revenue Ladder
 
+Updated: 2026-10-19.
+
 Published in week 0. No surprises: this is exactly how your semester is evaluated.
 
 ## The One Principle
@@ -37,7 +39,7 @@ What an A-kill requires: the full evidence pack, the pre-committed kill criterio
 
 ## Anti-Fake Rules (published, so nobody is surprised)
 
-Interviews require named contacts + one verbatim quote each in the Toolkit; random 60-second recording spot-checks happen in check-ins. Landing-page traffic requires the UTM source report; only target-segment conversions count. AI-simulated users are allowed for PREP only, never as evidence, and must be labeled.
+Interviews require named contacts + one verbatim quote each in the Toolkit; random 60-second recording spot-checks happen in check-ins. Landing-page traffic requires the UTM source report; only target-segment conversions count. To read a landing-page line, compare it with Unbounce's 2024 medians for SaaS landing pages, 16.9% for email traffic (warm), 4.1% for paid search and 2.9% for paid social (cold), where a conversion is any click or form event ([Unbounce, 2024](https://unbounce.com/conversion-benchmark-report/saas-conversion-rate/)). AI-simulated users are allowed for PREP only, never as evidence, and must be labeled.
 
 ---
 

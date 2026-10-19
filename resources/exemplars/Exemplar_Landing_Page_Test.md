@@ -1,11 +1,13 @@
 # Exemplar: Landing-Page Test — Team TurbineTrack (M04)
 
+Updated: 2026-10-19.
+
 *Synthetic exemplar — realistic but invented. Note the order: threshold FIRST, then traffic, then an honest read-out against the committed number.*
 
 **Hypothesis:** Owner-led turbine-service SMEs will show buying interest in same-day reporting ("Report done when the harness comes off").
 
 **Pre-committed threshold (Kill Criteria Log, 21.03, BEFORE launch):**
-> "≥8% of target-segment visitors leave a work email on the demo-request form, OR we pivot the promise (not the segment — segment evidence is strong)."
+> "At least 8% of target-segment visitors leave a work email on the demo-request form, OR we pivot the promise (not the segment — segment evidence is strong)."
 
 **The page:** headline = Markus's quote: *"Never match photos to turbine IDs on a Friday again."* One CTA ("Get the 3-minute demo"). Impressum + privacy line. Plausible analytics, UTM on every link.
 
@@ -18,7 +20,7 @@
 | €50 Google Ads ("Windkraft Wartung Software") | 87 | mixed | 2 | 2.3% |
 | Friends/uni (excluded per rubric) | 33 | **no — excluded** | 5 | — |
 
-**Read-out vs threshold:** Target-segment only: 85 visitors, 11 signups = **12.9% ≥ 8% → PASS.** (Reported both numbers in check-in: 6.4% blended, 12.9% target-segment — and said out loud which one the threshold was written on.)
+**Read-out vs threshold:** Target-segment only: 85 visitors, 11 signups = **12.9%, at least 8%, so PASS.** (Reported both numbers in check-in: 8.8% blended, 12.9% target-segment — and said out loud which one the threshold was written on.)
 
 **What we changed anyway:** ads keyword traffic converted at 2.3% — wrong intent (operators searching SAP plugins). Killed the ad set, doubled outreach. **Decision:** GO to M05 with the same-day-report promise; the 11 signups became the M08 outreach list's core.
 
