@@ -109,6 +109,8 @@ frameworks/     7 one-page decision tools you'll use all semester
 resources/      Reading list, tools & links, Student Toolkit, bonus cases
 ```
 
+Every part is plain text an AI agent can read. Workshops, homework, cases and frameworks are Markdown, and rebuilt modules also ship their lecture as HTML next to the PDF. Point your agent at this repo to turn a module into a skill. An HTML lecture opens in any browser and loads its fonts and styles from `design/`.
+
 ---
 
 ## Teach With It
