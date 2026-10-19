@@ -1,0 +1,15 @@
+/* Ambitious Entrepreneurship course fonts. Updated: 2026-10-16.
+   Bundled WOFF2 files (SIL Open Font License, see fonts/OFL-*.txt) so decks
+   present offline and export to PDF without font fallback.
+   Sources: @fontsource/inter@5.2.8, @fontsource/source-code-pro@5.2.7 (latin subset). */
+
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: block; src: url("fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 400; font-display: block; src: url("fonts/inter-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: block; src: url("fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: block; src: url("fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 700; font-display: block; src: url("fonts/inter-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 800; font-display: block; src: url("fonts/inter-latin-800-normal.woff2") format("woff2"); }
+
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 400; font-display: block; src: url("fonts/source-code-pro-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 500; font-display: block; src: url("fonts/source-code-pro-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Code Pro"; font-style: normal; font-weight: 600; font-display: block; src: url("fonts/source-code-pro-latin-600-normal.woff2") format("woff2"); }

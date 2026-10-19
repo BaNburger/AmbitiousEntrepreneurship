@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M00 Lecture · No-Bullshit Entrepreneurship</title>
+<link rel="stylesheet" href="../../design/fonts.css">
+<link rel="stylesheet" href="../../design/tokens.css">
+<link rel="stylesheet" href="../../design/deck.css">
+<link rel="stylesheet" href="../../design/archetypes.css">
+<style>
+  /* Module-local layouts, built from design tokens. */
+  .path { display: grid; gap: 22px; }
+  .path-row { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+  .path-row.six { grid-template-columns: repeat(6, 1fr); margin-right: calc((100% - 6 * 14px) / 7 + 14px); }
+  .path-card { border-radius: 16px; background: var(--context); padding: 14px 16px; display: grid; gap: 6px; align-content: start; min-height: 230px; }
+  .path-card b { font: 800 44px/1 var(--font-sans); letter-spacing: -0.03em; color: var(--context-foreground); }
+  .path-card .t { font-size: 26px; font-weight: 700; line-height: 1.15; color: var(--foreground); }
+  .path-card .g { font-size: 24px; line-height: 1.2; color: var(--muted-foreground); }
+  .path-card.now { background: var(--primary); }
+  .path-card.now b, .path-card.now .t, .path-card.now .g { color: var(--primary-foreground); }
+  .path-card.money { background: var(--primary-tint); border: 2px solid var(--primary-line); }
+  .path-card.money b { color: var(--primary); }
+  .tiers { display: grid; gap: 10px; }
+  .tier { display: grid; grid-template-columns: 220px 1fr; gap: 10px; min-height: 76px; }
+  .tier .tl { border-radius: 12px; display: grid; place-content: center; text-align: center; color: var(--primary-foreground); }
+  .tier .tl b { font-size: 44px; font-weight: 800; line-height: 1; }
+  .tier .tl span { font-size: 24px; font-weight: 600; }
+  .tier .tr { border-radius: 12px; background: var(--muted); display: flex; gap: 10px; align-items: center; align-content: center; padding: 8px 16px; flex-wrap: wrap; }
+  .tchip { border-radius: 10px; background: var(--background); border: 2px solid var(--border); padding: 6px 12px; font-size: 24px; font-weight: 600; color: var(--foreground); }
+  .steps24 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .steps24 div { border-radius: 10px; background: var(--context); color: var(--context-foreground); padding: 10px 12px; font-size: 24px; line-height: 1.2; min-height: 108px; }
+  .steps24 div b { display: block; font: 700 26px/1 var(--font-mono); margin-bottom: 6px; color: var(--foreground); }
+  .steps24 div.hl { background: var(--primary); color: var(--primary-foreground); }
+  .steps24 div.hl b { color: var(--primary-foreground); }
+  .hero3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; align-content: center; height: 100%; }
+  .hero3 .h { border-radius: 24px; padding: 40px 36px; display: grid; gap: 14px; background: var(--context); }
+  .hero3 .h b { font-size: 120px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: var(--foreground); }
+  .hero3 .h span { font-size: 32px; line-height: 1.25; color: var(--muted-foreground); }
+  .hero3 .h.hl { background: var(--primary); }
+  .hero3 .h.hl b, .hero3 .h.hl span { color: var(--primary-foreground); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; height: 100%; align-content: center; }
+  .box { border-radius: 28px; padding: 44px 48px; display: grid; gap: 22px; align-content: start; }
+  .box h3 { font-size: 40px; font-weight: 800; line-height: 1.15; }
+  .box ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+  .box li { font-size: 32px; line-height: 1.3; font-weight: 500; }
+  .box.grey { background: var(--context); }
+  .box.grey h3, .box.grey li { color: var(--foreground); }
+  .chain { display: grid; gap: 18px; }
+  .chain div { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; gap: 12px; font-size: 34px; font-weight: 700; }
+  .chain div span:last-child { color: var(--primary); }
+  .chain .icon { width: 56px; height: 56px; color: var(--muted-foreground); }
+  .chev { display: flex; gap: 6px; align-items: stretch; height: 150px; }
+  .chev div { flex: 1; background: var(--primary); color: var(--primary-foreground); display: grid; place-content: center; font-size: 28px; font-weight: 700; clip-path: polygon(0 0, 86% 0, 100% 50%, 86% 100%, 0 100%, 14% 50%); padding: 0 24px; }
+  .chev div:first-child { clip-path: polygon(0 0, 86% 0, 100% 50%, 86% 100%, 0 100%); }
+  .chev div.out { background: var(--diagram-navy); flex: 1.3; clip-path: none; border-radius: 0 16px 16px 0; text-align: center; }
+  .struck { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-content: center; height: 100%; }
+  .struck div { display: grid; gap: 24px; }
+  .struck s { font-size: 44px; color: var(--muted-foreground); text-decoration-thickness: 4px; }
+  .struck p { font-size: 72px; font-weight: 800; line-height: 1.1; color: var(--primary); }
+  .big123 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; align-content: center; height: 100%; }
+  .big123 div { display: grid; gap: 14px; align-content: start; }
+  .big123 b { font-size: 200px; font-weight: 800; line-height: 0.9; color: var(--diagram-purple); }
+  .big123 h3 { font-size: 40px; font-weight: 800; line-height: 1.15; }
+  .big123 p { font-size: 30px; line-height: 1.3; color: var(--muted-foreground); }
+  .seq { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 48px; align-content: center; height: 100%; }
+  .seq div { display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: center; font-size: 34px; font-weight: 700; padding: 10px 0; border-bottom: 2px solid var(--border); }
+  .seq div i { font: 600 28px var(--font-mono); color: var(--muted-foreground); font-style: normal; }
+  .seq .tag { font: 600 24px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; border-radius: 8px; padding: 8px 12px; color: var(--primary-foreground); }
+  .tag.p1 { background: var(--diagram-magenta); }
+  .tag.p2 { background: var(--diagram-purple); }
+  .tag.p3 { background: var(--primary); }
+  .arrows2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-content: center; height: 100%; }
+  .arrows2 .box { min-height: 360px; }
+  .arrows2 .box b { font: 800 96px/1 var(--font-sans); }
+  .openph { border: 4px dashed var(--key); border-radius: 28px; display: grid; place-content: center; text-align: center; gap: 16px; height: 100%; padding: 40px; }
+  .openph p { font: 700 40px/1.3 var(--font-mono); color: var(--key); }
+  .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 24px; align-content: start; }
+  .thumbs figure { margin: 0; display: grid; gap: 8px; }
+  .thumbs img { width: 100%; border-radius: 8px; border: 2px solid var(--border); }
+  .fn { font-size: 28px; color: var(--muted-foreground); margin-top: 28px; }
+  .race { display: grid; gap: 56px; align-content: center; height: 100%; }
+  .lane { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; }
+  .lane .who b { display: block; font: 800 64px/1 var(--font-sans); letter-spacing: -0.03em; }
+  .lane .who span { display: block; font-size: 28px; line-height: 1.25; color: var(--muted-foreground); margin-top: 10px; }
+  .slowbar { height: 120px; border-radius: 60px; background: var(--diagram-navy); color: var(--primary-foreground); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; font-size: 36px; font-weight: 800; }
+  .slowbar small { font-size: 26px; font-weight: 600; opacity: 0.8; }
+  .loops { display: grid; grid-template-columns: repeat(20, 1fr); gap: 10px; }
+  .loops i { aspect-ratio: 1; border-radius: 50%; border: 6px solid var(--primary); display: grid; place-content: center; font: 700 24px/1 var(--font-mono); font-style: normal; color: var(--primary); }
+  .loops i:last-child { background: var(--primary); color: var(--primary-foreground); }
+  .punch { display: grid; grid-template-columns: 820px 1fr; gap: 64px; align-items: center; height: 100%; }
+  .punch img { width: 100%; border-radius: 18px; image-rendering: auto; }
+  .punch .still { display: none; }
+  @media print { .punch .anim { display: none; } .punch .still { display: block; } }
+  .punch p { font-size: 64px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+  .punch p span { color: var(--muted-foreground); font-weight: 600; font-size: 40px; display: block; margin-top: 24px; letter-spacing: 0; }
+  .chain img { height: 52px; width: auto; max-width: 230px; object-fit: contain; justify-self: start; }
+  .chain .q { font: 800 64px/1 var(--font-sans); color: var(--key); }
+  .chain .q small { font-size: 28px; font-weight: 700; margin-left: 12px; }
+  .waves { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; align-content: center; height: 100%; }
+  .waves::before { content: ""; position: absolute; left: 6%; right: 6%; top: calc(50% - 40px); height: 6px; background: var(--border); }
+  .wave { display: grid; grid-template-rows: 140px 48px auto auto; justify-items: center; align-items: center; gap: 14px; text-align: center; }
+  .wave .logo { display: grid; place-items: center; height: 140px; }
+  .wave .logo img { height: 64px; width: auto; max-width: 210px; object-fit: contain; }
+  .wave .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); position: relative; z-index: 1; }
+  .wave b { font: 800 56px/1 var(--font-sans); letter-spacing: -0.03em; }
+  .wave span { font-size: 28px; line-height: 1.2; color: var(--muted-foreground); }
+  .wave.you .logo { font: 800 130px/1 var(--font-sans); color: var(--key); }
+  .wave.you .dot { width: 48px; height: 48px; background: var(--key); }
+  .wave.you b, .wave.you span { color: var(--key); font-weight: 800; }
+  .chain.big { gap: 26px; max-width: 1100px; }
+  .chain.big div { grid-template-columns: 1fr 90px 1fr; font-size: 40px; }
+  .chain.big img { height: 72px; max-width: 320px; }
+  .chain.big .q { font-size: 96px; }
+  .chain.big .q small { font-size: 36px; }
+  .cyc { display: grid; grid-template-columns: 1fr 620px; gap: 48px; align-items: center; height: 100%; }
+  .cyc svg { max-height: 480px; }
+  .cyc .box li { font-size: 30px; }
+  .cyc svg { width: 100%; height: auto; }
+  .who6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-content: center; height: 100%; }
+  .who6 .p { border-radius: 20px; background: var(--context); padding: 24px 28px; display: grid; grid-template-columns: auto 1fr; gap: 6px 22px; align-items: baseline; }
+  .who6 .p b { grid-row: span 2; font: 800 96px/0.9 var(--font-sans); letter-spacing: -0.04em; color: var(--primary); }
+  .who6 .p h3 { font-size: 34px; font-weight: 800; line-height: 1.15; }
+  .who6 .p span { font-size: 26px; line-height: 1.25; color: var(--muted-foreground); }
+  .ideas2 { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; height: 100%; }
+  .ideas { display: grid; gap: 40px; }
+  .ideas div { display: grid; grid-template-columns: 110px 1fr; gap: 4px 24px; }
+  .ideas b { grid-row: span 2; font: 800 140px/0.85 var(--font-sans); color: var(--key); }
+  .ideas h3 { font-size: 48px; font-weight: 800; line-height: 1.1; }
+  .ideas p { font-size: 30px; line-height: 1.3; color: var(--muted-foreground); }
+  .tools2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .tools2 figure { margin: 0; display: grid; gap: 12px; justify-items: center; }
+  .tools2 img { width: 100%; max-height: 380px; object-fit: contain; }
+  .tools2 figcaption { font-size: 30px; font-weight: 800; }
+  .find4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; align-content: center; height: 100%; }
+  .find4 div { border-radius: 24px; background: var(--context); padding: 32px 28px; display: grid; gap: 14px; align-content: start; min-height: 380px; }
+  .find4 div:first-child { background: var(--primary); }
+  .find4 div:first-child b, .find4 div:first-child h3, .find4 div:first-child p { color: var(--primary-foreground); }
+  .find4 b { font: 800 96px/0.9 var(--font-sans); color: var(--primary); }
+  .find4 h3 { font-size: 36px; font-weight: 800; line-height: 1.15; }
+  .find4 p { font-size: 28px; line-height: 1.3; color: var(--muted-foreground); }
+  .tools .wave .logo { font: 800 52px/1 var(--font-sans); letter-spacing: -0.02em; color: var(--foreground); }
+  .tools .wave { grid-template-rows: 90px 48px auto auto; }
+  .tools .wave .logo { height: 90px; }
+  .tools.waves::before { top: calc(50% - 64px); }
+  .tools.waves { grid-template-columns: repeat(5, 1fr); }
+  .thumbs figcaption { font: 500 24px/1.25 var(--font-mono); color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+<main class="deck" data-module="M00" data-module-title="Kickoff" data-chapters="Why now, why you|It has never been easy|Speed matters|How this course works|Wrap-up and check-out|Workshop: autopsy your startup before it dies">
+
+
+<section class="slide" data-archetype="title">
+  <div class="head">
+    <span class="label">Module 00 · Ambitious Entrepreneurship</span>
+    <h1 class="title">No-Bullshit Entrepreneurship</h1>
+    <p class="sub">What kills startups, and what will this course demand from you?</p>
+  </div>
+  <div class="course-path" aria-label="Course path, module 00 of 00 to 12">
+    <span class="label">Course path</span>
+    <ol><li class="now">00</li><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li><li>06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li><li>12</li></ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question">
+  <div class="head">
+    <span class="label">Check-in · Slido or hands</span>
+    <h2 class="title">How big could your startup <span class="mark">get</span>?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li>A good side income</li><li>A solid company of 50 people</li><li>A unicorn</li><li>The next Google</li></ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">Chapter 1 of 6</span>
+    <h2 class="title">Why now, why you</h2>
+    <p class="summary">The companies founded now will shape the next 50 years, so why not yours?</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Why now, why you">
+  <span class="label">Why now, why you</span>
+  <p class="mantra-lead">The companies founded now will shape how we see the world for the next</p>
+  <div class="mantra-line"><span class="mantra-num" data-anim="rise">50</span><span class="mantra-word">years</span></div>
+  <div class="sticky"><p>The best time to start in decades.</p><p class="why">Maybe in 50 years.</p></div>
+  <footer class="prov" data-kind="Bastian">Bastian's view (2026-10-19).</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">Why now · every transition</span>
+    <h2 class="title">At every transition, a <span class="mark">newcomer</span> beat the giants</h2>
+    <p class="sub">Nobody saw the next one coming</p>
+  </div>
+  <div class="content">
+    <div class="chain big">
+      <div><img src="media/logo-olympia.svg" alt="Olympia"><i class="icon icon-arrow"></i><img src="media/logo-ibm.svg" alt="IBM"></div>
+      <div><img src="media/logo-ibm.svg" alt="IBM"><i class="icon icon-arrow"></i><img src="media/logo-microsoft.svg" alt="Microsoft"></div>
+      <div><img src="media/logo-microsoft.svg" alt="Microsoft"><i class="icon icon-arrow"></i><img src="media/logo-google.svg" alt="Google"></div>
+      <div><img src="media/logo-google.svg" alt="Google"><i class="icon icon-arrow"></i><img src="media/logo-openai.svg" alt="OpenAI"></div>
+      <div><img src="media/logo-openai.svg" alt="OpenAI"><i class="icon icon-arrow"></i><span class="q">?<small>your startup</small></span></div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 20, Bastian's own framing. Logos are trademarks of their owners.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Why now, why you">
+  <span class="label">Where the puck is going</span>
+  <p class="mantra-lead">Nobody knows where the puck is going. Whoever skates there first builds the next big thing.</p>
+  <div class="mantra-line" style="--num-size: 240px"><span class="mantra-num" data-anim="rise">It could be you</span></div>
+  <footer class="prov" data-kind="Bastian">After Wayne Gretzky, passing on his father Walter's advice to skate "to where the puck is going" (Gretzky &amp; Reilly, 1990). Bastian's twist (2026-10-19).</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">Why now · Dalio's big cycle, my read</span>
+    <h2 class="title">Dalio sees a turn coming. I see an <span class="mark">opening</span></h2>
+    <p class="sub">Ray Dalio puts us late in a cycle of about 75 years, just before the breakdown</p>
+  </div>
+  <div class="content cyc">
+    <svg viewBox="0 0 900 420" role="img" aria-label="A long wave rising and falling over decades, with a marker late in the cycle labelled we are here">
+      <path d="M20 360 C 160 360, 220 80, 380 80 C 520 80, 560 300, 700 300 C 780 300, 820 230, 880 200" style="fill:none;stroke:var(--primary);stroke-width:8" data-anim="draw"/>
+      <line x1="20" y1="380" x2="880" y2="380" style="stroke:var(--foreground);stroke-width:3"/>
+      <circle cx="540" cy="190" r="18" style="fill:var(--key)"/>
+      <text x="330" y="250" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--key)">We are here</text>
+      <text x="20" y="412" style="font-family:Inter,sans-serif;font-size:24px;fill:var(--muted-foreground)">about 75 years, give or take 30 (Dalio)</text>
+    </svg>
+    <div class="box field field-blue">
+      <h3>My read for founders</h3>
+      <ul><li>A productivity crisis clears out slow competitors</li><li>Free capital looks for productive outlets</li><li>Climate, security and demography need new solutions</li></ul>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Framework">Dalio, R. (2025). How Countries Go Broke: The Big Cycle. Avid Reader Press. Dalio (2026, March 14), Fortune: "We are now in a new Stage 5". The read for founders is Bastian's, after legacy slide 20.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">Why you</span>
+    <h2 class="title">They weren't <span class="mark">better prepared</span> than you</h2>
+    <p class="sub">Age and education when they started</p>
+  </div>
+  <div class="content who6">
+    <div class="p"><b>19</b><h3>Bill Gates</h3><span>Harvard, left without a degree · Microsoft 1975</span></div>
+    <div class="p"><b>21</b><h3>Steve Jobs</h3><span>One semester at Reed College · Apple 1976</span></div>
+    <div class="p"><b>25</b><h3>Larry Page &amp; Sergey Brin</h3><span>Stanford PhD students, never finished · Google 1998</span></div>
+    <div class="p"><b>28</b><h3>Hasso Plattner</h3><span>Engineer, left IBM with four colleagues · SAP 1972</span></div>
+    <div class="p"><b>30</b><h3>Jensen Huang</h3><span>Chip designer, master's from night classes · Nvidia 1993</span></div>
+    <div class="p"><b>30</b><h3>Werner von Siemens</h3><span>Artillery school, no university · Siemens 1847</span></div>
+  </div>
+  <footer class="prov" data-kind="Data">Ages from birth and founding dates, education at founding. Wikipedia, retrieved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Why now, why you">
+  <span class="label">But…</span>
+  <div class="content struck">
+    <div><s>But I'm not an engineer…</s><p>Yes, you can build it!</p></div>
+    <div><s>But we don't have a GmbH…</s><p>Yes, you can ship it!</p></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 31.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">The base rate</span>
+    <h2 class="title">Most new businesses* don't reach <span class="mark">year five</span></h2>
+    <p class="sub">Germany, share still active by year founded</p>
+  </div>
+  <div class="content">
+    <div class="scale">
+      <div class="scale-row"><span class="scale-label"><b>Still active after 1 year</b> · founded 2019</span><div class="bar"><div class="seg" style="flex: 0 0 72%" data-anim="grow">72%</div></div></div>
+      <div class="scale-row"><span class="scale-label"><b>After 3 years</b> · founded 2017</span><div class="bar"><div class="seg" style="flex: 0 0 48%; --delay: 0.2s" data-anim="grow">48%</div></div></div>
+      <div class="scale-row"><span class="scale-label"><b>After 5 years</b> · founded 2015</span><div class="bar"><div class="seg is-hl" style="flex: 0 0 37%; --delay: 0.4s" data-anim="grow">37%</div></div></div>
+    </div>
+    <p class="fn">* Not all new businesses are startups.</p>
+  </div>
+  <footer class="prov" data-kind="Data">Eurostat, business demography (bd_9bd_sz_cl_r2), Germany, survival rates for reference year 2020, industry, construction and services. Bars to scale.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Why now, why you">
+  <span class="label">Be ambitious</span>
+  <p class="mantra-lead">A small idea costs you the same years as a big one. So aim for</p>
+  <div class="mantra-line" style="--num-size: 220px"><span class="mantra-num" data-anim="rise">the next Google</span></div>
+  <div class="sticky"><p>Aim big. Start narrow.</p><p class="why">Facebook began at one campus.</p></div>
+  <footer class="prov" data-kind="Bastian">Bastian's view (2026-10-19). Facebook opened to Harvard students only in February 2004. "Start narrow" after Graham (2012), How to Get Startup Ideas.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">A tier list of startup ideas</span>
+    <h2 class="title">Aim for <span class="mark">S</span>. Stay out of the tarpit</h2>
+    <p class="sub">Tarpit ideas look easy and die quietly</p>
+  </div>
+  <div class="content tiers">
+    <div class="tier"><div class="tl" style="background: var(--key)"><b>S</b><span>Moonshots</span></div><div class="tr"><span class="tchip">The next Google</span><span class="tchip">Industrial capabilities in space</span></div></div>
+    <div class="tier"><div class="tl" style="background: var(--diagram-magenta)"><b>A</b><span>Unsexy plumbing</span></div><div class="tr"><span class="tchip">Compliance paperwork for small factories</span><span class="tchip">AI-native compliance infrastructure</span></div></div>
+    <div class="tier"><div class="tl" style="background: var(--diagram-purple)"><b>B</b><span>Crowded trades</span></div><div class="tr"><span class="tchip">Yet another AI note-taker</span></div></div>
+    <div class="tier"><div class="tl" style="background: var(--primary)"><b>C</b><span>Wrapper zone</span></div><div class="tr"><span class="tchip">Chat with your files</span><span class="tchip">Copilot for dog walkers</span></div></div>
+    <div class="tier"><div class="tl" style="background: var(--diagram-navy)"><b>D</b><span>Tarpit ideas</span></div><div class="tr"><span class="tchip">Restaurant &amp; event discovery</span><span class="tchip">An app to plan hangouts with friends</span><span class="tchip">Trading tools for day traders</span></div></div>
+    <div class="tier"><div class="tl" style="background: var(--muted-foreground)"><b>F</b><span>&nbsp;</span></div><div class="tr"><span class="tchip">Fridge inventory app</span><span class="tchip">A social network for pet owners</span><span class="tchip">Investing your friends' money on Reddit tips</span></div></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's tier list, legacy slide 33. Tarpits, copilots and the Reddit fund after Caldwell and Seibel's YC tarpit videos, the pet network after Graham (2012), space and compliance from YC's Requests for Startups (2026).</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">Now you · alone · 2 minutes</span>
+    <h2 class="title">Where does your idea land?</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">!</span>Your starting point</span>
+      <h3>Place it on the tier list</h3>
+      <p class="goal">No idea yet? Take a frustration you saw someone fight last month.</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Write your idea, problem or technology in one line</span></li>
+        <li><i class="icon icon-arrow"></i><span>Which tier? Be honest</span></li>
+        <li><i class="icon icon-arrow"></i><span>Write the one belief about customers it rests on</span></li>
+        <li><i class="icon icon-arrow"></i><span>Like: "Junior HR managers would pay to stop candidates ghosting them"</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> One line, one tier, one belief</span><span><b>Minutes</b> 2</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="2"></div>
+  <footer class="prov" data-kind="Illustrative">Example belief after legacy slide 182 ("Junior HR managers", not "companies").</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Why now, why you">
+  <div class="head">
+    <span class="label">Reality check · the long game</span>
+    <h2 class="title">Your <span class="mark">first €1,000</span> sets the pace</h2>
+    <p class="sub">Revenue and time on log scales. Half the pace now means half the pace later</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 600" style="width:93%" role="img" aria-label="Revenue on a logarithmic axis from 100 euros to 1 billion euros over 20 years. A straight line runs from the first month through 1,000 euros at month two, the corner of the course's box, on to a unicorn valuation and IPO potential">
+    <g style="font-family:Inter,sans-serif;font-size:26px;fill:var(--muted-foreground)">
+      <text x="196" y="556" text-anchor="end">€100</text><text x="196" y="489" text-anchor="end">€1k</text><text x="196" y="422" text-anchor="end">€10k</text><text x="196" y="355" text-anchor="end">€100k</text><text x="196" y="288" text-anchor="end">€1m</text><text x="196" y="221" text-anchor="end">€10m</text><text x="196" y="154" text-anchor="end">€100m</text><text x="196" y="87" text-anchor="end">€1bn</text>
+      <text x="220" y="596" text-anchor="middle">0</text><text x="370" y="596" text-anchor="middle">1m</text><text x="520" y="596" text-anchor="middle">2m</text><text x="670" y="596" text-anchor="middle">4m</text><text x="820" y="596" text-anchor="middle">8m</text><text x="970" y="596" text-anchor="middle">1.5y</text><text x="1120" y="596" text-anchor="middle">3y</text><text x="1270" y="596" text-anchor="middle">5y</text><text x="1420" y="596" text-anchor="middle">10y</text><text x="1570" y="596" text-anchor="middle">20y</text>
+    </g>
+    <line x1="220" y1="565" x2="1600" y2="565" style="stroke:var(--foreground);stroke-width:3"/>
+    <line x1="220" y1="565" x2="220" y2="40" style="stroke:var(--foreground);stroke-width:3"/>
+    <g data-step="2"><rect x="222" y="489" width="298" height="74" style="fill:var(--marker);opacity:0.85"/>
+    <text x="228" y="452" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--foreground)">Where we want to go</text>
+    <circle cx="520" cy="489" r="14" style="fill:var(--key)"/></g>
+    <path d="M322 565 L1570 87" style="fill:none;stroke:var(--primary);stroke-width:6" data-anim="draw" />
+    <g data-step="1" style="font-family:Inter,sans-serif;font-size:26px;font-weight:700;fill:var(--foreground)">
+      <circle cx="820" cy="374" r="10" style="fill:var(--primary)"/><text x="800" y="356" text-anchor="end">1st employee, from cash flow</text>
+      <circle cx="970" cy="317" r="10" style="fill:var(--primary)"/><text x="950" y="299" text-anchor="end">Cash-flow positive, bootstrapping</text>
+      <circle cx="1270" cy="202" r="10" style="fill:var(--primary)"/><text x="1250" y="184" text-anchor="end">Unicorn valuation</text>
+      <circle cx="1420" cy="145" r="10" style="fill:var(--primary)"/><text x="1400" y="127" text-anchor="end">IPO potential</text>
+    </g>
+    <g data-step="3">
+      <path d="M472 565 L1600 133" style="fill:none;stroke:var(--muted-foreground);stroke-width:5;stroke-dasharray:14 12"/>
+      <text x="700" y="540" style="font-family:Inter,sans-serif;font-size:28px;font-weight:800;fill:var(--muted-foreground)">Half the pace: first €1,000 at month 4</text>
+    </g>
+  </svg></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 32, "not a scientific chart". One straight line on log axes through €1,000 at month two, milestones on the line (2026-10-19).</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Chapter 2 of 6</span>
+    <h2 class="title">It has never been easy</h2>
+    <p class="summary">Every tool made building easier, but finding what people pay for never got easier.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="It has never been easy">
+  <span class="label">The #1 killer · 101 post-mortems</span>
+  <p class="mantra-lead">"Tackling problems that are interesting to solve rather than those that serve a <span class="mark">market need</span>"</p>
+  <div class="mantra-line" style="--num-size: 380px"><span class="mantra-num" data-anim="rise">42%</span><span class="mantra-word">no market need</span></div>
+  <div class="sticky"><p>The #1 reason.</p><p class="why">Not cash. Not competitors.</p></div>
+  <footer class="prov" data-kind="Data">CB Insights (2019). The top 20 reasons startups fail. 101 startup post-mortems.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">"Now it's easy"</span>
+    <h2 class="title">Every new tool made building easier. None made <span class="mark">startups</span> easy</h2>
+    <p class="sub">"It's getting so cheap to start a startup." Paul Graham, 2005</p>
+  </div>
+  <div class="content waves tools">
+    <div class="wave"><div class="logo">Rails</div><i class="dot"></i><b>2005</b><span>"a blog in 15 minutes"</span></div>
+    <div class="wave"><div class="logo">AWS</div><i class="dot"></i><b>2006</b><span>no servers to buy</span></div>
+    <div class="wave"><div class="logo">Node.js</div><i class="dot"></i><b>2009</b><span>"an easy way" to build servers</span></div>
+    <div class="wave"><div class="logo">No-code</div><i class="dot"></i><b>2020</b><span>"build without engineers"</span></div>
+    <div class="wave you"><div class="logo">AI</div><i class="dot"></i><b>2025</b><span>"vibe coding"</span></div>
+  </div>
+  <footer class="prov" data-kind="Data">Graham (2005), The Venture Capital Squeeze. Gruber (2005) on DHH's Rails screencast. AWS (2014) on the S3 launch, March 2006. Node.js about page (2012 archive). Bubble No-Code Census (2020). Karpathy (2025) on X. CB Insights (2026), poor product-market fit as root cause in 43% of 431 shutdowns.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">The skill never changed</span>
+    <h2 class="title">Tech changes. The <span class="mark">founder's job</span> doesn't</h2>
+    <p class="sub">Every wave needed people who turned it into something others pay for</p>
+  </div>
+  <div class="content waves">
+    <div class="wave"><div class="logo"><img src="media/logo-siemens.svg" alt="Siemens"></div><i class="dot"></i><b>1847</b><span>telegraph</span></div>
+    <div class="wave"><div class="logo"><img src="media/logo-ibm.svg" alt="IBM"></div><i class="dot"></i><b>1911</b><span>punch cards</span></div>
+    <div class="wave"><div class="logo"><img src="media/logo-intel.svg" alt="Intel"></div><i class="dot"></i><b>1968</b><span>microchips</span></div>
+    <div class="wave"><div class="logo"><img src="media/logo-sap.svg" alt="SAP"></div><i class="dot"></i><b>1972</b><span>business software</span></div>
+    <div class="wave"><div class="logo"><img src="media/logo-google.svg" alt="Google"></div><i class="dot"></i><b>1998</b><span>the web</span></div>
+    <div class="wave"><div class="logo"><img src="media/logo-openai.svg" alt="OpenAI"></div><i class="dot"></i><b>2015</b><span>AI</span></div>
+    <div class="wave you"><div class="logo">?</div><i class="dot"></i><b>Now</b><span>you</span></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's framing (2026-10-19). Founding years from Wikipedia, retrieved 2026-10-19. Logos are trademarks of their owners.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Before the internet</span>
+    <h2 class="title">Startups happened before the internet, but they had a problem</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="Nasdaq Composite, monthly average, 1994 to 2005: from about 790 in January 1994 to 4,803 in March 2000, down to 1,242 in October 2002">
+      <g style="font-family:Inter,sans-serif;font-size:26px;fill:var(--muted-foreground)"><line x1="140" y1="388.0" x2="1600" y2="388.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="397.0" text-anchor="end">1,000</text><line x1="140" y1="296.0" x2="1600" y2="296.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="305.0" text-anchor="end">2,000</text><line x1="140" y1="204.0" x2="1600" y2="204.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="213.0" text-anchor="end">3,000</text><line x1="140" y1="112.0" x2="1600" y2="112.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="121.0" text-anchor="end">4,000</text><line x1="140" y1="20.0" x2="1600" y2="20.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="29.0" text-anchor="end">5,000</text><text x="140.0" y="520" text-anchor="middle">1994</text><text x="385.0" y="520" text-anchor="middle">1996</text><text x="630.1" y="520" text-anchor="middle">1998</text><text x="875.1" y="520" text-anchor="middle">2000</text><text x="1120.1" y="520" text-anchor="middle">2002</text><text x="1365.2" y="520" text-anchor="middle">2004</text></g>
+      <path d="M140 480 L140.0 407.5 L150.2 407.5 L160.4 407.7 L170.6 412.6 L180.8 413.0 L191.0 413.5 L201.3 414.4 L211.5 412.0 L221.7 409.7 L231.9 409.9 L242.1 410.0 L252.3 412.4 L262.5 410.3 L272.7 407.8 L282.9 405.7 L293.1 404.1 L303.4 400.9 L313.6 396.6 L323.8 389.9 L334.0 387.1 L344.2 383.3 L354.4 386.0 L364.6 383.7 L374.8 383.7 L385.0 385.7 L395.2 379.4 L405.5 379.5 L415.7 375.5 L425.9 367.7 L436.1 369.1 L446.3 378.3 L456.5 375.6 L466.7 370.8 L476.9 366.5 L487.1 364.1 L497.3 361.1 L507.6 356.2 L517.8 355.9 L528.0 362.0 L538.2 367.3 L548.4 355.6 L558.6 349.1 L568.8 339.1 L579.0 333.1 L589.2 327.3 L599.4 325.2 L609.7 332.7 L619.9 335.8 L630.1 335.5 L640.3 322.2 L650.5 316.1 L660.7 309.6 L670.9 311.1 L681.1 314.8 L691.3 301.4 L701.5 315.8 L711.7 327.0 L722.0 331.4 L732.2 306.2 L742.4 289.5 L752.6 263.1 L762.8 263.2 L773.0 260.0 L783.2 246.5 L793.4 248.8 L803.6 248.1 L813.8 227.8 L824.1 236.9 L834.3 221.7 L844.5 221.0 L854.7 182.8 L864.9 135.9 L875.1 110.8 L885.3 74.2 L895.5 38.1 L905.7 124.5 L915.9 155.4 L926.2 124.4 L936.4 110.4 L946.6 120.3 L956.8 123.4 L967.0 173.3 L977.2 198.9 L987.4 235.5 L997.6 235.6 L1007.8 254.6 L1018.0 297.2 L1028.3 302.1 L1038.5 279.3 L1048.7 285.7 L1058.9 292.9 L1069.1 302.5 L1079.3 335.3 L1089.5 327.6 L1099.7 308.0 L1109.9 298.1 L1120.1 298.1 L1130.3 314.4 L1140.6 308.6 L1150.8 318.2 L1161.0 327.3 L1171.2 341.5 L1181.4 356.2 L1191.6 357.9 L1201.8 364.9 L1212.0 365.7 L1222.2 350.4 L1232.4 352.4 L1242.7 352.1 L1252.9 359.3 L1263.1 355.8 L1273.3 350.2 L1283.5 339.7 L1293.7 330.0 L1303.9 322.1 L1314.1 321.2 L1324.3 309.2 L1334.5 304.7 L1344.8 301.7 L1355.0 300.2 L1365.2 287.2 L1375.4 291.6 L1385.6 297.9 L1395.8 294.3 L1406.0 302.4 L1416.2 295.8 L1426.4 304.0 L1436.6 312.4 L1446.9 306.6 L1457.1 301.7 L1467.3 290.2 L1477.5 282.2 L1487.7 289.4 L1497.9 290.0 L1508.1 293.2 L1518.3 299.9 L1528.5 295.5 L1538.7 289.2 L1549.0 282.6 L1559.2 281.5 L1569.4 282.7 L1579.6 288.0 L1589.8 277.3 L1600.0 273.4 L1600 480 Z" style="fill:var(--context);stroke:var(--muted-foreground);stroke-width:2"/>
+      <circle cx="895.5" cy="38.1" r="12" style="fill:var(--key)"/><text x="919.5" y="56.1" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--foreground)">March 2000: 4,803</text>
+      <circle cx="1212.0" cy="365.7" r="12" style="fill:var(--primary)"/><text x="1236.0" y="415.7" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--foreground)">Oct 2002: 1,242</text>
+    </svg></div>
+  <footer class="prov" data-kind="Data">Nasdaq Composite index, monthly average of daily closes (NASDAQCOM), via FRED, Federal Reserve Bank of St. Louis. Legacy slide 36, redrawn without logos.</footer>
+  </section>
+
+<section class="slide" data-archetype="quote" data-variant="field" data-chapter="It has never been easy">
+  <div class="quote-layout">
+    <figure>
+      <blockquote><p>Mistakes aren't a necessary evil. They aren't evil at all. They are an inevitable consequence of doing <span class="hl">something new</span>.</p></blockquote>
+      <figcaption><b>Ed Catmull</b>, co-founder of Pixar</figcaption>
+    </figure>
+    <div class="book">
+      <span class="label">Book</span>
+      <h3>Creativity, Inc.</h3>
+      <p>Ed Catmull with Amy Wallace, 2014</p>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Framework">Catmull, E., &amp; Wallace, A. (2014). <i>Creativity, Inc.</i> Random House, as quoted by Popova (2014), The Marginalian. Legacy slide 37.</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">Chapter 3 of 6</span>
+    <h2 class="title">Speed matters</h2>
+    <p class="summary">You beat the big ones by learning faster, with Build-Measure-Learn and the hierarchy of evidence.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Speed matters">
+  <span class="label">The cash constraint</span>
+  <p class="mantra-lead">Your startup is a loop. It runs</p>
+  <div class="mantra-line" style="--num-size: 300px"><span class="mantra-num" data-anim="rise" style="font-family: var(--font-mono); letter-spacing: -0.04em">cash&gt;0</span></div>
+  <div class="sticky"><p style="font-family: var(--font-mono); font-size: 30px">while (cash &gt; 0) {<br>&nbsp;&nbsp;learn();<br>}</p><p class="why">Every week without learning burns runway.</p></div>
+  <footer class="prov" data-kind="Bastian">Bastian's line, confirmed 2026-10-19. July 2026 lecture, slide 7.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">Working with constraints</span>
+    <h2 class="title">While BMW runs one loop, you can run <span class="mark">twenty</span></h2>
+    <p class="sub">No manpower, no money, no time. Also no inertia, no legacy, no politics</p>
+  </div>
+  <div class="content race">
+    <div class="lane">
+      <div class="who"><b>BMW</b><span>people, money, time</span></div>
+      <div class="slowbar">1 iteration <small>legacy · politics · sign-offs</small></div>
+    </div>
+    <div class="lane">
+      <div class="who"><b>You</b><span>none of that, none of the drag</span></div>
+      <div class="loops"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i><i>15</i><i>16</i><i>17</i><i>18</i><i>19</i><i>20</i></div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 62, Bastian's framing (2026-10-19). The 1 to 20 ratio is an illustration, not a measurement.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">The core of this course</span>
+    <h2 class="title">Two ideas, <span class="mark">two tools</span></h2>
+    <p class="sub">Everything in the next twelve weeks builds on these four</p>
+  </div>
+  <div class="content ideas2">
+    <div class="ideas">
+      <div><b>1</b><h3>Speed matters</h3><p>You beat the big ones only by learning faster</p></div>
+      <div><b>2</b><h3>Validated learning beats everything</h3><p>Opinions are free. Evidence costs a conversation, a click, a payment</p></div>
+    </div>
+    <div class="tools2">
+      <figure><img src="media/build-measure-learn.png" alt="The Build-Measure-Learn loop"><figcaption>Build-Measure-Learn</figcaption></figure>
+      <figure><img src="media/evidence-pyramid-paid.png" alt="The hierarchy of evidence, from anecdotes up to a paid product"><figcaption>Hierarchy of evidence</figcaption></figure>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's course frame (2026-10-19). Build-Measure-Learn after Ries (2011), the hierarchy of evidence from legacy slides 60 and 61.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">What the evidence says · 4 randomized trials</span>
+    <h2 class="title">Founders who test like scientists <span class="mark">kill bad ideas</span> sooner</h2>
+  </div>
+  <div class="content hero3">
+    <div class="h"><b>759</b><span>startups in four randomized trials</span></div>
+    <div class="h hl"><b>+9.8</b><span>points more ideas terminated</span></div>
+    <div class="h"><b>+€7k</b><span>more revenue per firm over 16 months, many earned none</span></div>
+  </div>
+  <footer class="prov" data-kind="Research">Camuffo et al. (2024), Strategic Management Journal, 759 firms. First trial: Camuffo et al. (2020), Management Science, 116 startups.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-chapter="Speed matters">
+  <div class="anchor-layout">
+    <div class="head">
+      <span class="label">Cornerstone · Build-Measure-Learn</span>
+      <h2 class="title">Your idea is a <span class="mark">hypothesis</span></h2>
+      <p class="sub">Build the smallest test, measure, learn</p>
+    </div>
+    <div class="anchor" data-anchor="build-measure-learn" data-active="build"></div>
+  </div>
+  <footer class="prov" data-kind="Framework">Ries, E. (2011). <i>The Lean Startup</i>. Crown Business. Legacy slides 38 and 57.</footer>
+  </section>
+
+<section class="slide" data-archetype="tip" data-anchor="build-measure-learn" data-anchor-part="build" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">The problem hypothesis</span>
+    <h2 class="title">Write hypotheses a <span class="mark">stranger</span> could prove wrong</h2>
+    <p class="sub">Who, problem, situation, workaround, cost</p>
+  </div>
+  <div class="content">
+    <div class="fromto">
+      <div class="from"><span class="label">A solution in disguise</span><p>"People need an app that makes hiring easier."</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">A problem hypothesis</span><p><span class="hl">Junior HR managers</span> struggle with candidates who ghost them after the interview. Today they <span class="hl">chase by phone</span>, which costs them [hours] a week.</p></div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Example after legacy slide 182. Form from the M00 workshop.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="build-measure-learn" data-anchor-part="learn" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">Disciplined Entrepreneurship · 24 steps</span>
+    <h2 class="title">24 steps feel safe. It's still <span class="mark">one loop</span></h2>
+    <p class="sub">Each step is Build-Measure-Learn. Steps 20 and 21 meet reality</p>
+  </div>
+  <div class="content steps24">
+    <div><b>1</b>Market segmentation</div><div><b>2</b>Select a beachhead market</div><div><b>3</b>Build an end user profile</div><div><b>4</b>TAM for the beachhead</div><div><b>5</b>Persona for the beachhead</div><div><b>6</b>Full life cycle use case</div>
+    <div><b>7</b>High-level product specification</div><div><b>8</b>Quantify the value proposition</div><div><b>9</b>Identify your next 10 customers</div><div><b>10</b>Define your core</div><div><b>11</b>Chart your competitive position</div><div><b>12</b>Determine the customer organisation</div>
+    <div><b>13</b>Map how to acquire a paying customer</div><div><b>14</b>TAM for follow-on markets</div><div><b>15</b>Design a business model</div><div><b>16</b>Set your pricing framework</div><div><b>17</b>Calculate the unit economics</div><div><b>18</b>Map the sales process</div>
+    <div><b>19</b>Calculate the customer economics</div><div class="hl"><b>20</b>Identify key assumptions</div><div class="hl"><b>21</b>Test key assumptions</div><div><b>22</b>Define the MVP</div><div><b>23</b>Prove your beachhead with your MVP</div><div><b>24</b>Develop a product plan</div>
+  </div>
+  <footer class="prov" data-kind="Framework">Aulet, B. (2013). <i>Disciplined Entrepreneurship: 24 Steps to a Successful Startup</i>. Wiley. Step names as on legacy slide 39, shortened.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="build-measure-learn" data-anchor-part="learn" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">Reality check</span>
+    <h2 class="title">Every plan feels safe until <span class="mark">reality</span> hits back</h2>
+  </div>
+  <div class="content punch">
+    <div><img class="anim" src="media/legacy-40-reality-check.gif" alt="Animated GIF captioned Reality check, in which a red boxing glove punches a woman in the face"><img class="still" src="media/legacy-40-reality-check-still.png" alt="A red boxing glove hits a woman in the face, captioned Reality check"></div>
+    <p>Everybody has a 24-step plan until reality punches them in the face.<span>After Mike Tyson</span></p>
+  </div>
+  <footer class="prov" data-kind="Bastian">After Mike Tyson (1987), "Everybody has plans until they get hit for the first time." GIF from legacy slide 40.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">Cornerstone · hierarchy of evidence</span>
+    <h2 class="title">It's a <span class="mark">signal</span> until somebody pays</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="ideation paid"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup, legacy slides 60 and 61.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">Hands up · 1 minute</span>
+    <h2 class="title">What backs your idea <span class="mark">today</span>?</h2>
+    <p class="sub">Rate the belief you wrote on the tier list</p>
+  </div>
+  <div class="content recall">
+    <ol><li>My opinion</li><li>An anecdote</li><li>A conversation</li><li>A payment</li></ol>
+    <div class="timer" data-timer="1"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Speed matters">
+  <span class="label">Speed matters</span>
+  <p class="mantra-lead">Speed matters:</p>
+  <div class="mantra-line" style="--num-size: 260px"><span class="mantra-num" data-anim="rise">Ship weekly</span></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 42.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Speed matters">
+  <span class="label">Speed matters</span>
+  <p class="mantra-lead">Every week, you can talk to at least</p>
+  <div class="mantra-line"><span class="mantra-num" data-anim="rise">15</span><span class="mantra-word">relevant users</span></div>
+  <div class="sticky"><p>15 a week is 3 a day.</p><p class="why">This week's full bar.</p></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 45. Number from the M00 homework.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Speed matters">
+  <span class="label">Speed matters</span>
+  <p class="mantra-lead">One step should not take more than</p>
+  <div class="mantra-line"><span class="mantra-num" data-anim="rise">4</span><span class="mantra-word">hours</span></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 59, in the guest-lecture wording of 2026-09-07.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-anchor="build-measure-learn" data-anchor-part="build" data-chapter="Speed matters">
+  <div class="head">
+    <span class="label">Now you · alone · 2 minutes</span>
+    <h2 class="title">What's your fastest test on a <span class="mark">real person</span>?</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">!</span>This week</span>
+      <h3>Before you build anything</h3>
+      <p class="goal">The smallest thing that reaches a real person by Friday.</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Who exactly? A name, not a segment</span></li>
+        <li><i class="icon icon-arrow"></i><span>What do you ask or show them?</span></li>
+        <li><i class="icon icon-arrow"></i><span>Which day do you do it?</span></li>
+        <li><i class="icon icon-arrow"></i><span>Like: "Call three HR managers from my old company on Thursday"</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> One test, one name, one day</span><span><b>Minutes</b> 2</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="2"></div>
+  <footer class="prov" data-kind="Illustrative">Example continues the HR example of this deck.</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">Chapter 4 of 6</span>
+    <h2 class="title">How this course works</h2>
+    <p class="summary">Thirteen weeks built for speed, ending with a team, a validated idea and first revenue.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">Course path</span>
+    <h2 class="title">Thirteen weeks from first leads to <span class="mark">first euros</span></h2>
+    <p class="sub">The best teams make more than <b>€10,000</b> in revenue along the way</p>
+  </div>
+  <div class="content path">
+    <div class="path-row">
+      <div class="path-card now"><b>00</b><span class="t">Kickoff</span><span class="g">your first sales leads</span></div>
+      <div class="path-card"><b>01</b><span class="t">Team &amp; foundations</span><span class="g">one shared problem space</span></div>
+      <div class="path-card"><b>02</b><span class="t">Finding ideas</span><span class="g">the first names on your prospect list</span></div>
+      <div class="path-card"><b>03</b><span class="t">The problem space</span><span class="g">your first prospects</span></div>
+      <div class="path-card"><b>04</b><span class="t">Validating problems</span><span class="g">your first testers and buyers</span></div>
+      <div class="path-card"><b>05</b><span class="t">The solution space</span><span class="g">MVP spec + deployed Weekend Build</span></div>
+      <div class="path-card"><b>06</b><span class="t">Prototyping with AI</span><span class="g">deployed prototype + 10 non-friend reactions</span></div>
+    </div>
+    <div class="path-row">
+      <div class="path-card"><b>07</b><span class="t">The kill decision</span><span class="g">provisional verdict</span></div>
+      <div class="path-card money"><b>08</b><span class="t">Finding first users</span><span class="g">first revenue from strangers</span></div>
+      <div class="path-card money"><b>09</b><span class="t">Prototype to product</span><span class="g">more revenue</span></div>
+      <div class="path-card money"><b>10</b><span class="t">Product management</span><span class="g">more revenue</span></div>
+      <div class="path-card money"><b>11</b><span class="t">Founder health</span><span class="g">more revenue</span></div>
+      <div class="path-card money"><b>12</b><span class="t">Fundraising &amp; demo day</span><span class="g">verified revenue</span></div>
+      <div></div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Week's goals of the module READMEs, 00 to 04 confirmed 2026-10-19. 05 to 07 the current weekly bars, from 08 on revenue without fixed amounts. The €10,000 line is Bastian's (2026-10-19).</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">How a week runs</span>
+    <h2 class="title">Every module offers three blocks</h2>
+    <p class="sub">Each block works on its own</p>
+  </div>
+  <div class="content">
+    <div class="scale-row">
+      <span class="scale-label"><b>About 90 minutes each</b> · drawn to scale</span>
+      <div class="bar">
+        <div class="seg is-hl" style="flex: 90" data-anim="grow">Input session</div>
+        <div class="seg" style="flex: 90; --delay: 0.15s" data-anim="grow">Workshop</div>
+        <div class="seg" style="flex: 90; --delay: 0.3s" data-anim="grow">Case discussion</div>
+      </div>
+    </div>
+    <table class="table">
+      <thead><tr><th>Block</th><th>What happens</th></tr></thead>
+      <tbody>
+        <tr class="is-hl"><td>Input session</td><td>Check-in, recap, your read-out, new content, wrap-up</td></tr>
+        <tr><td>Workshop</td><td>You start the week's work on your own venture</td></tr>
+        <tr><td>Case discussion</td><td>A real founder's decision, prepared at home in 4 to 6 hours</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="prov" data-kind="Bastian">Course format, 2026-10-19. Legacy slide 15, rebuilt.</footer>
+  </section>
+
+<section class="slide" data-archetype="checkin" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">From Module 01 on · every week</span>
+    <h2 class="title">Show us where you're at in 3 minutes or less!</h2>
+    <p class="sub">Start with your target against your actual</p>
+  </div>
+  <div class="timer" data-timer="3"></div>
+  <div class="content">
+    <div class="credible">
+      <div class="card"><h3>Facts</h3><span class="kind">Statistics or research</span><ul><li>What do they say?</li><li>What does it mean?</li><li>Where are they from?</li></ul></div>
+      <div class="card"><h3>Numbers</h3><span class="kind">Usage or surveys</span><ul><li>How were they reported?</li><li>How did they change?</li><li>Why is it relevant?</li></ul></div>
+      <div class="card"><h3>Quotes</h3><span class="kind">Interviews or testimonials</span><ul><li>What did they say?</li><li>Why did they say it?</li><li>What could this mean?</li></ul></div>
+      <div class="card"><h3>Images</h3><span class="kind">Screenshots or users</span><ul><li>What happened?</li><li>What changed?</li><li>Why is it relevant?</li></ul></div>
+    </div>
+    <div class="asks"><span>What did you do?</span><span>What did you learn?</span><span>How can we help?</span></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Course check-in format, legacy slide 115.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">Every week</span>
+    <h2 class="title">Every week, your <span class="mark">target</span> against your actual</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Three weekly accountability questions and the unicorn move"><text x="270" y="200" text-anchor="middle" style="fill:var(--diagram-purple);font-size:230px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="270" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">User interactions?</text><text x="270" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">What did you learn?</text><text x="820" y="200" text-anchor="middle" style="fill:var(--diagram-purple);font-size:230px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="820" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">New revenue?</text><text x="820" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why did they pay, or not?</text><text x="1370" y="200" text-anchor="middle" style="fill:var(--diagram-purple);font-size:230px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="1370" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">What did you ship?</text><text x="1370" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why does it matter to them?</text><rect x="0" y="400" width="1640" height="64" rx="10" style="fill:var(--sticky)"/><text x="820" y="443" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">🦄 Report target vs. actual. Say candidly why you hit it or missed it</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Weekly goals and accountability questions, legacy slide 96.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="build-measure-learn" data-anchor-part="build" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">The workshop ladder</span>
+    <h2 class="title">Your work climbs five rungs toward <span class="mark">real users</span></h2>
+    <p class="sub">Your results are for users to interact with</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 520" role="img" aria-label="Staircase of five workshop results: problem space definition, landing page, click-prototype, MVP, sellable product">
+    <g style="font-family:Inter,sans-serif">
+      <rect x="0" y="400" width="320" height="110" rx="12" style="fill:var(--diagram-magenta)"/><text x="160" y="448" text-anchor="middle" style="fill:#fff;font-size:30px;font-weight:800">Problem space</text><text x="160" y="488" text-anchor="middle" style="fill:#fff;font-size:26px">definition</text>
+      <rect x="330" y="300" width="320" height="210" rx="12" style="fill:var(--diagram-purple)"/><text x="490" y="348" text-anchor="middle" style="fill:#fff;font-size:30px;font-weight:800">Landing page</text><text x="490" y="388" text-anchor="middle" style="fill:#fff;font-size:26px">real visitors</text>
+      <rect x="660" y="200" width="320" height="310" rx="12" style="fill:var(--diagram-navy)"/><text x="820" y="248" text-anchor="middle" style="fill:#fff;font-size:30px;font-weight:800">Click-dummy</text><text x="820" y="288" text-anchor="middle" style="fill:#fff;font-size:26px">real clicks</text>
+      <rect x="990" y="100" width="320" height="410" rx="12" style="fill:var(--primary)"/><text x="1150" y="148" text-anchor="middle" style="fill:#fff;font-size:30px;font-weight:800">MVP</text><text x="1150" y="188" text-anchor="middle" style="fill:#fff;font-size:26px">real users</text>
+      <rect x="1320" y="0" width="320" height="510" rx="12" style="fill:var(--key)"/><text x="1480" y="48" text-anchor="middle" style="fill:#fff;font-size:30px;font-weight:800">Sellable product</text><text x="1480" y="88" text-anchor="middle" style="fill:#fff;font-size:26px">real money</text>
+    </g>
+  </svg></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Workshops, legacy slide 16. "From concept to landing page, to product, to revenue", legacy slide 44.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">How you're graded</span>
+    <h2 class="title">Evidence and decisions weigh as much as <span class="mark">revenue</span></h2>
+    <p class="sub">You're not graded on sticking to your idea</p>
+  </div>
+  <div class="content">
+    <div class="scale-row">
+      <span class="scale-label"><b>The rubric</b> · drawn to scale</span>
+      <div class="bar" style="height: 120px">
+        <div class="seg is-hl" style="flex: 30" data-anim="grow">Evidence quality<small>30%</small></div>
+        <div class="seg is-hl" style="flex: 30; --delay: 0.15s" data-anim="grow">Decision discipline<small>30%</small></div>
+        <div class="seg" style="flex: 30; --delay: 0.3s" data-anim="grow">Verified traction<small>30%</small></div>
+        <div class="seg" style="flex: 10; --delay: 0.45s" data-anim="grow">Commu&shy;nication<small>10%</small></div>
+      </div>
+    </div>
+    <p style="margin-top:40px;font-size:40px;font-weight:700">A well-argued kill with a documented evidence pack can earn an A.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">Grading and the Revenue Ladder, GRADING_RUBRIC.md, confirmed 2026-10-19. Legacy slide 17.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">A very good result is a growing startup</span>
+    <h2 class="title">Work on what you <span class="mark">control</span></h2>
+  </div>
+  <div class="content two">
+    <div class="box field field-blue">
+      <h3>Things you can control</h3>
+      <ul><li>😍 Talk to 15 users each week</li><li>📈 Present your progress every week and ask for help</li><li>🎁 Offer critical feedback and questions</li><li>🔬 Be an expert in your problem space</li><li>🔄 Pivot when you hit a brick wall</li></ul>
+    </div>
+    <div class="box grey">
+      <h3>Things you can't totally control</h3>
+      <ul><li>🖥️ Steady growth on your landing page</li><li>📇 A lead list of potential users</li><li>🤑 Paying customers</li></ul>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 47. "15 to 20 users" set to the homework's 15, "3 times" to every week.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">How we work together</span>
+    <h2 class="title">Be present or be elsewhere</h2>
+  </div>
+  <div class="content big123">
+    <div><b>1</b><h3>Together we grow: coachability</h3><p>We give candid and productive feedback. We listen and seek to understand.</p></div>
+    <div><b>2</b><h3>We act as we say: accountability</h3><p>We stick to our word where it's in our hands. We learn from failures where it's not.</p></div>
+    <div><b>3</b><h3>Give first, dream first: bias to action</h3><p>We prefer building and experimenting over understanding every aspect.</p></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 46.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">Dos and don'ts in this seminar</span>
+    <h2 class="title">Pivoting is fine. A <span class="mark">knowingly bad idea</span> isn't</h2>
+  </div>
+  <div class="content two">
+    <div class="box grey">
+      <h3>Totally fine</h3>
+      <ul><li>🦄 Building wild ideas</li><li>🤕 Regrouping</li><li>🥴 Pivoting</li><li>😵‍💫 Failing</li></ul>
+    </div>
+    <div class="box field field-magenta">
+      <h3>Not OK in here</h3>
+      <ul><li>👻 Sticking with a knowingly bad idea</li><li>⏰ Being late</li><li>🛌 Missing class</li><li>🤐 Staying silent when you don't understand</li></ul>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 48.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">What you leave with</span>
+    <h2 class="title">A team, a validated idea and <span class="mark">first revenue</span></h2>
+    <p class="sub">The best teams make more than €10,000 along the way</p>
+  </div>
+  <div class="content hero3">
+    <div class="h"><b>Team</b><span>2 to 4 people who commit to each other</span></div>
+    <div class="h"><b>Idea</b><span>validated: somebody paid for it</span></div>
+    <div class="h hl"><b>€</b><span>first revenue in the bank</span></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's course goal (2026-10-19). "Validated" as in the course glossary (GLOSSARY.md): somebody opens their wallet.</footer>
+  </section>
+
+<section class="slide" data-archetype="build" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">What we are working towards · the Sequoia pitch</span>
+    <h2 class="title">Every phase earns part of your pitch</h2>
+  </div>
+  <div class="content seq">
+    <div><i>1</i>Company purpose<span class="tag p3" data-step="3">Cover</span></div>
+    <div><i>7</i>Business model<span class="tag p2" data-step="2">Solution</span></div>
+    <div><i>2</i>Problem<span class="tag p1" data-step="1">Problem</span></div>
+    <div><i>8</i>Team<span class="tag p3" data-step="3">Cover</span></div>
+    <div><i>3</i>Solution<span class="tag p2" data-step="2">Solution</span></div>
+    <div><i>9</i>Financials<span></span></div>
+    <div><i>4</i>Why now?<span class="tag p1" data-step="1">Problem</span></div>
+    <div><i>10</i>Vision<span></span></div>
+    <div><i>5</i>Market potential<span class="tag p3" data-step="3">Cover</span></div>
+    <div><i>11</i>Roadmap<span class="tag p3" data-step="3">Cover</span></div>
+    <div><i>6</i>Competition<span class="tag p1" data-step="1">Problem</span></div>
+    <div><span></span><span></span><span></span></div>
+  </div>
+  <footer class="prov" data-kind="Framework">Sequoia Capital (2019), Writing a business plan, ten sections. Legacy slides 89 to 95, plus Bastian's roadmap.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">Teams form in Module 01</span>
+    <h2 class="title">Find teammates this week, or <span class="mark">we match you</span></h2>
+  </div>
+  <div class="content arrows2">
+    <div class="box field field-blue"><b>4a</b><h3>Find teammates</h3><ul><li>Say your problem space in one sentence</li><li>Talk to the people who share it, this week</li></ul></div>
+    <div class="box field field-purple"><b>4b</b><h3>We match you</h3><ul><li>Nobody found by Module 01?</li><li>We match you on your problem space</li></ul></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Participation and team allocation, legacy slide 13. Teams commit in Module 01 (2026-10-19).</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Chapter 5 of 6</span>
+    <h2 class="title">Wrap-up and check-out</h2>
+    <p class="summary">What you take home today, and the fifteen conversations that start this week.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-chapter="Wrap-up and check-out">
+  <div class="anchor-layout">
+    <div class="head">
+      <span class="label">Recap · cornerstone</span>
+      <h2 class="title">One full turn <span class="mark">this week</span>, not this semester</h2>
+      <p class="sub">You started today. Close it by Module 01</p>
+    </div>
+    <div class="anchor" data-anchor="build-measure-learn" data-active="build"></div>
+  </div>
+  <footer class="prov" data-kind="Framework">Ries, E. (2011). <i>The Lean Startup</i>. Legacy slide 38.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Recap · cornerstone</span>
+    <h2 class="title">Climb from opinions to a <span class="mark">payment</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="ideation paid"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup, legacy slide 60.</footer>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 1 of 3 · the content</span><h2 class="title">What could you apply?</h2></div>
+  <div class="content refl" style="--cols: 2"><div class="card"><span class="emo">🛠️</span><p>What could you <span class="hl">apply</span>?</p></div><div class="card"><span class="emo">🤕</span><p>What gave you a <span class="hl">hard time</span>?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 2 of 3 · the process</span><h2 class="title">Man vs. machine</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🤖</span><p>Where did <span class="hl">AI</span> actually help you?</p></div><div class="card"><span class="emo">🧠</span><p>Where was <span class="hl">your genius</span> needed?</p></div><div class="card"><span class="emo">🕴️</span><p>What are your best <span class="hl">hacks</span> to share?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 3 of 3 · the results</span><h2 class="title">Rose, thorn, bud</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🌹</span><p>What was the <span class="hl">breakthrough</span> today?</p></div><div class="card"><span class="emo">🌵</span><p>What was the <span class="hl">hardest part</span> today?</p></div><div class="card"><span class="emo">🌱</span><p>What is an <span class="hl">idea/feature</span> you didn't have time to finish, but want to explore later?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Wrap-up and check-out">
+  <span class="label">Homework until Module 01</span>
+  <p class="mantra-lead">Write 3 problem hypotheses and hold 15 problem conversations with named people, learning what the problem costs each of them today, and come back with <span class="mark">3 people who agreed to a next step</span>.</p>
+  <div class="mantra-line"><span class="mantra-num">15</span><span class="mantra-word">conversations</span></div>
+  <div class="sticky">
+    <p>The learning floor is 3 hypotheses and 5 conversations with 1 next step.</p>
+    <p class="why">Log your kill line before your first conversation.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">M00 homework, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · how to</span>
+    <h2 class="title">Find your people <span class="mark">where they already are</span></h2>
+    <p class="sub">Fifteen conversations means three a day. Start today</p>
+  </div>
+  <div class="content find4">
+    <div><b>1</b><h3>People you see every day</h3><p>Colleagues, clients, your lab. What do they complain about, and whom do they know?</p></div>
+    <div><b>2</b><h3>Be a fly on the wall</h3><p>Sit in on a shift or a support queue. Note what people curse at</p></div>
+    <div><b>3</b><h3>Read bad reviews</h3><p>1 to 3 stars on Trustpilot, G2 or Capterra. Repeated complaints are problems</p></div>
+    <div><b>4</b><h3>AI deep research</h3><p>Ask where your "who" complains online</p></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">M00 homework, "How to do it", step 1 (2026-10-19).</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · what good looks like</span>
+    <h2 class="title">Dig deeper, or <span class="mark">move on</span></h2>
+    <p class="sub">A narrow, deep well: a few people want it fixed badly. A made-up example</p>
+  </div>
+  <div class="content">
+    <table class="table">
+      <thead><tr><th></th><th>Dig deeper</th><th>Move on</th></tr></thead>
+      <tbody>
+        <tr><td>Who</td><td>Lab managers in biotech start-ups</td><td>"Researchers"</td></tr>
+        <tr><td>Raised</td><td>4 of 10, before I named it</td><td>Only once I named it</td></tr>
+        <tr><td>Cost</td><td>4 hours a week, 2 built Excel trackers</td><td>"Annoying, but we live with it"</td></tr>
+        <tr class="is-hl"><td>How many</td><td>6 of 10, in 4 labs</td><td>Me and my flatmate</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="prov" data-kind="Illustrative">M00 homework, "What you come back with", made-up example. "Narrow, deep well" after Graham (2012).</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 1 of 3</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Aulet, B. (2013). <i>Disciplined entrepreneurship: 24 steps to a successful startup</i>. Wiley.</li>
+      <li>Caldwell, D., &amp; Seibel, M. (2024, July 19). <i>Tarpit ideas: The sequel</i> [Video]. YC Startup Library.</li>
+      <li>Camuffo, A., Cordova, A., Gambardella, A., &amp; Spina, C. (2020). A scientific approach to entrepreneurial decision making. <i>Management Science, 66</i>(2), 564–586.</li>
+      <li>Camuffo, A., Gambardella, A., Messinese, D., Novelli, E., Paolucci, E., &amp; Spina, C. (2024). A scientific approach to entrepreneurial decision-making: Large-scale replication and extension. <i>Strategic Management Journal, 45</i>(6), 1209–1237.</li>
+      <li>Cantamessa, M., Gatteschi, V., Perboli, G., &amp; Rosano, M. (2018). Startups' roads to failure. <i>Sustainability, 10</i>(7), 2346.</li>
+      <li>Catmull, E., &amp; Wallace, A. (2014). <i>Creativity, Inc.</i> Random House.</li>
+      <li>CB Insights. (2019). <i>The top 20 reasons startups fail</i>.</li>
+      <li>CB Insights. (2026, March 5). <i>The top 9 reasons startups fail</i>.</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 2 of 3</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Dalio, R. (2025). <i>How countries go broke: The big cycle</i>. Avid Reader Press.</li>
+      <li>Dalio, R. (2026, March 14). I've studied 500 years of history and fear we're entering the most dangerous phase of the 'Big Cycle'. <i>Fortune</i>.</li>
+      <li>Eurostat. (2024). <i>Business demography by size class and NACE Rev. 2 activity</i> (bd_9bd_sz_cl_r2) [Data set].</li>
+      <li>Federal Reserve Bank of St. Louis. <i>NASDAQ Composite Index (NASDAQCOM)</i> [Data set]. FRED.</li>
+      <li>Graham, P. (2005, November). <i>The venture capital squeeze</i>. paulgraham.com/vcsqueeze.html.</li>
+      <li>Graham, P. (2012, November). <i>How to get startup ideas</i>. paulgraham.com/startupideas.html.</li>
+      <li>Gretzky, W., &amp; Reilly, R. (1990). <i>Gretzky: An autobiography</i>. HarperCollins.</li>
+      <li>Gruber, J. (2005, July 8). Rails movie. <i>Daring Fireball</i>.</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 3 of 3</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Karpathy, A. (2025, February 2). Vibe coding [Post]. X.</li>
+      <li>Popova, M. (2014, May 2). Pixar cofounder Ed Catmull on failure. <i>The Marginalian</i>.</li>
+      <li>Quote Investigator. (2021, August 25). Everybody has plans until they get hit.</li>
+      <li>Ries, E. (2011). <i>The lean startup</i>. Crown Business.</li>
+      <li>Sequoia Capital. (2019, March 15). <i>Writing a business plan</i>.</li>
+      <li>U.S. Bureau of Labor Statistics. <i>Business employment dynamics: Survival of private sector establishments by opening year</i>.</li>
+      <li>Wikipedia. (2026). Articles on Gates, Jobs, Page, Brin, Plattner, Huang and Werner von Siemens, retrieved 2026-10-19.</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Wrap-up and check-out">
+  <p class="statement">See you in Module 01, with names and numbers!</p>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="purple" data-chapter="Workshop: autopsy your startup before it dies">
+  <div class="head">
+    <span class="label">Module 00 · Workshop · 90 minutes</span>
+    <h2 class="title">Workshop: Autopsy your startup before it dies</h2>
+    <p class="summary">Find what could kill your idea, write hypotheses you can lose, and reach real people today.</p>
+    <p class="sub" style="color: var(--primary-foreground)">What kills startups, and what will this course demand from you?</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: autopsy your startup before it dies">
+  <div class="head">
+    <span class="label">Workshop · step 1 of 3</span>
+    <h2 class="title">Autopsy your own startup</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">1</span>STEP 1 · 25 MIN</span>
+      <h3>AUTOPSY YOUR OWN STARTUP</h3>
+      <p class="goal">Find the customer assumption that kills your idea</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Your starting point in one line</span></li>
+        <li><i class="icon icon-arrow"></i><span>One year on, your startup is dead. Why?</span></li>
+        <li><i class="icon icon-arrow"></i><span>Each cause becomes "We assumed …"</span></li>
+        <li><i class="icon icon-arrow"></i><span>Circle the riskiest untested one</span></li>
+        <li><i class="icon icon-arrow"></i><span>Pairs: "How do you know?"</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Riskiest untested assumption, in the Weekly Reflection</span><span><b>Minutes</b> 25</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="25"></div>
+  <footer class="prov" data-kind="Bastian">M00 workshop, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: autopsy your startup before it dies">
+  <div class="head">
+    <span class="label">Workshop · step 2 of 3</span>
+    <h2 class="title">Write hypotheses you can lose</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">2</span>STEP 2 · 25 MIN</span>
+      <h3>WRITE HYPOTHESES YOU CAN LOSE</h3>
+      <p class="goal">Hypotheses a stranger could prove wrong this week</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>3 hypotheses: who, problem, situation, workaround, cost</span></li>
+        <li><i class="icon icon-arrow"></i><span>Rate the evidence: opinion, anecdote, conversation, payment</span></li>
+        <li><i class="icon icon-arrow"></i><span>Rank them, riskiest first, start AI deep research</span></li>
+        <li><i class="icon icon-arrow"></i><span>Kill line logged before any contact</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> 3 ranked hypotheses, their evidence, a kill line</span><span><b>Minutes</b> 25</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="25"></div>
+  <footer class="prov" data-kind="Bastian">M00 workshop, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: autopsy your startup before it dies">
+  <div class="head">
+    <span class="label">Workshop · step 3 of 3</span>
+    <h2 class="title">Reach real people, then commit</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">3</span>STEP 3 · 40 MIN</span>
+      <h3>REACH REAL PEOPLE, THEN COMMIT</h3>
+      <p class="goal">Leave with the week already moving</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>10 min: pick named people from your research</span></li>
+        <li><i class="icon icon-arrow"></i><span>15 min: 5 messages to named people, or one call</span></li>
+        <li><i class="icon icon-arrow"></i><span>Don't name your problem, do NOT pitch</span></li>
+        <li><i class="icon icon-arrow"></i><span>10 min: floor or full bar, midweek pace</span></li>
+        <li><i class="icon icon-arrow"></i><span>5 min: your problem space in one sentence, find teammates</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Messages sent, target, pace, possible teammates</span><span><b>Minutes</b> 40</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="40"></div>
+  <footer class="prov" data-kind="Bastian">M00 workshop, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Workshop: autopsy your startup before it dies">
+  <span class="label">Arrived empty-handed?</span>
+  <p class="mantra-lead">No idea yet? Run the autopsy on a frustration you watched someone fight last month.</p>
+  <div class="mantra-line"><span class="mantra-num">1</span><span class="mantra-word">real frustration</span></div>
+  <footer class="prov" data-kind="Bastian">M00 workshop, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Workshop: autopsy your startup before it dies">
+  <span class="label">Homework until Module 01</span>
+  <p class="mantra-lead">Write 3 problem hypotheses and hold 15 problem conversations with named people, learning what the problem costs each of them today, and come back with <span class="mark">3 people who agreed to a next step</span>.</p>
+  <div class="mantra-line"><span class="mantra-num">15</span><span class="mantra-word">conversations</span></div>
+  <div class="sticky">
+    <p>The learning floor is 3 hypotheses and 5 conversations with 1 next step.</p>
+    <p class="why">Log your kill line before your first conversation.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">M00 homework, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Workshop: autopsy your startup before it dies">
+  <p class="statement">See you in Module 01, with names and numbers!</p>
+  </section>
+
+
+
+
+
+
+
+
+
+</main>
+<script src="../../design/anchors.js"></script>
+<script src="../../design/deck.js"></script>
+</body>
+</html>

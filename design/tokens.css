@@ -1,0 +1,71 @@
+/* Ambitious Entrepreneurship design tokens. Updated: 2026-10-19. Status: ready (course-design).
+   Derived from the light theme of the burgerconsult design system
+   (BaNburger/burgerconsult, src/index.css). The consulting green
+   hsl(142 76% 32%) is replaced by a teaching blue at the same saturation.
+   Light theme only. Slide layout lives in deck.css and archetypes.css. */
+
+:root {
+  /* Surfaces and text (unchanged from burgerconsult light) */
+  --background: hsl(0 0% 100%);          /* #ffffff */
+  --foreground: hsl(220 16% 10%);        /* #15181e  17.8:1 on white */
+  --card: hsl(0 0% 98%);                 /* #fafafa */
+  --muted: hsl(220 14% 96%);             /* #f3f4f6 */
+  --muted-foreground: hsl(220 10% 40%);  /* #5c6370   6.1:1 on white */
+  --border: hsl(220 13% 91%);            /* #e5e7eb */
+
+  /* Teaching blue (replaces consulting green 142 76% 32%) */
+  --primary: hsl(217 76% 44%);           /* #1b5cc5   6.2:1 on white */
+  --primary-strong: hsl(217 76% 36%);    /* pressed / dense fills */
+  --primary-foreground: hsl(0 0% 100%);
+  --primary-tint: hsl(217 76% 44% / 0.06);   /* highlight card fill */
+  --primary-line: hsl(217 76% 44% / 0.30);   /* highlight card border */
+  --gradient-primary: linear-gradient(135deg, hsl(217 76% 44%), hsl(205 76% 42%));
+  --gradient-glow: radial-gradient(ellipse at center, hsl(217 76% 48% / 0.10), transparent 70%);
+
+  /* Signal colours */
+  --key: hsl(0 72% 51%);                 /* #dc2828  4.8:1 on white only (4.4 on --muted, 4.2 on --sticky), the one red number and OPEN */
+  --accent: hsl(25 95% 53%);             /* #f97415  fills and marks only, 2.8:1 is too low for text */
+
+  /* Meaning colours for slides (course-design, 2026-10-16). Blue is the
+     subject or active step, grey is context, the past or inactive parts. */
+  --context: hsl(220 14% 90%);           /* #e2e4e9  fill for context and the past */
+  --context-foreground: hsl(220 10% 30%);/* #454a54  text on --context, 7.0:1 */
+  --sticky: hsl(52 100% 80%);            /* #fff199  sticky note, text in --foreground */
+  /* Legacy diagram and field colours (2026-10-19, legacy visual style). White text on
+     navy 11.6:1, purple 10.0:1, magenta 7.0:1. */
+  --diagram-navy: hsl(234 50% 32%);      /* #29317b  legacy dark blue boxes and pyramid middle */
+  --diagram-purple: hsl(276 66% 34%);    /* #6d1d8f  legacy purple boxes (7030A0) */
+  --diagram-magenta: hsl(312 98% 33%);   /* #a7018a  legacy Software/AI magenta, root cause, ideation */
+  --tracker-done: hsl(217 45% 72%);      /* past chapters in the progress tracker, no text */
+  --marker: hsl(54 100% 62%);            /* #fff23d  legacy yellow marker (FFFF00), behind dark text only (14.6:1), never behind red (3.9:1) */
+  --diagram-magenta-tint: hsl(312 98% 33% / 0.08); /* light magenta field, dark text 15.4:1, magenta text 6.1:1 */
+  --diagram-purple-tint: hsl(276 66% 34% / 0.08);  /* light purple field, dark text 15.4:1, purple text 8.7:1 */
+
+  /* Shape and depth */
+  --radius: 0.5rem;
+  --shadow-card: 0 4px 24px -4px hsl(220 16% 10% / 0.10);
+  --shadow-glow: 0 0 60px -15px hsl(217 76% 48% / 0.25);
+
+  /* Type */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Slide type scale at 1920x1080, used by deck.css and archetypes.css.
+     Nothing below 24px. The title slide sets 120px and closing statements
+     96px on top of this scale. */
+  --text-mantra: 520px;
+  --text-display: 112px;
+  --text-title: 64px;
+  --text-subhead: 36px;
+  --text-body: 30px;
+  --text-small: 24px;
+  --text-label: 24px;   /* mono, uppercase, letter-spacing 0.12em */
+
+  /* Backgrounds */
+  --pattern-dots: radial-gradient(circle, hsl(217 76% 44% / 0.15) 1px, transparent 1px);
+  --pattern-dots-size: 24px 24px;
+  --pattern-grid:
+    linear-gradient(to right, hsl(220 13% 91% / 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(220 13% 91% / 0.5) 1px, transparent 1px);
+  --pattern-grid-size: 40px 40px;
+}

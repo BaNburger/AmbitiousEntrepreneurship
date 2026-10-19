@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M03 Lecture · The Problem Space</title>
+<link rel="stylesheet" href="../../design/fonts.css">
+<link rel="stylesheet" href="../../design/tokens.css">
+<link rel="stylesheet" href="../../design/deck.css">
+<link rel="stylesheet" href="../../design/archetypes.css">
+<style>
+/* Homework on slides: the seven moves and the Good and Weak rows. */
+.hw-moves { grid-template-columns: repeat(3, 1fr); }
+.hw-moves .card:last-child { grid-column: 1 / -1; }
+.gw { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 14px 20px; }
+.gw span { padding: 22px 28px; border-radius: 14px; font-size: 34px; line-height: 1.25; }
+.gw .gw-h { font-weight: 800; font-size: 32px; color: var(--primary-foreground); }
+.gw .gw-h.weak { background: var(--context-foreground); }
+.gw .gw-h.good { background: var(--primary); }
+.gw .gw-l { padding-left: 0; align-self: center; font-family: var(--font-mono); font-size: 26px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted-foreground); }
+.gw .gw-w { background: var(--context); color: var(--context-foreground); }
+.gw .gw-g { background: var(--primary-tint); border: 2px solid var(--primary-line); color: var(--foreground); font-weight: 700; }
+</style>
+</head>
+<body>
+<main class="deck" data-module="M03" data-module-title="The problem space" data-chapters="Recap from last time|Your presentations|The problem space|The job and its workaround|Problem conversations|Hair-on-fire segments|Wrap-up and check-out|Workshop: find the pain worth fixing|Case discussion">
+
+
+
+<section class="slide" data-archetype="title">
+  <div class="head">
+    <span class="label">Module 03 · Ambitious Entrepreneurship</span>
+    <h1 class="title">The Problem Space</h1>
+    <p class="sub">Is this a real problem, or just an interesting one?</p>
+  </div>
+  <div class="course-path" aria-label="Course path, module 03 of 00 to 12">
+    <span class="label">Course path</span>
+    <ol><li class="done">00</li><li class="done">01</li><li class="done">02</li><li class="now">03</li><li>04</li><li>05</li><li>06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li><li>12</li></ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question">
+  <div class="head">
+    <span class="label">Check-in · Slido or hands</span>
+    <h2 class="title">How many problem conversations did you <span class="mark">hold</span> last week?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li></li><li></li><li></li></ol>
+    <div class="timer" data-timer="2"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim">
+  <div class="head">
+    <span class="label">Weekly accountability</span>
+    <h2 class="title">Report what you <span class="mark">did</span>, not what you planned</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Three weekly accountability questions"><text x="270" y="200" text-anchor="middle" style="fill:var(--primary);font-size:230px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="270" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">User interactions?</text><text x="270" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">What did you learn?</text><text x="820" y="200" text-anchor="middle" style="fill:var(--primary);font-size:230px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="820" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">New revenue?</text><text x="820" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why did they pay?</text><text x="1370" y="200" text-anchor="middle" style="fill:var(--primary);font-size:230px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="1370" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Shipped?</text><text x="1370" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why does it matter?</text><rect x="0" y="400" width="1640" height="64" rx="10" style="fill:var(--sticky)"/><text x="820" y="443" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">🦄 Report target vs. actual in small groups</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Weekly accountability questions, legacy slide 113.</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="magenta" data-chapter="Recap from last time">
+  <div class="head">
+    <span class="label">Chapter 1 of 9</span>
+    <h2 class="title">Recap from last time</h2>
+    <p class="summary">You picked an idea last week, so today we test whether its problem is real.</p>
+  </div>
+</section>
+
+<section class="slide" data-archetype="anchor" data-chapter="Recap from last time">
+  <div class="anchor-layout">
+    <div class="head">
+      <span class="label">Anchor · Build-Measure-Learn</span>
+      <h2 class="title">Your idea is a hypothesis</h2>
+      <p class="sub">Today you <span class="mark">measure</span> the problem</p>
+    </div>
+    <div class="anchor" data-anchor="build-measure-learn" data-active="measure"></div>
+  </div>
+  <footer class="prov" data-kind="Framework">Ries, E. (2011). <i>The Lean Startup</i>. Crown Business. Legacy slide 105.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Recap from last time">
+  <div class="head">
+    <span class="label">Recap · Module 02</span>
+    <h2 class="title">Today we test <span class="mark">worth solving</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="problem-you-want" data-active="problem"></div></div>
+  <footer class="prov" data-kind="Bastian">"A problem you want to have", legacy slide 161.</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="magenta" data-chapter="Your presentations">
+  <div class="head">
+    <span class="label">Chapter 2 of 9</span>
+    <h2 class="title">Your presentations</h2>
+    <p class="summary">Each team shows in three minutes what it did, learned and needs from us.</p>
+  </div>
+</section>
+
+<section class="slide" data-archetype="checkin" data-chapter="Your presentations">
+  <div class="head">
+    <span class="label">Your presentations · make it credible</span>
+    <h2 class="title">Show us where you're at in 3 minutes or less!</h2>
+  </div>
+  <div class="timer" data-timer="3"></div>
+  <div class="content">
+    <div class="credible" style="grid-template-columns: repeat(3, 1fr)">
+      <div class="card"><h3>Facts</h3><span class="kind">Research on the problem, with sources</span></div>
+      <div class="card"><h3>Numbers</h3><span class="kind">Conversations per student, ideas dropped</span></div>
+      <div class="card"><h3>Quotes</h3><span class="kind">The three that decided it</span></div>
+      <div class="card"><h3>Images</h3><span class="kind">Your Ideas sheet, heard or assumed</span></div>
+      <div class="card"><h3>Verdict</h3><span class="kind">Kept or dropped at the kill line</span></div>
+      <div class="card"><h3>Hypothesis</h3><span class="kind">Your pitch in one to three sentences</span></div>
+    </div>
+    <div class="asks"><span>Your target vs. actual</span><span>What did you do?</span><span>What did you learn?</span><span>How can we help?</span></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Course check-in format, legacy slides 96 and 115, categories from Module 02.</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="magenta" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Chapter 3 of 9 · let's jump in</span>
+    <h2 class="title">The problem space</h2>
+    <p class="summary">Describe the problem without your product, then dig until you reach the root cause.</p>
+  </div>
+</section>
+
+<section class="slide" data-archetype="claim" data-variant="split" data-field="magenta" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Why it matters</span>
+    <h2 class="title">Money runs out last. <span style="color:var(--marker)">Poor fit</span> often broke first</h2>
+  </div>
+  <div class="content">
+    <div class="scale">
+      <div class="scale-row">
+        <span class="scale-label"><b>Ran out of capital</b> · the final cause</span>
+        <div class="bar"><div class="seg" style="flex: 0 0 70%" data-anim="grow">70%</div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>Poor product-market fit</b> · most common root cause</span>
+        <div class="bar"><div class="seg is-hl" style="flex: 0 0 43%; --delay: 0.2s" data-anim="grow">43%</div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>Bad timing</b></span>
+        <div class="bar"><div class="seg" style="flex: 0 0 29%; --delay: 0.4s" data-anim="grow">29%</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Data">CB Insights, The top 9 reasons startups fail, 5 March 2026. 385 VC-backed shutdowns since 2023 with known reasons, several reasons each. Bars to scale.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Cornerstone · problem oriented</span>
+    <h2 class="title">Love the <span class="mark">problem</span>, not your product</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="problem-oriented"></div></div>
+  <footer class="prov" data-kind="Bastian">Lean Startup, a problem-oriented approach, legacy slide 118, redrawn with pictograms.</footer>
+  </section>
+
+<section class="slide" data-archetype="quote" data-variant="field" data-chapter="The problem space">
+  <div class="quote-layout">
+    <figure>
+      <blockquote><p>You're much better off <span class="hl">starting with a problem</span>, and then looking for solutions.</p></blockquote>
+      <figcaption><b>Jared Friedman</b>, Y Combinator</figcaption>
+    </figure>
+  </div>
+  <footer class="prov" data-kind="YC">Friedman, J. How to get startup ideas. YC Startup Library, recorded for Startup School 2020.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Cornerstone · problem space vs. solution space</span>
+    <h2 class="title">Start <span class="mark">left</span>. Solutions come last</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="problem-solution" data-active="problem"></div></div>
+  <footer class="prov" data-kind="Bastian">Problem space vs. solution space, legacy slide 119.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Cornerstone · finding root causes</span>
+    <h2 class="title">Ask <span class="mark">why</span>. Then ask why not</h2>
+  </div>
+  <div class="content" style="display:grid;gap:28px;align-content:start"><div class="anchor" data-anchor="root-cause"></div><svg viewBox="0 0 1640 90" style="display:block;width:100%;height:auto" role="img" aria-label="Example: goal and boundary condition of the car"><rect x="0" y="0" width="200" height="80" rx="40" style="fill:var(--primary)"/><text x="100" y="51" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Goal</text><text x="230" y="52" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:600;font-family:Inter,sans-serif">The car starts every morning. Why?</text><rect x="840" y="0" width="260" height="80" rx="40" style="fill:var(--diagram-purple)"/><text x="970" y="51" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Boundary</text><text x="1130" y="52" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:600;font-family:Inter,sans-serif">No time for the garage. Why not?</text></svg></div>
+  <footer class="prov" data-kind="Framework">5 Whys after Ohno, T. (1988). <i>Toyota Production System</i>. Critique: Card, A. J. (2017). BMJ Quality &amp; Safety. Legacy slide 121. The car example is Illustrative.</footer>
+  </section>
+
+<section class="slide" data-archetype="build" data-anchor="root-cause" data-anchor-part="why" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Example · ocean trash</span>
+    <h2 class="title">The robot is a solution. <span class="mark">Dig</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="From the solution down to the associated problems"><g><rect x="0.0" y="0" width="1640" height="110" rx="16" style="fill:var(--context)"/><text x="820" y="68" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:700;font-family:Inter,sans-serif">Robot removes trash from the ocean</text><path d="M795 116 L845 116 L820 136 z" style="fill:var(--context-foreground)"/></g><g data-step="1"><rect x="120.0" y="140" width="1400" height="110" rx="16" style="fill:var(--context)"/><text x="820" y="208" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:700;font-family:Inter,sans-serif">Most ocean trash comes from rivers</text><path d="M795 256 L845 256 L820 276 z" style="fill:var(--context-foreground)"/></g><g data-step="2"><rect x="240.0" y="280" width="1160" height="110" rx="16" style="fill:var(--context)"/><text x="820" y="348" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:700;font-family:Inter,sans-serif">Mostly from dense cities</text><path d="M795 396 L845 396 L820 416 z" style="fill:var(--context-foreground)"/></g><g data-step="3"><rect x="360.0" y="420" width="920" height="110" rx="16" style="fill:var(--diagram-magenta)"/><text x="820" y="488" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:700;font-family:Inter,sans-serif">Awareness. Plastic is cheap.</text></g></svg></div>
+  <footer class="prov" data-kind="Illustrative">Legacy slide 122.</footer>
+  </section>
+
+<section class="slide" data-archetype="build" data-anchor="root-cause" data-anchor-part="why" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Example · the car does not start</span>
+    <h2 class="title">Fix the <span class="mark">root</span>, not the symptom</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 600" role="img" aria-label="Root-cause tree for a car that does not start"><defs><marker id="m15" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><rect x="0" y="0" width="760" height="80" rx="14" style="fill:var(--background);stroke:var(--context-foreground);stroke-width:3"/><text x="28" y="51" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Symptom · Your car does not start</text><path d="M370 84 L410 84 L390 100 z" style="fill:var(--context-foreground)"/><g data-step="1"><rect x="0" y="104" width="760" height="84" rx="14" style="fill:var(--context)"/><text x="28" y="140" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">1st why</text><text x="28" y="174" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">The alternator is not functioning</text><path d="M766 146 L830 146" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="840" y="110" width="240" height="72" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:3"/><text x="960" y="157" text-anchor="middle" style="fill:var(--primary);font-size:30px;font-weight:700;font-family:Inter,sans-serif">Solution 1</text><path d="M1086 146 L1130 146" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="1140" y="110" width="500" height="72" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="1390" y="157" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">Feature 1, 2, 3 …</text><path d="M370 190 L410 190 L390 202 z" style="fill:var(--context-foreground)"/></g><g data-step="2"><rect x="0" y="204" width="760" height="84" rx="14" style="fill:var(--context)"/><text x="28" y="240" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">2nd why</text><text x="28" y="274" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">The alternator belt has broken</text><path d="M766 246 L830 246" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="840" y="210" width="240" height="72" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:3"/><text x="960" y="257" text-anchor="middle" style="fill:var(--primary);font-size:30px;font-weight:700;font-family:Inter,sans-serif">Solution 2</text><path d="M1086 246 L1130 246" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="1140" y="210" width="500" height="72" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="1390" y="257" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">Feature 1, 2, 3 …</text><path d="M370 290 L410 290 L390 302 z" style="fill:var(--context-foreground)"/></g><g data-step="3"><rect x="0" y="304" width="760" height="84" rx="14" style="fill:var(--context)"/><text x="28" y="340" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">3rd why</text><text x="28" y="374" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">Belt worn out, never replaced</text><path d="M766 346 L830 346" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="840" y="310" width="240" height="72" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:3"/><text x="960" y="357" text-anchor="middle" style="fill:var(--primary);font-size:30px;font-weight:700;font-family:Inter,sans-serif">Solution 3</text><path d="M1086 346 L1130 346" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="1140" y="310" width="500" height="72" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="1390" y="357" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">Feature 1, 2, 3 …</text><path d="M370 390 L410 390 L390 402 z" style="fill:var(--context-foreground)"/></g><g data-step="4"><rect x="0" y="404" width="760" height="84" rx="14" style="fill:var(--diagram-magenta)"/><text x="28" y="440" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Root cause</text><text x="28" y="474" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">No maintenance on schedule</text><path d="M766 446 L830 446" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="840" y="410" width="240" height="72" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:3"/><text x="960" y="457" text-anchor="middle" style="fill:var(--primary);font-size:30px;font-weight:700;font-family:Inter,sans-serif">Solution 4</text><path d="M1086 446 L1130 446" style="stroke:var(--context-foreground);stroke-width:4;fill:none" marker-end="url(#m15)"/><rect x="1140" y="410" width="500" height="72" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="1390" y="457" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">Feature 1, 2, 3 …</text></g><g data-step="5"><rect x="0" y="516" width="760" height="80" rx="14" style="fill:var(--diagram-purple)"/><text x="28" y="566" text-anchor="start" style="fill:var(--primary-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Why not on schedule? No time for the garage</text></g></svg></div>
+  <footer class="prov" data-kind="Illustrative">Legacy slides 123 and 124. The why-not row is added for this deck.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-anchor="problem-solution" data-anchor-part="problem" data-chapter="The problem space">
+  <div class="head">
+    <span class="label">Now you · alone · 4 minutes</span>
+    <h2 class="title">Your problem space. <span class="mark">No</span> product words</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 592" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="330" height="96" rx="48" style="fill:var(--primary)"/><text x="165.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Segment</text><text x="370" y="62" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Who has it worst?</text><rect x="0" y="124" width="330" height="96" rx="48" style="fill:var(--diagram-purple)"/><text x="165.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Obstacle</text><text x="370" y="186" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">What is in the way?</text><rect x="0" y="248" width="330" height="96" rx="48" style="fill:var(--primary)"/><text x="165.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Goal</text><text x="370" y="310" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">What do they want?</text><rect x="0" y="372" width="330" height="96" rx="48" style="fill:var(--diagram-purple)"/><text x="165.0" y="433" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Boundary</text><text x="370" y="434" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">What must any answer respect?</text><rect x="0" y="496" width="330" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="165.0" y="557" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Why? ×3</text><text x="370" y="558" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Why does the obstacle exist?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="4"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Four lines and a root cause</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="magenta" data-chapter="The job and its workaround">
+  <div class="head">
+    <span class="label">Chapter 4 of 9</span>
+    <h2 class="title">The job and its workaround</h2>
+    <p class="summary">Find the job people hire a product for and put a price on today's workaround.</p>
+  </div>
+</section>
+
+<section class="slide" data-archetype="framework" data-anchor="problem-solution" data-anchor-part="goal" data-chapter="The job and its workaround">
+  <div class="head">
+    <span class="label">Framework · Jobs-to-be-Done</span>
+    <h2 class="title">They <span class="mark">hire</span> your product for a job</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 280" role="img" aria-label="Job sentence: when situation, I want to motivation, so I can outcome"><polygon points="0,0 500,0 560,75 500,150 0,150" style="fill:var(--diagram-navy)"/><text x="280" y="90" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">When [situation]</text><text x="280" y="220" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">When I finish a day</text><text x="280" y="264" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">of appointments,</text><polygon points="550,0 1050,0 1110,75 1050,150 550,150 610,75" style="fill:var(--diagram-purple)"/><text x="850" y="90" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">I want to [motivation]</text><text x="850" y="220" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">I want my notes</text><text x="850" y="264" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">done,</text><polygon points="1100,0 1600,0 1660,75 1600,150 1100,150 1160,75" style="fill:var(--primary)"/><text x="1400" y="90" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">so I can [outcome]</text><text x="1400" y="220" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">so I can go home</text><text x="1400" y="264" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">without the screen.</text></svg></div>
+  <footer class="prov" data-kind="Framework">Christensen, C. M., et al. (2016). Know your customers' "jobs to be done". <i>Harvard Business Review</i>. The physician's sentence is Illustrative, written for this deck.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-variant="split" data-field="purple" data-anchor="problem-solution" data-anchor-part="obstacle" data-chapter="The job and its workaround">
+  <div class="head">
+    <span class="label">Example · physicians and their notes</span>
+    <h2 class="title">The workaround costs <span style="color:var(--marker)">hours</span>. Count them</h2>
+  </div>
+  <div class="content">
+    <div class="scale">
+      <div class="scale-row">
+        <span class="scale-label"><b>With patients</b> · share of the office day</span>
+        <div class="bar"><div class="seg" style="flex: 0 0 27%" data-anim="grow">27%</div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>Screen and desk work</b> · the workaround</span>
+        <div class="bar"><div class="seg is-hl" style="flex: 0 0 49.2%; --delay: 0.2s" data-anim="grow">49%</div></div>
+      </div>
+    </div>
+    <div class="tiles" style="--cols: 2">
+      <div class="tile is-hl"><b>+ 1 to 2 hours</b><span>every night, self-reported by 21 of them</span></div>
+      <div class="tile"><b>57</b><span>US physicians observed</span></div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Research">Sinsky, C., et al. (2016). Allocation of physician time in ambulatory practice. <i>Annals of Internal Medicine</i>, 165(11). Bars to scale.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-variant="split" data-field="purple" data-anchor="problem-solution" data-anchor-part="obstacle" data-chapter="The job and its workaround">
+  <div class="head">
+    <span class="label">Example · an AI scribe, one health system</span>
+    <h2 class="title">Your workaround's number is what a fix <span style="color:var(--marker)">must beat</span></h2>
+  </div>
+  <div class="content">
+    <div class="scale">
+      <div class="scale-row">
+        <span class="scale-label"><b>Note time per appointment</b> · 10.3 min before</span>
+        <div class="bar"><div class="seg is-hl" style="flex: 8.2" data-anim="grow">8.2 min with the scribe</div><div class="seg" style="flex: 2.1; --delay: 0.2s" data-anim="grow">2.1 min less</div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>Work after hours, per workday</b> · 50.6 min before</span>
+        <div class="bar"><div class="seg is-hl" style="flex: 35.4; --delay: 0.4s" data-anim="grow">35.4 min with the scribe</div><div class="seg" style="flex: 15.2; --delay: 0.6s" data-anim="grow">15.2 min less</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Research">Duggan, M. J., et al. (2025). <i>JAMA Network Open</i>. One health system, 46 clinicians, 2024, before and after, not randomized. Each bar is that row's time before, to scale.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-anchor="problem-solution" data-anchor-part="goal" data-chapter="The job and its workaround">
+  <div class="head">
+    <span class="label">Now you · alone · 3 minutes</span>
+    <h2 class="title">Write the job. <span class="mark">Price</span> the workaround</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 468" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="330" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="165.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">When</text><text x="370" y="62" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">[situation]</text><rect x="0" y="124" width="330" height="96" rx="48" style="fill:var(--diagram-purple)"/><text x="165.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">I want to</text><text x="370" y="186" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">[motivation]</text><rect x="0" y="248" width="330" height="96" rx="48" style="fill:var(--primary)"/><text x="165.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">so I can</text><text x="370" y="310" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">[outcome]</text><rect x="0" y="372" width="330" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="165.0" y="433" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">It costs</text><text x="370" y="434" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">how many euros or hours?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="3"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">One sentence, one number. Heard or assumed?</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="magenta" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Chapter 5 of 9</span>
+    <h2 class="title">Problem conversations</h2>
+    <p class="summary">Ask about the last time it happened, never pitch, and keep their exact words.</p>
+  </div>
+</section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Cornerstone · hierarchy of evidence</span>
+    <h2 class="title">This week you stand on <span class="mark">rung two</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="interviews"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup, legacy slides 128 and 328.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-variant="split" data-field="magenta" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Why it matters</span>
+    <h2 class="title">What people <span style="color:var(--marker)">plan</span> is not what they do</h2>
+  </div>
+  <div class="content">
+    <div class="scale">
+      <div class="scale-row">
+        <span class="scale-label"><b>Intentions moved this much</b></span>
+        <div class="bar"><div class="seg" style="flex: 0 0 100%" data-anim="grow">0.66</div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>Behaviour moved about half as much</b></span>
+        <div class="bar"><div class="seg is-hl" style="flex: 0 0 54.5%; --delay: 0.2s" data-anim="grow">0.36</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Research">Webb &amp; Sheeran (2006), 47 experiments that changed intentions. Effect sizes (d) to scale.</footer>
+  </section>
+
+<section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Problem conversations · tip 1 of 4</span>
+    <h2 class="title">Ask about the <span class="mark">last time</span>, not in general</h2>
+  </div>
+  <div class="content media-split" style="--media-w: 560px">
+    <div class="fromto">
+      <div class="from"><span class="label">From</span><p>"What do you feel when shopping online?"</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">To</span><p>"What did you feel <span class="hl">the last time</span>?"</p></div>
+    </div>
+      </div>
+  <footer class="prov" data-kind="YC">Migicovsky, E. (2019). How to talk to users. Startup School. Legacy slide 172. </footer>
+  </section>
+
+<section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Problem conversations · tip 2 of 4</span>
+    <h2 class="title">Don't lead. <span class="mark">Discover</span></h2>
+  </div>
+  <div class="content media-split" style="--media-w: 440px">
+    <div class="fromto">
+      <div class="from"><span class="label">From</span><p>"Wouldn't an app make that easier?"</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">To</span><p>"What do you do <span class="hl">when it happens</span>?"</p></div>
+    </div>
+      </div>
+  <footer class="prov" data-kind="Bastian">Course interview guide, legacy slides 135 and 173. </footer>
+  </section>
+
+<section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Problem conversations · tip 3 of 4</span>
+    <h2 class="title">Never <span class="mark">pitch</span>. Listen</h2>
+  </div>
+  <div class="content media-split" style="--media-w: 380px">
+    <div class="fromto">
+      <div class="from"><span class="label">From</span><p>"Will you use our product?"</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">To</span><p>"How do you <span class="hl">solve it today</span>?"</p></div>
+    </div>
+      </div>
+  <footer class="prov" data-kind="YC">Alströmer, G. (2022). How to talk to users. YC Startup Library. Legacy slides 175 and 179. </footer>
+  </section>
+
+<section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Problem conversations · tip 4 of 4</span>
+    <h2 class="title">Record it. Keep their <span class="mark">exact words</span></h2>
+  </div>
+  <div class="content media-split" style="--media-w: 500px">
+    <div style="display:grid;gap:36px">
+      <div class="fromto">
+        <div class="from"><span class="label">Your summary</span><p>"annoying, wants automation"</p></div>
+        <i class="icon icon-arrow"></i>
+        <div class="to"><span class="label">Their words</span><p>"Every Friday I copy <span class="hl">200 orders</span> into Excel by hand."</p></div>
+      </div>
+      <div class="sticky"><p>Ask first: "May we record this for our team and the course staff, who may spot-check it?"</p></div>
+    </div>
+    <figure class="photo" style="--photo-h: 330px">
+      <img src="media/legacy-132-recording-consent.png" alt="macOS recorder with the reminder to get everyone's consent before recording">
+    </figure>
+  </div>
+  <footer class="prov" data-kind="Bastian">Consent sentence from the course Legal Basics. Recorder on Bastian's screen, legacy slides 132 and 178, winter term 2025. The quote is Illustrative, written for this deck.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">The five golden questions</span>
+    <h2 class="title">Ask these five, <span class="mark">last time</span> first</h2>
+  </div>
+  <div class="content media-split" style="--media-w: 230px">
+    <div class="answers">
+      <div class="card"><span class="badge">1</span><h3>Tell me about the last time…</h3></div>
+      <div class="card"><span class="badge">2</span><h3>What was the hardest part?</h3></div>
+      <div class="card"><span class="badge">3</span><h3>Why was that hard? Up to 5×</h3></div>
+      <div class="card"><span class="badge">4</span><h3>How do you solve it currently?</h3></div>
+      <div class="card is-hl"><span class="badge">5</span><h3>What don't you love about that solution?</h3></div>
+    </div>
+      </div>
+  <footer class="prov" data-kind="YC">After Migicovsky (2019), based on Fitzpatrick (2013), <i>The Mom Test</i>. Order as in the course workshop, legacy slides 179 and 183. </footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Now you · in pairs · 3 minutes</span>
+    <h2 class="title">Fix your <span class="mark">worst</span> question</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 344" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="96" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="48.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="136" y="62" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Take the worst question you asked or planned</text><rect x="0" y="124" width="96" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="48.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="136" y="186" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Rewrite it as one of the five</text><rect x="0" y="248" width="96" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="48.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="136" y="310" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Read it to your partner. Leading?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="3"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">One question you can ask tomorrow</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">Process · one conversation</span>
+    <h2 class="title">End every conversation with a <span class="mark">next step</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 300" role="img" aria-label="Interview process: gather intel, set the stage, do the interview, follow through"><polygon points="0,0 380,0 430,65 380,130 0,130" style="fill:var(--diagram-navy)"/><text x="215.0" y="78" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Gather intel</text><text x="215.0" y="206" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">Who are they?</text><text x="215.0" y="250" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">Their company?</text><polygon points="405,0 785,0 835,65 785,130 405,130 455,65" style="fill:var(--diagram-navy)"/><text x="640.0" y="78" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Set the stage</text><text x="640.0" y="206" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">Thank them.</text><text x="640.0" y="250" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">Time and goal.</text><polygon points="810,0 1190,0 1240,65 1190,130 810,130 860,65" style="fill:var(--diagram-navy)"/><text x="1045.0" y="78" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Interview</text><text x="1045.0" y="206" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">Dig deep.</text><text x="1045.0" y="250" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">A co-founder notes.</text><polygon points="1215,0 1595,0 1645,65 1595,130 1215,130 1265,65" style="fill:var(--diagram-magenta)"/><text x="1450.0" y="78" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Follow through</text><text x="1450.0" y="206" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">Who else?</text><text x="1450.0" y="250" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">May we come back?</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Creating interviews, legacy slide 138.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-variant="split" data-field="magenta" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">How many conversations</span>
+    <h2 class="title">About <span style="color:var(--marker)">20</span> per segment</h2>
+  </div>
+  <div class="content">
+    <div class="scale">
+      <div class="scale-row">
+        <span class="scale-label"><b>9 to 17</b> · narrow question, similar people</span>
+        <div class="bar"><div class="seg" style="flex: 9; background: transparent"></div><div class="seg" style="flex: 8" data-anim="grow">9–17</div><div class="seg" style="flex: 13; background: transparent"></div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>16 to 24</b> · to understand why</span>
+        <div class="bar"><div class="seg" style="flex: 16; background: transparent"></div><div class="seg" style="flex: 8; --delay: 0.2s" data-anim="grow">16–24</div><div class="seg" style="flex: 6; background: transparent"></div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>20 of 30</b> · found over 90% of the needs</span>
+        <div class="bar"><div class="seg is-hl" style="flex: 20; --delay: 0.4s" data-anim="grow">20</div><div class="seg" style="flex: 10; background: transparent"></div></div>
+      </div>
+    </div>
+    <div class="tiles" style="--cols: 1"><div class="tile is-hl"><b>15 each</b><span>a team of three holds 45 in one week</span></div></div>
+  </div>
+  <footer class="prov" data-kind="Research">Hennink &amp; Kaiser (2022). Hennink et al. (2017). Griffin &amp; Hauser (1993). Interviews to scale, 0 to 30.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">AI rehearsal</span>
+    <h2 class="title">Personas are <span class="mark">sparring partners</span>, not customers</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 600" role="img" aria-label="Seven ChatGPT persona chats in a cascade, and the note: use AI to understand problems, not to find solutions"><rect x="0" y="0" width="560" height="250" rx="16" style="fill:var(--foreground)"/><rect x="0" y="0" width="560" height="250" rx="16" style="fill:none;stroke:var(--context-foreground);stroke-width:2"/><circle cx="24" cy="24" r="7" style="fill:#ff5f57"/><circle cx="46" cy="24" r="7" style="fill:#febc2e"/><circle cx="68" cy="24" r="7" style="fill:#28c840"/><text x="100" y="34" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Bathtub Junkie</text><rect x="62" y="52" width="560" height="250" rx="16" style="fill:var(--foreground)"/><rect x="62" y="52" width="560" height="250" rx="16" style="fill:none;stroke:var(--context-foreground);stroke-width:2"/><circle cx="86" cy="76" r="7" style="fill:#ff5f57"/><circle cx="108" cy="76" r="7" style="fill:#febc2e"/><circle cx="130" cy="76" r="7" style="fill:#28c840"/><text x="162" y="86" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Exhausted Parent</text><rect x="124" y="104" width="560" height="250" rx="16" style="fill:var(--foreground)"/><rect x="124" y="104" width="560" height="250" rx="16" style="fill:none;stroke:var(--context-foreground);stroke-width:2"/><circle cx="148" cy="128" r="7" style="fill:#ff5f57"/><circle cx="170" cy="128" r="7" style="fill:#febc2e"/><circle cx="192" cy="128" r="7" style="fill:#28c840"/><text x="224" y="138" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Experienced Coder</text><rect x="186" y="156" width="560" height="250" rx="16" style="fill:var(--foreground)"/><rect x="186" y="156" width="560" height="250" rx="16" style="fill:none;stroke:var(--context-foreground);stroke-width:2"/><circle cx="210" cy="180" r="7" style="fill:#ff5f57"/><circle cx="232" cy="180" r="7" style="fill:#febc2e"/><circle cx="254" cy="180" r="7" style="fill:#28c840"/><text x="286" y="190" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Shower Karaoke Goddess</text><rect x="248" y="208" width="560" height="250" rx="16" style="fill:var(--foreground)"/><rect x="248" y="208" width="560" height="250" rx="16" style="fill:none;stroke:var(--context-foreground);stroke-width:2"/><circle cx="272" cy="232" r="7" style="fill:#ff5f57"/><circle cx="294" cy="232" r="7" style="fill:#febc2e"/><circle cx="316" cy="232" r="7" style="fill:#28c840"/><text x="348" y="242" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Fidget Fan</text><rect x="310" y="260" width="560" height="250" rx="16" style="fill:var(--foreground)"/><rect x="310" y="260" width="560" height="250" rx="16" style="fill:none;stroke:var(--context-foreground);stroke-width:2"/><circle cx="334" cy="284" r="7" style="fill:#ff5f57"/><circle cx="356" cy="284" r="7" style="fill:#febc2e"/><circle cx="378" cy="284" r="7" style="fill:#28c840"/><text x="410" y="294" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Always Hustling Hustler</text><rect x="372" y="312" width="560" height="250" rx="16" style="fill:var(--foreground)"/><rect x="372" y="312" width="560" height="250" rx="16" style="fill:none;stroke:var(--context-foreground);stroke-width:2"/><circle cx="396" cy="336" r="7" style="fill:#ff5f57"/><circle cx="418" cy="336" r="7" style="fill:#febc2e"/><circle cx="440" cy="336" r="7" style="fill:#28c840"/><text x="472" y="346" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Mindful Student</text><rect x="412" y="392" width="420" height="20" rx="10" style="fill:var(--context-foreground)"/><rect x="412" y="436" width="360" height="20" rx="10" style="fill:var(--context-foreground)"/><rect x="412" y="480" width="300" height="20" rx="10" style="fill:var(--context-foreground)"/><text x="1010" y="140" text-anchor="start" style="fill:var(--diagram-magenta);font-size:64px;font-weight:800;font-family:Inter,sans-serif">Note</text><text x="1010" y="230" text-anchor="start" style="fill:var(--foreground);font-size:52px;font-weight:800;font-family:Inter,sans-serif">Use AI to understand</text><rect x="1006" y="262" width="252" height="62" rx="6" style="fill:var(--sticky)"/><text x="1010" y="310" text-anchor="start" style="fill:var(--foreground);font-size:52px;font-weight:800;font-family:Inter,sans-serif">problems,</text><text x="1010" y="390" text-anchor="start" style="fill:var(--foreground);font-size:52px;font-weight:800;font-family:Inter,sans-serif">not to find solutions</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Persona cascade and note from legacy slides 147 and 152.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-variant="split" data-field="magenta" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">AI rehearsal · why they never count</span>
+    <h2 class="title">Personas match the average, <span style="color:var(--marker)">miss</span> the rest</h2>
+  </div>
+  <div class="content">
+    <div class="scale">
+      <div class="scale-row">
+        <span class="scale-label"><b>48%</b> of persona estimates differed from real people</span>
+        <div class="bar"><div class="seg" style="flex: 15.4" data-anim="grow"></div><div class="seg" style="flex: 32.6; --delay: 0.1s" data-anim="grow">48%</div><div class="seg" style="flex: 52; background: transparent"></div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>About 1 in 6</b> of all estimates flipped the sign</span>
+        <div class="bar"><div class="seg is-hl" style="flex: 15.4; --delay: 0.2s" data-anim="grow">15%</div><div class="seg" style="flex: 84.6; background: transparent"></div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>Humans</b> · willingness to pay for fluoride</span>
+        <div class="bar"><div class="seg" style="flex: 1; --delay: 0.3s" data-anim="grow">1×</div><div class="seg" style="flex: 2; background: transparent"></div></div>
+      </div>
+      <div class="scale-row">
+        <span class="scale-label"><b>GPT</b> · the same fluoride premium</span>
+        <div class="bar"><div class="seg is-hl" style="flex: 3; --delay: 0.4s" data-anim="grow">about 3×</div></div>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Research">Bisbee et al. (2024), <i>Political Analysis</i>. Brand, Israeli &amp; Ngwe (2026), HBS Working Paper 23-062. Rows 1 and 2 to scale 0 to 100% (15% is 32% of the 48%), rows 3 and 4 to scale 0 to 3×.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">How-to · rehearse with AI · step 1 of 4</span>
+    <h2 class="title">Open a fresh chat</h2>
+  </div>
+  <div class="content media-split flip" style="--media-w: 1000px">
+    <figure class="photo" style="--photo-h: 500px">
+      <img src="media/legacy-157-fresh-chat-crop.png" alt="Empty ChatGPT chat with the temporary chat button, French interface" style="width: 100%">
+    </figure>
+    <div class="demo-side"><ol class="demo-steps"><li class="now"><span class="badge">1</span>Open a fresh chat</li><li class=""><span class="badge">2</span>Paste the critical-customer prompt</li><li class=""><span class="badge">3</span>Let it draft Mom Test questions</li><li class=""><span class="badge">4</span>Rehearse until nobody says yes</li></ol><div class="sticky">Temporary chat: no memory.</div></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">ChatGPT on Bastian's screen, 2024 and 2025, legacy slides 149 to 157, cropped.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">How-to · rehearse with AI · step 2 of 4</span>
+    <h2 class="title">Paste the critical-customer prompt</h2>
+  </div>
+  <div class="content media-split flip" style="--media-w: 1000px">
+    <figure class="photo" style="--photo-h: 540px">
+      <img src="media/legacy-149-prompt-crop.png" alt="ChatGPT with the prompt: you are a potential critical customer of the service I build, answer critically and challenge my assumptions" style="width: 100%">
+    </figure>
+    <div class="demo-side"><ol class="demo-steps"><li class=""><span class="badge">1</span>Open a fresh chat</li><li class="now"><span class="badge">2</span>Paste the critical-customer prompt</li><li class=""><span class="badge">3</span>Let it draft Mom Test questions</li><li class=""><span class="badge">4</span>Rehearse until nobody says yes</li></ol><div class="sticky">Role, task, iterate. Be specific.</div></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">ChatGPT on Bastian's screen, 2024 and 2025, legacy slides 149 to 157, cropped.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">How-to · rehearse with AI · step 3 of 4</span>
+    <h2 class="title">Let it draft Mom Test questions</h2>
+  </div>
+  <div class="content media-split flip" style="--media-w: 1000px">
+    <figure class="photo" style="--photo-h: 540px">
+      <img src="media/legacy-153-momtest-crop.png" alt="ChatGPT listing the three Mom Test rules and drafting interview questions" style="width: 100%">
+    </figure>
+    <div class="demo-side"><ol class="demo-steps"><li class=""><span class="badge">1</span>Open a fresh chat</li><li class=""><span class="badge">2</span>Paste the critical-customer prompt</li><li class="now"><span class="badge">3</span>Let it draft Mom Test questions</li><li class=""><span class="badge">4</span>Rehearse until nobody says yes</li></ol></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">ChatGPT on Bastian's screen, 2024 and 2025, legacy slides 149 to 157, cropped.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-anchor="evidence-pyramid" data-anchor-part="interviews" data-chapter="Problem conversations">
+  <div class="head">
+    <span class="label">How-to · rehearse with AI · step 4 of 4 · in pairs</span>
+    <h2 class="title">Rehearse until nobody says <span class="mark">yes</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 344" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="96" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="48.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="136" y="62" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Take the three it drafted, or three of yours</text><rect x="0" y="124" width="96" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="48.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="136" y="186" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Rewrite each about one past event</text><rect x="0" y="248" width="96" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="48.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="136" y="310" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">Ask a persona. A yes means leading.</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="4"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Three open questions</p></div></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Rehearsal rule from legacy slides 171 and 177. </footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="magenta" data-chapter="Hair-on-fire segments">
+  <div class="head">
+    <span class="label">Chapter 6 of 9</span>
+    <h2 class="title">Hair-on-fire segments</h2>
+    <p class="summary">Pick the segment that hurts most, often, and can pay, based on what you heard.</p>
+  </div>
+</section>
+
+<section class="slide" data-archetype="quote" data-variant="field" data-chapter="Hair-on-fire segments">
+  <div class="quote-layout">
+    <figure>
+      <blockquote><p>If you handed them a brick they would <span class="hl">still grab it</span> and try to hit themselves on the head to put out the fire.</p></blockquote>
+      <figcaption><b>Michael Seibel</b>, Y Combinator, crediting Sequoia</figcaption>
+    </figure>
+  </div>
+  <footer class="prov" data-kind="YC">Seibel, M. (2016, June 27). The real product market fit. Y Combinator blog.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="problem-solution" data-anchor-part="customers" data-chapter="Hair-on-fire segments">
+  <div class="head">
+    <span class="label">Framework · three circles</span>
+    <h2 class="title">It hurts, it happens often, they <span class="mark">can pay</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 600" role="img" aria-label="Three circles: severity, frequency, spending power, hair on fire in the middle"><circle cx="690" cy="200" r="190" style="fill:var(--primary);fill-opacity:0.88"/><circle cx="950" cy="200" r="190" style="fill:var(--diagram-purple);fill-opacity:0.85"/><circle cx="820" cy="400" r="190" style="fill:var(--diagram-magenta);fill-opacity:0.85"/><text x="630" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Severity</text><text x="1000" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Frequency</text><text x="820" y="520" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Spending power</text><rect x="704" y="262" width="232" height="52" rx="8" style="fill:var(--sticky)"/><text x="820" y="299" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Hair on fire</text><text x="460" y="150" text-anchor="end" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">Money earned</text><text x="460" y="192" text-anchor="end" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">or saved?</text><text x="1180" y="150" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">How often?</text><text x="1040" y="520" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">Can this person</text><text x="1040" y="562" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:500;font-family:Inter,sans-serif">pay?</text></svg></div>
+  <footer class="prov" data-kind="YC">Migicovsky, E. (2018). Hardware AMA, YC blog. (2019). How to talk to users. Startup School.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="problem-solution" data-anchor-part="customers" data-chapter="Hair-on-fire segments">
+  <div class="head">
+    <span class="label">Example · implants in US hospitals</span>
+    <h2 class="title">The chooser is not the <span class="mark">payer</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 260" role="img" aria-label="The surgeon chooses the implant, the hospital pays"><defs><marker id="m39" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--foreground)"/></marker></defs><rect x="0" y="0" width="620" height="250" rx="20" style="fill:var(--diagram-navy)"/><text x="40" y="80" text-anchor="start" style="fill:var(--primary-foreground);font-size:56px;font-weight:800;font-family:Inter,sans-serif">Surgeon</text><text x="40" y="150" text-anchor="start" style="fill:var(--primary-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">chooses the implant</text><rect x="1020" y="0" width="620" height="250" rx="20" style="fill:var(--diagram-magenta)"/><text x="1060" y="80" text-anchor="start" style="fill:var(--primary-foreground);font-size:56px;font-weight:800;font-family:Inter,sans-serif">Hospital</text><text x="1060" y="150" text-anchor="start" style="fill:var(--primary-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">pays for it</text><path d="M640 125 L1000 125" style="stroke:var(--foreground);stroke-width:6;fill:none" marker-end="url(#m39)"/><text x="820" y="105" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">specifies</text></svg></div>
+  <footer class="prov" data-kind="Research">Lerner et al. (2008), <i>Health Affairs</i>. Burns et al. (2018), <i>Medical Devices</i>.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="problem-solution" data-anchor-part="customers" data-chapter="Hair-on-fire segments">
+  <div class="head">
+    <span class="label">How-to · AI desk research</span>
+    <h2 class="title">Let AI find <span class="mark">where</span> they talk</h2>
+  </div>
+  <div class="content media-split flip" style="--media-w: 900px">
+    <figure class="photo" style="--photo-h: 560px">
+      <div style="position:relative"><img src="media/legacy-156-perplexity-crop.png" alt="Perplexity search box and source picker, German interface, the Social source ringed" style="width: 100%;display:block"><span style="position:absolute;left:26%;top:71%;width:47%;height:11%;border:6px solid var(--marker);border-radius:14px"></span></div>
+    </figure>
+    <div class="demo-side"><ol class="demo-steps">
+      <li class="now"><span class="badge">1</span>Pick sources, Social for forums</li>
+      <li class="now"><span class="badge">2</span>Ask where they talk and pay</li>
+      <li class="now"><span class="badge">3</span>Open every source</li>
+      <li class="now"><span class="badge">4</span>Message a named person</li>
+    </ol></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Perplexity's source picker, German interface, Bastian's screen 2025, legacy slide 156, cropped. Ring added for this deck. Deep research in ChatGPT, Claude, Gemini and Perplexity, vendor pages as of October 2026.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="problem-solution" data-anchor-part="customers" data-chapter="Hair-on-fire segments">
+  <div class="head">
+    <span class="label">Your Pain Map</span>
+    <h2 class="title">Commit on what you <span class="mark">heard</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 480" role="img" aria-label="Pain Map: segments compared on frequency, intensity, current spend and budget holder, each cell heard or assumed"><rect x="330" y="0" width="310" height="96" rx="12" style="fill:var(--diagram-navy)"/><text x="485" y="44" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Frequency</text><text x="485" y="82" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:500;font-family:Inter,sans-serif">How often?</text><rect x="660" y="0" width="310" height="96" rx="12" style="fill:var(--diagram-navy)"/><text x="815" y="44" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Intensity</text><text x="815" y="82" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:500;font-family:Inter,sans-serif">Cost of one time?</text><rect x="990" y="0" width="310" height="96" rx="12" style="fill:var(--diagram-navy)"/><text x="1145" y="44" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Current spend</text><text x="1145" y="82" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:500;font-family:Inter,sans-serif">Paid today?</text><rect x="1320" y="0" width="310" height="96" rx="12" style="fill:var(--diagram-magenta)"/><text x="1475" y="44" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Budget holder</text><text x="1475" y="82" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:500;font-family:Inter,sans-serif">Who signs?</text><rect x="0" y="120" width="310" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="155" y="180" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Segment A</text><rect x="330" y="120" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:4"/><circle cx="366" cy="168" r="14" style="fill:var(--primary);stroke:var(--primary);stroke-width:4"/><text x="394" y="164" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">monthly</text><text x="394" y="198" text-anchor="start" style="fill:var(--primary);font-size:24px;font-weight:600;font-family:Inter,sans-serif">heard</text><rect x="660" y="120" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--border);stroke-width:2"/><circle cx="696" cy="168" r="14" style="fill:none;stroke:var(--primary);stroke-width:4"/><text x="724" y="164" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">30 min</text><text x="724" y="198" text-anchor="start" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">assumed</text><rect x="990" y="120" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:4"/><circle cx="1026" cy="168" r="14" style="fill:var(--primary);stroke:var(--primary);stroke-width:4"/><text x="1054" y="164" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">nothing</text><text x="1054" y="198" text-anchor="start" style="fill:var(--primary);font-size:24px;font-weight:600;font-family:Inter,sans-serif">heard</text><rect x="1320" y="120" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--border);stroke-width:2"/><circle cx="1356" cy="168" r="14" style="fill:none;stroke:var(--primary);stroke-width:4"/><text x="1384" y="164" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">unclear</text><text x="1384" y="198" text-anchor="start" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">assumed</text><rect x="0" y="232" width="310" height="96" rx="12" style="fill:var(--sticky);stroke:var(--border);stroke-width:2"/><text x="155" y="292" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Segment B</text><rect x="330" y="232" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:4"/><circle cx="366" cy="280" r="14" style="fill:var(--primary);stroke:var(--primary);stroke-width:4"/><text x="394" y="276" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">daily</text><text x="394" y="310" text-anchor="start" style="fill:var(--primary);font-size:24px;font-weight:600;font-family:Inter,sans-serif">heard</text><rect x="660" y="232" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:4"/><circle cx="696" cy="280" r="14" style="fill:var(--primary);stroke:var(--primary);stroke-width:4"/><text x="724" y="276" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2 hours</text><text x="724" y="310" text-anchor="start" style="fill:var(--primary);font-size:24px;font-weight:600;font-family:Inter,sans-serif">heard</text><rect x="990" y="232" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:4"/><circle cx="1026" cy="280" r="14" style="fill:var(--primary);stroke:var(--primary);stroke-width:4"/><text x="1054" y="276" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">€200 a month</text><text x="1054" y="310" text-anchor="start" style="fill:var(--primary);font-size:24px;font-weight:600;font-family:Inter,sans-serif">heard</text><rect x="1320" y="232" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:4"/><circle cx="1356" cy="280" r="14" style="fill:var(--primary);stroke:var(--primary);stroke-width:4"/><text x="1384" y="276" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">team lead</text><text x="1384" y="310" text-anchor="start" style="fill:var(--primary);font-size:24px;font-weight:600;font-family:Inter,sans-serif">heard</text><rect x="0" y="344" width="310" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="155" y="404" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Segment C</text><rect x="330" y="344" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--border);stroke-width:2"/><circle cx="366" cy="392" r="14" style="fill:none;stroke:var(--primary);stroke-width:4"/><text x="394" y="388" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">weekly</text><text x="394" y="422" text-anchor="start" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">assumed</text><rect x="660" y="344" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--primary);stroke-width:4"/><circle cx="696" cy="392" r="14" style="fill:var(--primary);stroke:var(--primary);stroke-width:4"/><text x="724" y="388" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">1 hour</text><text x="724" y="422" text-anchor="start" style="fill:var(--primary);font-size:24px;font-weight:600;font-family:Inter,sans-serif">heard</text><rect x="990" y="344" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--border);stroke-width:2"/><circle cx="1026" cy="392" r="14" style="fill:none;stroke:var(--primary);stroke-width:4"/><text x="1054" y="388" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Excel only</text><text x="1054" y="422" text-anchor="start" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">assumed</text><rect x="1320" y="344" width="310" height="96" rx="12" style="fill:var(--background);stroke:var(--border);stroke-width:2"/><circle cx="1356" cy="392" r="14" style="fill:none;stroke:var(--primary);stroke-width:4"/><text x="1384" y="388" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">owner</text><text x="1384" y="422" text-anchor="start" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">assumed</text></svg></div>
+  <footer class="prov" data-kind="Illustrative">Pain Map columns as in the course workshop. Questions from legacy slides 120 and 126.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="problem-solution" data-anchor-part="customers" data-chapter="Hair-on-fire segments">
+  <div class="head">
+    <span class="label">How-to · from transcripts to your Pain Map</span>
+    <h2 class="title">Let a notebook pull out the <span class="mark">quotes</span></h2>
+  </div>
+  <div class="content media-split flip" style="--media-w: 940px">
+    <figure class="photo" style="--photo-h: 520px">
+      <img src="media/legacy-134-notebook-crop.png" alt="NotebookLM dialog to add sources, PDF, text, Markdown or audio, German interface" style="width: 100%">
+    </figure>
+    <div class="demo-side"><ol class="demo-steps">
+      <li class="now"><span class="badge">1</span>Remove names, add transcripts</li>
+      <li class="now"><span class="badge">2</span>Ask for every quote on cost</li>
+      <li class="now"><span class="badge">3</span>Check each quote in its source</li>
+      <li class="now"><span class="badge">4</span>Paste it into your Pain Map</li>
+    </ol></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">NotebookLM, add sources, German interface, Bastian's screen 2025, legacy slide 134, cropped. NotebookLM was renamed Gemini Notebook on 16 July 2026, the same product (Google blog).</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-anchor="problem-solution" data-anchor-part="customers" data-chapter="Hair-on-fire segments">
+  <div class="head">
+    <span class="label">Now you · as a team · 3 minutes</span>
+    <h2 class="title">Name your segment and <span class="mark">who signs</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 344" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="330" height="96" rx="48" style="fill:var(--primary)"/><text x="165.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Who</text><text x="370" y="62" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">has it worst?</text><rect x="0" y="124" width="330" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="165.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Who signs</text><text x="370" y="186" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">can say yes to paying?</text><rect x="0" y="248" width="330" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="165.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Heard</text><text x="370" y="310" text-anchor="start" style="fill:var(--foreground);font-size:42px;font-weight:600;font-family:Inter,sans-serif">or assumed?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="3"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">A candidate, not a commitment</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="magenta" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Chapter 7 of 9</span>
+    <h2 class="title">Wrap-up and check-out</h2>
+    <p class="summary">Look back at the cornerstones, reflect on the session and take this week's bar home.</p>
+  </div>
+</section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Recap · cornerstone</span>
+    <h2 class="title">Stay <span class="mark">left</span> until you hear the cost</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="problem-solution" data-active="problem"></div></div>
+  <footer class="prov" data-kind="Bastian">Problem space vs. solution space, legacy slide 119.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Recap · cornerstone</span>
+    <h2 class="title">Evidence gets stronger near <span class="mark">money</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup, legacy slide 128. Practitioner ladder, untested as a whole.</footer>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 1 of 3 · the content</span><h2 class="title">What could you apply?</h2></div>
+  <div class="content refl" style="--cols: 2"><div class="card"><span class="emo">🛠️</span><p>What could you <span class="hl">apply</span>?</p></div><div class="card"><span class="emo">🤕</span><p>What gave you a <span class="hl">hard time</span>?</p></div></div>
+</section>
+
+<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 2 of 3 · the process</span><h2 class="title">Man vs. machine</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🤖</span><p>Where did <span class="hl">AI</span> actually help you?</p></div><div class="card"><span class="emo">🧠</span><p>Where was <span class="hl">your genius</span> needed?</p></div><div class="card"><span class="emo">🕴️</span><p>What are your best <span class="hl">hacks</span> to share?</p></div></div>
+</section>
+
+<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 3 of 3 · the results</span><h2 class="title">Rose, thorn, bud</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🌹</span><p>What was the <span class="hl">breakthrough</span> today?</p></div><div class="card"><span class="emo">🌵</span><p>What was the <span class="hl">hardest part</span> today?</p></div><div class="card"><span class="emo">🌱</span><p>What is an <span class="hl">idea/feature</span> you didn't have time to finish, but want to explore later?</p></div></div>
+</section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Wrap-up and check-out">
+  <span class="label">Homework until next time</span>
+  <p class="mantra-lead">Hold 15 problem conversations per student in your hair-on-fire segment and come back with <span class="mark">5 named people per student</span> who agreed to a next step.</p>
+  <div class="mantra-line"><span class="mantra-num">15</span><span class="mantra-word">each</span></div>
+  <div class="sticky">
+    <p>The learning floor is 5 conversations and 2 next steps per student.</p>
+    <p class="why">Log your kill line in the Toolkit's Kill Criteria Log before your first call.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">M03 homework, the bar.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · how to do it</span>
+    <h2 class="title">Seven moves for your <span class="mark">15 conversations</span></h2>
+  </div>
+  <div class="content answers hw-moves">
+    <div class="card"><span class="badge">1</span><h3>Go where they complain.</h3></div>
+    <div class="card"><span class="badge">2</span><h3>Open on their day.</h3><p><span class="t-magenta"><b>Watch out.</b></span> Name the problem first, and it isn't unprompted.</p></div>
+    <div class="card"><span class="badge">3</span><h3>Never pitch.</h3></div>
+    <div class="card"><span class="badge">4</span><h3>Follow the money.</h3></div>
+    <div class="card"><span class="badge">5</span><h3>End with an ask, like a second call.</h3></div>
+    <div class="card"><span class="badge">6</span><h3>Record with the consent sentence in Legal Basics.</h3></div>
+    <div class="card is-hl"><span class="badge">7</span><h3>Get a blind second opinion.</h3><p><span class="t-magenta"><b>Watch out.</b></span> AI personas are rehearsal and never count.</p></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">M03 homework, how to do it.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · what good looks like</span>
+    <h2 class="title">Come back with your <span class="mark">first prospects</span></h2>
+  </div>
+  <div class="content">
+    <div class="gw">
+      <span></span><span class="gw-h weak">Weak</span><span class="gw-h good">Good</span>
+      <span class="gw-l">Segment</span><span class="gw-w">"Companies"</span><span class="gw-g">Solo HR managers, 50 to 200 staff</span>
+      <span class="gw-l">Unprompted</span><span class="gw-w">Only when named</span><span class="gw-g">4 of 10</span>
+      <span class="gw-l">Workaround</span><span class="gw-w">"Annoying"</span><span class="gw-g">5 hours a week, €300 a month</span>
+      <span class="gw-l">Next steps</span><span class="gw-w">20 LinkedIn likes</span><span class="gw-g">6 second calls booked</span>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">M03 homework, what you come back with. A made-up example.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 1 of 2</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Alströmer, G. (2022). <i>How to talk to users</i>. Y Combinator Startup Library.</li>
+      <li>Bisbee, J., et al. (2024). Synthetic replacements for human survey data? <i>Political Analysis</i>, 32(4), 401-416.</li>
+      <li>Brand, J., Israeli, A., &amp; Ngwe, D. (2026). <i>Using LLMs for market research</i>. HBS Working Paper 23-062.</li>
+      <li>Burns, L. R., et al. (2018). Physician preference items. <i>Medical Devices</i>, 39-49.</li>
+      <li>Card, A. J. (2017). The problem with '5 whys'. <i>BMJ Quality &amp; Safety</i>, 26(8), 671-677.</li>
+      <li>CB Insights. (2026, March 5). <i>The top 9 reasons startups fail</i>.</li>
+      <li>Christensen, C. M., et al. (2016). Know your customers' "jobs to be done". <i>Harvard Business Review</i>.</li>
+      <li>Duggan, M. J., et al. (2025). Clinician experiences with ambient scribe technology. <i>JAMA Network Open</i>.</li>
+      <li>Fitzpatrick, R. (2013). <i>The Mom Test</i>. CreateSpace.</li>
+      <li>Friedman, J. (2020). <i>How to get startup ideas</i>. Y Combinator Startup School.</li>
+      <li>Griffin, A., &amp; Hauser, J. R. (1993). The voice of the customer. <i>Marketing Science</i>, 12(1), 1-27.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 2 of 2</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Hennink, M., &amp; Kaiser, B. N. (2022). Sample sizes for saturation. <i>Social Science &amp; Medicine</i>, 292.</li>
+      <li>Hennink, M. M., et al. (2017). Code saturation versus meaning saturation. <i>Qualitative Health Research</i>, 27(4).</li>
+      <li>Lerner, J. C., et al. (2008). The consequence of secret prices. <i>Health Affairs</i>, 27(6), 1560-1565.</li>
+      <li>Migicovsky, E. (2018). <i>Hardware AMA</i>. YC blog. (2019). <i>How to talk to users</i>.</li>
+      <li>Murphy, J. J., et al. (2005). A meta-analysis of hypothetical bias. <i>Environmental &amp; Resource Economics</i>, 30(3).</li>
+      <li>Ohno, T. (1988). <i>Toyota production system</i>. Productivity Press.</li>
+      <li>Ries, E. (2011). <i>The lean startup</i>. Crown Business.</li>
+      <li>Seibel, M. (2016, June 27). <i>The real product market fit</i>. Y Combinator blog.</li>
+      <li>Sheeran, P., &amp; Webb, T. L. (2016). The intention-behavior gap. <i>Soc. Personal. Psychol. Compass</i>, 10(9).</li>
+      <li>Sinsky, C., et al. (2016). Allocation of physician time in ambulatory practice. <i>Annals of Internal Medicine</i>, 165(11).</li>
+      <li>Webb, T. L., &amp; Sheeran, P. (2006). Does changing behavioral intentions engender behavior change? <i>Psychological Bulletin</i>, 132(2).</li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide" data-archetype="closing" data-chapter="Wrap-up and check-out">
+  <p class="statement">See you next week!</p>
+</section>
+
+
+<section class="slide" data-archetype="divider" data-variant="purple" data-block data-chapter="Workshop: find the pain worth fixing">
+  <div class="head">
+    <span class="label">Module 03 · Workshop · 90 minutes</span>
+    <h2 class="title">Workshop: Find the pain worth fixing</h2>
+    <p class="summary">Build your Pain Map, hold a real conversation and leave with a week already moving.</p>
+    <p class="sub" style="color:var(--primary-foreground)">Is this a real problem, or just an interesting one?</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: find the pain worth fixing">
+  <div class="head">
+    <span class="label">Workshop · step 1 of 3</span>
+    <h2 class="title">Define the pain, not the solution</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 594px;gap:44px;align-items:center"><div class="wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">1</span>STEP 1 · 30 MIN</span>
+      <h3>DEFINE THE PAIN, NOT THE SOLUTION</h3>
+      <p class="goal">Agree on who hurts most, when, and at what cost</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>The segment: who suffers most?</span></li>
+        <li><i class="icon icon-arrow"></i><span>The trigger: when does it hurt?</span></li>
+        <li><i class="icon icon-arrow"></i><span>The fail state: what now, at what cost?</span></li>
+        <li><i class="icon icon-arrow"></i><span>Job sentence, obstacle, boundary conditions, Pain Map, each cell heard or assumed</span></li>
+        <li><i class="icon icon-arrow"></i><span>Kill line: result, date, consequence, logged before any call</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Job sentence, Pain Map, hair-on-fire candidate, kill line</span><span><b>Minutes</b> 30</span></p>
+    </div>
+  </div>
+  <figure class="photo flat" style="--photo-h: 520px"><img src="media/deck-problem-side.png" alt="The problem space, segment, obstacle, goal and boundary condition" style="width: 594px"></figure>
+  </div>
+  <div class="timer" data-timer="30"></div>
+  <footer class="prov" data-kind="Bastian">M03 workshop. Legacy slide 182.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: find the pain worth fixing">
+  <div class="head">
+    <span class="label">Workshop · step 2 of 3</span>
+    <h2 class="title">The 5 golden questions, live</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 740px;gap:44px;align-items:center"><div class="wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">2</span>STEP 2 · 35 MIN</span>
+      <h3>THE 5 GOLDEN QUESTIONS, LIVE</h3>
+      <p class="goal">Is the problem expensive enough to fix? Do NOT pitch.</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>10 min: open on their day, let them raise it first</span></li>
+        <li><i class="icon icon-arrow"></i><span>Last time? Hardest part? Why ×5? Solved how? What don't you love?</span></li>
+        <li><i class="icon icon-arrow"></i><span>End with a concrete ask</span></li>
+        <li><i class="icon icon-arrow"></i><span>25 min: one real conversation per team, logged</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Script with ask, one conversation logged</span><span><b>Minutes</b> 35</span></p>
+    </div>
+  </div>
+  <figure class="photo flat" style="--photo-h: 520px"><img src="media/deck-pyramid-interviews-zoom.png" alt="The base of the evidence pyramid, qualitative interviews lit" style="width: 740px"></figure>
+  </div>
+  <div class="timer" data-timer="35"></div>
+  <footer class="prov" data-kind="Bastian">M03 workshop. Legacy slide 183.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: find the pain worth fixing">
+  <div class="head">
+    <span class="label">Workshop · step 3 of 3</span>
+    <h2 class="title">Move fast, then commit</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 550px;gap:44px;align-items:center"><div class="wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">3</span>STEP 3 · 25 MIN</span>
+      <h3>MOVE FAST, THEN COMMIT</h3>
+      <p class="goal">Leave with a week that is already moving</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Deep research and social listening find where they talk</span></li>
+        <li><i class="icon icon-arrow"></i><span>Named people, not personas</span></li>
+        <li><i class="icon icon-arrow"></i><span>First messages sent before you leave</span></li>
+        <li><i class="icon icon-arrow"></i><span>Each student states floor or full bar</span></li>
+        <li><i class="icon icon-arrow"></i><span>Midweek day and pace</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Target list, outreach sent, targets, midweek pace</span><span><b>Minutes</b> 25</span></p>
+    </div>
+  </div>
+  <svg viewBox="490 0 660 600" style="display:block;width:550px;height:auto" role="img" aria-label="Three circles, severity, frequency and spending power, hair on fire in the middle"><circle cx="690" cy="200" r="190" style="fill:var(--primary);fill-opacity:0.88"/><circle cx="950" cy="200" r="190" style="fill:var(--diagram-purple);fill-opacity:0.85"/><circle cx="820" cy="400" r="190" style="fill:var(--diagram-magenta);fill-opacity:0.85"/><text x="630" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Severity</text><text x="1000" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Frequency</text><text x="820" y="520" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Spending power</text><rect x="704" y="262" width="232" height="52" rx="8" style="fill:var(--sticky)"/><text x="820" y="299" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Hair on fire</text></svg>
+  </div>
+  <div class="timer" data-timer="25"></div>
+  <footer class="prov" data-kind="Bastian">M03 workshop. Legacy slide 184.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Workshop: find the pain worth fixing">
+  <span class="label">Arrived empty-handed?</span>
+  <p class="mantra-lead">No interviews last week? Hold two real conversations in Step 2.</p>
+  <div class="mantra-line"><span class="mantra-num">2</span><span class="mantra-word">real conversations</span></div>
+  <footer class="prov" data-kind="Bastian">M03 workshop.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Workshop: find the pain worth fixing">
+  <span class="label">Homework until next time</span>
+  <p class="mantra-lead">Hold 15 problem conversations per student in your hair-on-fire segment and come back with <span class="mark">5 named people per student</span> who agreed to a next step.</p>
+  <div class="mantra-line"><span class="mantra-num">15</span><span class="mantra-word">each</span></div>
+  <div class="sticky">
+    <p>The learning floor is 5 conversations and 2 next steps per student.</p>
+    <p class="why">Log your kill line in the Toolkit's Kill Criteria Log before your first call.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">M03 homework, the bar.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Workshop: find the pain worth fixing">
+  <p class="statement">See you next week!</p>
+  </section>
+
+
+<section class="slide" data-archetype="divider" data-variant="navy" data-block data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Module 03 · Case discussion · about 90 minutes</span>
+    <h2 class="title">Case discussion: Konux</h2>
+    <p class="summary">Stand in Konux's shoes in October 2016 and choose railway switches or several industries.</p>
+    <p class="sub" style="color:var(--primary-foreground)">Is this a real problem, or just an interesting one?</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · Konux, Munich, 31 October 2016 · vote 1 of 2</span>
+    <h2 class="title">Railway switches or <span class="mark">several industries</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;gap:44px;align-content:center">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+    <div class="field field-navy" style="border-radius:28px;padding:56px 52px;color:var(--primary-foreground);display:grid;gap:20px">
+      <span class="label" style="color:var(--primary-foreground)">Option A</span>
+      <p style="font-size:52px;font-weight:800;line-height:1.15">Build Konux around <span style="color:var(--marker)">railway switches</span></p>
+    </div>
+    <div class="field field-purple" style="border-radius:28px;padding:56px 52px;color:var(--primary-foreground);display:grid;gap:20px">
+      <span class="label" style="color:var(--primary-foreground)">Option B</span>
+      <p style="font-size:52px;font-weight:800;line-height:1.15">Keep developing Konux for <span style="color:var(--marker)">several industries</span></p>
+    </div>
+  </div>
+  <svg viewBox="0 0 1640 190" style="display:block;width:100%;height:auto" role="img" aria-label="Konux from March 2014 to 31 October 2016"><path d="M0 80 L1640 80" style="stroke:var(--border);stroke-width:6"/><circle cx="130" cy="80" r="11" style="fill:var(--primary)"/><circle cx="283" cy="80" r="11" style="fill:var(--primary)"/><text x="283" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Founder prize</text><circle cx="436" cy="80" r="11" style="fill:var(--primary)"/><circle cx="589" cy="80" r="11" style="fill:var(--primary)"/><text x="589" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">DB accelerator</text><circle cx="742" cy="80" r="11" style="fill:var(--primary)"/><circle cx="895" cy="80" r="11" style="fill:var(--primary)"/><text x="895" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Series A</text><circle cx="1048" cy="80" r="11" style="fill:var(--primary)"/><circle cx="1201" cy="80" r="11" style="fill:var(--primary)"/><text x="1201" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">DB pilot</text><circle cx="1354" cy="80" r="11" style="fill:var(--primary)"/><circle cx="1507" cy="80" r="16" style="fill:var(--diagram-magenta)"/><text x="1530" y="128" text-anchor="end" style="fill:var(--diagram-magenta);font-size:28px;font-weight:800;font-family:Inter,sans-serif">31 Oct 2016, you decide</text><text x="206.5" y="176" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2014</text><text x="512.5" y="176" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2015</text><text x="895.0" y="176" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2016</text></svg>
+  </div>
+  <footer class="prov" data-kind="Data">M03 case: Konux, from public sources.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · what happened until 31 October 2016</span>
+    <h2 class="title">Two and a half years, <span class="mark">one decision</span></h2>
+  </div>
+  <div class="content"><svg viewBox="0 110 1640 455" style="display:block;width:100%;height:auto" role="img" aria-label="Konux timeline, March 2014 to October 2016"><path d="M0 290 L1640 290" style="stroke:var(--border);stroke-width:6"/><circle cx="130" cy="290" r="12" style="fill:var(--primary)"/><path d="M130 250 L130 274" style="stroke:var(--border);stroke-width:3"/><text x="130" y="236" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">Mar 2014</text><text x="130" y="150" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Company</text><text x="130" y="186" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">in Munich</text><circle cx="283" cy="290" r="12" style="fill:var(--primary)"/><path d="M283 306 L283 330" style="stroke:var(--border);stroke-width:3"/><text x="283" y="360" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">Jun 2014</text><text x="283" y="410" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Founder prize,</text><text x="283" y="446" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">USD 100,000</text><circle cx="436" cy="290" r="12" style="fill:var(--primary)"/><path d="M436 250 L436 274" style="stroke:var(--border);stroke-width:3"/><text x="436" y="236" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">Spring 2015</text><text x="436" y="150" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">First round, USD</text><text x="436" y="186" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">1.6 to 2 million</text><circle cx="589" cy="290" r="12" style="fill:var(--primary)"/><path d="M589 306 L589 330" style="stroke:var(--border);stroke-width:3"/><text x="589" y="360" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">Jun 2015</text><text x="589" y="410" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Joins DB's</text><text x="589" y="446" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">accelerator</text><circle cx="742" cy="290" r="12" style="fill:var(--primary)"/><path d="M742 250 L742 274" style="stroke:var(--border);stroke-width:3"/><text x="742" y="236" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">Mar 2016</text><text x="742" y="150" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Homepage:</text><text x="742" y="186" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">industry, no rail</text><circle cx="895" cy="290" r="12" style="fill:var(--primary)"/><path d="M895 306 L895 330" style="stroke:var(--border);stroke-width:3"/><text x="895" y="360" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">14 Apr 2016</text><text x="895" y="410" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Series A,</text><text x="895" y="446" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">USD 7.5 million</text><circle cx="1048" cy="290" r="12" style="fill:var(--primary)"/><path d="M1048 250 L1048 274" style="stroke:var(--border);stroke-width:3"/><text x="1048" y="236" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">Apr 2016</text><text x="1048" y="150" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">25 employees, some</text><text x="1048" y="186" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">DB switches fitted</text><circle cx="1201" cy="290" r="12" style="fill:var(--primary)"/><path d="M1201 306 L1201 330" style="stroke:var(--border);stroke-width:3"/><text x="1201" y="360" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">13 Oct 2016</text><text x="1201" y="410" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">DB pilot, money</text><text x="1201" y="446" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">until early 2018</text><circle cx="1354" cy="290" r="12" style="fill:var(--primary)"/><path d="M1354 250 L1354 274" style="stroke:var(--border);stroke-width:3"/><text x="1354" y="236" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">19 Oct 2016</text><text x="1354" y="150" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">German</text><text x="1354" y="186" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Mobility Prize</text><circle cx="1507" cy="290" r="16" style="fill:var(--diagram-magenta)"/><path d="M1507 306 L1507 330" style="stroke:var(--border);stroke-width:3"/><text x="1507" y="360" text-anchor="middle" style="fill:var(--muted-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">30 Oct 2016</text><text x="1507" y="410" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Homepage: rail and</text><text x="1507" y="446" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:26px;font-weight:700;font-family:Inter,sans-serif">three industries</text><rect x="64" y="496" width="285" height="14" rx="7" style="fill:var(--context)"/><text x="206.5" y="550" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2014</text><rect x="370" y="496" width="285" height="14" rx="7" style="fill:var(--context)"/><text x="512.5" y="550" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2015</text><rect x="676" y="496" width="897" height="14" rx="7" style="fill:var(--diagram-navy)"/><text x="1124.5" y="550" text-anchor="middle" style="fill:var(--diagram-navy);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2016</text></svg></div>
+  <footer class="prov" data-kind="Data">Konux case, timeline. Spring 2015: USD 1.6 million (Gründerszene) or 2 million (Hasler, Kunze), as the case reports both.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · Exhibit 1</span>
+    <h2 class="title">DB Netz <span class="mark">switches</span>, 2010 to 2015</h2>
+  </div>
+  <div class="content">
+    <table class="table case-exhibit" style="margin-top:0"><thead><tr><th style="padding:0 12px 10px"></th><th class="num" style="padding:0 12px 10px">2010</th><th class="num" style="padding:0 12px 10px">2011</th><th class="num" style="padding:0 12px 10px">2012</th><th class="num" style="padding:0 12px 10px">2013</th><th class="num" style="padding:0 12px 10px">2014</th><th class="num" style="padding:0 12px 10px">2015</th></tr></thead><tbody><tr class="is-hl"><td style="padding:8px 12px;font-size:26px">Switches and crossings, DB Netz</td><td class="num" style="padding:8px 12px;font-size:26px">71,674</td><td class="num" style="padding:8px 12px;font-size:26px">70,477</td><td class="num" style="padding:8px 12px;font-size:26px">69,983</td><td class="num" style="padding:8px 12px;font-size:26px">69,400</td><td class="num" style="padding:8px 12px;font-size:26px">68,516</td><td class="num" style="padding:8px 12px;font-size:26px">67,071</td></tr><tr><td style="padding:8px 12px;font-size:26px">Average age of switches, years</td><td class="num" style="padding:8px 12px;font-size:26px">19.6</td><td class="num" style="padding:8px 12px;font-size:26px">19.6</td><td class="num" style="padding:8px 12px;font-size:26px">19.9</td><td class="num" style="padding:8px 12px;font-size:26px">20.0</td><td class="num" style="padding:8px 12px;font-size:26px">19.9</td><td class="num" style="padding:8px 12px;font-size:26px">19.5</td></tr><tr><td style="padding:8px 12px;font-size:26px">Fault reports, all asset groups (priorities 1 to 4)</td><td class="num" style="padding:8px 12px;font-size:26px">205,758</td><td class="num" style="padding:8px 12px;font-size:26px">195,514</td><td class="num" style="padding:8px 12px;font-size:26px">199,953</td><td class="num" style="padding:8px 12px;font-size:26px">194,914</td><td class="num" style="padding:8px 12px;font-size:26px">183,890</td><td class="num" style="padding:8px 12px;font-size:26px">187,338</td></tr><tr class="is-hl"><td style="padding:8px 12px;font-size:26px">of which at switches and crossings</td><td class="num" style="padding:8px 12px;font-size:26px">36,338</td><td class="num" style="padding:8px 12px;font-size:26px">33,025</td><td class="num" style="padding:8px 12px;font-size:26px">35,555</td><td class="num" style="padding:8px 12px;font-size:26px">35,854</td><td class="num" style="padding:8px 12px;font-size:26px">32,152</td><td class="num" style="padding:8px 12px;font-size:26px">33,108</td></tr><tr><td style="padding:8px 12px;font-size:26px">Fault duration, all asset groups, minutes (priorities 1 and 2)</td><td class="num" style="padding:8px 12px;font-size:26px">8,180,770</td><td class="num" style="padding:8px 12px;font-size:26px">7,903,838</td><td class="num" style="padding:8px 12px;font-size:26px">8,272,573</td><td class="num" style="padding:8px 12px;font-size:26px">9,366,058</td><td class="num" style="padding:8px 12px;font-size:26px">9,210,786</td><td class="num" style="padding:8px 12px;font-size:26px">9,704,178</td></tr><tr class="is-hl"><td style="padding:8px 12px;font-size:26px">of which at switches and crossings</td><td class="num" style="padding:8px 12px;font-size:26px">1,377,288</td><td class="num" style="padding:8px 12px;font-size:26px">1,309,155</td><td class="num" style="padding:8px 12px;font-size:26px">1,449,744</td><td class="num" style="padding:8px 12px;font-size:26px">1,630,366</td><td class="num" style="padding:8px 12px;font-size:26px">1,604,833</td><td class="num" style="padding:8px 12px;font-size:26px">1,725,246</td></tr><tr><td style="padding:8px 12px;font-size:26px">Train delay, all causes, million minutes</td><td class="num" style="padding:8px 12px;font-size:26px">159.12</td><td class="num" style="padding:8px 12px;font-size:26px">155.48</td><td class="num" style="padding:8px 12px;font-size:26px">146.52</td><td class="num" style="padding:8px 12px;font-size:26px">164.02</td><td class="num" style="padding:8px 12px;font-size:26px">162.43</td><td class="num" style="padding:8px 12px;font-size:26px">174.63</td></tr></tbody></table>
+  </div>
+  <footer class="prov" data-kind="Data">Compiled by the case writer from DB Netz AG, Infrastrukturzustands- und -entwicklungsbericht 2014 and 2015 (C37 to C41).</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · diagnosis · 30 minutes</span>
+    <h2 class="title">Describe DB's problem <span class="mark">without a sensor</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="problem-solution" data-active="problem"></div></div>
+  <footer class="prov" data-kind="Bastian">Problem space vs. solution space, legacy slide 119. Filled on the board from the case.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · segment table · 30 minutes</span>
+    <h2 class="title">Which cells did Konux <span class="mark">hear</span>?</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 560" role="img" aria-label="Segment table: rail, industrial pumps, machine tools, elevators against how often, how bad, spend today, who signs, heard or assumed"><rect x="340" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="462" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">How often</text><rect x="600" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="722" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">How bad</text><rect x="860" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="982" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Spend today</text><rect x="1120" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="1242" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Who signs</text><rect x="1380" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-magenta)"/><text x="1502" y="36" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">Heard or</text><text x="1502" y="68" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">assumed</text><rect x="0" y="104" width="320" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="24" y="163" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Rail (DB)</text><rect x="340" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="600" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="860" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1120" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1380" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--diagram-magenta);stroke-width:3;stroke-dasharray:10 8"/><rect x="0" y="218" width="320" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="24" y="277" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Industrial pumps</text><rect x="340" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="600" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="860" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1120" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1380" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--diagram-magenta);stroke-width:3;stroke-dasharray:10 8"/><rect x="0" y="332" width="320" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="24" y="391" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Machine tools</text><rect x="340" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="600" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="860" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1120" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1380" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--diagram-magenta);stroke-width:3;stroke-dasharray:10 8"/><rect x="0" y="446" width="320" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="24" y="505" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Elevators</text><rect x="340" y="446" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="600" y="446" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="860" y="446" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1120" y="446" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1380" y="446" width="244" height="96" rx="12" style="fill:none;stroke:var(--diagram-magenta);stroke-width:3;stroke-dasharray:10 8"/></svg></div>
+  <footer class="prov" data-kind="Data">M03 case: Konux, from public sources.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · vote 2 of 2</span>
+    <h2 class="title">Same question. Who <span class="mark">moved</span>, and why?</h2>
+  </div>
+  <div class="content" style="display:grid;gap:44px;align-content:center">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px">
+    <div class="field field-navy" style="border-radius:28px;padding:56px 52px;color:var(--primary-foreground);display:grid;gap:20px">
+      <span class="label" style="color:var(--primary-foreground)">Option A</span>
+      <p style="font-size:52px;font-weight:800;line-height:1.15">Build Konux around <span style="color:var(--marker)">railway switches</span></p>
+    </div>
+    <div class="field field-purple" style="border-radius:28px;padding:56px 52px;color:var(--primary-foreground);display:grid;gap:20px">
+      <span class="label" style="color:var(--primary-foreground)">Option B</span>
+      <p style="font-size:52px;font-weight:800;line-height:1.15">Keep developing Konux for <span style="color:var(--marker)">several industries</span></p>
+    </div>
+  </div>
+  <svg viewBox="0 0 1640 190" style="display:block;width:100%;height:auto" role="img" aria-label="Konux from March 2014 to 31 October 2016"><path d="M0 80 L1640 80" style="stroke:var(--border);stroke-width:6"/><circle cx="130" cy="80" r="11" style="fill:var(--primary)"/><circle cx="283" cy="80" r="11" style="fill:var(--primary)"/><text x="283" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Founder prize</text><circle cx="436" cy="80" r="11" style="fill:var(--primary)"/><circle cx="589" cy="80" r="11" style="fill:var(--primary)"/><text x="589" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">DB accelerator</text><circle cx="742" cy="80" r="11" style="fill:var(--primary)"/><circle cx="895" cy="80" r="11" style="fill:var(--primary)"/><text x="895" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Series A</text><circle cx="1048" cy="80" r="11" style="fill:var(--primary)"/><circle cx="1201" cy="80" r="11" style="fill:var(--primary)"/><text x="1201" y="44" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">DB pilot</text><circle cx="1354" cy="80" r="11" style="fill:var(--primary)"/><circle cx="1507" cy="80" r="16" style="fill:var(--diagram-magenta)"/><text x="1530" y="128" text-anchor="end" style="fill:var(--diagram-magenta);font-size:28px;font-weight:800;font-family:Inter,sans-serif">31 Oct 2016, you decide</text><text x="206.5" y="176" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2014</text><text x="512.5" y="176" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2015</text><text x="895.0" y="176" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2016</text></svg>
+  </div>
+  <footer class="prov" data-kind="Data">M03 case: Konux, from public sources.</footer>
+  </section>
+
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · bridge</span>
+    <h2 class="title">The empty cells are this week's <span class="mark">questions</span></h2>
+    <p class="sub">Before your next customer conversation, write your own segment table and mark every cell heard or assumed.</p>
+  </div>
+  <div class="content"><svg viewBox="0 0 1640 444" style="display:block;width:100%;height:auto" role="img" aria-label="Your segment table, every cell to be marked heard or assumed"><rect x="340" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="462" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">How often</text><rect x="600" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="722" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">How bad</text><rect x="860" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="982" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Spend today</text><rect x="1120" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-navy)"/><text x="1242" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Who signs</text><rect x="1380" y="0" width="244" height="84" rx="12" style="fill:var(--diagram-magenta)"/><text x="1502" y="36" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">Heard or</text><text x="1502" y="68" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">assumed</text><rect x="0" y="104" width="320" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="24" y="163" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Your segment 1</text><rect x="340" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="600" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="860" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1120" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1380" y="104" width="244" height="96" rx="12" style="fill:none;stroke:var(--diagram-magenta);stroke-width:3;stroke-dasharray:10 8"/><rect x="0" y="218" width="320" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="24" y="277" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Your segment 2</text><rect x="340" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="600" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="860" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1120" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1380" y="218" width="244" height="96" rx="12" style="fill:none;stroke:var(--diagram-magenta);stroke-width:3;stroke-dasharray:10 8"/><rect x="0" y="332" width="320" height="96" rx="12" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="24" y="391" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Your segment 3</text><rect x="340" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="600" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="860" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1120" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--context);stroke-width:3;stroke-dasharray:10 8"/><rect x="1380" y="332" width="244" height="96" rx="12" style="fill:none;stroke:var(--diagram-magenta);stroke-width:3;stroke-dasharray:10 8"/></svg></div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Case discussion">
+  <p class="statement">See you next week!</p>
+  </section>
+
+</main>
+<script src="../../design/anchors.js"></script>
+<script src="../../design/deck.js"></script>
+</body>
+</html>

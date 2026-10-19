@@ -1,0 +1,291 @@
+/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-19. Status: ready.
+   Owned by the course-design skill. Link after fonts.css and tokens.css and
+   before archetypes.css. Decks link this file and never copy it.
+   Sections: 1 stage, 2 slide frame, 3 generated chrome, 4 type roles,
+   5 components, 6 builds and motion, 7 print, 8 presenter view.
+   Rules: nothing on a slide under 24 px, text at least 4.5:1, blue marks the
+   subject, grey marks context, red only the one key number and OPEN. */
+
+@page { size: 1920px 1080px; margin: 0; }
+
+/* ---------- 1. Stage ---------- */
+html, body { margin: 0; }
+body { background: var(--muted); }
+.deck { display: block; }
+html.is-present, html.is-present body { height: 100%; overflow: hidden; background: hsl(220 16% 6%); }
+html.is-present .deck { position: fixed; inset: 0; }
+html.is-present .slide { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(var(--deck-scale, 1)); display: none; }
+html.is-present .slide.is-current { display: flex; }
+html.is-present .slide a { cursor: pointer; }
+
+/* ---------- 2. Slide frame ---------- */
+.slide {
+  --pad-x: 140px;
+  box-sizing: border-box;
+  width: 1920px; height: 1080px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  padding: 140px var(--pad-x) max(128px, var(--foot-room, 0px)); /* --foot-room: deck.js, for sources of 3+ lines */
+  background: var(--background); color: var(--foreground);
+  font-family: var(--font-sans); font-size: var(--text-body); line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+.slide *, .slide *::before, .slide *::after { box-sizing: border-box; }
+.slide :where(h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd) { margin: 0; }
+.slide aside.notes { display: none; }
+.slide .head { flex: none; }
+.slide .content { flex: 1 1 auto; min-height: 0; margin-top: 48px; position: relative; }
+.slide .takeaway {
+  flex: none; margin-top: 32px;
+  display: flex; gap: 28px; align-items: baseline;
+  padding: 24px 36px; border-left: 8px solid var(--primary);
+  border-radius: 0 var(--radius) var(--radius) 0; background: var(--primary-tint);
+}
+.slide .takeaway .label { flex: none; }
+.slide .takeaway p { font-size: 36px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
+
+/* ---------- 3. Generated chrome (deck.js) ---------- */
+.chrome-top {
+  position: absolute; left: var(--pad-x); right: var(--pad-x); top: 44px;
+  display: flex; justify-content: space-between; align-items: center; gap: 32px;
+  font-size: 24px; line-height: 1.3; color: var(--muted-foreground);
+}
+.chrome-top .mod { font-family: var(--font-mono); letter-spacing: 0.04em; white-space: nowrap; }
+.tracker { display: flex; align-items: center; gap: 20px; white-space: nowrap; }
+.tracker .name b { color: var(--foreground); font-weight: 600; }
+.tracker .segs { display: flex; gap: 6px; }
+.tracker .segs i { display: block; width: 28px; height: 10px; border-radius: 5px; background: var(--border); }
+.tracker .segs i.done { background: var(--tracker-done); }
+.tracker .segs i.now { width: 52px; background: var(--primary); }
+
+.chrome-foot {
+  position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 36px;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 48px;
+  padding-top: 16px; border-top: 1px solid var(--border);
+  font-size: 24px; line-height: 1.3; color: var(--muted-foreground);
+}
+.chrome-foot .prov { max-width: 1120px; }
+.chrome-foot .prov i, .chrome-foot .prov cite { font-style: italic; }
+.ptag { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--foreground); margin-right: 12px; }
+.ptag.is-open { color: var(--key); }
+.chrome-foot .sig { white-space: nowrap; margin-left: auto; }
+.chrome-foot .sig b { color: var(--foreground); font-weight: 700; }
+.chrome-foot .pg { font-family: var(--font-mono); color: var(--foreground); margin-left: 20px; }
+
+/* ---------- 4. Type roles ---------- */
+.label { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); }
+.title { font-size: var(--text-title); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; max-width: 1500px; }
+.label + .title { margin-top: 16px; }
+.sub { font-size: var(--text-subhead); line-height: 1.3; color: var(--muted-foreground); margin-top: 14px; max-width: 1400px; }
+.lead { font-size: 44px; font-weight: 500; line-height: 1.25; }
+.text { font-size: var(--text-body); line-height: 1.4; }
+.small { font-size: var(--text-small); line-height: 1.35; color: var(--muted-foreground); }
+.hl { color: var(--primary); }
+.key { color: var(--key); }
+.muted { color: var(--muted-foreground); }
+.mono { font-family: var(--font-mono); }
+.slide strong, .slide b { font-weight: 700; }
+
+/* ---------- 5. Components ---------- */
+/* Icons drawn as masks, so no symbol font is needed. Size follows the text. */
+.icon { display: inline-block; width: 0.9em; height: 0.9em; vertical-align: -0.1em; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; }
+.icon-arrow { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12h17M13.5 5.5 20 12l-6.5 6.5'/%3E%3C/svg%3E"); }
+.icon-arrow-left { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12H4M10.5 5.5 4 12l6.5 6.5'/%3E%3C/svg%3E"); }
+.icon-arrow-down { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v17M5.5 13.5 12 20l6.5-6.5'/%3E%3C/svg%3E"); }
+.icon-link { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 18 6M8.5 6H18v9.5'/%3E%3C/svg%3E"); }
+.icon-check { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12.5 9.5 17.5 19.5 6.5'/%3E%3C/svg%3E"); }
+.icon-cross { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E"); }
+.icon-clock { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E"); }
+
+/* Colour fields and highlights, the legacy style (2026-10-19). White text on
+   every field (6.2 to 11.6:1). The yellow marker sits behind dark or blue
+   text only, never behind red. */
+.field { color: var(--primary-foreground); border-radius: calc(var(--radius) * 3); }
+.field-blue { background: var(--primary); }
+.field-navy { background: var(--diagram-navy); }
+.field-purple { background: var(--diagram-purple); }
+.field-magenta { background: var(--diagram-magenta); }
+.field .label, .field .sub, .field .muted, .field .small { color: var(--primary-foreground); }
+.mark { background: linear-gradient(transparent 48%, var(--marker) 48%, var(--marker) 94%, transparent 94%); padding: 0 0.1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.t-magenta { color: var(--diagram-magenta); }
+.t-purple { color: var(--diagram-purple); }
+.t-navy { color: var(--diagram-navy); }
+
+/* Tool link: logo (only to identify the tool), name, link mark. */
+.chip { display: inline-flex; align-items: center; gap: 12px; padding: 8px 22px; border: 2px solid var(--primary-line); border-radius: 999px; background: var(--background); color: var(--primary); font-size: 26px; font-weight: 600; line-height: 1.2; text-decoration: none; white-space: nowrap; }
+.chip:has(img) { padding-left: 10px; }
+.chip img { width: 40px; height: 40px; object-fit: contain; }
+.chip::after { content: ""; width: 0.8em; height: 0.8em; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 18 6M8.5 6H18v9.5'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 18 6M8.5 6H18v9.5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.chips { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+
+/* The one playful element: a sticky note that carries proof or the punchline. */
+.sticky { width: 560px; padding: 40px 44px 44px; background: var(--sticky); color: var(--foreground); font-size: 32px; font-weight: 500; line-height: 1.3; transform: rotate(var(--tilt, -2deg)); box-shadow: 0 18px 40px -16px hsl(220 16% 10% / 0.35); }
+.sticky b { font-weight: 700; }
+
+.card { border: 1px solid var(--border); border-radius: calc(var(--radius) * 2); background: var(--card); padding: 36px 40px; }
+.card.is-hl { background: var(--primary-tint); border-color: var(--primary-line); }
+.card h3 { font-size: 40px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; }
+
+.badge { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius); background: var(--primary); color: var(--primary-foreground); font-family: var(--font-mono); font-size: 28px; font-weight: 600; flex: none; }
+.badge.is-context { background: var(--context); color: var(--context-foreground); }
+
+.tile { border: 1px solid var(--border); border-radius: calc(var(--radius) * 2); padding: 16px 28px; display: grid; gap: 6px; align-content: start; }
+.tile b { font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap; }
+.tile span { font-size: 26px; line-height: 1.25; color: var(--muted-foreground); }
+.tile.is-hl { background: var(--primary-tint); border-color: var(--primary-line); }
+.tile.is-hl b { color: var(--primary); }
+
+.prompt { background: var(--foreground); color: hsl(220 14% 96%); border-radius: var(--radius); padding: 24px 28px; font: 400 24px/1.45 var(--font-mono); }
+.prompt mark { background: var(--sticky); color: var(--foreground); padding: 0 6px; border-radius: 4px; }
+
+.table { width: 100%; border-collapse: collapse; font-size: 28px; line-height: 1.3; }
+.table th { font-family: var(--font-mono); font-size: 24px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-foreground); text-align: left; padding: 0 20px 14px; border-bottom: 2px solid var(--foreground); }
+.table td { padding: 18px 20px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.table tr.is-hl td { background: var(--primary-tint); }
+.table td.num, .table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.timer { display: inline-flex; align-items: center; gap: 16px; padding: 12px 34px; border: 3px solid var(--primary); border-radius: 999px; color: var(--primary); font: 600 64px/1 var(--font-mono); font-variant-numeric: tabular-nums; cursor: pointer; user-select: none; }
+.timer::before { content: ""; width: 0.6em; height: 0.6em; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E") center / contain no-repeat; }
+.timer.is-running { background: var(--primary); color: var(--primary-foreground); }
+.timer.is-done { border-color: var(--key); color: var(--key); background: var(--background); }
+
+.shot { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-card); background: var(--background); }
+.shot .bar { height: 36px; background: var(--muted); display: flex; gap: 10px; align-items: center; padding: 0 16px; }
+.shot .bar i { width: 13px; height: 13px; border-radius: 50%; background: hsl(220 13% 82%); }
+.shot img, .shot video { display: block; width: 100%; height: auto; }
+
+/* Anchor diagrams, drawn once in anchors.js. Active steps and the edges
+   leading into them are blue, the rest stays grey and readable. Text is set
+   in SVG units, so draw an anchor at least 1000 px wide (1100-unit viewBox)
+   to keep every label at 24 px or more. */
+.anchor svg { display: block; width: 100%; height: auto; overflow: visible; }
+.anchor .node rect { fill: var(--card); stroke: var(--border); stroke-width: 2; }
+.anchor .node .n { font: 700 48px var(--font-sans); fill: var(--muted-foreground); }
+.anchor .node .d { font: 400 30px var(--font-sans); fill: var(--muted-foreground); }
+.anchor .node .here { display: none; font: 600 27px var(--font-mono); letter-spacing: 0.12em; fill: var(--primary); text-transform: uppercase; }
+.anchor .node.is-active rect { fill: var(--primary); stroke: var(--primary); }
+.anchor .node.is-active .n, .anchor .node.is-active .d { fill: var(--primary-foreground); }
+.anchor .node.is-active .here { display: inline; }
+.anchor .edge { fill: none; stroke: hsl(220 13% 78%); stroke-width: 4; marker-end: url(#ae-head-grey); }
+.anchor .edge.is-active { stroke: var(--primary); stroke-width: 6; marker-end: url(#ae-head-blue); }
+.anchor .edge-label { font: 500 28px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; fill: var(--muted-foreground); }
+.anchor .edge-label.is-active { fill: var(--primary); }
+.open-marker { color: var(--key); font-size: 30px; font-weight: 600; }
+
+/* Full-colour anchors (cornerstone graphics): each part keeps its colour
+   until a part is active, then the other parts turn to the context grey. */
+.anchor .shape.c-blue { fill: var(--primary); }
+.anchor .shape.c-strong { fill: var(--primary-strong); }
+.anchor .shape.c-navy { fill: var(--diagram-navy); }
+.anchor .shape.c-magenta { fill: var(--diagram-magenta); }
+.anchor .shape.c-purple { fill: var(--diagram-purple); }
+.anchor .shape.c-yellow { fill: var(--marker); }
+.anchor .shape.c-paper { fill: var(--card); stroke: var(--border); stroke-width: 2; }
+.anchor .lbl { font: 700 30px var(--font-sans); fill: var(--primary-foreground); text-anchor: middle; dominant-baseline: central; }
+.anchor .lbl.dark, .anchor .note { fill: var(--foreground); }
+.anchor .note { font: 400 26px var(--font-sans); }
+.anchor .note.strong { font-weight: 700; }
+.anchor .cap { font: 600 24px var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; fill: var(--muted-foreground); }
+.anchor .line { fill: none; stroke: var(--foreground); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.anchor .line.dash { stroke-dasharray: 10 10; }
+.anchor .arrowfill { fill: var(--foreground); }
+.anchor .shape.c-blue-soft { fill: hsl(217 70% 80%); }
+.anchor .shape.c-magenta-soft { fill: hsl(312 62% 84%); }
+.anchor .shape.c-ink { fill: var(--foreground); }
+.anchor .venn .shape { mix-blend-mode: multiply; }
+.anchor .lbl.sm { font-size: 28px; }
+.anchor .lbl.xs { font-size: 24px; font-weight: 500; }
+.anchor .cap-t { font: 800 32px var(--font-sans); letter-spacing: -0.01em; }
+.anchor .phase-t { font: 800 30px var(--font-sans); dominant-baseline: central; }
+.anchor .t-blue { fill: var(--primary); }
+.anchor .t-navy { fill: var(--diagram-navy); }
+.anchor .t-magenta { fill: var(--diagram-magenta); }
+.anchor .t-purple { fill: var(--diagram-purple); }
+.anchor .brace { fill: none; stroke-width: 5; stroke-linejoin: round; }
+.anchor .k-blue { stroke: var(--primary); }
+.anchor .k-navy { stroke: var(--diagram-navy); }
+.anchor .k-magenta { stroke: var(--diagram-magenta); }
+.anchor .divider { stroke: var(--border); stroke-width: 3; }
+.anchor .pict circle, .anchor .pict path { stroke: none; }
+.anchor .p-blue circle, .anchor .p-blue path { fill: var(--primary); }
+.anchor .p-purple circle, .anchor .p-purple path { fill: var(--diagram-purple); }
+.anchor .stress { fill: none; stroke: var(--key); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.anchor .banana { fill: var(--marker); stroke: hsl(45 80% 38%); stroke-width: 3; }
+.anchor .bubble { fill: hsl(276 66% 34% / 0.07); stroke: var(--diagram-purple); stroke-width: 3; }
+.anchor .tile { fill: var(--primary-tint); stroke: var(--primary-line); stroke-width: 2; }
+.anchor .icon-l path, .anchor .icon-l rect { fill: none; stroke: var(--primary); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.anchor.has-active .part:not(.is-active) .shape { fill: var(--context); stroke: none; }
+.anchor.has-active .part:not(.is-active) .t-blue, .anchor.has-active .part:not(.is-active) .t-navy,
+.anchor.has-active .part:not(.is-active) .t-magenta, .anchor.has-active .part:not(.is-active) .t-purple { fill: var(--context-foreground); }
+.anchor.has-active .part:not(.is-active) .brace { stroke: var(--context); }
+.anchor.has-active .part:not(.is-active) .pict circle, .anchor.has-active .part:not(.is-active) .pict path,
+.anchor.has-active .part:not(.is-active) .banana { fill: var(--context); stroke: none; }
+.anchor.has-active .part:not(.is-active) .icon-l path, .anchor.has-active .part:not(.is-active) .icon-l rect,
+.anchor.has-active .part:not(.is-active) .stress, .anchor.has-active .part:not(.is-active) .bubble { stroke: var(--context); }
+.anchor.has-active .part:not(.is-active) .tile, .anchor.has-active .part:not(.is-active) .bubble { fill: var(--muted); }
+.anchor.has-active .part:not(.is-active) .line { stroke: var(--context); }
+.anchor.has-active .part:not(.is-active) .lbl, .anchor.has-active .part:not(.is-active) .note { fill: var(--context-foreground); }
+.anchor.has-active .part:not(.is-active) image { opacity: 0.35; }
+
+/* Corner miniature: a small copy without text, top right, with the slide's
+   part highlighted. It carries no text, so nothing on it falls under 24 px. */
+.anchor-mini { position: absolute; top: 96px; right: var(--pad-x); width: var(--mini-w, 260px); padding: 12px 14px; border-radius: 14px; background: var(--background); border: 1px solid var(--border); box-shadow: var(--shadow-card); z-index: 3; }
+.anchor-mini svg text, .anchor-mini svg .cap { display: none !important; } /* wins over the active "Today" label */
+.anchor-mini .open-marker { font-size: 24px; }
+/* In the miniature the inactive parts keep a visible grey, so the shape reads. */
+.anchor-mini.has-active .part:not(.is-active) .shape { fill: hsl(220 12% 80%); }
+.anchor-mini.has-active .part:not(.is-active) .brace, .anchor-mini.has-active .part:not(.is-active) .line { stroke: hsl(220 12% 75%); }
+.slide[data-anchor] > .head { padding-right: 300px; }
+
+/* ---------- 6. Builds and motion ---------- */
+/* Builds: [data-step="n"] appears on the n-th key press. Print shows all. */
+.slide [data-step] { transition: opacity 0.3s ease; }
+.slide [data-step]:not(.is-shown) { opacity: 0; visibility: hidden; }
+html.is-print .slide [data-step] { opacity: 1; visibility: visible; transition: none; }
+
+/* Motion only where it carries meaning: grow (proportions, to scale),
+   rise (items in reading order), draw (a path or process line). It plays
+   when the slide becomes active. The resting state is the final state. */
+@keyframes ae-grow { from { transform: scaleX(0); } to { transform: none; } }
+@keyframes ae-grow-y { from { transform: scaleY(0); } to { transform: none; } }
+@keyframes ae-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes ae-draw { from { stroke-dashoffset: var(--len, 1200); } to { stroke-dashoffset: 0; } }
+.slide.is-active [data-anim="grow"] { transform-origin: left center; animation: ae-grow 0.7s cubic-bezier(.2, .7, .2, 1) var(--delay, 0s) both; }
+.slide.is-active [data-anim="grow-y"] { transform-origin: center bottom; animation: ae-grow-y 0.7s cubic-bezier(.2, .7, .2, 1) var(--delay, 0s) both; }
+.slide.is-active [data-anim="rise"] { animation: ae-rise 0.5s ease-out var(--delay, 0s) both; }
+.slide [data-anim="draw"] { stroke-dasharray: var(--len, 1200); }
+.slide.is-active [data-anim="draw"] { animation: ae-draw 0.9s ease-in-out var(--delay, 0s) both; }
+html.is-print .slide *, html.is-print .slide *::before, html.is-print .slide *::after { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .slide *, .slide *::before, .slide *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- 7. Print ---------- */
+/* ?print, Cmd+P and scripts/deck.py: every slide on its own 1920x1080 page,
+   final state, no notes, held-back slides (data-hold) left out unless ?all.
+   An element with data-hold inside a slide is class only (AGENTS.md
+   "Class-only images"): presented, left out of the PDF here and out of the
+   student build by publish.py. */
+html.is-print body { background: none; }
+html.is-print .slide { display: flex; break-after: page; page-break-after: always; }
+html.is-print .slide:last-child { break-after: auto; page-break-after: auto; }
+html.is-print:not(.show-all) .slide[data-hold] { display: none; }
+html.is-print:not(.show-all) .slide [data-hold] { display: none !important; }
+@media print {
+  html, body { height: auto !important; overflow: visible !important; background: none !important; }
+  .deck { position: static !important; }
+  .slide { display: flex !important; position: relative !important; left: auto !important; top: auto !important; transform: none !important; break-after: page; }
+  .slide [data-step] { opacity: 1 !important; visibility: visible !important; }
+  html:not(.show-all) .slide[data-hold], html:not(.show-all) .slide [data-hold] { display: none !important; }
+  .presenter-bar, .presenter-notes { display: none !important; }
+}
+
+/* ---------- 8. Presenter view (?presenter, opened with P) ---------- */
+html.is-presenter, html.is-presenter body { height: 100%; overflow: hidden; background: hsl(220 16% 8%); color: hsl(220 14% 92%); font-family: var(--font-sans); }
+html.is-presenter .slide { position: fixed; left: 32px; top: 96px; transform-origin: 0 0; transform: scale(var(--p-cur, 0.5)); display: none; }
+html.is-presenter .slide.is-current { display: flex; }
+html.is-presenter .slide.is-next { display: flex; left: auto; right: 32px; transform-origin: 100% 0; transform: scale(var(--p-next, 0.25)); }
+.presenter-bar { position: fixed; left: 32px; right: 32px; top: 24px; display: flex; gap: 40px; align-items: baseline; font-size: 28px; }
+.presenter-bar b { font-family: var(--font-mono); font-weight: 600; }
+.presenter-notes { position: fixed; right: 32px; bottom: 32px; top: var(--p-notes-top, 400px); width: var(--p-notes-w, 600px); overflow: auto; font-size: 26px; line-height: 1.45; padding: 24px 28px; border-radius: 12px; background: hsl(220 16% 14%); }
+.presenter-notes:empty::before { content: "No notes on this slide."; color: hsl(220 10% 60%); }

@@ -65,7 +65,7 @@ Every module folder holds exactly what you need: `README` (start here) · lectur
 | 00 | [Kickoff — No-Bullshit Entrepreneurship](modules/00-kickoff/) | What kills startups — and what will this course demand from you? | Juicero | Startup Autopsy |
 | 01 | [Team & Foundations](modules/01-team-foundations/) | Why do the best teams beat the best ideas? | BioNTech | Problem Safari |
 | 02 | [Finding Ideas](modules/02-finding-ideas/) | Where do startup ideas actually come from? | Isar Aerospace | Idea Stress Test |
-| 03 | [The Problem Space](modules/03-problem-space/) | Is this a real problem — or just an interesting one? | Personio | Pain Mining |
+| 03 | [The Problem Space](modules/03-problem-space/) | Is this a real problem — or just an interesting one? | Konux | Pain Mining |
 | 04 | [Validating Problems](modules/04-validating-problems/) | What evidence would change your mind? | Dropbox | Landing Page Sprint |
 | 05 | [The Solution Space](modules/05-solution-space/) | Of all the ways to solve this, why this one? | DeepL | 10x or Die |
 | 06 | [Prototyping with AI](modules/06-prototyping/) | What's the fastest thing you can build to learn? | Bolt | Show & Build |

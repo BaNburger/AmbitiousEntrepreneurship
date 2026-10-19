@@ -1,0 +1,305 @@
+/* Ambitious Entrepreneurship slide archetypes. Updated: 2026-10-19. Status: ready.
+   Owned by the course-design skill. Link after deck.css. Every rule is scoped
+   to [data-archetype="name"] or is a shared exhibit component (drawn to
+   scale, quadrant, from and to). Templates live in design/archetypes/ and the
+   rules for each archetype in .claude/skills/course-design/references/. */
+
+/* ---------- Shared exhibits ---------- */
+/* Drawn to scale: bar widths are flex values proportional to the real data. */
+.scale { display: grid; gap: 22px; }
+.scale-row { display: grid; gap: 12px; }
+.scale-label { font-family: var(--font-mono); font-size: 26px; color: var(--muted-foreground); letter-spacing: 0.04em; }
+.scale-label b { color: var(--foreground); font-weight: 600; }
+.bar { display: flex; gap: 4px; height: 80px; }
+.bar .seg { min-width: 0; padding: 10px 16px; display: flex; flex-direction: column; justify-content: space-between; background: var(--context); color: var(--foreground); font-size: 26px; font-weight: 600; line-height: 1.1; }
+.bar .seg small { font-size: 24px; font-weight: 400; color: var(--context-foreground); }
+.bar .seg.is-hl { background: var(--primary); color: var(--primary-foreground); }
+.bar .seg.is-hl small { color: var(--primary-foreground); }
+.bar-note { align-self: center; margin-left: 28px; font-size: 30px; line-height: 1.25; }
+.bar-note b { color: var(--primary); font-size: 44px; font-weight: 800; letter-spacing: -0.02em; margin-right: 12px; }
+.tiles { display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: 28px; }
+
+/* From and to: a weak version in grey, the better version in blue. */
+.fromto { display: grid; grid-template-columns: 1fr 72px 1fr; align-items: center; gap: 24px; }
+.fromto > .icon { width: 72px; height: 72px; color: var(--primary); }
+.fromto .from, .fromto .to { border-radius: calc(var(--radius) * 2); padding: 32px 36px; display: grid; gap: 14px; }
+.fromto .from { background: var(--context); }
+.fromto .from .label { color: var(--context-foreground); }
+.fromto .to { background: var(--primary-tint); border: 2px solid var(--primary-line); }
+.fromto p { font-size: 36px; font-weight: 600; line-height: 1.3; }
+.fromto .from p { color: var(--context-foreground); font-weight: 500; }
+
+/* Quadrant (2x2): two axes crossing in the middle, a label at each end,
+   used by framework and build. Mark a cell with .quad-hl to highlight it. */
+.quad { height: 100%; display: grid; grid-template-columns: auto 1fr auto; grid-template-rows: auto 1fr auto; gap: 12px 28px; align-items: center; justify-items: center; }
+.quad .axis { font-family: var(--font-mono); font-size: 24px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--foreground); white-space: nowrap; }
+.quad .axis.top { grid-area: 1 / 2; }
+.quad .axis.bottom { grid-area: 3 / 2; }
+.quad .axis.left { grid-area: 2 / 1; }
+.quad .axis.right { grid-area: 2 / 3; }
+.quad-grid { grid-area: 2 / 2; align-self: stretch; justify-self: stretch; position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.quad-grid::before, .quad-grid::after { content: ""; position: absolute; background: var(--foreground); z-index: 1; }
+.quad-grid::before { left: 50%; top: 0; bottom: 0; width: 4px; margin-left: -2px; }
+.quad-grid::after { top: 50%; left: 0; right: 0; height: 4px; margin-top: -2px; }
+.quad .cell { position: relative; isolation: isolate; padding: 24px 36px; display: grid; align-content: center; gap: 10px; }
+.quad .cell h3 { font-size: 40px; font-weight: 700; line-height: 1.1; color: var(--context-foreground); }
+.quad .cell p { font-size: 28px; line-height: 1.3; }
+.quad .cell .quad-hl { position: absolute; inset: 10px; background: var(--primary-tint); border: 3px solid var(--primary); border-radius: var(--radius); z-index: -1; }
+.quad .cell:has(.quad-hl.is-shown) h3, html.is-print .quad .cell:has(.quad-hl) h3 { color: var(--primary); }
+
+/* ---------- 01 Title ---------- */
+[data-archetype="title"] { background-image: var(--pattern-dots); background-size: var(--pattern-dots-size); justify-content: center; padding-top: 96px; }
+[data-archetype="title"] .head { margin-top: -40px; }
+[data-archetype="title"] .title { font-size: 120px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; margin-top: 24px; }
+[data-archetype="title"] .sub { font-size: 48px; color: var(--foreground); font-weight: 500; margin-top: 28px; }
+[data-archetype="title"] .meta { margin-top: 28px; font-family: var(--font-mono); font-size: 26px; color: var(--muted-foreground); letter-spacing: 0.04em; }
+.course-path { position: absolute; left: var(--pad-x); right: var(--pad-x); bottom: 128px; display: grid; gap: 14px; }
+.course-path ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(13, 1fr); gap: 8px; }
+.course-path li { height: 64px; display: grid; place-items: center; border: 2px solid var(--border); border-radius: var(--radius); font-family: var(--font-mono); font-size: 26px; font-weight: 500; color: var(--muted-foreground); background: var(--background); }
+.course-path li.done { background: var(--tracker-done); border-color: var(--tracker-done); color: var(--foreground); }
+.course-path li.now { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); font-weight: 600; }
+
+/* ---------- 02 Divider ---------- */
+[data-archetype="divider"] { background: linear-gradient(135deg, var(--primary), var(--primary-strong)); color: var(--primary-foreground); justify-content: center; padding-top: 0; padding-right: 780px; }
+[data-archetype="divider"]::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle, hsl(0 0% 100% / 0.14) 1.5px, transparent 1.5px); background-size: 32px 32px; pointer-events: none; }
+[data-archetype="divider"] .label { color: var(--primary-foreground); }
+[data-archetype="divider"] .title { font-size: var(--text-display); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; margin-top: 28px; }
+/* One sentence under the chapter name says what the chapter is for. */
+[data-archetype="divider"] .summary { font-size: 44px; font-weight: 500; line-height: 1.25; margin: 40px 0 0; color: hsl(0 0% 100% / 0.92); text-wrap: pretty; }
+/* The agenda fills the frame and centres its list inside it. A box centred with
+   top: 50% and a transform crossed the page edge before the transform, and
+   Chrome's print layout split it there, so the last items fell below the footer. */
+[data-archetype="divider"] .agenda { position: absolute; right: var(--pad-x); top: 140px; bottom: max(128px, var(--foot-room, 0px)); width: 580px; list-style: none; margin: 0; padding: 0; display: grid; align-content: safe center; gap: 4px; z-index: 1; }
+[data-archetype="divider"] .agenda li { position: relative; padding: 10px 16px 10px 64px; font-size: 28px; line-height: 1.25; border-radius: var(--radius); }
+[data-archetype="divider"] .agenda li::before { content: attr(data-n); position: absolute; left: 16px; top: 13px; font: 500 24px var(--font-mono); }
+[data-archetype="divider"] .agenda li.done { text-decoration: line-through; text-decoration-thickness: 2px; }
+/* The whole row is the link to its chapter. */
+[data-archetype="divider"] .agenda a { color: inherit; text-decoration: none; }
+[data-archetype="divider"] .agenda a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.is-present [data-archetype="divider"] .agenda li:not(.now):has(a:hover),
+.is-presenter [data-archetype="divider"] .agenda li:not(.now):has(a:hover) { background: hsl(0 0% 100% / 0.08); }
+[data-archetype="divider"] .agenda li.now { font-size: 34px; font-weight: 700; background: hsl(0 0% 100% / 0.12); padding-top: 14px; padding-bottom: 14px; }
+[data-archetype="divider"] .agenda li.now::before { top: 19px; }
+/* More than nine chapters: a tighter step, still 24 px or more. */
+[data-archetype="divider"] .agenda.is-long li { padding-top: 7px; padding-bottom: 7px; font-size: 26px; }
+[data-archetype="divider"] .agenda.is-long li::before { top: 9px; }
+[data-archetype="divider"] .agenda.is-long li.now { font-size: 30px; padding-top: 10px; padding-bottom: 10px; }
+[data-archetype="divider"] .agenda.is-long li.now::before { top: 14px; }
+[data-archetype="divider"] .chrome-foot { border-top-color: hsl(0 0% 100% / 0.3); color: var(--primary-foreground); z-index: 1; }
+[data-archetype="divider"] .chrome-foot .sig b, [data-archetype="divider"] .chrome-foot .pg { color: var(--primary-foreground); }
+
+/* ---------- 03 Claim ---------- */
+[data-archetype="claim"] .tiles { margin-top: 28px; }
+
+/* ---------- 04 Mantra (and the assignment variant) ---------- */
+[data-archetype="mantra"] { background: var(--background); justify-content: center; padding-top: 96px; }
+.mantra-line { display: flex; align-items: center; gap: 48px; margin-top: 12px; }
+.mantra-lead { font-size: 48px; font-weight: 500; line-height: 1.2; margin-top: 20px; max-width: 1200px; }
+.mantra-num { font-size: var(--num-size, var(--text-mantra)); font-weight: 800; letter-spacing: -0.06em; line-height: 0.82; color: var(--key); }
+.mantra-word { font-size: 132px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; }
+[data-archetype="mantra"] .sticky { position: absolute; right: 150px; bottom: 150px; }
+.sticky .calc { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; font: 500 30px/1.25 var(--font-mono); }
+.sticky .calc .r { text-align: right; }
+.sticky .calc .sum { border-top: 3px solid var(--foreground); padding-top: 8px; font-weight: 600; }
+.sticky .why { margin-top: 18px; font-weight: 700; line-height: 1.25; }
+[data-variant="assignment"] .mantra-line { align-items: baseline; gap: 40px; }
+[data-variant="assignment"] .mantra-num { --num-size: 300px; }
+[data-variant="assignment"] .mantra-word { font-size: 112px; }
+
+/* ---------- 05 Anchor ---------- */
+.anchor-layout { flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: 560px 1fr; gap: 60px; align-items: center; }
+.anchor-layout .title { font-size: 72px; }
+.anchor-layout .sub .icon { color: var(--primary); }
+[data-archetype="anchor"][data-variant="wide"] .content { display: grid; align-content: center; }
+
+/* ---------- 06 Build ---------- */
+[data-archetype="build"] .content { margin-top: 28px; }
+
+/* ---------- 07 Demo ---------- */
+.demo { display: grid; grid-template-columns: 880px 1fr; gap: 56px; align-items: start; }
+.demo .shot { width: 880px; }
+.demo-side { display: grid; gap: 28px; align-content: start; }
+.demo-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.demo-steps li { display: flex; gap: 18px; align-items: center; font-size: 30px; color: var(--muted-foreground); }
+.demo-steps li .badge { width: 48px; height: 48px; font-size: 24px; }
+.demo-steps li.now { color: var(--foreground); font-weight: 700; }
+.demo-steps li:not(.now) .badge { background: var(--context); color: var(--context-foreground); }
+.demo-side .sticky { width: 100%; --tilt: -1.5deg; font-size: 30px; }
+
+/* ---------- 08 Tip ---------- */
+[data-archetype="tip"] .content { display: grid; align-content: center; gap: 44px; }
+[data-archetype="tip"] .why { font-size: 30px; line-height: 1.4; max-width: 1300px; padding-left: 28px; border-left: 4px solid var(--border); color: var(--muted-foreground); }
+
+/* ---------- 09 Tool ---------- */
+.tool { flex: 1 1 auto; display: grid; grid-template-columns: 1000px 1fr; gap: 64px; align-items: center; }
+.tool .title { font-size: 80px; }
+.tool .facts { list-style: none; padding: 0; margin: 36px 0 44px; display: grid; gap: 20px; font-size: 32px; line-height: 1.25; }
+.tool .facts li { display: grid; grid-template-columns: 52px 1fr; align-items: start; }
+.tool .facts .ic { font-size: 34px; line-height: 1.1; }
+
+/* ---------- 10 Framework ---------- */
+.funnel { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: stretch; gap: 0; }
+.funnel .stage { border: 2px solid var(--border); border-radius: calc(var(--radius) * 2); background: var(--card); padding: 34px 28px; display: grid; gap: 4px; align-content: center; }
+.funnel .stage b { font-size: 40px; font-weight: 700; line-height: 1.1; }
+.funnel .stage span { font-size: 24px; color: var(--muted-foreground); }
+.funnel .stage.is-hl { border-color: var(--primary); background: var(--primary-tint); }
+.funnel .stage.is-hl b { color: var(--primary); }
+.funnel .rate { display: grid; justify-items: center; align-content: center; gap: 4px; padding: 0 14px; color: var(--primary); }
+.funnel .rate .icon { width: 44px; height: 44px; }
+.funnel .rate span { font: 600 24px var(--font-mono); letter-spacing: 0.06em; }
+.thresholds { margin-top: 80px; display: grid; gap: 12px; }
+.thresholds .bar { height: 110px; }
+.thresholds .bar .seg { justify-content: center; }
+.thresholds .bar .seg.t1 { background: var(--tracker-done); }
+.thresholds .bar .seg.t2 { background: var(--primary); color: var(--primary-foreground); }
+.thresholds .bar .seg.t3 { background: var(--primary-strong); color: var(--primary-foreground); }
+.thresholds .ticks { position: relative; height: 34px; font: 500 24px var(--font-mono); color: var(--muted-foreground); }
+.thresholds .ticks span { position: absolute; top: 0; transform: translateX(-50%); }
+.thresholds .ticks span:first-child { transform: none; }
+
+/* ---------- 11 Table ---------- */
+[data-archetype="table"] .table { margin-top: 36px; }
+[data-archetype="table"] .table td:first-child { font-family: var(--font-mono); font-size: 26px; white-space: nowrap; color: var(--muted-foreground); }
+
+/* ---------- 12 Retrieval (question, then answer) ---------- */
+.recall { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: start; }
+.recall ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; counter-reset: recall; }
+.recall li { counter-increment: recall; display: flex; gap: 24px; align-items: center; height: 88px; border-bottom: 3px dashed var(--border); }
+.recall li::before { content: counter(recall); display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius); background: var(--context); color: var(--context-foreground); font: 600 28px var(--font-mono); }
+.answers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-content: start; }
+.answers .card { display: grid; grid-template-columns: auto 1fr; gap: 8px 24px; align-items: start; align-content: start; padding: 32px 36px; }
+.answers .card .badge { grid-row: span 2; }
+.answers .card h3 { font-size: 36px; }
+.answers .card p { font-size: 28px; color: var(--muted-foreground); }
+
+/* ---------- 13 Quote, book card, meme ---------- */
+.quote-layout { flex: 1 1 auto; display: grid; grid-template-columns: 1fr 440px; gap: 80px; align-items: center; }
+.quote-layout blockquote { margin: 0; position: relative; padding-top: 110px; }
+.quote-layout blockquote::before { content: "\201C"; position: absolute; left: -6px; top: -30px; font-size: 220px; font-weight: 700; line-height: 1; color: var(--primary); }
+.quote-layout blockquote p { font-size: 80px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; }
+.quote-layout blockquote p .hl { color: var(--primary); }
+.quote-layout figcaption { margin-top: 36px; font-size: 32px; color: var(--muted-foreground); }
+.quote-layout figcaption b { color: var(--foreground); }
+.book { border: 1px solid var(--border); border-left: 14px solid var(--primary); border-radius: 6px 14px 14px 6px; background: var(--card); padding: 40px 36px; display: grid; gap: 14px; box-shadow: var(--shadow-card); }
+.book h3 { font-size: 40px; font-weight: 800; line-height: 1.12; letter-spacing: -0.015em; }
+.book p { font-size: 28px; color: var(--muted-foreground); }
+.hype { position: relative; flex: 1 1 auto; }
+.hype svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hype .curve { fill: none; stroke: var(--primary); stroke-width: 6; stroke-linecap: round; }
+.hype .dot { fill: var(--background); stroke: var(--primary); stroke-width: 5; }
+.hype .note { position: absolute; width: 380px; font-size: 28px; line-height: 1.25; }
+.hype .note b { display: block; font-size: 30px; }
+
+/* ---------- 14 Check-in ---------- */
+[data-archetype="checkin"] .head { padding-right: 420px; }
+[data-archetype="checkin"] .timer { position: absolute; right: var(--pad-x); top: 150px; }
+.credible { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.credible .card { padding: 26px 28px; display: grid; gap: 10px; align-content: start; }
+.credible .card h3 { font-size: 36px; }
+.credible .card .kind { font-size: 26px; color: var(--primary); font-weight: 600; }
+.credible .card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 26px; line-height: 1.3; }
+.asks { margin-top: 28px; display: flex; gap: 20px; }
+.asks span { flex: 1; padding: 18px 26px; border-radius: var(--radius); background: var(--primary-tint); border: 2px solid var(--primary-line); font-size: 32px; font-weight: 700; text-align: center; }
+
+/* ---------- 15 Workshop cards ---------- */
+.wcards { display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: 24px; height: 100%; }
+.wcard { border: 1px solid var(--border); border-radius: calc(var(--radius) * 2); background: var(--card); padding: 24px 28px; display: flex; flex-direction: column; gap: 8px; }
+.wcard .step { display: flex; gap: 14px; align-items: center; font: 600 24px var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); }
+.wcard h3 { font-size: 36px; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
+.wcard .goal { font-size: 26px; line-height: 1.3; font-weight: 600; }
+.wcard ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 26px; line-height: 1.28; }
+.wcard ul li { display: grid; grid-template-columns: 30px 1fr; }
+.wcard ul li .icon { color: var(--primary); margin-top: 0.2em; }
+.wcard .out { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); font-size: 24px; color: var(--muted-foreground); display: flex; justify-content: space-between; gap: 16px; }
+.wcard .out b { color: var(--foreground); }
+
+/* ---------- 16 Reflection ---------- */
+.refl { display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: 32px; height: 100%; }
+.refl .card { display: grid; align-content: center; gap: 40px; padding: 44px; }
+.refl .emo { width: 168px; height: 168px; border-radius: 50%; background: var(--primary-tint); border: 2px solid var(--primary-line); display: grid; place-items: center; font-size: 96px; line-height: 1; }
+.refl p { font-size: 44px; font-weight: 700; line-height: 1.15; letter-spacing: -0.015em; }
+
+/* ---------- 17 Closing and references ---------- */
+[data-archetype="closing"] { background: linear-gradient(135deg, var(--primary), var(--primary-strong)); color: var(--primary-foreground); justify-content: center; padding-right: 300px; }
+[data-archetype="closing"] .statement { font-size: 96px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.06; }
+[data-archetype="closing"] .signoff { margin-top: 40px; font-size: 48px; font-weight: 500; }
+[data-archetype="closing"] .chrome-foot { border-top-color: hsl(0 0% 100% / 0.3); color: var(--primary-foreground); }
+[data-archetype="closing"] .chrome-foot .sig b, [data-archetype="closing"] .chrome-foot .pg { color: var(--primary-foreground); }
+[data-archetype="closing"][data-variant="references"] { background: var(--background); color: var(--foreground); justify-content: flex-start; padding-right: var(--pad-x); }
+[data-archetype="closing"][data-variant="references"] .chrome-foot { border-top-color: var(--border); color: var(--muted-foreground); }
+[data-archetype="closing"][data-variant="references"] .chrome-foot .sig b, [data-archetype="closing"][data-variant="references"] .chrome-foot .pg { color: var(--foreground); }
+.refs { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; font-size: 28px; line-height: 1.35; }
+.refs li { padding-left: 48px; text-indent: -48px; }
+
+/* Shared exhibits for the legacy visual style (2026-10-19, first used in M03).
+   .media-split puts text or an exhibit next to a photo or screenshot.
+   .photo holds a legacy photo, illustration or screenshot. .rights is the
+   badge a third-party image carries until Bastian clears it, placed below
+   the image so no text sits on the picture. .diagram holds an inline SVG
+   drawn in viewBox units of about one pixel, text at 26 units or more. */
+.media-split { display: grid; grid-template-columns: 1fr var(--media-w, 620px); gap: 56px; align-items: center; height: 100%; }
+.media-split.flip { grid-template-columns: var(--media-w, 620px) 1fr; }
+/* Its picture class only: the text takes the full width in the PDF (held) and
+   in the student build (removed by publish.py). */
+html.is-print:not(.show-all) .media-split:has(> [data-hold]), .media-split:has(> :only-child) { grid-template-columns: 1fr; }
+@media print { html:not(.show-all) .media-split:has(> [data-hold]) { grid-template-columns: 1fr; } }
+.photo { margin: 0; display: grid; gap: 12px; justify-items: start; align-content: center; min-height: 0; height: 100%; }
+.photo img { display: block; max-width: 100%; max-height: var(--photo-h, 520px); width: auto; height: auto; border-radius: 14px; box-shadow: var(--shadow-card); }
+.photo.flat img { box-shadow: none; border-radius: 0; }
+.photo figcaption { font: 500 24px/1.3 var(--font-mono); color: var(--muted-foreground); }
+.rights { display: inline-block; font: 600 24px/1.2 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--key); border: 2px solid var(--key); padding: 4px 12px; border-radius: 6px; background: var(--background); }
+.diagram { height: 100%; min-height: 0; }
+.diagram svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.diagram text { font-family: var(--font-sans); }
+
+/* ---------- Colour variants (legacy style, 2026-10-19) ---------- */
+/* Dividers in the other field colours, for example one colour per part of a session. */
+[data-archetype="divider"][data-variant="magenta"] { background: linear-gradient(135deg, var(--diagram-magenta), hsl(312 98% 25%)); }
+[data-archetype="divider"][data-variant="purple"] { background: linear-gradient(135deg, var(--diagram-purple), hsl(276 66% 25%)); }
+[data-archetype="divider"][data-variant="navy"] { background: linear-gradient(135deg, var(--diagram-navy), hsl(234 50% 22%)); }
+
+/* Split: the head becomes a large colour field on the left, the evidence on
+   the right. data-field picks the colour (magenta by default). */
+.slide[data-variant="split"] { --field: var(--diagram-magenta); flex-direction: row; align-items: stretch; gap: 72px; }
+.slide[data-variant="split"][data-field="purple"] { --field: var(--diagram-purple); }
+.slide[data-variant="split"][data-field="navy"] { --field: var(--diagram-navy); }
+.slide[data-variant="split"][data-field="blue"] { --field: var(--primary); }
+.slide[data-variant="split"] > .head { flex: 0 0 620px; display: flex; flex-direction: column; justify-content: center; padding: 56px 52px; border-radius: 28px; background: var(--field); color: var(--primary-foreground); }
+.slide[data-variant="split"] > .head .label, .slide[data-variant="split"] > .head .sub { color: var(--primary-foreground); }
+.slide[data-variant="split"] > .head .title { font-size: 60px; }
+.slide[data-variant="split"] > .head .sub { font-size: 32px; margin-top: 24px; }
+.slide[data-variant="split"] > .content { flex: 1 1 auto; margin-top: 0; display: grid; align-content: center; gap: 32px; }
+.slide[data-variant="split"] .fromto { gap: 16px; }
+.slide[data-variant="split"] .fromto p { font-size: 32px; }
+.slide[data-variant="split"] .fromto { grid-template-columns: 1fr; }
+.slide[data-variant="split"] .fromto > .icon { transform: rotate(90deg); justify-self: center; }
+
+/* Quote on a full purple field, the key words in the marker colour. */
+[data-archetype="quote"][data-variant="field"] { background: linear-gradient(135deg, var(--diagram-purple), hsl(276 66% 25%)); color: var(--primary-foreground); }
+[data-archetype="quote"][data-variant="field"] blockquote::before { color: var(--marker); }
+[data-archetype="quote"][data-variant="field"] blockquote p .hl { color: var(--marker); }
+[data-archetype="quote"][data-variant="field"] figcaption, [data-archetype="quote"][data-variant="field"] figcaption b { color: var(--primary-foreground); }
+[data-archetype="quote"][data-variant="field"] .chrome-top, [data-archetype="quote"][data-variant="field"] .chrome-foot,
+[data-archetype="quote"][data-variant="field"] .tracker .name b, [data-archetype="quote"][data-variant="field"] .chrome-foot .sig b,
+[data-archetype="quote"][data-variant="field"] .chrome-foot .pg, [data-archetype="quote"][data-variant="field"] .ptag { color: var(--primary-foreground); }
+[data-archetype="quote"][data-variant="field"] .chrome-foot { border-top-color: hsl(0 0% 100% / 0.3); }
+[data-archetype="quote"][data-variant="field"] .book { color: var(--foreground); }
+[data-archetype="quote"][data-variant="field"] .tracker .segs i { background: hsl(0 0% 100% / 0.3); }
+[data-archetype="quote"][data-variant="field"] .tracker .segs i.done { background: hsl(0 0% 100% / 0.6); }
+[data-archetype="quote"][data-variant="field"] .tracker .segs i.now { background: var(--marker); }
+
+/* Reflection cards as colour fields, the key words in the marker colour. */
+[data-variant="fields"] .refl .card { border: none; color: var(--primary-foreground); }
+[data-variant="fields"] .refl .card:nth-child(3n+1) { background: var(--primary); }
+[data-variant="fields"] .refl .card:nth-child(3n+2) { background: var(--diagram-magenta); }
+[data-variant="fields"] .refl .card:nth-child(3n) { background: var(--diagram-purple); }
+[data-variant="fields"] .refl .emo { background: var(--background); border-color: transparent; }
+[data-variant="fields"] .refl .hl { color: var(--marker); }
+
+/* Workshop cards with a colour header per step. */
+[data-variant="fields"] .wcard { --field: var(--primary); padding-top: 0; overflow: hidden; }
+[data-variant="fields"] .wcard:nth-child(3n+2) { --field: var(--diagram-magenta); }
+[data-variant="fields"] .wcard:nth-child(3n) { --field: var(--diagram-purple); }
+[data-variant="fields"] .wcard .step { margin: 0 -28px 6px; padding: 16px 28px; background: var(--field); color: var(--primary-foreground); }
+[data-variant="fields"] .wcard .step .badge { background: var(--background); color: var(--field); }
+
