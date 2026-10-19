@@ -1,12 +1,13 @@
-# Prototyping Entrepreneurial Ideas for Artificial Intelligence
+# Ambitious Entrepreneurship
 
 Updated: 2026-10-19.
 
-> A hands-on course for technical founders learning to validate AI startup ideas before writing a single line of code.
+> A free, hands-on course for technical founders on building startups in the age of AI. You validate the idea before you write a single line of code.
 
-**Lecturer:** Bastian Burger · [TUM Venture Labs](https://www.tum.de/en/innovation/entrepreneurship/venture-labs)
+**Lecturer:** Dr. Bastian Burger
 **Format:** Kickoff + 12 modules · 1 semester · weekly sessions, hands-on
 **Goal:** Real users, real evidence, first revenue — or a deliberate, well-argued kill.
+**Open:** Free to use and adapt for non-commercial teaching under [CC BY-NC-SA 4.0](#license).
 
 ---
 
@@ -91,6 +92,7 @@ Before week 1, three short reads in [`resources/`](resources/): the [Exemplar Pa
 Course materials © Bastian Burger, licensed under [CC BY-NC-SA 4.0](LICENSE.md). You may share and adapt them for non-commercial use with attribution, under the same license. Third-party logos, trademarks, screenshots and quoted material remain with their owners.
 
 <p align="center">
-  <strong>TUM Venture Labs</strong> · Technical University of Munich<br>
-  <em>Building founders who validate before they build.</em>
+  <strong>Ambitious Entrepreneurship</strong> · Dr. Bastian Burger<br>
+  <em>Building founders who validate before they build.</em><br>
+  If the course helps you, star the repo so other founders find it.
 </p>
