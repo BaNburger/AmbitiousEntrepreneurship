@@ -124,7 +124,8 @@
 .demo-steps li .badge { width: 48px; height: 48px; font-size: 24px; }
 .demo-steps li.now { color: var(--foreground); font-weight: 700; }
 .demo-steps li:not(.now) .badge { background: var(--context); color: var(--context-foreground); }
-.demo-side .sticky { width: 100%; --tilt: -1.5deg; font-size: 30px; }
+/* The tilt lifts the sticky's corners a few px past its box. The margin keeps them inside the frame. */
+.demo-side .sticky { width: calc(100% - 20px); margin: 10px; --tilt: -1.5deg; font-size: 30px; }
 
 /* ---------- 08 Tip ---------- */
 [data-archetype="tip"] .content { display: grid; align-content: center; gap: 44px; }

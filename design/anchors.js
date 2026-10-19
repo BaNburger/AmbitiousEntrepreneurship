@@ -12,7 +12,7 @@
    1100 units and at least 1000 px, so no label falls under 24 px.
    Drawn so far: build-measure-learn, evidence-pyramid, problem-solution,
    root-cause, problem-you-want, problem-oriented, founder-skills,
-   ideation-stage. Others ("Every application
+   ideation-stage, double-diamond. Others ("Every application
    ever", the "make numbers go brrr" funnel) are added when a module needs them. */
 window.AEAnchors = window.AEAnchors || {};
 
@@ -271,6 +271,41 @@ window.AEAnchors["build-measure-learn"] = {
       source: "Bastian Burger, course framework, legacy slide 704.",
       steps: ["learn", "team", "problem", "outcomes"],
       svg: '<svg viewBox="0 0 1640 548" role="img" aria-label="Ideation stage, three pillars lead driven individuals to four outcomes">' + out + "</svg>"
+    };
+  })();
+
+  /* The double diamond, legacy slides 357 to 360, after Design Council (2004).
+     Diverge, then converge, first in the problem space, then in the solution
+     space. Each half belongs to its diamond and to its way of thinking, so
+     "solution" lights the second diamond and "diverge" both diverging halves.
+     Parts: problem, solution, diverge, converge, explore, define, ideate,
+     prototype. */
+  (function () {
+    var xs = [80, 435, 790, 1145, 1500], cy = 290, top = 100, bottom = 480;
+    var halves = [["explore", "problem diverge", "c-magenta", "t-magenta", "Diverge", ["Understand", "& explore"]],
+      ["define", "problem converge", "c-magenta", "t-magenta", "Converge", ["Synthesize", "& define"]],
+      ["ideate", "solution diverge", "c-purple", "t-purple", "Diverge", ["Ideate", "& wireframe"]],
+      ["prototype", "solution converge", "c-purple", "t-purple", "Converge", ["Prototype", "& iterate"]]];
+    var out = DEFS + '<path class="line" d="M10 ' + cy + " L" + xs[0] + " " + cy + '"/>' +
+      '<path class="line" d="M' + xs[4] + " " + cy + " L1628 " + cy + '" marker-end="url(#ae-arrow)"/>';
+    halves.forEach(function (h, i) {
+      var x1 = xs[i], x2 = xs[i + 1], diverge = i % 2 === 0;
+      var d = diverge ? "M" + x1 + " " + cy + " L" + x2 + " " + top + " L" + x2 + " " + bottom + " Z"
+        : "M" + x1 + " " + top + " L" + x2 + " " + cy + " L" + x1 + " " + bottom + " Z";
+      var lx = Math.round(diverge ? x1 + (x2 - x1) * 0.64 : x1 + (x2 - x1) * 0.36);
+      out += '<g class="part" data-node="' + h[0] + '" data-group="' + h[1] + '"><path class="shape ' + h[2] + '" d="' + d + '"/>' +
+        text("lbl", lx, cy - 20, h[5][0]) + text("lbl", lx, cy + 20, h[5][1]) +
+        text("cap-t " + h[3], (x1 + x2) / 2, 64, h[4], "middle") + "</g>";
+    });
+    out += '<path class="gap" d="M' + xs[1] + " " + top + " L" + xs[1] + " " + bottom + " M" + xs[3] + " " + top + " L" + xs[3] + " " + bottom + '"/>';
+    [[xs[0], "Start"], [xs[2], "Problem space definition"], [xs[4], "Solution definition"]].forEach(function (p) {
+      out += '<circle class="dot" cx="' + p[0] + '" cy="' + cy + '" r="16"/>' + text("note strong", p[0], bottom + 44, p[1], "middle");
+    });
+    A["double-diamond"] = {
+      title: "The double diamond",
+      source: "After Design Council (2004), as drawn on legacy slides 357 to 360.",
+      steps: ["explore", "define", "ideate", "prototype"],
+      svg: '<svg viewBox="0 0 1640 540" role="img" aria-label="Double diamond: diverge and converge in the problem space, then in the solution space">' + out + "</svg>"
     };
   })();
 })();

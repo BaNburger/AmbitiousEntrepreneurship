@@ -206,6 +206,8 @@ html.is-present .slide a { cursor: pointer; }
 .anchor .k-navy { stroke: var(--diagram-navy); }
 .anchor .k-magenta { stroke: var(--diagram-magenta); }
 .anchor .divider { stroke: var(--border); stroke-width: 3; }
+.anchor .dot { fill: var(--foreground); }
+.anchor .gap { stroke: var(--background); stroke-width: 6; }
 .anchor .pict circle, .anchor .pict path { stroke: none; }
 .anchor .p-blue circle, .anchor .p-blue path { fill: var(--primary); }
 .anchor .p-purple circle, .anchor .p-purple path { fill: var(--diagram-purple); }

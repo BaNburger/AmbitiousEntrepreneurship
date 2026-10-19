@@ -1,30 +1,34 @@
 # Module 04 — Validating Problems
 
+Updated: 2026-10-19.
+
 > **Core question:** What evidence would change your mind?
 
-**Session flow:** Intro & check-in (5′) → Recap M03 + homework debrief (10′) → Lecture: the ideas (60′) → Case discussion (30′) → Workshop (90′) → Wrap-up & homework (10′)
+**Session flow:** Input session (about 90′, with check-in, recap and read-out, lecture, wrap-up and homework) · Workshop (90′) · Case discussion (about 90′, after 4 to 6 hours of preparation at home). Each block can run on its own.
 
-## The Ideas
+## Learning goals
 
-1. The hierarchy of evidence: opinions < surveys < behavior < money
-2. Landing pages are experiments, not marketing
-3. Define pass/fail thresholds BEFORE you run the test
-4. Measure what matters: conversion, not compliments
+1. **M04-LG1.** Students can place each piece of their evidence on the course's hierarchy of evidence, from anecdotes to payments, say what it can and cannot prove, and turn what their interviews suggest into a quantitative test, a short survey or a landing page.
+2. **M04-LG2.** Students can build and publish a problem-space landing page that names the problem in their segment's own words, promises an outcome without listing features, and asks for one action that shows real demand.
+3. **M04-LG3.** Students can write their test as a hypothesis with a metric, a pass/fail threshold, a date and the decision each result triggers, commit it before the first visitor arrives, and decide by it when the result comes in.
+4. **M04-LG4.** Students can work out from the funnel how much target-segment traffic their test needs, bring it through the channels where their segment already is, and read conversion per source in a set-up analytics dashboard, counting their segment only.
 
-**This week's bar:** live landing page + pre-committed threshold + 100 target-segment visitors. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's goal.** By the start of Module 05, your team knows whether people in your segment act on a promise to fix their problem, measured against a line drawn in advance, and holds their sign-ups, your first testers and buyers.
+
+**This week's bar:** Publish one landing page per team, log its pass or fail line before the first visitor arrives, and bring 100 visitors per student from your segment to it. The learning floor is the live page, the logged line and 30 visitors per student from your segment. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 ## Materials
 
 | Part | File |
 |---|---|
 | Lecture | [M04_Lecture_Validating-Problems.pdf](M04_Lecture_Validating-Problems.pdf) |
-| Workshop — *Landing Page Sprint* | [M04_Workshop_Landing-Page-Sprint.md](M04_Workshop_Landing-Page-Sprint.md) ([slides PDF](M04_Workshop_Slides.pdf)) |
-| Case — *Dropbox* | [M04_Case_Dropbox.md](M04_Case_Dropbox.md) ([PDF](M04_Case_Dropbox.pdf), [discussion slides](M04_Case_Slides.pdf)) |
-| Homework | [M04_Homework.md](M04_Homework.md) |
+| Workshop — *Landing Page Sprint* | [M04_Workshop_Landing-Page-Sprint.md](M04_Workshop_Landing-Page-Sprint.md) ([PDF](M04_Workshop_Landing-Page-Sprint.pdf)) |
+| Case — *Fairphone* (pre-read, read before class) | [M04_Case_Fairphone.md](M04_Case_Fairphone.md) ([PDF](M04_Case_Fairphone.pdf)) |
+| Homework | [M04_Homework.md](M04_Homework.md) ([PDF](M04_Homework.pdf)) |
 
-**The case in one line:** A 3-minute video as the MVP that validated demand overnight
+**The case in one line:** Before a single phone exists, a team decides whether to sell 5,000 of them first
 
-**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md)
+**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Student Toolkit](../../resources/Student_Toolkit.xlsx) (Experiment Tracker, Traffic Sources, Kill Criteria Log) · [Exemplar landing-page test](../../resources/exemplars/Exemplar_Landing_Page_Test.md)
 
 ---
 

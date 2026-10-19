@@ -1,11 +1,14 @@
 # The 10x Value Proposition Test
+
+Updated: 2026-10-19.
+
 *If you're not 10x better on at least one dimension, you're a feature, not a company.*
 
 ---
 
-## The Thiel Question
+## The 10x Rule
 
-Peter Thiel asks every startup: "Can you make something 10x better than what exists?"
+Can you make something 10 times better than what your user has today? The rule is practitioner wisdom, not a research finding. Reid Hoffman put it to Peter Thiel's Stanford class CS183 (Blake Masters' notes on class 12, 2012). Research explains why it holds: people weigh a loss about twice as heavily as an equal gain, so what they already use has a head start ([Tversky and Kahneman, 1992](https://doi.org/10.1007/BF00122574)).
 
 Not 10% better. Not twice as good. 10x. Because switching costs are real — people won't abandon their current solution for something marginally better. They need a reason so overwhelming that the pain of switching is dwarfed by the value of the new thing.
 
@@ -54,8 +57,10 @@ Your proof: ___________________________
 To pass, you need ALL of these:
 - [ ] You can name the specific thing they're switching FROM
 - [ ] You can articulate why switching is worth the pain
-- [ ] At least 3 out of 5 interviewees said "yes, I would switch" after SEEING (not hearing about) your product
+- [ ] At least 3 out of 5 people who tried your product (SEEING it, not hearing about it) did something that costs them, such as booking time, signing a letter of intent or pre-ordering. "Yes, I would switch" is opinion and does not count
 - [ ] At least 1 person has actually switched (actions > words)
+
+Gate 3 is the pass mark. Your week's kill line in Module 05 is the floor below it: fewer than 2 of the first 7 people who try a click dummy accept the ask, and you drop that dummy.
 
 ### Gate 4: The 60-Second Demo
 
@@ -63,7 +68,7 @@ Can you demonstrate the 10x value in under 60 seconds? Not explain it — SHOW i
 
 Set a timer. Show someone your product. If they don't say "whoa" or "wait, how did you do that?" or "can I use this right now?" within 60 seconds, your 10x isn't visible enough.
 
-**This is the Karpathy rule:** If the value requires a tutorial, onboarding flow, or explanation, it's not 10x. 10x value is self-evident.
+If the value requires a tutorial, onboarding flow, or explanation, it's not 10x. 10x value is self-evident.
 
 ---
 
@@ -82,13 +87,13 @@ Set a timer. Show someone your product. If they don't say "whoa" or "wait, how d
 
 If you're building an AI product, add this bonus gate:
 
-### Gate 5: The "Smart Intern" Test (Karpathy)
+### Gate 5: The "Smart Intern" Test
 
 > "Would a smart intern with access to Google accomplish the same thing in the time your user is willing to wait?"
 
-- If the task takes 5 minutes for an intern → AI needs to do it in 5 seconds (100x speed) OR do it at 10x quality.
-- If the task takes 1 hour for an intern → AI can take 5 minutes and still be 10x.
-- If the task takes 1 week for an intern → You might have something, even if the AI takes a full day.
+- If the task takes 5 minutes for an intern, AI needs to do it in 5 seconds (100x speed) OR do it at 10x quality.
+- If the task takes 1 hour for an intern, AI can take 5 minutes and still be 10x.
+- If the task takes 1 week for an intern, you might have something, even if the AI takes a full day.
 
 The key variable is **what the user's time is worth** and **how often they face this task.**
 
