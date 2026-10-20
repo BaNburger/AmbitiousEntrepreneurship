@@ -1,6 +1,6 @@
 # Grading & The Revenue Ladder
 
-Updated: 2026-10-19.
+Updated: 2026-10-20.
 
 Published in week 0. No surprises: this is exactly how your semester is evaluated.
 
@@ -33,7 +33,7 @@ What an A-kill requires: the full evidence pack, the pre-committed kill criterio
 | Module 11 | €2,000 | €5,000 |
 | **Demo Day** | **€1,000 verified minimum + evidence pack** | **The €10,000 club** |
 
-**What counts:** revenue from outside your social graph only (no friends, family, classmates, course teams) · verified via payment dashboard or numbered invoices · repeatable revenue (same offer, >1 customer, no custom scope) ranks above consulting-style projects · "paid twice" beats "paid once."
+**What counts:** revenue from outside your social graph only, meaning people you did not know before this venture (no friends, family, classmates, course teams) · any amount, a paid deposit or pre-order too · verified via payment dashboard or a paid numbered invoice · repeatable revenue (same offer, >1 customer, no custom scope) ranks above consulting-style projects · "paid twice" beats "paid once." A signed pilot or letter of intent without payment is signal, not revenue.
 
 **What doesn't count:** favor purchases, team-to-team purchases inside the course, unverifiable cash, revenue you can't show a dashboard or invoice for.
 

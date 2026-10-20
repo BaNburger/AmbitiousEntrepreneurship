@@ -1,11 +1,14 @@
 # Product-Market Fit Measurement Engine
+
+Updated: 2026-10-20.
+
 *Based on Superhuman's framework (First Round Review) + Sean Ellis's PMF Survey + Sequoia Arc*
 
 ---
 
 ## The Problem
 
-Everyone talks about product-market fit. Almost nobody can measure it. "You'll know it when you feel it" is terrible advice. This framework gives you an exact number, an exact process, and an exact improvement loop.
+Everyone talks about product-market fit. Almost nobody can measure it. "You'll know it when you feel it" is terrible advice. This framework gives you a number to steer by, a verdict from what customers do, and an improvement loop.
 
 ---
 
@@ -18,9 +21,7 @@ Ask users who have experienced the core of your product (used it at least twice 
 > - B) Somewhat disappointed
 > - C) Not disappointed
 
-**The Benchmark:** If 40%+ answer "Very disappointed," you have product-market fit. Below 40%, you don't.
-
-After benchmarking nearly 100 startups, Sean Ellis found this to be the single most reliable leading indicator. Companies below 40% almost always struggled. Companies above it almost always found growth.
+**Read it as a compass.** Sean Ellis suggested that at least 40% answering "Very disappointed" signals product-market fit. He defined the line "after comparing results across nearly 100 startups" and called it "a bit arbitrary" himself (Ellis, *The Startup Pyramid*, 2009). No peer-reviewed study has tested it. The answers predict a future, so on the [Validation Hierarchy](02_Validation_Hierarchy.md) they count as opinion. Use them to find who would miss you most and which benefit to sharpen. Decide with retention, below.
 
 ---
 
@@ -29,13 +30,13 @@ After benchmarking nearly 100 startups, Sean Ellis found this to be the single m
 After the first question, ask:
 
 **Q2: "What type of people do you think would most benefit from [product]?"**
-→ This reveals your real target audience (often different from who you think).
+This reveals your real target audience (often different from who you think).
 
 **Q3: "What is the main benefit you receive from [product]?"**
-→ This reveals your actual value proposition (often different from what you're marketing).
+This reveals your actual value proposition (often different from what you're marketing).
 
 **Q4: "How can we improve [product] for you?"**
-→ This reveals the roadmap — but filter it (see Step 4).
+This reveals the roadmap — but filter it (see Step 4).
 
 ---
 
@@ -51,30 +52,36 @@ Don't look at the aggregate. Segment your responses:
 
 ---
 
+## Step 3b: Retention Is the Verdict
+
+Count from what your product records, never from what people say. For each paying customer, the date of the first payment, and whether they used the outcome again or paid again within 14 days, with dates. Read each cohort (everyone who first paid in the same week) on its own. Under 20 people, write counts ("4 of 6"), not percentages. At 20 answers a 40% share could be anywhere from about 22% to 61% (95% Wilson interval). A retention line belongs in the Kill Criteria Log before you look ([Validation Hierarchy](02_Validation_Hierarchy.md), the Kill Question).
+
+---
+
 ## Step 4: The Improvement Loop
 
 This is Superhuman's actual process (repeated every 2-4 weeks):
 
 ### A. Categorize the Q4 feedback
 Split Q4 responses into two buckets:
-- Feedback from "Very Disappointed" users → **Do this.** These people already love you. Make them love you more.
-- Feedback from "Not Disappointed" users → **Ignore this.** They were never your customer. Building for them dilutes your product.
+- Feedback from "Very Disappointed" users. **Do this.** These people already love you. Make them love you more.
+- Feedback from "Not Disappointed" users. **Ignore this.** They were never your customer. Building for them dilutes your product.
 
 ### B. Prioritize the roadmap
 For every feature request from "Very Disappointed" users, ask:
-- Does this deepen the core benefit? → High priority
-- Does this add a new benefit? → Medium priority
-- Does this fix a minor annoyance? → Low priority
+- Does this deepen the core benefit? High priority.
+- Does this add a new benefit? Medium priority.
+- Does this fix a minor annoyance? Low priority.
 
 ### C. Re-measure every 2-4 weeks
 Run the survey again. Track the % over time. Your goal: move from wherever you are toward 40%.
 
-```
-WEEK 1:  ████████████░░░░░░░░ 28% — "Not there yet"
-WEEK 4:  █████████████░░░░░░░ 32% — "Getting warmer"
-WEEK 8:  █████████████████░░░ 38% — "Almost"
-WEEK 10: ████████████████████ 42% — "PMF."
-```
+| Week | "Very disappointed" | How to read it |
+|---|---|---|
+| 1 | 28% | Not there yet |
+| 4 | 32% | Getting warmer |
+| 8 | 38% | Almost |
+| 10 | 42% | Ask why, then check retention |
 
 ---
 
@@ -83,9 +90,9 @@ WEEK 10: ████████████████████ 42% — "P
 Once you have early signal, stress-test it with Sequoia's Arc framework. Before you scale, answer these honestly:
 
 ### 1. "Do I have Hair-on-Fire PMF, Hard-Fact PMF, or Future-Vision PMF?"
-- **Hair-on-Fire:** Users have an urgent problem and your product is the fire extinguisher. They'll tolerate a bad product because the pain is so acute. (Example: early Uber in cities with terrible taxi service)
-- **Hard-Fact:** Users switch because of measurably superior economics or performance. They need proof, not promises. (Example: Stripe's 7-line integration vs. competitors' 7-API-call integration)
-- **Future-Vision:** Users believe in a new way of doing things and adopt early despite friction. Hardest to achieve, highest ceiling. (Example: early Tesla buyers)
+- **Hair-on-Fire:** Users have an urgent problem and your product is the fire extinguisher. They'll tolerate a bad product because the pain is so acute.
+- **Hard-Fact:** Users switch because of measurably superior economics or performance. They need proof, not promises.
+- **Future-Vision:** Users believe in a new way of doing things and adopt early despite friction. Hardest to achieve, highest ceiling.
 
 ### 2. "Who is my desperate customer — and can I find 100 of them?"
 Not "who might want this" but "who MUST have this." If you can't name 100 specific people or companies, your market understanding is too vague.
@@ -102,13 +109,7 @@ Not "be sad" — riot. If the answer is no, you have a nice-to-have, not a must-
 
 You probably don't have enough users yet for a statistically significant survey. That's OK. Use this adaptation:
 
-**After 10 customer conversations (Mom Test style), count:**
-- How many described the problem unprompted? → Need 7+/10
-- How many have an active workaround? → Need 5+/10
-- How many asked when they can use it? → Need 3+/10
-- How many offered to pay or pre-order? → Need 1+/10
-
-**After your first 20 users, run the Sean Ellis survey.** 40 respondents gives you directionally correct results. Don't wait for 1,000.
+**Ask everyone who used the core at least twice in the last two weeks, from your first 20 users on.** Superhuman found results directionally useful from about 40 respondents (Vohra, 2018). Under that, write counts. Don't wait for 1,000.
 
 ---
 
@@ -125,6 +126,7 @@ You probably don't have enough users yet for a statistically significant survey.
 ---
 
 ## Sources & Further Reading
+- [Sean Ellis, The Startup Pyramid (2009)](https://seanellis.substack.com/p/the-startup-pyramid)
 - [Superhuman's PMF Engine — First Round Review](https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/)
 - [Sean Ellis PMF Survey Tool](https://pmfsurvey.com/)
 - [Sequoia Arc PMF Framework](https://sequoiacap.com/article/pmf-framework/)

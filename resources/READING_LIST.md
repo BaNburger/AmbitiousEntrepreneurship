@@ -1,4 +1,7 @@
 # Essential Reading List
+
+Updated: 2026-10-20.
+
 *9 pieces. That's it. Each one changes how you think about building.*
 
 ---
@@ -36,8 +39,8 @@
 ### 5. Rahul Vohra / First Round Review — "How Superhuman Built an Engine to Find Product-Market Fit"
 **Link:** https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/
 **Read time:** 30 min
-**The insight:** The most concrete, reproducible process ever published for measuring and improving product-market fit. Based on Sean Ellis's "very disappointed" survey question. Gives you the exact metric (40% threshold), the exact segmentation method, and the exact improvement loop. This is what Dario Amodei would call "intellectual rigor applied to product."
-**Assign before:** Module 7 (Rapid Validation)
+**The insight:** The most concrete, reproducible process ever published for measuring and improving product-market fit. Based on Sean Ellis's "very disappointed" survey question. Gives you a number to steer by (the 40% line, read as a compass in [framework 06](../frameworks/06_PMF_Measurement_Engine.md)), the exact segmentation method, and the exact improvement loop.
+**Assign before:** Module 10 (Product Management & Growth)
 
 ### 6. Andrej Karpathy — "Software 2.0"
 **Link:** https://karpathy.medium.com/software-2-0-a64152b37c35

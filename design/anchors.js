@@ -1,4 +1,4 @@
-/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-19.
+/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-20.
    Owned by the course-design skill. Each is drawn once here, from Bastian's
    legacy slide, and placed in any deck as
      <div class="anchor" data-anchor="NAME" data-active="PART">   full size
@@ -12,8 +12,9 @@
    1100 units and at least 1000 px, so no label falls under 24 px.
    Drawn so far: build-measure-learn, evidence-pyramid, problem-solution,
    root-cause, problem-you-want, problem-oriented, founder-skills,
-   ideation-stage, double-diamond. Others ("Every application
-   ever", the "make numbers go brrr" funnel) are added when a module needs them. */
+   ideation-stage, double-diamond, every-application, agent-loop,
+   critical-known, funnel ("How make numbers go brrr"), kpi-tree and
+   kpi-tree-profit, stage-arrow. Others are added when a module needs them. */
 window.AEAnchors = window.AEAnchors || {};
 
 /* Build-Measure-Learn, legacy slide 38. Framework: Ries, E. (2011). The Lean
@@ -278,8 +279,11 @@ window.AEAnchors["build-measure-learn"] = {
      Diverge, then converge, first in the problem space, then in the solution
      space. Each half belongs to its diamond and to its way of thinking, so
      "solution" lights the second diamond and "diverge" both diverging halves.
+     The pivots of legacy 363 and 364 are optional parts, drawn only when a
+     slide lights them: pivot1 turns back within the solution diamond (another
+     solution to the same problem), pivot2 goes back into the problem space.
      Parts: problem, solution, diverge, converge, explore, define, ideate,
-     prototype. */
+     prototype, pivot1, pivot2. */
   (function () {
     var xs = [80, 435, 790, 1145, 1500], cy = 290, top = 100, bottom = 480;
     var halves = [["explore", "problem diverge", "c-magenta", "t-magenta", "Diverge", ["Understand", "& explore"]],
@@ -298,6 +302,10 @@ window.AEAnchors["build-measure-learn"] = {
         text("cap-t " + h[3], (x1 + x2) / 2, 64, h[4], "middle") + "</g>";
     });
     out += '<path class="gap" d="M' + xs[1] + " " + top + " L" + xs[1] + " " + bottom + " M" + xs[3] + " " + top + " L" + xs[3] + " " + bottom + '"/>';
+    function uturn(cx) { return '<path class="pivot" d="M' + (cx - 25) + " 140 H" + (cx + 15) + " A40 40 0 0 1 " + (cx + 15) + " 220 H" + (cx - 30) + '" marker-end="url(#ae-pivot)"/>'; }
+    out += '<defs><marker id="ae-pivot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto-start-reverse"><path class="arrowfill" d="M0,0 L10,5 L0,10 z"/></marker></defs>' +
+      '<g class="part opt" data-node="pivot1">' + uturn(xs[3]) + "</g>" +
+      '<g class="part opt" data-node="pivot2"><path class="pivot" d="M1090 180 H575" marker-end="url(#ae-pivot)"/>' + uturn(xs[1]) + "</g>";
     [[xs[0], "Start"], [xs[2], "Problem space definition"], [xs[4], "Solution definition"]].forEach(function (p) {
       out += '<circle class="dot" cx="' + p[0] + '" cy="' + cy + '" r="16"/>' + text("note strong", p[0], bottom + 44, p[1], "middle");
     });
@@ -306,6 +314,235 @@ window.AEAnchors["build-measure-learn"] = {
       source: "After Design Council (2004), as drawn on legacy slides 357 to 360.",
       steps: ["explore", "define", "ideate", "prototype"],
       svg: '<svg viewBox="0 0 1640 540" role="img" aria-label="Double diamond: diverge and converge in the problem space, then in the solution space">' + out + "</svg>"
+    };
+  })();
+
+  /* Every application ever, legacy slides 398 and 400 to 402 ("Every software
+     product ever"): a user works with the interface, the interface talks to
+     the logic, the logic reads and writes the database and reaches external
+     services through APIs. Parts: user, interface, logic, database, api
+     (also "apis"). */
+  (function () {
+    function block(node, group, x, y, w, h, cap, lines) {
+      var c = y + h / 2 - (lines.length - 1) * 20;
+      return '<g class="part" data-node="' + node + '"' + (group ? ' data-group="' + group + '"' : "") + '>' +
+        '<rect class="shape c-magenta" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="16"/>' +
+        text("cap-t t-magenta", x + w / 2, y - 18, cap, "middle") +
+        lines.map(function (t, i) { return text("lbl", x + w / 2, c + i * 40, t); }).join("") + "</g>";
+    }
+    function pair(x1, y1, x2, y2, dy) {
+      return arrow(x1, y1, x2, y2) + arrow(x2, y2 + dy, x1, y1 + dy);
+    }
+    var out = DEFS +
+      '<g class="part" data-node="user"><rect class="shape c-navy" x="0" y="70" width="150" height="450" rx="24"/>' + text("lbl", 75, 295, "User") + "</g>" +
+      block("interface", "", 250, 150, 300, 320, "Frontend", ["Interface"]) +
+      block("logic", "", 700, 150, 300, 320, "Backend", ["Logic"]) +
+      block("database", "", 1150, 70, 330, 190, "Backend", ["Database"]) +
+      block("api", "apis", 1150, 330, 330, 190, "APIs", ["External", "services"]) +
+      pair(162, 230, 238, 230, 140) + pair(562, 280, 688, 280, 60) +
+      arrow(1012, 230, 1138, 180) + arrow(1138, 215, 1012, 265) +
+      arrow(1012, 330, 1138, 380) + arrow(1138, 415, 1012, 365) +
+      arrow(1492, 395, 1626, 395) + arrow(1626, 455, 1492, 455);
+    A["every-application"] = {
+      title: "Every application ever",
+      source: "Bastian Burger, course material, legacy slides 398 and 400 to 402.",
+      steps: ["interface", "logic", "database", "api"],
+      svg: '<svg viewBox="0 0 1640 540" role="img" aria-label="Every application ever: a user works with the interface, the interface talks to the logic, the logic reads and writes the database and reaches external services through APIs">' + out + "</svg>"
+    };
+  })();
+
+  /* The agent loop, new for M06 (no legacy slide): a written brief and a plan
+     in small steps, then one step, test, review and save a version before the
+     next step. Two misses lead back to the last saved version and a new
+     brief. Parts: brief, plan, step, test, review, save (group cycle), restart. */
+  (function () {
+    function node(name, group, color, x, y, w, title, sub) {
+      return '<g class="part" data-node="' + name + '"' + (group ? ' data-group="' + group + '"' : "") + '>' +
+        '<rect class="shape ' + color + '" x="' + x + '" y="' + y + '" width="' + w + '" height="120" rx="18"/>' +
+        text("lbl", x + w / 2, y + 48, title) + text("lbl xs", x + w / 2, y + 88, sub) + "</g>";
+    }
+    var out = DEFS +
+      node("brief", "", "c-navy", 0, 240, 250, "Brief", "in writing") +
+      node("plan", "", "c-navy", 320, 240, 260, "Plan", "small steps") +
+      node("step", "cycle", "c-blue", 700, 90, 300, "One step", "ask for one") +
+      node("test", "cycle", "c-blue", 1120, 90, 300, "Test", "does it work?") +
+      node("review", "cycle", "c-blue", 1120, 360, 300, "Review", "what changed?") +
+      node("save", "cycle", "c-strong", 700, 360, 300, "Save", "a version") +
+      arrow(256, 300, 312, 300) + arrow(586, 286, 692, 172) +
+      arrow(1008, 150, 1112, 150) + arrow(1270, 216, 1270, 352) + arrow(1114, 420, 1008, 420) +
+      '<g class="part" data-node="next" data-group="cycle">' + arrow(850, 354, 850, 218) + text("note strong t-blue", 876, 296, "next") + "</g>" +
+      '<g class="part" data-node="restart"><path class="line dash k-magenta" d="M1270 84 C 1270 10, 125 10, 125 232" marker-end="url(#ae-arrow)"/>' +
+      text("cap-t t-magenta", 700, 2, "Two misses? Restore the last version, brief again", "middle") + "</g>";
+    A["agent-loop"] = {
+      title: "The agent loop",
+      source: "Bastian Burger, course material for M06, no legacy slide.",
+      steps: ["brief", "plan", "step", "test", "review", "save"],
+      svg: '<svg viewBox="0 -34 1640 534" role="img" aria-label="The agent loop: a written brief, a plan in small steps, then one step, test, review and save a version before the next step. Two misses lead back to the last version and a new brief">' + out + "</svg>"
+    };
+  })();
+
+  /* Choose your most crucial hypothesis, legacy slide 749 ("Kown" fixed): a
+     2x2 of critical against known. Unknown and critical is the priority, so
+     test it first. The labels sit on the quadrants instead of a legend.
+     Parts: priority, todo, backlog, donot, and groups critical, unknown. */
+  (function () {
+    var x0 = 200, y0 = 64, w = 1240, h = 480, g = 16, qw = (w - g) / 2, qh = (h - g) / 2;
+    var cx = x0 + w / 2, cy = y0 + h / 2;
+    function quad(node, group, color, dark, col, row, title, sub) {
+      var x = x0 + col * (qw + g), y = y0 + row * (qh + g), lc = dark ? "lbl dark" : "lbl";
+      return '<g class="part" data-node="' + node + '" data-group="' + group + '"><rect class="shape ' + color + '" x="' + x + '" y="' + y + '" width="' + qw + '" height="' + qh + '" rx="16"/>' +
+        text(lc, x + qw / 2, y + qh / 2 - 20, title) + text(lc + " xs", x + qw / 2, y + qh / 2 + 22, sub) + "</g>";
+    }
+    var out = DEFS +
+      quad("priority", "critical unknown", "c-magenta", false, 0, 0, "Priority to-do", "Unknown and critical") +
+      quad("todo", "critical", "c-purple", false, 1, 0, "To-do", "Known and critical") +
+      quad("backlog", "unknown", "c-yellow", true, 0, 1, "Backlog", "Unknown and non-critical") +
+      quad("donot", "", "c-navy", false, 1, 1, "Do not do", "Known and non-critical") +
+      '<path class="line" d="M' + cx + " " + (y0 + h + 10) + " L" + cx + " " + (y0 - 10) + '" marker-start="url(#ae-arrow)" marker-end="url(#ae-arrow)"/>' +
+      '<path class="line" d="M' + (x0 - 12) + " " + cy + " L" + (x0 + w + 12) + " " + cy + '" marker-start="url(#ae-arrow)" marker-end="url(#ae-arrow)"/>' +
+      text("cap-t", cx, y0 - 26, "Critical", "middle") + text("cap-t", cx, y0 + h + 52, "Non-critical", "middle") +
+      text("cap-t", x0 - 30, cy + 11, "Unknown", "end") + text("cap-t", x0 + w + 30, cy + 11, "Known");
+    A["critical-known"] = {
+      title: "Choose your most crucial hypothesis",
+      source: "Bastian Burger, course material, legacy slide 749.",
+      steps: ["priority", "todo", "backlog", "donot"],
+      svg: '<svg viewBox="0 0 1640 610" role="img" aria-label="Hypotheses by critical or non-critical and unknown or known: unknown and critical is the priority to-do, known and critical a to-do, unknown and non-critical the backlog, known and non-critical not to do">' + out + "</svg>"
+    };
+  })();
+
+  /* How make numbers go brrr, legacy slide 501, re-shown on 577 (M09). Four
+     stages from impressions to customers, each with its levers, and the four
+     tool notes the chapter works through. The legacy states light one note
+     each: 503 posting, 508 flywheel, 511 interviewing, 515 funnel. Wording as
+     on 501 in sentence case, "Be their concierge" kept. No "Activated" stage,
+     it is not in the legacy graphic. Parts: stages impressions, clicks,
+     signups (also "sign-ups"), customers (group stages), tool notes posting,
+     flywheel, interviewing, funnel (group tools). */
+  (function () {
+    var stages = [
+      ["impressions", "", "IMPRESSIONS", ["Always be posting", "Improve your targeting", "Improve your relevance"]],
+      ["clicks", "", "CLICKS", ["Farm your friends & family", "Guide through keynotes & presentations"]],
+      ["signups", " sign-ups", "SIGN-UPS", ["Demos, interviews, …", "Personal interaction"]],
+      ["customers", "", "CUSTOMERS", ["Show attention", "Manage your funnel", "Be their concierge"]]
+    ];
+    var tools = [["posting", ["Posting &", "outreach"], -4], ["flywheel", ["Keep the", "flywheel going"], -2.5],
+      ["interviewing", ["Interviewing", "techniques"], -3.5], ["funnel", ["Managing your", "funnel"], -2]];
+    var top = 16, pitch = 150, h = 124, out = "";
+    stages.forEach(function (s, i) {
+      var y = top + i * pitch, cy = y + h / 2;
+      out += '<g class="part" data-node="' + s[0] + '" data-group="stages' + s[1] + '">' +
+        '<rect class="shape c-blue" x="0" y="' + y + '" width="400" height="' + h + '" rx="12"/>' + text("lbl lg", 200, cy, s[2]) +
+        '<path class="shape c-blue" d="M418 ' + (cy - 15) + " H446 V" + (cy - 36) + " L490 " + cy + " L446 " + (cy + 36) + " V" + (cy + 15) + ' H418 Z"/>';
+      s[3].forEach(function (b, j) {
+        var ly = cy + (j - (s[3].length - 1) / 2) * 42;
+        out += '<circle class="shape c-blue" cx="532" cy="' + ly + '" r="6"/>' + text("note lg", 554, ly + 11, b) +
+          '<rect class="shape c-blue mini-only" x="554" y="' + (ly - 9) + '" width="' + Math.round(b.length * 16) + '" height="18" rx="9"/>'; // the line as a bar in the text-free miniature
+      });
+      out += "</g>";
+    });
+    tools.forEach(function (t, i) { // a sticky note with a folded corner, tilted like the legacy notes
+      var x = 1296, w = 328, f = 28, y = top + i * pitch, cx = x + w / 2, cy = y + h / 2;
+      var body = " h" + w + " v" + (h - f) + " l-" + f + " " + f + " h-" + (w - f) + " Z";
+      out += '<g class="part" data-node="' + t[0] + '" data-group="tools" transform="rotate(' + t[2] + " " + cx + " " + cy + ')">' +
+        '<path class="nshadow" d="M' + (x + 5) + " " + (y + 9) + body + '"/>' +
+        '<path class="shape c-sticky" d="M' + x + " " + y + body + '"/>' +
+        '<path class="fold" d="M' + (x + w) + " " + (y + h - f) + " l-" + f + " " + f + " v-" + f + ' Z"/>' +
+        text("lbl xs dark", cx, y + 30, "Tool") + text("lbl dark", cx, y + 66, t[1][0]) + text("lbl dark", cx, y + 100, t[1][1]) + "</g>";
+    });
+    A["funnel"] = {
+      title: "How make numbers go brrr",
+      source: "Bastian Burger, course material, legacy slides 501 and 577, states on 503, 508, 511 and 515.",
+      steps: stages.map(function (s) { return s[0]; }).concat(tools.map(function (t) { return t[0]; })),
+      svg: '<svg viewBox="0 0 1640 610" role="img" aria-label="How make numbers go brrr: impressions, clicks, sign-ups and customers, each with its levers, and four tools, posting and outreach, keep the flywheel going, interviewing techniques and managing your funnel">' + out + "</svg>"
+    };
+  })();
+
+  /* KPI trees, legacy slide 726 (startup, growth-focused), with 725 (small
+     business, profitability-focused) as its contrast, the same tree with
+     other words. Wording as on the legacy slides in sentence case. The top
+     metric, three branches and two leaves under each. Grey wires join the
+     boxes, and a lit part shows its path from the top in blue (class link).
+     A leaf belongs to its branch, so "retention" lights the branch and both
+     its leaves. Parts of kpi-tree: north-star (the top, "Growth rate (%)"),
+     new-customers with cac and conversion, retention with churn and nrr,
+     engagement with activation and dau. Parts of kpi-tree-profit: margin,
+     revenue with sales-volume and order-value, costs with opex and cogs,
+     efficiency with utilization and productivity. Group root lights the
+     top of either tree. */
+  (function () {
+    function tree(top, branches) {
+      var cols = [0, 560, 1120];
+      var out = '<path class="wire" d="M820 120 V160 M260 160 H1380' + cols.map(function (x) {
+        return " M" + (x + 260) + " 160 V200 M" + (x + 48) + " 300 V505 M" + (x + 48) + " 385 H" + (x + 90) + " M" + (x + 48) + " 505 H" + (x + 90);
+      }).join("") + '"/>';
+      out += '<g class="part" data-node="' + top[0] + '" data-group="root"><rect class="shape c-strong" x="490" y="0" width="660" height="120" rx="18"/>' + text("lbl lg", 820, 60, top[1]) + "</g>";
+      branches.forEach(function (b, i) {
+        var x = cols[i], c = x + 260;
+        out += '<g class="part" data-node="' + b[0] + '"><path class="link" d="M820 120 V160 H' + c + ' V200"/>' +
+          '<rect class="shape c-blue" x="' + x + '" y="200" width="520" height="100" rx="16"/>' + text("lbl md", c, 250, b[1]) + "</g>";
+        b[2].forEach(function (l, j) {
+          var y = 340 + j * 120, m = y + 45;
+          out += '<g class="part" data-node="' + l[0] + '" data-group="' + b[0] + '"><path class="link" d="M' + (x + 48) + " 300 V" + m + " H" + (x + 90) + '"/>' +
+            '<rect class="shape c-outline" x="' + (x + 90) + '" y="' + y + '" width="430" height="90" rx="14"/>' + text("lbl dark", x + 305, m, l[1]) + "</g>";
+        });
+      });
+      return out;
+    }
+    A["kpi-tree"] = {
+      title: "Startup: growth-focused KPI tree",
+      source: "Bastian Burger, course material, legacy slide 726.",
+      steps: ["north-star", "new-customers", "retention", "engagement"],
+      svg: '<svg viewBox="0 0 1640 554" role="img" aria-label="Growth-focused KPI tree: growth rate on top, fed by new customers (CAC, conversion rate), retention (churn rate, net revenue retention) and product engagement (activation rate, daily active users)">' +
+        tree(["north-star", "Growth rate (%)"], [
+          ["new-customers", "New customers", [["cac", "CAC"], ["conversion", "Conversion rate"]]],
+          ["retention", "Retention", [["churn", "Churn rate"], ["nrr", "Net revenue retention"]]],
+          ["engagement", "Product engagement", [["activation", "Activation rate"], ["dau", "Daily active users"]]]]) + "</svg>"
+    };
+    A["kpi-tree-profit"] = {
+      title: "Small business: profitability-focused KPI tree",
+      source: "Bastian Burger, course material, legacy slide 725.",
+      steps: ["margin", "revenue", "costs", "efficiency"],
+      svg: '<svg viewBox="0 0 1640 554" role="img" aria-label="Profitability-focused KPI tree: net profit margin on top, fed by revenue (sales volume, average order value), costs (operating expenses, cost of goods sold) and efficiency (resource utilization, productivity metrics)">' +
+        tree(["margin", "Net profit margin (%)"], [
+          ["revenue", "Revenue", [["sales-volume", "Sales volume"], ["order-value", "Average order value"]]],
+          ["costs", "Costs", [["opex", "Operating expenses"], ["cogs", "Cost of goods sold"]]],
+          ["efficiency", "Efficiency", [["utilization", "Resource utilization"], ["productivity", "Productivity metrics"]]]]) + "</svg>"
+    };
+  })();
+
+  /* Ideation, incubation, acceleration, legacy slide 703, the arrow that the
+     stage slides 704 to 706 carry on top, with each stage's outcomes below:
+     704 for ideation (as in ideation-stage), 705 for incubation, 706 for
+     acceleration. Typos fixed. Legacy 703 is all magenta. Here the stages take
+     the phase colours of the evidence pyramid (magenta, navy, blue), so the
+     two cornerstones name the same stages alike. Parts: ideation, incubation,
+     acceleration (each its arrow segment and its outcomes), groups arrow
+     (the three segments) and outcomes (the three cards). */
+  (function () {
+    var stages = [
+      ["ideation", "Ideation", "c-magenta", [["Team committed", "for full-time work"], ["Team completed by all", "necessary disciplines"],
+        ["Founders agree on hard and", "soft facts about funding"], ["Agreement on an", "interesting problem space"]]],
+      ["incubation", "Incubation", "c-navy", [["A fundable business with a clear", "business plan for the next 12 months"], ["Paid pilot customers with", "completely conducted projects"],
+        ["Validated value proposition", "with real customers"], ["Clear setup around team,", "processes, idea and more"]]],
+      ["acceleration", "Acceleration", "c-blue", [["Business gets progressively", "de-risked and starts turning profits"], ["Fundable through", "Series A and B rounds"],
+        ["Self-sufficient business", "at each funding round"], ["Gut feeling gets replaced", "by data in daily operations"]]]
+    ];
+    var cw = 528, gap = 28, d = 40, h = 100, top = 132, out = "";
+    stages.forEach(function (s, i) {
+      var x = i * (cw + gap), end = i === 2 ? 1640 - d : x + cw, c = x + cw / 2;
+      var seg = "M" + x + " 0 H" + end + " L" + (end + d) + " " + h / 2 + " L" + end + " " + h + " H" + x + (i ? " L" + (x + d) + " " + h / 2 : "") + " Z";
+      out += '<g class="part" data-node="' + s[0] + '" data-group="arrow"><path class="shape ' + s[2] + '" d="' + seg + '"/>' +
+        text("lbl lg", Math.round((x + end) / 2 + (i ? d / 2 : d / 4)), h / 2, s[1]) + "</g>";
+      out += '<g class="part" data-node="' + s[0] + '-outcomes" data-group="' + s[0] + ' outcomes"><rect class="shape ' + s[2] + '" x="' + x + '" y="' + top + '" width="' + cw + '" height="434" rx="16"/>' +
+        text("lbl", c, top + 46, "Outcomes");
+      s[3].forEach(function (o, k) { out += text("lbl xs", c, top + 110 + k * 88, o[0]) + text("lbl xs", c, top + 140 + k * 88, o[1]); });
+      out += "</g>";
+    });
+    A["stage-arrow"] = {
+      title: "Ideation, incubation, acceleration",
+      source: "Bastian Burger, course framework, legacy slide 703, outcomes from legacy slides 704 to 706.",
+      steps: ["ideation", "incubation", "acceleration"],
+      svg: '<svg viewBox="0 0 1640 566" role="img" aria-label="Three stages as one arrow, ideation, incubation and acceleration, each with four outcomes">' + out + "</svg>"
     };
   })();
 })();

@@ -1,8 +1,10 @@
-# Exemplar: Objection Log → Offer Change — Team TurbineTrack (M08–M09)
+# Exemplar: From Objection Log to Offer Change — Team TurbineTrack (M08–M09)
+
+Updated: 2026-10-20.
 
 *Synthetic exemplar — realistic but invented. The pattern-spotting at the bottom is the part most teams skip.*
 
-Pilot offer at first ask: €400 one-time, 3-week pilot, 5 technicians, success = 10 same-day reports.
+Offer at first ask, the MVP's price from Module 05: €400 one-time for a 3-week setup with 5 technicians, success = 10 same-day reports.
 
 | # | Date | Who | Verbatim objection | Category |
 |---|---|---|---|---|
@@ -17,10 +19,10 @@ Pilot offer at first ask: €400 one-time, 3-week pilot, 5 technicians, success 
 | 9 | 08.05 | Owner, 7 techs | "Not before the summer maintenance peak ends." | timing |
 | 10 | 09.05 | Owner, 14 techs | "Your demo shows wind. We do wind AND solar." | scope creep |
 
-**Patterns (3+ = act):** price STRUCTURE objections (1, 7 — never the amount!) · payment rails (5) · offline (8, + Markus in M03, + demo Q) → already in build.
+**Patterns (3+ = act):** price STRUCTURE objections (1, 7 — never the amount!) · payment rails (5) · offline (8, + Markus in M03, + demo Q), already in build.
 
-**Offer change (committed 09.05):** €89/month flat per company (not per tech), cancel monthly, invoice + bank transfer as default payment, "your data exports to Excel anytime" line added. Price AMOUNT unchanged in year-value (€400 → €1,068/yr) — structure carried it.
+**Offer change (committed 09.05):** €89/month flat per company (not per tech), cancel monthly, invoice + bank transfer as default payment, "your data exports to Excel anytime" line added. Price AMOUNT unchanged in year-value (€400 becomes €1,068/yr) — structure carried it.
 
-**Result after change:** next 6 asks → 3 paid pilots (50% vs 10% before). Objection 10 (solar) logged and REFUSED — wedge discipline (M10's filter, early).
+**Result after change:** next 6 asks: 3 paying customers (50% vs 10% before). Objection 10 (solar) logged and REFUSED — wedge discipline.
 
 *Why this scores well: verbatim, categorized, and the offer change traces to patterns — plus one objection consciously refused with a reason.*

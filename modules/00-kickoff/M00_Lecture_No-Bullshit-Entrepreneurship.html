@@ -145,6 +145,19 @@
   .tools.waves::before { top: calc(50% - 64px); }
   .tools.waves { grid-template-columns: repeat(5, 1fr); }
   .thumbs figcaption { font: 500 24px/1.25 var(--font-mono); color: var(--muted-foreground); }
+  /* Unlearn the advice and accountability group (2026-10-20). */
+  .asked { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-content: center; height: 100%; }
+  .asked div { display: grid; gap: 22px; align-content: start; }
+  .asked h3 { font: 600 26px/1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-foreground); }
+  .asked s { font-size: 40px; line-height: 1.2; color: var(--muted-foreground); text-decoration-thickness: 4px; }
+  .asked p { font-size: 46px; font-weight: 800; line-height: 1.15; color: var(--primary); }
+  .fields3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .fields3 .field { border-radius: 24px; padding: 32px 34px; display: grid; gap: 12px; align-content: start; min-height: 230px; }
+  .fields3 .field b { font-size: 52px; font-weight: 800; line-height: 1; }
+  .fields3 .field span { font-size: 30px; line-height: 1.25; font-weight: 500; }
+  .stack { display: grid; gap: 40px; align-content: center; height: 100%; }
+  .shotwide { margin: 0; display: grid; gap: 16px; }
+  .shotwide img { width: 100%; height: auto; border-radius: 14px; box-shadow: var(--shadow-card); }
 </style>
 </head>
 <body>
@@ -258,6 +271,8 @@
   <div class="content struck">
     <div><s>But I'm not an engineer…</s><p>Yes, you can build it!</p></div>
     <div><s>But we don't have a GmbH…</s><p>Yes, you can ship it!</p></div>
+    <div><s>But we don't have a patent…</s><p>Customers don't buy patents!</p></div>
+    <div><s>But we didn't get a grant…</s><p>Customers can pay you!</p></div>
   </div>
   <footer class="prov" data-kind="Bastian">Legacy slide 31.</footer>
   </section>
@@ -372,6 +387,145 @@
   <div class="mantra-line" style="--num-size: 380px"><span class="mantra-num" data-anim="rise">42%</span><span class="mantra-word">no market need</span></div>
   <div class="sticky"><p>The #1 reason.</p><p class="why">Not cash. Not competitors.</p></div>
   <footer class="prov" data-kind="Data">CB Insights (2019). The top 20 reasons startups fail. 101 startup post-mortems.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Who is talking?</span>
+    <h2 class="title">Driving lessons from someone who never <span class="mark">drove</span>?</h2>
+  </div>
+  <div class="content diagram">
+    <svg viewBox="0 0 1640 500" role="img" aria-label="A learner car with a driving school sign on its roof and the founder at the wheel. Outside stands an adviser who never drove, calling: file a patent first, apply for grants, how many followers">
+      <circle cx="170" cy="230" r="50" style="fill:var(--context-foreground)"/>
+      <rect x="105" y="292" width="130" height="150" rx="52" style="fill:var(--context-foreground)"/>
+      <text x="170" y="490" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:30px;font-weight:700;fill:var(--muted-foreground)">never drove</text>
+      <g style="font-family:Inter,sans-serif;font-size:34px;font-weight:800;fill:var(--foreground)">
+        <rect x="270" y="10" width="440" height="84" rx="18" style="fill:var(--sticky)"/><text x="296" y="64">File a patent first!</text>
+        <rect x="300" y="112" width="440" height="84" rx="18" style="fill:var(--sticky)"/><text x="326" y="166">Apply for grants!</text>
+        <rect x="270" y="214" width="440" height="84" rx="18" style="fill:var(--sticky)"/><text x="296" y="268">How many followers?</text>
+      </g>
+      <path d="M262 248 L236 242 L262 230 Z" style="fill:var(--sticky)"/>
+      <rect x="1050" y="88" width="320" height="64" rx="12" style="fill:var(--sticky);stroke:var(--foreground);stroke-width:3"/>
+      <text x="1210" y="132" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--foreground)">DRIVING SCHOOL</text>
+      <path d="M940 290 L1010 160 L1410 160 L1490 290 Z" style="fill:var(--primary)"/>
+      <rect x="820" y="280" width="800" height="150" rx="60" style="fill:var(--primary)"/>
+      <path d="M1030 180 L1190 180 L1190 280 L985 280 Z" style="fill:var(--primary-tint)"/>
+      <path d="M1220 180 L1395 180 L1450 280 L1220 280 Z" style="fill:var(--primary-tint)"/>
+      <circle cx="1120" cy="235" r="34" style="fill:var(--diagram-navy)"/>
+      <circle cx="980" cy="430" r="64" style="fill:var(--foreground)"/><circle cx="980" cy="430" r="26" style="fill:var(--context)"/>
+      <circle cx="1460" cy="430" r="64" style="fill:var(--foreground)"/><circle cx="1460" cy="430" r="26" style="fill:var(--context)"/>
+      <text x="1120" y="364" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:34px;font-weight:800;fill:var(--primary-foreground)">you</text>
+    </svg>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's analogy, 2026-10-20. Michael Seibel (YC, 2024) says the same with "acting advice from someone who's not worked as an actor …".</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="It has never been easy">
+  <span class="label">What people ask you, and what matters</span>
+  <div class="content asked">
+    <div><h3>You'll be asked</h3><s>Do you have a patent?</s><s>Did you apply for grants?</s><s>How many followers?</s><s>How many downloads?</s></div>
+    <div><h3>What matters</h3><p>Who has the problem?</p><p>Who paid?</p><p>What did you learn this week?</p></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's view, 2026-10-20. The questions on the right are the course's weekly accountability questions, legacy slides 96 and 113.</footer>
+  </section>
+
+<section class="slide" data-archetype="quote" data-variant="field" data-chapter="It has never been easy">
+  <div class="quote-layout">
+    <figure>
+      <blockquote><p>Get a board of advisers. Partner with big companies. […] Get a patent strategy. […] And the product is like <span class="hl">an afterthought</span>.</p></blockquote>
+      <figcaption><b>Michael Seibel</b>, Y Combinator, on the advice founders get outside the Bay Area</figcaption>
+    </figure>
+  </div>
+  <footer class="prov" data-kind="YC">Caldwell, D., &amp; Seibel, M. (2024, August 6). The problem with startup "experts". Y Combinator, YouTube. Read in a transcript copy.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Patents</span>
+    <h2 class="title">Patents matter in biotech. In software they come <span class="mark">last</span></h2>
+    <p class="sub">How 1,332 young tech companies ranked patents as protection</p>
+  </div>
+  <div class="content diagram">
+    <svg viewBox="0 0 1640 500" role="img" aria-label="Rank of patents among ways to protect an advantage: first for biotech, second for medical devices and for venture-backed IT hardware, last for software">
+      <g style="font-family:'Source Code Pro',monospace;font-size:28px;font-weight:600;fill:var(--muted-foreground)">
+        <text x="560" y="30">MOST IMPORTANT</text><text x="1640" y="30" text-anchor="end">LEAST IMPORTANT</text>
+      </g>
+      <g style="font-family:Inter,sans-serif;font-size:36px;font-weight:800;fill:var(--foreground)">
+        <text x="0" y="112">Biotech</text><text x="0" y="212">Medical devices</text><text x="0" y="312">IT hardware*</text><text x="0" y="412">Software</text>
+      </g>
+      <g style="stroke:var(--border);stroke-width:8;stroke-linecap:round">
+        <line x1="580" y1="100" x2="1620" y2="100"/><line x1="580" y1="200" x2="1620" y2="200"/><line x1="580" y1="300" x2="1620" y2="300"/><line x1="580" y1="400" x2="1620" y2="400"/>
+      </g>
+      <g style="font-family:Inter,sans-serif;font-size:30px;font-weight:800" text-anchor="middle">
+        <circle cx="600" cy="100" r="34" style="fill:var(--primary)"/><text x="600" y="111" style="fill:var(--primary-foreground)">1st</text>
+        <circle cx="720" cy="200" r="34" style="fill:var(--primary)"/><text x="720" y="211" style="fill:var(--primary-foreground)">2nd</text>
+        <circle cx="720" cy="300" r="34" style="fill:var(--primary)"/><text x="720" y="311" style="fill:var(--primary-foreground)">2nd</text>
+        <circle cx="1600" cy="400" r="40" style="fill:var(--context-foreground)"/><text x="1600" y="411" style="fill:var(--primary-foreground)">last</text>
+      </g>
+      <rect x="0" y="450" width="1640" height="50" rx="10" style="fill:var(--sticky)"/>
+      <text x="20" y="485" style="font-family:Inter,sans-serif;font-size:30px;font-weight:700;fill:var(--foreground)">Either way, a patent doesn't tell you anyone wants the product</text>
+    </svg>
+  </div>
+  <footer class="prov" data-kind="Research">Graham, S., Merges, R., Samuelson, P., &amp; Sichelman, T. (2009). High technology entrepreneurs and the patent system. Berkeley Technology Law Journal. *Venture-backed. Positions show rank, not distance.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Grants</span>
+    <h2 class="title">A grant buys you <span class="mark">time</span>, not evidence</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="paid"></div></div>
+  <footer class="prov" data-kind="Bastian">Bastian's view, 2026-10-20. EXIST pays up to €3,000 a month for a year (BMWi, 2021). Pyramid after legacy slide 128.</footer>
+  </section>
+
+<section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="paid" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Vanity metrics</span>
+    <h2 class="title">Count what customers did, not what you <span class="mark">collected</span></h2>
+    <p class="sub">Validated learning is the only progress early on</p>
+  </div>
+  <div class="content">
+    <div class="fromto">
+      <div class="from"><span class="label">Collected</span><p>4,000 followers, 2 pitch awards, 1 patent filed, 40,000 page views</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">Learned</span><p>15 conversations, 3 next steps, <span class="hl">1 payment</span></p></div>
+    </div>
+    <p class="why">"… validated learning is backed up by empirical data collected from real customers." Eric Ries</p>
+  </div>
+  <footer class="prov" data-kind="Framework">Ries, E. (2011). <i>The Lean Startup</i>, chapters 3 and 7. Crown Business. Numbers are illustrative.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Technology push</span>
+    <h2 class="title">Start from a <span class="mark">problem</span>, not from your technology</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="problem-oriented" data-active="problem"></div></div>
+  <footer class="prov" data-kind="YC">Friedman, J. (2020). How to get startup ideas. YC Startup School. Cornerstone after legacy slide 118.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="It has never been easy">
+  <div class="head">
+    <span class="label">Now you · alone · 3 minutes</span>
+    <h2 class="title">Sort the advice you got</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">!</span>Keep or unlearn</span>
+      <h3>Three pieces of advice, three questions</h3>
+      <p class="goal">You keep only advice that makes you learn from customers.</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span><b>Write</b> the three pieces of startup advice you heard most this year</span></li>
+        <li><i class="icon icon-arrow"></i><span><b>Note</b> who gave each. Did they ever found a company?</span></li>
+        <li><i class="icon icon-arrow"></i><span><b>Ask</b> of each: does it make me learn from customers, or collect something?</span></li>
+        <li><i class="icon icon-arrow"></i><span><b>Mark</b> each one keep or unlearn</span></li>
+        <li><i class="icon icon-arrow"></i><span>Like: "File a patent first", a bank adviser who never founded. Unlearn</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Three lines, each marked keep or unlearn</span><span><b>Minutes</b> 3</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="3"></div>
+  <footer class="prov" data-kind="Bastian">Course exercise (2026-10-20). The example is illustrative.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="It has never been easy">
@@ -717,6 +871,169 @@
   <footer class="prov" data-kind="Bastian">Weekly goals and accountability questions, legacy slide 96.</footer>
   </section>
 
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">The trap</span>
+    <h2 class="title">Busy feels like progress. Mostly it <span class="mark">isn't</span></h2>
+    <p class="sub">Five full days. Which one would a customer notice?</p>
+  </div>
+  <div class="content diagram">
+    <svg viewBox="0 0 1640 520" role="img" aria-label="A week of five busy days: new logo, grant form, pitch deck version five, competitor list, and call five customers. All five felt busy. Only the customer calls would a customer notice">
+      <g style="font-family:'Source Code Pro',monospace;font-size:30px;font-weight:600;fill:var(--muted-foreground)"><text x="480" y="36" text-anchor="middle">MON</text><text x="740" y="36" text-anchor="middle">TUE</text><text x="1000" y="36" text-anchor="middle">WED</text><text x="1260" y="36" text-anchor="middle">THU</text><text x="1520" y="36" text-anchor="middle">FRI</text></g>
+      <g data-anim="rise"><rect x="360" y="60" width="240" height="200" rx="20" style="fill:var(--context)"/><rect x="620" y="60" width="240" height="200" rx="20" style="fill:var(--context)"/><rect x="880" y="60" width="240" height="200" rx="20" style="fill:var(--context)"/><rect x="1140" y="60" width="240" height="200" rx="20" style="fill:var(--context)"/><rect x="1400" y="60" width="240" height="200" rx="20" style="fill:var(--primary)"/></g>
+      <g style="font-family:Inter,sans-serif;font-size:36px;font-weight:800" text-anchor="middle"><text x="480" y="172" style="fill:var(--context-foreground)">New logo</text><text x="740" y="172" style="fill:var(--context-foreground)">Grant form</text><text x="1000" y="150" style="fill:var(--context-foreground)">Pitch deck</text><text x="1000" y="196" style="fill:var(--context-foreground)">version 5</text><text x="1260" y="150" style="fill:var(--context-foreground)">Competitor</text><text x="1260" y="196" style="fill:var(--context-foreground)">list</text><text x="1520" y="150" style="fill:var(--primary-foreground)">Call 5</text><text x="1520" y="196" style="fill:var(--primary-foreground)">customers</text></g>
+      <g style="font-family:Inter,sans-serif;font-size:32px;font-weight:700;fill:var(--foreground)"><text x="0" y="392">Felt busy</text><text x="0" y="482">A customer noticed</text></g>
+      <g style="stroke:var(--muted-foreground);stroke-width:9;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M458 384 l16 16 l30 -34"/><path d="M718 384 l16 16 l30 -34"/><path d="M978 384 l16 16 l30 -34"/><path d="M1238 384 l16 16 l30 -34"/><path d="M1498 384 l16 16 l30 -34"/></g>
+      <g style="stroke:var(--context-foreground);stroke-width:7;stroke-linecap:round"><path d="M464 456 l32 32 M496 456 l-32 32"/><path d="M724 456 l32 32 M756 456 l-32 32"/><path d="M984 456 l32 32 M1016 456 l-32 32"/><path d="M1244 456 l32 32 M1276 456 l-32 32"/></g>
+      <path d="M1492 470 l20 20 l38 -44" style="stroke:var(--primary);stroke-width:12;fill:none;stroke-linecap:round;stroke-linejoin:round" data-step="1"/>
+      </svg>
+  </div>
+  <footer class="prov" data-kind="YC">"It's very easy to feel busy and feel productive and not be moving your business forward." Divya Bhat, YC Startup School. The week is made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">The group</span>
+    <h2 class="title">Three to seven teams. Every <span class="mark">two weeks</span>. One goal each</h2>
+    <p class="sub">Informal, short and candid. No slides, numbers first</p>
+  </div>
+  <div class="content diagram">
+    <svg viewBox="0 0 1640 540" role="img" aria-label="Five teams around a table. Three to seven teams per group, every two weeks, 45 minutes at most, one goal per team">
+      <circle cx="330" cy="270" r="170" style="fill:var(--context)"/>
+      <text x="330" y="262" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:36px;font-weight:800;fill:var(--context-foreground)">your</text>
+      <text x="330" y="304" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:36px;font-weight:800;fill:var(--context-foreground)">group</text>
+      <g style="font-family:Inter,sans-serif;font-size:36px;font-weight:800" text-anchor="middle">
+        <circle cx="330" cy="58" r="56" style="fill:var(--diagram-magenta)"/><text x="330" y="71" style="fill:var(--primary-foreground)">A</text>
+        <circle cx="532" cy="205" r="56" style="fill:var(--diagram-magenta)"/><text x="532" y="218" style="fill:var(--primary-foreground)">B</text>
+        <circle cx="455" cy="443" r="56" style="fill:var(--diagram-magenta)"/><text x="455" y="456" style="fill:var(--primary-foreground)">C</text>
+        <circle cx="205" cy="443" r="56" style="fill:var(--diagram-magenta)"/><text x="205" y="456" style="fill:var(--primary-foreground)">D</text>
+        <circle cx="128" cy="205" r="56" style="fill:var(--primary)"/><text x="128" y="218" style="fill:var(--primary-foreground)">You</text>
+      </g>
+      <g style="font-family:Inter,sans-serif">
+        <text x="760" y="110" style="font-size:96px;font-weight:800;fill:var(--diagram-magenta)">3–7</text><text x="1010" y="104" style="font-size:40px;font-weight:700;fill:var(--foreground)">teams at your pace</text>
+        <text x="760" y="245" style="font-size:96px;font-weight:800;fill:var(--diagram-magenta)">2</text><text x="1010" y="239" style="font-size:40px;font-weight:700;fill:var(--foreground)">weeks between meetings</text>
+        <text x="760" y="380" style="font-size:96px;font-weight:800;fill:var(--diagram-magenta)">45</text><text x="1010" y="374" style="font-size:40px;font-weight:700;fill:var(--foreground)">minutes at most</text>
+        <text x="760" y="515" style="font-size:96px;font-weight:800;fill:var(--diagram-magenta)">1</text><text x="1010" y="509" style="font-size:40px;font-weight:700;fill:var(--foreground)">goal per team</text>
+      </g>
+    </svg>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's group format (2026-10-20).</footer>
+  </section>
+
+<section class="slide" data-archetype="build" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">The two-week cycle</span>
+    <h2 class="title">Set it, test it, do it, then answer for it</h2>
+  </div>
+  <div class="content diagram">
+    <svg viewBox="0 0 1640 560" role="img" aria-label="A cycle of four steps around a centre. One: set one goal with a number and a date. Two: the group tests whether it matters. Three: work for two weeks. Four: report target against actual. In the centre the candid round: hit it, why not bigger; missed it, why, and what changes">
+      <defs><marker id="cyc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs>
+      <g style="stroke:var(--context-foreground);stroke-width:6;fill:none">
+        <path d="M640 92 C 760 60, 880 60, 1000 92" marker-end="url(#cyc)"/>
+        <path d="M1250 200 C 1300 260, 1300 300, 1250 360" marker-end="url(#cyc)"/>
+        <path d="M1000 468 C 880 500, 760 500, 640 468" marker-end="url(#cyc)"/>
+        <path d="M390 360 C 340 300, 340 260, 390 200" marker-end="url(#cyc)"/>
+      </g>
+      <g data-step="1"><rect x="160" y="20" width="460" height="170" rx="22" style="fill:var(--diagram-magenta)"/>
+        <text x="190" y="84" style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;fill:var(--primary-foreground)">1 Set one goal</text>
+        <text x="190" y="140" style="font-family:Inter,sans-serif;font-size:30px;font-weight:500;fill:var(--primary-foreground)">a number and a date</text></g>
+      <g data-step="2"><rect x="1020" y="20" width="460" height="170" rx="22" style="fill:var(--diagram-purple)"/>
+        <text x="1050" y="84" style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;fill:var(--primary-foreground)">2 Test it</text>
+        <text x="1050" y="140" style="font-family:Inter,sans-serif;font-size:30px;font-weight:500;fill:var(--primary-foreground)">does it matter?</text></g>
+      <g data-step="3"><rect x="1020" y="370" width="460" height="170" rx="22" style="fill:var(--diagram-navy)"/>
+        <text x="1050" y="434" style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;fill:var(--primary-foreground)">3 Work</text>
+        <text x="1050" y="490" style="font-family:Inter,sans-serif;font-size:30px;font-weight:500;fill:var(--primary-foreground)">two weeks, on that goal</text></g>
+      <g data-step="4"><rect x="160" y="370" width="460" height="170" rx="22" style="fill:var(--primary)"/>
+        <text x="190" y="434" style="font-family:Inter,sans-serif;font-size:40px;font-weight:800;fill:var(--primary-foreground)">4 Report</text>
+        <text x="190" y="490" style="font-family:Inter,sans-serif;font-size:30px;font-weight:500;fill:var(--primary-foreground)">target against actual</text></g>
+      <g data-step="5"><rect x="560" y="205" width="520" height="150" rx="22" style="fill:var(--sticky);stroke:var(--foreground);stroke-width:3"/>
+        <text x="820" y="262" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:32px;font-weight:800;fill:var(--foreground)">Hit it? Why not bigger?</text>
+        <text x="820" y="316" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:32px;font-weight:800;fill:var(--foreground)">Missed it? Why, what changes?</text></g>
+    </svg>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's two-week cycle (2026-10-20).</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">The goal test</span>
+    <h2 class="title">Test every goal before you work on it</h2>
+    <p class="sub">Two no's, and the team rewrites it before the meeting ends</p>
+  </div>
+  <div class="content stack">
+    <div class="fields3">
+      <div class="field field-blue"><b>Learning?</b><span>Will we know something about customers that we don't know today?</span></div>
+      <div class="field field-magenta"><b>Revenue?</b><span>Does it bring a paying customer closer?</span></div>
+      <div class="field field-purple"><b>Lasting?</b><span>Does it build a business that can carry itself?</span></div>
+    </div>
+    <div class="fromto">
+      <div class="from"><span class="label">Weak</span><p>"Apply for EXIST"</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">Good</span><p>"3 of our 10 hottest prospects <span class="hl">pay for a pilot</span> in two weeks"</p></div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Bastian's three questions and two-no rule (2026-10-20). Example goals are illustrative.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">The candid rule</span>
+    <h2 class="title">Hit every goal? Then they were too <span class="mark">small</span></h2>
+    <p class="sub">Average share of target over several cycles, to scale</p>
+  </div>
+  <div class="content stack">
+    <div class="thresholds">
+      <span class="scale-label"><b>Average share of target</b> · 0 to 100%</span>
+      <div class="bar">
+        <div class="seg" style="flex: 0 0 calc(34% - 3.2px)">Too big, or off focus</div>
+        <div class="seg t1" style="flex: 0 0 calc(26% - 3.2px)" data-anim="grow">Stretching</div>
+        <div class="seg t3" style="flex: 0 0 calc(10% - 3.2px); --delay: 0.2s" data-anim="grow">Sweet spot</div>
+        <div class="seg t1" style="flex: 0 0 calc(10% - 3.2px); --delay: 0.4s" data-anim="grow">Good</div>
+        <div class="seg" style="flex: 0 0 calc(20% - 3.2px)">Sandbagging</div>
+      </div>
+      <div class="ticks"><span style="left: 0">0%</span><span style="left: 34%">34%</span><span style="left: 60%">60%</span><span style="left: 70%">70%</span><span style="left: 80%">80%</span></div>
+    </div>
+    <div class="sticky wide" style="max-width: 1180px"><p>"… when you are your own boss, you are screwing yourself." Michael Seibel on sandbagging</p></div>
+  </div>
+  <footer class="prov" data-kind="YC">Seibel and Caldwell, YC, Setting smarter goals. Sweet spot from Google re:Work for stretch goals. Zone limits from the course's group tracker.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">Y Combinator does it</span>
+    <h2 class="title">YC asks every batch the <span class="mark">same question</span></h2>
+    <p class="sub">Group office hours every two weeks, 6 to 10 companies</p>
+  </div>
+  <div class="content diagram">
+    <svg viewBox="0 0 1640 500" role="img" aria-label="Quote from Gustaf Alströmer, YC group partner: What were your goals for the last two weeks, did you hit them, and if you didn't, what came in the way? Facts: every two weeks, 6 to 10 companies per section, many groups keep meeting for years after YC">
+      <rect x="0" y="0" width="1040" height="500" rx="28" style="fill:var(--diagram-magenta)"/>
+      <g style="font-family:Inter,sans-serif;font-weight:800;fill:var(--primary-foreground);font-size:46px">
+        <text x="50" y="100">"… what were your goals for</text><text x="50" y="160">the last two weeks and did</text><text x="50" y="220">you hit the goals? And if you</text><text x="50" y="280">didn't hit them, what came in</text><text x="50" y="340">the way of hitting the goals?"</text>
+      </g>
+      <text x="50" y="430" style="font-family:Inter,sans-serif;font-size:30px;font-weight:600;fill:var(--primary-foreground)">Gustaf Alströmer, YC group partner, 2023</text>
+      <g style="font-family:Inter,sans-serif">
+        <rect x="1080" y="0" width="560" height="150" rx="22" style="fill:var(--muted)"/><text x="1110" y="70" style="font-size:44px;font-weight:800;fill:var(--diagram-magenta)">2 weeks</text><text x="1110" y="118" style="font-size:30px;font-weight:600;fill:var(--foreground)">between group office hours</text>
+        <rect x="1080" y="175" width="560" height="150" rx="22" style="fill:var(--muted)"/><text x="1110" y="245" style="font-size:44px;font-weight:800;fill:var(--diagram-magenta)">6 to 10</text><text x="1110" y="293" style="font-size:30px;font-weight:600;fill:var(--foreground)">companies per section</text>
+        <rect x="1080" y="350" width="560" height="150" rx="22" style="fill:var(--muted)"/><text x="1110" y="420" style="font-size:44px;font-weight:800;fill:var(--diagram-magenta)">years</text><text x="1110" y="468" style="font-size:30px;font-weight:600;fill:var(--foreground)">many groups go on after YC</text>
+      </g>
+    </svg>
+  </div>
+  <footer class="prov" data-kind="YC">Alströmer, G. (2023, March 2). Lessons from working with 600+ YC startups. Lenny's Podcast, transcript copy. Y Combinator, About page, two page copies.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="How this course works">
+  <div class="head">
+    <span class="label">The tool</span>
+    <h2 class="title">Run the group from one spreadsheet</h2>
+    <p class="sub">Left half when you set the goal, right half two weeks later</p>
+  </div>
+  <div class="content stack">
+    <figure class="shotwide"><img src="media/tracker-goals.png" alt="Goals sheet of the tracker with three made-up teams. Team Kiln set a paid-pilot goal of 3 and hit it. Team Rota set 10 next steps and reached 6, 60 percent, missed. Team Receipt's goal 'Apply for EXIST' failed all three test questions and is highlighted yellow"></figure>
+    <p class="takeaway">The sheet flags a goal that fails the test, and the scoreboard says when to raise the bar</p>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Accountability Group Tracker in the course resources, screenshot 2026-10-20. Teams and goals are made up.</footer>
+  </section>
+
 <section class="slide" data-archetype="framework" data-anchor="build-measure-learn" data-anchor-part="build" data-chapter="How this course works">
   <div class="head">
     <span class="label">The workshop ladder</span>
@@ -945,7 +1262,7 @@
   </section>
 
 <section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
-  <div class="head"><span class="label">References · 1 of 3</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="head"><span class="label">References · 1 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
       <li>Aulet, B. (2013). <i>Disciplined entrepreneurship: 24 steps to a successful startup</i>. Wiley.</li>
@@ -961,7 +1278,7 @@
   </section>
 
 <section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
-  <div class="head"><span class="label">References · 2 of 3</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="head"><span class="label">References · 2 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
       <li>Dalio, R. (2025). <i>How countries go broke: The big cycle</i>. Avid Reader Press.</li>
@@ -977,7 +1294,7 @@
   </section>
 
 <section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
-  <div class="head"><span class="label">References · 3 of 3</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="head"><span class="label">References · 3 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
       <li>Karpathy, A. (2025, February 2). Vibe coding [Post]. X.</li>
@@ -987,6 +1304,35 @@
       <li>Sequoia Capital. (2019, March 15). <i>Writing a business plan</i>.</li>
       <li>U.S. Bureau of Labor Statistics. <i>Business employment dynamics: Survival of private sector establishments by opening year</i>.</li>
       <li>Wikipedia. (2026). Articles on Gates, Jobs, Page, Brin, Plattner, Huang and Werner von Siemens, retrieved 2026-10-19.</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 4 of 5</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>BMWi (2021). <i>EXIST-Gründungsstipendium</i> [Brochure]. Federal Ministry for Economic Affairs and Energy.</li>
+      <li>Caldwell, D., &amp; Seibel, M. (2024, August 6). <i>The problem with startup "experts"</i> [Video]. Y Combinator.</li>
+      <li>Farre-Mensa, J., Hegde, D., &amp; Ljungqvist, A. (2020). What is a patent worth? Evidence from the U.S. patent "lottery". <i>Journal of Finance, 75</i>(2).</li>
+      <li>Friedman, J. (2020). <i>How to get startup ideas</i> [Video]. YC Startup School.</li>
+      <li>Graham, P. (2006, March). Are software patents evil? paulgraham.com.</li>
+      <li>Graham, S., Merges, R., Samuelson, P., &amp; Sichelman, T. (2009). High technology entrepreneurs and the patent system. <i>Berkeley Technology Law Journal, 24</i>(4).</li>
+      <li>Howell, S. T. (2017). Financing innovation: Evidence from R&amp;D grants. <i>American Economic Review, 107</i>(4).</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 5 of 5</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Alströmer, G. (2023, March 2). <i>Lessons from working with 600+ YC startups</i> [Podcast]. Lenny's Podcast.</li>
+      <li>Bhat, D. (n.d.). <i>Setting KPIs and goals</i> [Video]. YC Startup School.</li>
+      <li>Caldwell, D., &amp; Seibel, M. (n.d.). <i>Setting smarter goals</i> [Video]. Y Combinator.</li>
+      <li>Chatterji, A., Delecourt, S., Hasan, S., &amp; Koning, R. (2019). When does advice impact startup performance? <i>Strategic Management Journal, 40</i>(3).</li>
+      <li>Google (n.d.). <i>Set goals with OKRs</i>. re:Work.</li>
+      <li>Y Combinator (n.d.). <i>About Y Combinator</i>.</li>
     </ol>
   </div>
   </section>

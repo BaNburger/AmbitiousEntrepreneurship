@@ -1,5 +1,7 @@
 # Tools & External Resources
 
+Updated: 2026-10-19.
+
 ## Your Weekly Tool
 **Student_Toolkit.xlsx** — in this folder. Contains your Interview Log, Experiment Tracker, and KPI Dashboard. This is the ONE file you use every week.
 
@@ -13,19 +15,24 @@ The standard early-stage investment document. Used by thousands of startups. Fre
 
 ### Sequoia Capital — Writing a Business Plan
 https://www.sequoiacap.com/article/writing-a-business-plan/
-The industry-standard pitch deck structure. Problem → Solution → Why Now → Market → Competition → Product → Business Model → Team → Financials → Ask.
+The industry-standard pitch deck structure. Problem, Solution, Why Now, Market, Competition, Product, Business Model, Team, Financials, Ask.
 
 ---
 
 ## Building & Prototyping
 
-### Vercel + v0.dev
-https://v0.dev
-Generate full frontend UIs from text descriptions. Best for landing pages and MVPs.
+The concepts matter more than the tool (Module 06). Pick the one your team already knows.
 
-### Replit
-https://replit.com
-Build and deploy web apps from your browser. Free tier is enough for prototypes.
+### AI app builders and coding agents
+Examples, not endorsements: [Lovable](https://lovable.dev), [Replit](https://replit.com), [Claude Code](https://code.claude.com/docs/en/best-practices), [Cursor](https://cursor.com). Brief it in writing, one small step at a time, and save every version.
+
+### Google Sheets
+https://sheets.google.com
+Your first database. Many prototypes need nothing more.
+
+### Microsoft Clarity
+https://clarity.microsoft.com
+Session recordings and heatmaps of your live page or MVP. EU visitors must consent first, see [Legal Basics](LEGAL_BASICS.md).
 
 ### Claude / ChatGPT
 For everything else — writing copy, analyzing interviews, generating code, brainstorming solutions. Use AI as your first employee.

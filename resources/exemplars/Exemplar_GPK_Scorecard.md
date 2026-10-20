@@ -1,26 +1,30 @@
-# Exemplar: GPK Scorecard — Team Klausurly (M07)
+# Exemplar: GPK Scorecard, Team Klausurly (M07)
 
-*Synthetic exemplar — realistic but invented. Scored on artifacts, each answer cites its evidence. 0 = no evidence · 1 = weak/mixed · 2 = strong.*
+Updated: 2026-10-19.
 
-Team: Klausurly — AI exam-prep from professors' old exams (B2C, students). Verdict context: prototype live 2 weeks, 41 student users.
+*Synthetic exemplar, realistic but invented. Scored with the [GPK Decision Framework](../../frameworks/03_GPK_Decision_Framework.md). Every score cites its artifact. 0 = no evidence or the evidence says no, 1 = weak or mixed, 2 = strong evidence a stranger could check.*
+
+Team: Klausurly, AI exam prep from professors' old exams (B2C, students). Context: prototype live 2 weeks, 41 student users.
+
+**Step 1, Kill Criteria Log.** No line crossed before today. The Module 04 line ("fewer than 10% of segment visitors sign up") held at 13.4%. The monkey test's line is written below, before the first ask.
 
 **PROBLEM (max 6)**
-1. Real, frequent pain in a named segment? **2** — 14 interviews, exam-panic quotes, segment = 3rd-semester engineering students.
-2. Do they spend money/time on alternatives today? **1** — time yes (past exams hunted in forums); money almost none: two of 14 ever paid for prep (€12, €19 one-time).
-3. Budget authority in segment? **1** — students self-pay but tiny wallets; parents untested.
+1. Do people in one named segment describe the problem unprompted? **2.** 14 interviews with 3rd-semester engineering students, exam-panic quotes raised before any prompt (Interview Log).
+2. Do they spend time or money on a workaround today? **1.** Time yes, past exams hunted in forums. Money almost none, 2 of 14 ever paid for prep (€12, €19 one-time).
+3. Does the problem occur at least weekly? **1.** Weekly only in exam season (Pain Map).
 
 **SOLUTION (max 6)**
-4. Does the prototype deliver the JTBD? **2** — 41 users, D7 usage 38% in exam week; "this saved my Statik exam" (verbatim, n=3).
-5. 10x on the bleeding dimension? **1** — better than forum-hunting; ChatGPT-with-a-good-prompt gets 70% of the way free.
-6. Would they PAY? **0** — pricing test ran (M09 preview, €4.99/exam): 41 users, 9 asked live, 0 paid. Threshold was "≥3 of first 10 asks" — missed.
+4. Did people from the segment use the prototype without help? **2.** 41 users, D7 usage 38% in exam week (Use Log).
+5. Is it 10 times better, with proof? **1.** Better than forum-hunting, heard from 3 users ("this saved my Statik exam"). ChatGPT with a good prompt gets most of the way for free.
+6. Possible now, not two years ago? **1.** Language models generate exam-style questions. Named, not sourced, and free tools have the same capability.
 
-**WIN (max 6)**
-7. Distribution we can reach repeatedly? **2** — Fachschaft channels convert absurdly well (12.9% CTR).
-8. Defensible vs status quo in 12 months? **0** — professors upload exams to Moodle increasingly; LLMs commoditize the core.
-9. Team-problem fit? **1** — they're students (access ✓) but nobody has an exam-content edge.
+**TRACTION (max 6)**
+7. Has anyone paid? **0.** Nobody asked yet.
+8. Do users come back without being pushed? **2.** Repeat use in exam week, dated in the Use Log.
+9. Is a metric growing week over week? **1.** Users grew in one week, then flat after the exam.
 
-**TOTAL: 10/18 → PIVOT ZONE (9–13).**
+**TOTAL: 11/18, Pivot zone (9 to 13).** Weakest section: traction. Problem real, wallet untested.
 
-**Pre-committed kill line for the week (announced at tribunal):** "If the B2B pivot ask (tutoring schools paying for the question engine) gets 0 interested replies from 10 named schools by Friday, we KILL and take the Restart Ramp."
+**The monkey and its line (logged before the first ask).** Monkey: "Students pay €4.99 per exam." Line: "If fewer than 3 of the first 10 users we ask pay €4.99, the monkey is false and the Pivot becomes a test of the B2B ask (tutoring schools), with its own line."
 
-*Why this scores well: question 6 is scored ZERO by the team's own hand — against their own hopes, on their own threshold. That's the discipline being graded.*
+*Why this scores well: question 7 is scored zero by the team's own hand, and the team tests that zero this week instead of arguing it away. That is the discipline being graded.*

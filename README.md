@@ -1,4 +1,4 @@
-<!-- Updated: 2026-10-19 -->
+<!-- Updated: 2026-10-20 -->
 
 # Ambitious Entrepreneurship
 
@@ -52,7 +52,7 @@ Which parts you use depends on the format. In class they run as up to three bloc
 
 On your own, the input session and the homework push you furthest toward a real company. Read the lecture, then go out and hit the bar. If you do everything, cases and workshops included, plan for at least 12 weeks of full-time work.
 
-Don't do it alone. Self-paced works best in a small group of several teams. Meet once a week, show each other your numbers in 3 minutes per team and run the workshops together. A room of peers who see your numbers every week is the cheapest accountability you will ever get.
+Don't do it alone. Form an accountability group of 3 to 7 teams at your pace, the way Y Combinator groups its batches. Share your numbers every week, 3 minutes per team or a short written post. Every two weeks, meet for 45 minutes at most. Each team reports its last goal against the actual and says candidly why. Then it sets one goal for the next two weeks, and the group tests it: does it teach you something about customers, bring revenue closer, build a lasting business? Hit every goal, and your goals were too small. Run the group from the [Accountability Group Tracker](resources/Accountability_Group_Tracker.xlsx) and run the workshops together. A room of peers who see your numbers is the cheapest accountability you will ever get.
 
 Every module folder holds exactly what you need: `README` (start here) · lecture slides · workshop · case study · homework.
 
@@ -68,8 +68,8 @@ Every module folder holds exactly what you need: `README` (start here) · lectur
 | 03 | [The Problem Space](modules/03-problem-space/) | Is this a real problem — or just an interesting one? | Konux | Pain Mining |
 | 04 | [Validating Problems](modules/04-validating-problems/) | What evidence would change your mind? | Fairphone | Landing Page Sprint |
 | 05 | [The Solution Space](modules/05-solution-space/) | Of all the ways to solve this problem, why this one? | Freeletics | Click Dummy Sprint |
-| 06 | [Prototyping with AI](modules/06-prototyping/) | What's the fastest thing you can build to learn? | Bolt | Show & Build |
-| 07 | [The Kill Decision](modules/07-rapid-validation/) | Why should this startup die? | Quibi | Kill Your Darlings |
+| 06 | [Prototyping with AI](modules/06-prototyping/) | What's the fastest thing you can build to learn? | Langfuse | Show & Build |
+| 07 | [The Kill Decision](modules/07-rapid-validation/) | Why should this startup die? | 6Wunderkinder | Kill Your Darlings |
 | 08 | [Finding First Users](modules/08-first-users/) | Who are your first ten customers — by name? | Stripe | The Collison Installation |
 | 09 | [From Prototype to Product](modules/09-prototype-to-product/) | How do you turn users into revenue? | Superhuman | Revenue Sprint |
 | 10 | [Product Management & Growth](modules/10-product-management/) | What do you build next — and what do you refuse to build? | Linear | Feature Graveyard |

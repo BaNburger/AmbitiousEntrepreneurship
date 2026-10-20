@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M06 Lecture · Prototyping with AI</title>
+<link rel="stylesheet" href="../../design/fonts.css">
+<link rel="stylesheet" href="../../design/tokens.css">
+<link rel="stylesheet" href="../../design/deck.css">
+<link rel="stylesheet" href="../../design/archetypes.css">
+<style>
+/* Class only (course decision, 2026-10-19). An element with data-hold inside a slide is shown
+   when presenting, left out of the PDF here and out of the student build by publish.py. */
+html.is-print:not(.show-all) .slide [data-hold] { display: none !important; }
+html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-columns: 1fr; }
+html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-columns: 1fr; }
+</style>
+</head>
+<body>
+<main class="deck" data-module="M06" data-module-title="Prototyping with AI" data-chapters="Recap from last time|Your presentations|Every application ever|The cheapest version that works|You are the product owner|Build to get users|Wrap-up and check-out|Workshop: build it, then hand it over|Case discussion">
+
+
+<section class="slide" data-archetype="title">
+  <div class="head">
+    <span class="label">Module 06 · Ambitious Entrepreneurship</span>
+    <h1 class="title">Prototyping with AI</h1>
+    <p class="sub">What is the fastest thing you can build to learn?</p>
+  </div>
+  <div class="course-path" aria-label="Course path, module 06 of 00 to 12">
+    <span class="label">Course path</span>
+    <ol><li class="done">00</li><li class="done">01</li><li class="done">02</li><li class="done">03</li><li class="done">04</li><li class="done">05</li><li class="now">06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li><li>12</li></ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question">
+  <div class="head">
+    <span class="label">Check-in · Slido or hands</span>
+    <h2 class="title">Did a dummy pass your <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">line</span>?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li>A dummy passed</li><li>Every dummy fell under the line</li><li>No line written</li></ol>
+    <div class="timer" data-timer="2"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim">
+  <div class="head">
+    <span class="label">Weekly accountability</span>
+    <h2 class="title">Three questions, every week</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Three weekly accountability questions" style="display:block;width:100%;height:auto"><text x="270" y="200" text-anchor="middle" style="fill:var(--primary);font-size:230px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="270" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">User interactions?</text><text x="270" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">What did you learn?</text><text x="820" y="200" text-anchor="middle" style="fill:var(--primary);font-size:230px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="820" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">New revenue?</text><text x="820" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why did they pay?</text><text x="1370" y="200" text-anchor="middle" style="fill:var(--primary);font-size:230px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="1370" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Shipped?</text><text x="1370" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why does it matter?</text><rect x="0" y="400" width="1640" height="64" rx="10" style="fill:var(--sticky)"/><text x="820" y="443" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">🦄 Report target vs. actual in small groups</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Weekly accountability questions, legacy slide 113.</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Recap from last time">
+  <div class="head">
+    <span class="label">Chapter 1 of 9</span>
+    <h2 class="title">Recap from last time</h2>
+    <p class="summary">Where last week left you, a dummy people clicked and asks they accepted.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Recap from last time">
+  <div class="head">
+    <span class="label">Recap · Module 05</span>
+    <h2 class="title">Last week you climbed to the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">mock-up</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="mockup"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup, legacy slides 128 and 328.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Recap from last time">
+  <div class="head">
+    <span class="label">Recap · Module 05</span>
+    <h2 class="title">You cut it to <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">one feature</span></h2>
+    <p class="sub">The MVP is the smallest thing someone could pay for</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 500" role="img" aria-label="One feature, 10 times better, the one your users care about, offensively ugly and slow, tech doesn't matter" style="display:block;width:100%;height:auto"><defs><marker id="of" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><rect x="620" y="200" width="400" height="110" rx="55" style="fill:var(--primary)"/><text x="820" y="268" text-anchor="middle" style="fill:var(--primary-foreground);font-size:42px;font-weight:800;font-family:Inter,sans-serif">One feature</text><text x="820" y="60" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:700;font-family:Inter,sans-serif">Tech doesn't matter</text><text x="100" y="260" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:700;font-family:Inter,sans-serif">10 times better</text><text x="1195" y="262" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:700;font-family:Inter,sans-serif">The one users care about</text><text x="820" y="470" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:700;font-family:Inter,sans-serif">Offensively ugly and slow</text><path d="M820 80 L820 190" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#of)"/><path d="M400 250 L612 250" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#of)"/><path d="M1028 250 L1180 250" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#of)"/><path d="M820 318 L820 430" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#of)"/></svg></div>
+  <footer class="prov" data-kind="Bastian">Legacy slides 314 and 379. The MVP line from the course Glossary.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Recap from last time">
+  <div class="head">
+    <span class="label">Recap · Module 05</span>
+    <h2 class="title">Now we are building to get <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">users</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 360" role="img" aria-label="Build to find a seed, build to improve, now build to get users" style="display:block;width:100%;height:auto"><defs><marker id="br" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><rect x="0" y="80" width="520" height="200" rx="18" style="fill:var(--context)"/><text x="260" y="170" text-anchor="middle" style="fill:var(--context-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Build to find a seed</text><text x="260" y="222" text-anchor="middle" style="fill:var(--context-foreground);font-size:30px;font-weight:600;font-family:Inter,sans-serif">several dummies, going broad</text><path d="M526 180 L552 180" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#br)"/><rect x="560" y="80" width="520" height="200" rx="18" style="fill:var(--context)"/><text x="820" y="170" text-anchor="middle" style="fill:var(--context-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Build to improve</text><text x="820" y="222" text-anchor="middle" style="fill:var(--context-foreground);font-size:30px;font-weight:600;font-family:Inter,sans-serif">one winner, going narrow</text><path d="M1086 180 L1112 180" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#br)"/><rect x="1120" y="80" width="520" height="200" rx="18" style="fill:var(--primary)"/><text x="1380" y="170" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Build to get users</text><text x="1380" y="222" text-anchor="middle" style="fill:var(--primary-foreground);font-size:30px;font-weight:600;font-family:Inter,sans-serif">today</text><text x="1380" y="340" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Modules 05 and 06</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 396.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Recap from last time">
+  <div class="head">
+    <span class="label">Today's question · hands</span>
+    <h2 class="title">What is the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">fastest</span> thing you can build to learn?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li></li><li></li></ol>
+    <div class="timer" data-timer="1"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Your presentations">
+  <div class="head">
+    <span class="label">Chapter 2 of 9</span>
+    <h2 class="title">Your presentations</h2>
+    <p class="summary">Your Module 05 line next to the asks people accepted, three minutes per team.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="checkin" data-chapter="Your presentations">
+  <div class="head">
+    <span class="label">Your presentations · make it credible</span>
+    <h2 class="title">Show us where you're at in 3 minutes or less!</h2>
+  </div>
+  <div class="timer" data-timer="3"></div>
+  <div class="content">
+    <div class="credible">
+      <div class="card"><h3>Facts</h3><ul><li>What the segment uses today and what it costs, with its source</li></ul></div>
+      <div class="card"><h3>Numbers</h3><ul><li>Guided demos per student, demos per dummy, asks accepted per dummy next to the line</li></ul></div>
+      <div class="card"><h3>Quotes</h3><ul><li>Two things people said while clicking, with roles, not names</li></ul></div>
+      <div class="card"><h3>Images</h3><ul><li>The winning dummy's key screen and the ask screen</li></ul></div>
+    </div>
+    <div class="asks"><span>Verdict: which dummy passed, which dropped (type 1), or back to the problem (type 2)</span></div>
+    <div class="asks"><span>What did you do?</span><span>What did you learn? Where did the AI second opinion disagree?</span><span>How can we help?</span></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Course check-in format, legacy slides 115 and 387. Categories from the Module 05 workshop.</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Chapter 3 of 9</span>
+    <h2 class="title">Let's jump in! Every application ever</h2>
+    <p class="summary">Every app has the same four parts, so draw yours before anyone builds it.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Your shortcut to thinking like an architect</span>
+    <h2 class="title">Every application has the same <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">four parts</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="every-application"></div></div>
+  <footer class="prov" data-kind="Bastian">Every application ever, legacy slides 398, 400 to 402 and 437.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Every application ever · Interface</span>
+    <h2 class="title">The interface <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">asks</span> for the input</h2>
+  </div>
+  <div class="content" style="position:relative">
+    <div class="anchor" data-anchor="every-application" data-active="interface"></div>
+    <div class="sticky" style="position:absolute;left:0;bottom:-8px;font-size:26px;max-width:1080px;padding:10px 18px;--tilt:-1deg">What do you need from the user, and they from you?</div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Questions about the interface, legacy slides 403 and 404.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Every application ever · Logic</span>
+    <h2 class="title">The logic turns input into <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">value</span></h2>
+  </div>
+  <div class="content" style="position:relative">
+    <div class="anchor" data-anchor="every-application" data-active="logic"></div>
+    <div class="sticky" style="position:absolute;left:0;bottom:-8px;font-size:26px;max-width:1080px;padding:10px 18px;--tilt:-1deg">What goes in, what comes out, and what does the user value?</div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Questions about the logic, legacy slides 413 and 414.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Every application ever · Database</span>
+    <h2 class="title">The data is the one part you <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">can't rebuild</span></h2>
+  </div>
+  <div class="content" style="position:relative">
+    <div class="anchor" data-anchor="every-application" data-active="database"></div>
+    <div class="sticky" style="position:absolute;left:0;bottom:-8px;font-size:26px;max-width:1080px;padding:10px 18px;--tilt:-1deg">How do you protect it from being corrupted?</div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Questions about the data, legacy slides 429 and 430.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Every application ever · APIs</span>
+    <h2 class="title">Outside services come in through <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">APIs</span></h2>
+  </div>
+  <div class="content" style="position:relative">
+    <div class="anchor" data-anchor="every-application" data-active="api"></div>
+    <div class="sticky" style="position:absolute;left:0;bottom:-8px;font-size:26px;max-width:1080px;padding:10px 18px;--tilt:-1deg">What does a call cost? Set a budget before the first call.</div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Every considerable service, legacy slide 402. "Make sure you have a budget", legacy slide 425.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Gate question · hands</span>
+    <h2 class="title">Which part did your Module 05 dummy <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">fake</span>?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li>Interface</li><li>Logic</li><li>Database</li><li>External services</li></ol>
+    <div class="timer" data-timer="1"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Worked example</span>
+    <h2 class="title">An AI chatbot is the same <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">four parts</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="An AI chatbot on the map: a chat window as interface, an LLM app as logic, chat history and vector storage as database, a large language model behind an API" style="display:block;width:100%;height:auto"><defs><marker id="ch" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><rect x="0" y="60" width="150" height="380" rx="18" style="fill:var(--diagram-navy)"/><text x="75" y="258" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">User</text><rect x="230" y="140" width="260" height="220" rx="16" style="fill:var(--diagram-magenta)"/><text x="360" y="240" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Chat</text><text x="360" y="280" text-anchor="middle" style="fill:var(--primary-foreground);font-size:30px;font-weight:700;font-family:Inter,sans-serif">window</text><rect x="570" y="40" width="480" height="420" rx="16" style="fill:var(--diagram-magenta)"/><text x="810" y="90" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">LLM app</text><rect x="610" y="120" width="400" height="62" rx="10" style="fill:var(--card)"/><text x="810" y="162" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">find the intent</text><rect x="610" y="200" width="400" height="62" rx="10" style="fill:var(--card)"/><text x="810" y="242" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">look up history and info</text><rect x="610" y="280" width="400" height="62" rx="10" style="fill:var(--card)"/><text x="810" y="322" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">fill a template</text><rect x="610" y="360" width="400" height="62" rx="10" style="fill:var(--card)"/><text x="810" y="402" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">write the reply</text><rect x="1130" y="40" width="510" height="190" rx="16" style="fill:var(--diagram-magenta)"/><text x="1385" y="120" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Database</text><text x="1385" y="166" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">chat history, vector storage</text><rect x="1130" y="270" width="510" height="190" rx="16" style="fill:var(--diagram-magenta)"/><text x="1385" y="350" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">API</text><text x="1385" y="396" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">large language model</text><path d="M160 250 L222 250" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#ch)"/><path d="M500 250 L562 250" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#ch)"/><path d="M1058 140 L1122 140" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#ch)"/><path d="M1058 360 L1122 360" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#ch)"/></svg></div>
+  <footer class="prov" data-kind="Bastian">AI chatbot, legacy slide 399, redrawn.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Worked example · QuackSync, made up</span>
+    <h2 class="title">Mark what must work, and what you do <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">by hand</span></h2>
+  </div>
+  <div class="content" style="display:grid;gap:16px;align-content:start">
+    <div style="width:1560px"><div class="anchor" data-anchor="every-application" data-active="logic"></div></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;font-size:26px;line-height:1.25">
+      <div><b>Interface</b><br>a form and a list</div>
+      <div><b>Logic</b><br>title and next step, <span style="background:var(--sticky);padding:0 8px;border-radius:6px;font-weight:800">by hand</span> if the call fails</div>
+      <div><b>Database</b><br>one CSV sheet</div>
+      <div><b>External services</b><br>an AI model</div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">QuackSync, the course's made-up venture (legacy slides 407 to 411), mapped on legacy slide 400. The build is on the slides of chapter 5.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Prototype the process first</span>
+    <h2 class="title">Lay out the kitchen before you <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">build</span> it</h2>
+    <p class="sub">Run the process by hand until it works, then automate the part that hurts</p>
+  </div>
+  <div class="content media-split flip" style="--media-w: 1000px"><div class="sticky" style="font-size:34px;align-self:center">Run it by hand until it works. Then automate the part that hurts.</div></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 415. The tennis-court layout after Hess, A. (2013), Alan Hess on Architecture. The image is a still from The Founder (2016).</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Every application ever">
+  <span class="label">Core principle</span>
+  <p class="mantra-lead">Rebuild any part, as often as you like. Lose</p>
+  <div class="mantra-line"><span class="mantra-num" data-anim="rise">0</span><span class="mantra-word">rows they entered</span></div>
+  <div class="sticky"><p>The code is <span class="mark">disposable</span>. What users entered is not.</p><p class="why">Module 07 reads who came back.</p></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 430, "How can you protect your data from being corrupted?"</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Every application ever">
+  <div class="head">
+    <span class="label">Now you · alone, then compare</span>
+    <h2 class="title">Draw your MVP on the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">four parts</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 592" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="240" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="120.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Interface</text><text x="280" y="62" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Where does the input go in?</text><rect x="0" y="124" width="240" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="120.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Logic</text><text x="280" y="186" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">What turns it into the outcome?</text><rect x="0" y="248" width="240" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="120.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Data</text><text x="280" y="310" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">What must you keep?</text><rect x="0" y="372" width="240" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="120.0" y="433" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">APIs</text><text x="280" y="434" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Which outside service?</text><rect x="0" y="496" width="240" height="96" rx="48" style="fill:var(--sticky)"/><text x="120.0" y="557" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">By hand</text><text x="280" y="558" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Which part do you do yourself?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="3"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Four boxes, one tagged by hand</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">Chapter 4 of 9</span>
+    <h2 class="title">The cheapest version that works</h2>
+    <p class="summary">Pick the cheapest form that delivers the outcome, often a form, a sheet and you.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">Workflow or app</span>
+    <h2 class="title">A workflow <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">runs by itself</span>. In an app, users work</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 570" role="img" aria-label="A workflow runs by itself from a trigger through steps to an output. An app is a place where a user works with an interface, logic and data, and comes back" style="display:block;width:100%;height:auto"><defs><marker id="wa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><defs><marker id="wap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--diagram-purple)"/></marker></defs><rect x="0" y="30" width="300" height="200" rx="18" style="fill:var(--diagram-navy)"/><text x="150" y="120" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Workflow</text><text x="150" y="164" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">runs by itself</text><rect x="360" y="60" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-navy);stroke-width:4"/><text x="495" y="118" text-anchor="middle" style="fill:var(--diagram-navy);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Trigger</text><text x="495" y="162" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">a form is sent</text><path d="M636 130 L674 130" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><rect x="680" y="60" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-navy);stroke-width:4"/><text x="815" y="118" text-anchor="middle" style="fill:var(--diagram-navy);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Process</text><text x="815" y="162" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">AI summarises</text><path d="M956 130 L994 130" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><rect x="1000" y="60" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-navy);stroke-width:4"/><text x="1135" y="118" text-anchor="middle" style="fill:var(--diagram-navy);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Action</text><text x="1135" y="162" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">saved to the sheet</text><path d="M1276 130 L1314 130" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><rect x="1320" y="60" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-navy);stroke-width:4"/><text x="1455" y="118" text-anchor="middle" style="fill:var(--diagram-navy);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Output</text><text x="1455" y="162" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">email to the user</text><rect x="0" y="300" width="300" height="200" rx="18" style="fill:var(--diagram-purple)"/><text x="150" y="390" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">App</text><text x="150" y="434" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">users work in it</text><rect x="360" y="330" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-purple);stroke-width:4"/><text x="495" y="388" text-anchor="middle" style="fill:var(--diagram-purple);font-size:34px;font-weight:800;font-family:Inter,sans-serif">User</text><text x="495" y="432" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">types a thought</text><path d="M636 380 L674 380" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><path d="M674 420 L636 420" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><rect x="680" y="330" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-purple);stroke-width:4"/><text x="815" y="388" text-anchor="middle" style="fill:var(--diagram-purple);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Interface</text><text x="815" y="432" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">form and list</text><path d="M956 380 L994 380" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><path d="M994 420 L956 420" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><rect x="1000" y="330" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-purple);stroke-width:4"/><text x="1135" y="388" text-anchor="middle" style="fill:var(--diagram-purple);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Logic</text><text x="1135" y="432" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">title and next step</text><path d="M1276 380 L1314 380" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><path d="M1314 420 L1276 420" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#wa)"/><rect x="1320" y="330" width="270" height="140" rx="16" style="fill:var(--card);stroke:var(--diagram-purple);stroke-width:4"/><text x="1455" y="388" text-anchor="middle" style="fill:var(--diagram-purple);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Data</text><text x="1455" y="432" text-anchor="middle" style="fill:var(--foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">every thought kept</text><path d="M495 476 C 495 540, 1500 540, 1500 476" style="stroke:var(--diagram-purple);stroke-width:5;fill:none;stroke-dasharray:12 10" marker-end="url(#wap)"/><text x="1000" y="562" text-anchor="middle" style="fill:var(--diagram-purple);font-size:26px;font-weight:800;font-family:Inter,sans-serif">comes back tomorrow</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Workflow steps from legacy slides 418 to 420 (trigger, action, output) and 457 (input, process, output). The app lane is QuackSync, made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">Gate question · hands</span>
+    <h2 class="title">Workflow or app?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li>A weekly report of new tenders, sent by email</li><li>A planner where a coach builds a training week</li><li>An alert when a finalist goes quiet</li></ol>
+    <div class="timer" data-timer="1"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">The cheapest version</span>
+    <h2 class="title">Who <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">catches</span> the input? You, a tool, or code</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 500" role="img" aria-label="Who catches the user's input: no code means you catch it, low code means a tool catches it, code means your own code catches it" style="display:block;width:100%;height:auto"><rect x="0" y="0" width="528" height="130" rx="18" style="fill:var(--diagram-navy)"/><text x="264" y="62" text-anchor="middle" style="fill:var(--primary-foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">No code</text><text x="264" y="106" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">You catch it</text><rect x="0" y="160" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="30" y="214" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">An email or a message to you</text><rect x="0" y="264" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="30" y="318" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A form whose answers you read</text><rect x="0" y="368" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="30" y="422" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A click dummy, you behind it</text><rect x="556" y="0" width="528" height="130" rx="18" style="fill:var(--diagram-purple)"/><text x="820" y="62" text-anchor="middle" style="fill:var(--primary-foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Low code</text><text x="820" y="106" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">A tool catches it</text><rect x="556" y="160" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="586" y="214" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A workflow collects it via API</text><rect x="556" y="264" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="586" y="318" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A website you build quickly</text><rect x="556" y="368" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="586" y="422" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A chat interface on a server</text><rect x="1112" y="0" width="528" height="130" rx="18" style="fill:var(--diagram-magenta)"/><text x="1376" y="62" text-anchor="middle" style="fill:var(--primary-foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Code</text><text x="1376" y="106" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Your code catches it</text><rect x="1112" y="160" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="1142" y="214" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A frontend built from scratch</text><rect x="1112" y="264" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="1142" y="318" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A native app for your users</text><rect x="1112" y="368" width="528" height="86" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="1142" y="422" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Built with an AI coding agent</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Adapted from legacy slide 406, no code, low code and high code.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">Prototype with a spreadsheet</span>
+    <h2 class="title">A sheet is your first <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">database</span></h2>
+    <p class="sub">One row per thing, one column per field, fixable by hand</p>
+  </div>
+  <div class="content" style="display:grid;gap:18px;align-content:start"><table style="border-collapse:collapse;width:100%;table-layout:fixed;background:var(--card)"><colgroup><col style="width:60px"><col style="width:220px"><col><col style="width:360px"><col style="width:300px"></colgroup><thead><tr><th style="background:var(--muted);border:1px solid var(--border);padding:8px 14px;text-align:left;font:700 24px var(--font-mono)"></th><th style="background:var(--muted);border:1px solid var(--border);padding:8px 14px;text-align:left;font:700 24px var(--font-mono)">A · saved</th><th style="background:var(--muted);border:1px solid var(--border);padding:8px 14px;text-align:left;font:700 24px var(--font-mono)">B · thought</th><th style="background:var(--muted);border:1px solid var(--border);padding:8px 14px;text-align:left;font:700 24px var(--font-mono)">C · title</th><th style="background:var(--muted);border:1px solid var(--border);padding:8px 14px;text-align:left;font:700 24px var(--font-mono)">D · next step</th></tr></thead><tbody><tr><td style="background:var(--muted);border:1px solid var(--border);padding:8px 12px;font:700 24px var(--font-mono)">2</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">19 Oct 07:12</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">what if the bathroom mirror showed my calendar</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">Mirror calendar</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">Sketch it on paper</td></tr><tr><td style="background:var(--muted);border:1px solid var(--border);padding:8px 12px;font:700 24px var(--font-mono)">3</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">19 Oct 07:40</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">a podcast about failed inventions</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">Failed inventions podcast</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">List 5 episodes</td></tr><tr><td style="background:var(--muted);border:1px solid var(--border);padding:8px 12px;font:700 24px var(--font-mono)">4</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">20 Oct 06:55</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px">duck that reminds me to drink water</td><td style="background:var(--sticky);border:1px solid var(--border);padding:8px 12px;font-size:25px">(waiting for review)</td><td style="border:1px solid var(--border);padding:8px 12px;font-size:25px"></td></tr></tbody></table><div class="sticky" style="font-size:30px;align-self:start;max-width:1100px">When the pieces start to relate to each other, a sheet becomes a database. Until then, a sheet is enough.</div></div>
+  <footer class="prov" data-kind="Illustrative">QuackSync sheet, made up. "DB != Excel", legacy slide 434. Tool cards for Google Sheets and Airtable, legacy slides 26 to 29.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">One API call</span>
+    <h2 class="title">Your logic calls the model and keeps the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">key</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="One API call: the interface sends the input to your logic, your logic holds the secret key and calls the AI model with key and prompt, the model answers with a title and a next step. A spending limit is set at the provider" style="display:block;width:100%;height:auto"><defs><marker id="ap" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><defs><marker id="apm" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--diagram-magenta)"/></marker></defs><rect x="0" y="120" width="330" height="220" rx="18" style="fill:var(--context)"/><text x="165" y="222" text-anchor="middle" style="fill:var(--context-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">Interface</text><text x="165" y="266" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:28px;font-weight:800;font-family:Inter,sans-serif">no key here</text><rect x="470" y="90" width="380" height="280" rx="18" style="fill:var(--diagram-navy)"/><text x="660" y="190" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Your logic</text><text x="660" y="236" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">holds the key</text><rect x="560" y="270" width="200" height="64" rx="12" style="fill:var(--sticky)"/><text x="660" y="313" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">🔑 secret</text><rect x="1220" y="90" width="420" height="280" rx="18" style="fill:var(--diagram-magenta)"/><text x="1430" y="190" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">AI model</text><text x="1430" y="236" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">outside service</text><path d="M340 230 L460 230" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#ap)"/><path d="M860 170 L1210 170" style="stroke:var(--primary);stroke-width:7;fill:none" marker-end="url(#ap)"/><text x="1035" y="150" text-anchor="middle" style="fill:var(--primary);font-size:28px;font-weight:800;font-family:Inter,sans-serif">request: key + prompt</text><path d="M1210 300 L860 300" style="stroke:var(--primary);stroke-width:7;fill:none" marker-end="url(#ap)"/><text x="1035" y="344" text-anchor="middle" style="fill:var(--primary);font-size:28px;font-weight:800;font-family:Inter,sans-serif">answer: title, next step</text><rect x="1220" y="395" width="420" height="64" rx="12" style="fill:var(--sticky)"/><text x="1430" y="437" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">spending limit set</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Create an API key, set a budget, you see the key only once, legacy slides 424 to 427, redrawn without the tool.</footer>
+  </section>
+
+<section class="slide" data-archetype="tip" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">Tip · before the first call</span>
+    <h2 class="title">Set a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">spending limit</span>, then hide the key</h2>
+    <p class="sub">Anyone who sees the key can spend your money</p>
+  </div>
+  <div class="content">
+    <div class="fromto">
+      <div class="from"><span class="label">From</span><p>The key pasted into the page, no limit at the provider.</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">To</span><p>A <span class="hl">limit</span> set first, the key in the builder's secrets or an environment variable.</p></div>
+    </div>
+    <p class="why">You see the key only once. Store it like a password.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 425, "Make sure you have a budget" and "You'll see the key only once!".</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">The tool fits the job</span>
+    <h2 class="title">If all you have is a hammer, everything looks like a nail</h2>
+    <p class="sub">An AI builder makes everything look like an app</p>
+  </div>
+  <div class="content media-split flip" style="--media-w: 900px"><div class="sticky" style="font-size:34px;align-self:center">Ask first: would a form, a sheet and you deliver the outcome?</div></div>
+  <footer class="prov" data-kind="Bastian">Legacy slide 412, "If all you have is a Lovable, everything looks like a SaaS software".</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="The cheapest version that works">
+  <div class="head">
+    <span class="label">Now you · in your team</span>
+    <h2 class="title">What is the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">cheapest</span> version that delivers?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 468" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="240" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="120.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Workflow?</text><text x="280" y="62" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Does the user only need the result?</text><rect x="0" y="124" width="240" height="96" rx="48" style="fill:var(--diagram-purple)"/><text x="120.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">App?</text><text x="280" y="186" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Does the user work in it and come back?</text><rect x="0" y="248" width="240" height="96" rx="48" style="fill:var(--primary)"/><text x="120.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Catch</text><text x="280" y="310" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">You, a tool or code?</text><rect x="0" y="372" width="240" height="96" rx="48" style="fill:var(--sticky)"/><text x="120.0" y="433" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Sheet</text><text x="280" y="434" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Is a sheet enough for the data?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="2"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">One sentence: form, sheet, call, by hand</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Chapter 5 of 9</span>
+    <h2 class="title">You are the product owner</h2>
+    <p class="summary">An AI coding agent builds whatever you ask, so ask for small steps and check each one.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Why it matters</span>
+    <h2 class="title">It feels <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">faster</span>. Measure it</h2>
+    <p class="sub">16 experienced developers, 246 real tasks, early 2025</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 500" role="img" aria-label="Experienced developers expected AI to make them 24 percent faster, believed afterwards it had made them 20 percent faster, and were measured 19 percent slower" style="display:block;width:100%;height:auto"><text x="0" y="92" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Expected</text><text x="0" y="130" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">forecast before the study</text><rect x="420" y="50" width="480" height="90" rx="10" style="fill:var(--context)"/><text x="444" y="108" text-anchor="start" style="fill:var(--context-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">–24%</text><text x="0" y="232" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Felt afterwards</text><text x="0" y="270" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">what they believed</text><rect x="500" y="190" width="400" height="90" rx="10" style="fill:var(--context)"/><text x="524" y="248" text-anchor="start" style="fill:var(--context-foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">–20%</text><text x="0" y="372" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Measured</text><text x="0" y="410" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">time per task, with AI</text><rect x="900" y="330" width="380" height="90" rx="10" style="fill:var(--diagram-magenta)"/><text x="1300" y="388" text-anchor="start" style="fill:var(--diagram-magenta);font-size:40px;font-weight:800;font-family:Inter,sans-serif">+19%</text><line x1="900" y1="20" x2="900" y2="450" style="stroke:var(--foreground);stroke-width:4"/><text x="870" y="480" text-anchor="end" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">faster</text><text x="930" y="480" text-anchor="start" style="fill:var(--diagram-magenta);font-size:28px;font-weight:700;font-family:Inter,sans-serif">slower</text></svg></div>
+  <footer class="prov" data-kind="Research">METR (2025), Measuring the impact of early-2025 AI on experienced open-source developer productivity, randomized controlled trial, 10 July 2025.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">The patch spiral</span>
+    <h2 class="title">Patch, patch, patch, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">spaghetti</span></h2>
+    <p class="sub">AI removed the bottleneck of building, not the bottleneck of deciding</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="The patch spiral: idea, the AI builds it fast, it does not quite work, patch, patch, patch, spaghetti. Two failed attempts mean the design is wrong" style="display:block;width:100%;height:auto"><defs><marker id="sp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><rect x="0" y="40" width="250" height="100" rx="50" style="fill:var(--diagram-navy)"/><text x="125.0" y="102" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Idea</text><rect x="300" y="40" width="290" height="100" rx="50" style="fill:var(--diagram-navy)"/><text x="445.0" y="102" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">AI builds it fast</text><rect x="640" y="40" width="350" height="100" rx="50" style="fill:var(--diagram-purple)"/><text x="815.0" y="102" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Doesn't quite work</text><rect x="1040" y="40" width="220" height="100" rx="50" style="fill:var(--diagram-purple)"/><text x="1150.0" y="102" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Patch</text><rect x="1040" y="200" width="220" height="100" rx="50" style="fill:var(--diagram-purple)"/><text x="1150.0" y="262" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Patch</text><rect x="700" y="200" width="220" height="100" rx="50" style="fill:var(--diagram-magenta)"/><text x="810.0" y="262" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Patch</text><rect x="300" y="340" width="330" height="100" rx="50" style="fill:var(--diagram-magenta)"/><text x="465.0" y="402" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Spaghetti</text><path d="M255 90 L292 90" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#sp)"/><path d="M595 90 L632 90" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#sp)"/><path d="M995 90 L1032 90" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#sp)"/><path d="M1150 145 L1150 192" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#sp)"/><path d="M1035 250 L928 250" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#sp)"/><path d="M760 305 L640 345" style="stroke:var(--context-foreground);stroke-width:6;fill:none" marker-end="url(#sp)"/><rect x="1100" y="350" width="540" height="100" rx="16" style="fill:var(--sticky)"/><text x="1370" y="395" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Two failed attempts:</text><text x="1370" y="432" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">the design is wrong</text></svg></div>
+  <footer class="prov" data-kind="Framework">Best Practices: Coding with AI, course resource, anti-pattern 3 and the death spiral.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Gate question · hands</span>
+    <h2 class="title">Who had an AI fix one thing and <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">break</span> another?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li></li><li></li></ol>
+    <div class="timer" data-timer="1"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="tip" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Core principle</span>
+    <h2 class="title">You are the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">product owner</span>. The agent is the contractor</h2>
+    <p class="sub">It builds whatever you ask, and it never pushes back on scope</p>
+  </div>
+  <div class="content">
+    <div class="fromto">
+      <div class="from"><span class="label">From</span><p>"Build me a recruiting platform." The agent decides what goes in.</p></div>
+      <i class="icon icon-arrow"></i>
+      <div class="to"><span class="label">To</span><p>You decide <span class="hl">what</span> and why. The agent proposes how. You check it.</p></div>
+    </div>
+    <p class="why">Never let the contractor decide what to build.</p>
+  </div>
+  <footer class="prov" data-kind="Framework">Best Practices: Coding with AI, course resource, anti-pattern 5 "The AI Yes-Man Problem" ("You are the PM").</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">The agent loop</span>
+    <h2 class="title">Brief, one step, test, review, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">save</span></h2>
+  </div>
+  <div class="content" style="position:relative"><div class="anchor" data-anchor="agent-loop"></div><div class="sticky" style="position:absolute;left:10px;bottom:30px;font-size:28px;--tilt:-1deg"><b>4 hours max</b> per iteration</div></div>
+  <footer class="prov" data-kind="Framework">Claude Code docs, "Best practices for Claude Code" (explore, plan, implement, commit, and after two failed corrections start fresh with a better prompt), accessed 2026-10-19. Two-miss rule also in the course resource Best Practices: Coding with AI. Legacy slides 377, 448 and 450.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="agent-loop" data-anchor-part="brief" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Show the real thing · QuackSync · demo 1 of 6 · brief</span>
+    <h2 class="title">Write the brief <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">once</span></h2>
+    <p class="sub">Who, the one feature, the four parts, what stays manual, what not to build.</p>
+  </div>
+  <div class="content" style="display:grid;justify-items:center;align-content:start">
+    <figure class="shot" style="width:1120px"><div class="bar"><i></i><i></i><i></i></div><img src="media/demo-brief.png" alt="QuackSync project instructions: who it is for, the one feature, input and outcome, the four parts, what stays manual, what not to build, how we work"></figure>
+  </div>
+  <footer class="prov">A real build by an AI coding agent (Claude) from this brief, 19 October 2026, records in the course workspace. QuackSync is a made-up venture.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="agent-loop" data-anchor-part="plan" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Show the real thing · QuackSync · demo 2 of 6 · plan</span>
+    <h2 class="title">Ask for a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">plan</span>, not code</h2>
+    <p class="sub">Each step small enough to test. No code before the plan.</p>
+  </div>
+  <div class="content" style="display:grid;justify-items:center;align-content:start">
+    <figure class="shot" style="width:1560px"><div class="bar"><i></i><i></i><i></i></div><img src="media/demo-plan.png" alt="The agent's plan in small steps, each with the test that proves it"></figure>
+  </div>
+  <footer class="prov">A real build by an AI coding agent (Claude) from this brief, 19 October 2026, records in the course workspace. QuackSync is a made-up venture.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Now you · 1 minute</span>
+    <h2 class="title">Which step would you <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">cut</span> or split?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li>Save and list thoughts in a CSV file</li><li>Ask the AI model for a title and a next step</li><li>Save a thought, with the manual fallback</li><li>Render the page</li><li>Serve it over HTTP</li></ol>
+    <div class="timer" data-timer="1"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="agent-loop" data-anchor-part="step" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Show the real thing · QuackSync · demo 3 of 6 · one step</span>
+    <h2 class="title">One step, one <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">test</span>, one version</h2>
+    <p class="sub">Look at what changed. Files you didn't ask for? Ask why, or revert.</p>
+  </div>
+  <div class="content" style="display:grid;justify-items:center;align-content:start">
+    <figure class="shot" style="width:1560px"><div class="bar"><i></i><i></i><i></i></div><img src="media/demo-step.png" alt="One step of the build: the files it changed and the passing tests"></figure>
+  </div>
+  <footer class="prov">A real build by an AI coding agent (Claude) from this brief, 19 October 2026, records in the course workspace. QuackSync is a made-up venture.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="agent-loop" data-anchor-part="review" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Show the real thing · QuackSync · demo 4 of 6 · review</span>
+    <h2 class="title">The review caught what the tests <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">didn't</span></h2>
+    <p class="sub">Three reviews became three steps. The third finding didn't match the code, so the agent checked first.</p>
+  </div>
+  <div class="content" style="display:grid;justify-items:center;align-content:start">
+    <figure class="shot" style="width:1220px"><div class="bar"><i></i><i></i><i></i></div><img src="media/demo-review.png" alt="A security review finding on the working first version and the fix as its own small step"></figure>
+  </div>
+  <footer class="prov">A real security review of the build above, 19 October 2026. The fix is the build's own commit.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-anchor="agent-loop" data-anchor-part="save" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Show the real thing · QuackSync · demo 5 of 6 · versions</span>
+    <h2 class="title">Every step is a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">saved</span> version</h2>
+    <p class="sub">Two misses on a step? Go back to the last version and brief again.</p>
+  </div>
+  <div class="content" style="display:grid;justify-items:center;align-content:start">
+    <figure class="shot" style="width:1120px"><div class="bar"><i></i><i></i><i></i></div><img src="media/demo-gitlog.png" alt="The project history: one saved version per step, each named by what it changed"></figure>
+  </div>
+  <footer class="prov">A real build by an AI coding agent (Claude) from this brief, 19 October 2026, records in the course workspace. QuackSync is a made-up venture.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Show the real thing · QuackSync · demo 6 of 6</span>
+    <h2 class="title">No key yet, and it still <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">works</span></h2>
+  </div>
+  <div class="content media-split flip" style="--media-w: 640px">
+    <figure class="shot" style="width:620px"><div class="bar"><i></i><i></i><i></i></div><img src="media/demo-app.png" alt="The QuackSync page with the form and two saved thoughts in the list, both waiting for review"></figure>
+    <div class="demo-side"><ol class="demo-steps" style="gap:4px"><li class=""><span class="badge">1</span>Brief</li><li class=""><span class="badge">2</span>Plan</li><li class=""><span class="badge">3</span>One step</li><li class=""><span class="badge">4</span>Review</li><li class=""><span class="badge">5</span>Versions</li><li class="now"><span class="badge">6</span>Result</li></ol><div class="sticky">Both thoughts wait for review. The AI call was stubbed in the tests and never run. A person fills in the title.</div></div>
+  </div>
+  <footer class="prov">A real build by an AI coding agent (Claude) from this brief, 19 October 2026, records in the course workspace. QuackSync is a made-up venture.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">From your laptop to their hands</span>
+    <h2 class="title">Live means a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">stranger</span> can open it</h2>
+    <p class="sub">Four things before you send the link</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Live means a link a stranger opens, data kept apart and backed up, keys in secrets with a spending limit, and the imprint and privacy line, on the hosting the tool brings" style="display:block;width:100%;height:auto"><rect x="0" y="40" width="395" height="300" rx="18" style="fill:var(--primary)"/><text x="197" y="170" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">A link</text><text x="197" y="222" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">opens on their phone</text><rect x="415" y="40" width="395" height="300" rx="18" style="fill:var(--diagram-magenta)"/><text x="612" y="170" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Its own data</text><text x="612" y="222" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">kept apart, backed up</text><rect x="830" y="40" width="395" height="300" rx="18" style="fill:var(--diagram-navy)"/><text x="1027" y="170" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Keys in secrets</text><text x="1027" y="222" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">with a spending limit</text><rect x="1245" y="40" width="395" height="300" rx="18" style="fill:var(--diagram-purple)"/><text x="1442" y="170" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Imprint, privacy</text><text x="1442" y="222" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">from your Module 04 page</text><rect x="0" y="380" width="1640" height="80" rx="12" style="fill:var(--sticky)"/><text x="820" y="432" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:700;font-family:Inter,sans-serif">On the hosting your tool brings, its publish button, a hosted sheet with a form</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Module 06 frame, decision 2 (Bastian at gate F, 2026-10-19): publish on the hosting the tools bring. Imprint and privacy line from Module 04.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="You are the product owner">
+  <span class="label">Speed matters</span>
+  <p class="mantra-lead">One iteration should not take more than</p>
+  <div class="mantra-line"><span class="mantra-num" data-anim="rise">4</span><span class="mantra-word">hours</span></div>
+  <div class="sticky"><p>Longer means the step was <span class="mark">too big</span>.</p><p class="why">Cut it, or start over from your last version.</p></div>
+  <footer class="prov" data-kind="Bastian">Legacy slides 377 and 450.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="You are the product owner">
+  <div class="head">
+    <span class="label">Now you · alone</span>
+    <h2 class="title">Write the first lines of your <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">brief</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 468" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="240" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="120.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Who</text><text x="280" y="62" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Who is it for?</text><rect x="0" y="124" width="240" height="96" rx="48" style="fill:var(--primary)"/><text x="120.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Feature</text><text x="280" y="186" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">The one feature, input and outcome</text><rect x="0" y="248" width="240" height="96" rx="48" style="fill:var(--sticky)"/><text x="120.0" y="309" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Manual</text><text x="280" y="310" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">What stays by hand?</text><rect x="0" y="372" width="240" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="120.0" y="433" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Not</text><text x="280" y="434" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">What must it not build?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="3"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Four lines your agent can read</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Chapter 6 of 9</span>
+    <h2 class="title">Build to get users</h2>
+    <p class="summary">Hand it to people from your segment, watch without helping, and fix what stopped them.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="quote" data-chapter="Build to get users">
+  <div class="quote-layout">
+    <figure>
+      <blockquote><p>If you're not <span class="hl">embarrassed</span> by the first version of your product, you've launched too late.</p></blockquote>
+      <figcaption><b>Reid Hoffman</b>, co-founder of LinkedIn</figcaption>
+    </figure>
+      </div>
+  <footer class="prov">Hoffman, R. (2017, 29 March). If there aren't any typos in this essay, we launched too late! LinkedIn. Legacy slide 395.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Testing your prototype</span>
+    <h2 class="title">Friends rehearse. Your <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">segment</span> counts</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 580" role="img" aria-label="Testing ladder from the founder team through friends, loose contacts and strangers from the segment to 100 and 1,000 testers. Friends and classmates rehearse, people from the segment count" style="display:block;width:100%;height:auto"><rect x="0" y="420" width="260" height="150" rx="14" style="fill:var(--context)"/><text x="130" y="466" text-anchor="middle" style="fill:var(--context-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Founder team</text><text x="130" y="502" text-anchor="middle" style="fill:var(--context-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">right away</text><text x="130" y="546" text-anchor="middle" style="fill:var(--context-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">rehearse</text><rect x="274" y="354" width="260" height="216" rx="14" style="fill:var(--context)"/><text x="404" y="400" text-anchor="middle" style="fill:var(--context-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Friends, classmates</text><text x="404" y="436" text-anchor="middle" style="fill:var(--context-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">over their shoulder</text><text x="404" y="546" text-anchor="middle" style="fill:var(--context-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">never count</text><rect x="548" y="288" width="260" height="282" rx="14" style="fill:var(--muted)"/><text x="678" y="334" text-anchor="middle" style="fill:var(--context-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Loose contacts</text><text x="678" y="370" text-anchor="middle" style="fill:var(--context-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">a coffee, then watch</text><text x="678" y="546" text-anchor="middle" style="fill:var(--context-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">if in your segment</text><rect x="822" y="222" width="260" height="348" rx="14" style="fill:var(--primary)"/><text x="952" y="268" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Your segment</text><text x="952" y="304" text-anchor="middle" style="fill:var(--primary-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">strangers, this week</text><text x="952" y="546" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">they count</text><rect x="1096" y="156" width="260" height="414" rx="14" style="fill:var(--diagram-navy)"/><text x="1226" y="202" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">100 testers</text><text x="1226" y="238" text-anchor="middle" style="fill:var(--primary-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">targeted ads</text><text x="1226" y="546" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">later</text><rect x="1370" y="90" width="260" height="480" rx="14" style="fill:var(--diagram-navy)"/><text x="1500" y="136" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">1,000 testers</text><text x="1500" y="172" text-anchor="middle" style="fill:var(--primary-foreground);font-size:24px;font-weight:600;font-family:Inter,sans-serif">a paid audience</text><text x="1500" y="546" text-anchor="middle" style="fill:var(--primary-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">later</text><text x="0" y="40" text-anchor="start" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Fast and approximate</text><text x="1640" y="40" text-anchor="end" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Slow and accurate</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Testing ladder, legacy slide 237. Friends and classmates never count, M06 homework.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Without your help</span>
+    <h2 class="title">Let them use it <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">alone</span></h2>
+    <p class="sub">One hint and it is a guided demo again</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:420px 1fr;gap:48px;align-items:center">
+    <div style="display:grid;gap:10px;justify-items:center"><figure class="shot" style="width:205px"><div class="bar"><i></i><i></i><i></i></div><img src="media/legacy-337-booking-page.png" alt="A booking page with demo slots in a calendar"></figure><p style="font-size:28px;margin:0;text-align:center"><b>Guided</b> · Module 05<br>you book the call, you steer</p></div>
+    <div style="display:grid;gap:10px;justify-items:center"><figure class="shot" style="width:680px"><div class="bar"><i></i><i></i><i></i></div><img src="media/legacy-337-publish.jpg" alt="An AI app builder with its publish dialog open"></figure><p style="font-size:28px;margin:0;text-align:center"><b>Without your help</b> · this week<br>you publish one link, they decide what to do</p></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Guided or unguided demos, legacy slide 337.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Watch what they do</span>
+    <h2 class="title">Who <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">came back</span>, and where they got stuck</h2>
+    <p class="sub">Returning users, dead clicks and a recording per session</p>
+  </div>
+  <div class="content media-split flip" style="--media-w: 1100px">
+    <figure class="photo" style="--photo-h: 560px"><img src="media/legacy-338-clarity.png" alt="Microsoft Clarity dashboard of PaperPulse: 27 sessions, 27 unique users, 0 percent sessions with returning users, 11 percent dead clicks, recordings per segment"></figure>
+    <div class="demo-side"><div class="sticky">Ask before you record. Consent covers course staff.</div></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Microsoft Clarity on PaperPulse, Bastian's project, legacy slide 338 (German interface).</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Two questions per user</span>
+    <h2 class="title">Did they reach the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">outcome</span>? Did they come back?</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 480" role="img" aria-label="Two questions per user, reached the outcome and came back, logged as one row per user with what stopped them" style="display:block;width:100%;height:auto"><defs><marker id="tq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><rect x="0" y="0" width="790" height="210" rx="18" style="fill:var(--primary)"/><text x="395" y="92" text-anchor="middle" style="fill:var(--primary-foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Reached the outcome?</text><text x="395" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">the value arrived, without your help</text><rect x="850" y="0" width="790" height="210" rx="18" style="fill:var(--diagram-navy)"/><text x="1245" y="92" text-anchor="middle" style="fill:var(--primary-foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Came back?</text><text x="1245" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">used it again, unprompted</text><rect x="0" y="260" width="320" height="64" rx="8" style="fill:var(--muted)"/><text x="16" y="302" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">User</text><rect x="330" y="260" width="280" height="64" rx="8" style="fill:var(--muted)"/><text x="346" y="302" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">Without help</text><rect x="620" y="260" width="250" height="64" rx="8" style="fill:var(--muted)"/><text x="636" y="302" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">Outcome</text><rect x="880" y="260" width="250" height="64" rx="8" style="fill:var(--muted)"/><text x="896" y="302" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">Came back</text><rect x="1140" y="260" width="500" height="64" rx="8" style="fill:var(--muted)"/><text x="1156" y="302" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">What stopped them</text><rect x="0" y="334" width="320" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="16" y="374" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Recruiter, agency</text><rect x="330" y="334" width="280" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="346" y="374" text-anchor="start" style="fill:var(--primary);font-size:26px;font-weight:700;font-family:Inter,sans-serif">yes</text><rect x="620" y="334" width="250" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="636" y="374" text-anchor="start" style="fill:var(--primary);font-size:26px;font-weight:700;font-family:Inter,sans-serif">yes</text><rect x="880" y="334" width="250" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="896" y="374" text-anchor="start" style="fill:var(--primary);font-size:26px;font-weight:700;font-family:Inter,sans-serif">day 3</text><rect x="1140" y="334" width="500" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="1156" y="374" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">–</text><rect x="0" y="404" width="320" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="16" y="444" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Founder, B2B tool</text><rect x="330" y="404" width="280" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="346" y="444" text-anchor="start" style="fill:var(--primary);font-size:26px;font-weight:700;font-family:Inter,sans-serif">yes</text><rect x="620" y="404" width="250" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="636" y="444" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">no</text><rect x="880" y="404" width="250" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="896" y="444" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">no</text><rect x="1140" y="404" width="500" height="60" rx="8" style="fill:var(--card);stroke:var(--border);stroke-width:2"/><text x="1156" y="444" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">did not find "Add"</text></svg></div>
+  <footer class="prov" data-kind="Illustrative">Use record per user, made up. Framework 03 questions 4 and 8 read it in Module 07.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Before each iteration</span>
+    <h2 class="title">Four questions before you <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">build</span> again</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Four questions before each iteration: does it match the problem, for whom is it 10 times better, can you build it in 4 hours, how does it reach their hands" style="display:block;width:100%;height:auto"><rect x="0" y="0" width="800" height="200" rx="18" style="fill:var(--primary)"/><text x="70" y="128" text-anchor="middle" style="fill:var(--primary-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="150" y="88" text-anchor="start" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Does it match the problem?</text><text x="150" y="136" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">the Module 03 problem, in their words</text><rect x="830" y="0" width="800" height="200" rx="18" style="fill:var(--primary)"/><text x="900" y="128" text-anchor="middle" style="fill:var(--primary-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="980" y="88" text-anchor="start" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">For whom is it 10x better?</text><text x="980" y="136" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">than what they use today</text><rect x="0" y="230" width="800" height="200" rx="18" style="fill:var(--primary)"/><text x="70" y="358" text-anchor="middle" style="fill:var(--primary-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="150" y="318" text-anchor="start" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Can you build it in 4 hours?</text><text x="150" y="366" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">or is the step too big</text><rect x="830" y="230" width="800" height="200" rx="18" style="fill:var(--primary)"/><text x="900" y="358" text-anchor="middle" style="fill:var(--primary-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">4</text><text x="980" y="318" text-anchor="start" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">How does it reach their hands?</text><text x="980" y="366" text-anchor="start" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">a link, today, without you</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Gate questions, legacy slides 451 to 454.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Where you stand</span>
+    <h2 class="title">A slice that works is <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">signal</span> until someone pays</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="prototype"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence, legacy slides 128 and 328. Rungs 5 and 6, framework 02.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Don't struggle alone</span>
+    <h2 class="title">One leads the build. Everyone brings <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">users</span></h2>
+  </div>
+  <div class="content media-split flip" style="--media-w: 560px">
+        <div class="diagram" style="max-width:1000px"><svg viewBox="0 0 1060 520" role="img" aria-label="Team split: one founder leads the build, everyone brings users and watches" style="display:block;width:100%;height:auto"><rect x="0" y="0" width="460" height="520" rx="18" style="fill:var(--diagram-navy)"/><text x="230" y="80" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">One founder</text><text x="230" y="128" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">leads the build</text><text x="230" y="240" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">briefs the agent</text><text x="230" y="310" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">one step at a time</text><text x="230" y="380" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">ships the fixes</text><text x="230" y="450" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">and brings users too</text><rect x="500" y="0" width="560" height="520" rx="18" style="fill:var(--primary)"/><text x="780" y="80" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Everyone</text><text x="780" y="128" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">brings users</text><text x="780" y="240" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">invites first buyers</text><text x="780" y="310" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">watches, never steers</text><text x="780" y="380" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">logs one row per user</text></svg></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Team split, legacy slides 390 to 393.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Build to get users">
+  <div class="head">
+    <span class="label">Now you · in your team</span>
+    <h2 class="title">Who gets the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">link</span> today?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 344" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="240" height="96" rx="48" style="fill:var(--primary)"/><text x="120.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">First</text><text x="280" y="62" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Who accepted your Module 05 ask?</text><rect x="0" y="124" width="240" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="120.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Then</text><text x="280" y="186" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">Which sign-ups and interviewees?</text><rect x="0" y="248" width="240" height="96" rx="48" style="fill:var(--diagram-purple)"/><text x="120.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Watch</text><text x="280" y="310" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:600;font-family:Inter,sans-serif">How do you watch without steering?</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="2"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Five names and a way to watch</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Chapter 7 of 9</span>
+    <h2 class="title">Wrap-up and check-out</h2>
+    <p class="summary">Four parts, the cheapest version, the agent loop, and users without your help.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Wrap-up · chapter 3</span>
+    <h2 class="title">Every application ever</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="every-application"></div></div>
+  <footer class="prov" data-kind="Bastian">Legacy slides 400 and 462.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Wrap-up · chapter 5</span>
+    <h2 class="title">The agent loop</h2>
+  </div>
+  <div class="content" style="position:relative"><div class="anchor" data-anchor="agent-loop"></div><div class="sticky" style="position:absolute;left:10px;bottom:30px;font-size:28px;--tilt:-1deg"><b>4 hours max</b> per iteration</div></div>
+  <footer class="prov" data-kind="Framework">Claude Code docs, best practices, and the course resource Best Practices: Coding with AI.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Wrap-up · chapter 6</span>
+    <h2 class="title">Rung five, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">signal</span> until someone pays</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="prototype"></div></div>
+  <footer class="prov" data-kind="Bastian">Legacy slides 128 and 328, framework 02.</footer>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 1 of 3 · the content</span><h2 class="title">The Content – What could you apply</h2></div>
+  <div class="content refl" style="--cols: 2"><div class="card"><span class="emo">🛠️</span><p>What could you <span class="hl">apply</span>?</p></div><div class="card"><span class="emo">🤕</span><p>What gave you a <span class="hl">hard time</span>?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 2 of 3 · the process</span><h2 class="title">The Process – Man vs. Machine</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🤖</span><p>Where did AI actually <span class="hl">help</span> you?</p></div><div class="card"><span class="emo">🧠</span><p>Where was your <span class="hl">genius</span> needed?</p></div><div class="card"><span class="emo">🕴️</span><p>What are your best <span class="hl">hacks</span> to share?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 3 of 3 · the results</span><h2 class="title">Rose, thorn, bud</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🌹</span><p>What was the <span class="hl">breakthrough</span> today?</p></div><div class="card"><span class="emo">🌵</span><p>What was the <span class="hl">hardest part</span> today?</p></div><div class="card"><span class="emo">🌱</span><p>What is an <span class="hl">idea/feature</span> you didn't have time to finish, but want to explore later?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Wrap-up and check-out">
+  <span class="label">Homework until next time</span>
+  <p class="mantra-lead" style="max-width:1060px">Put your MVP live, let 10 people per student from your segment use it without your help, and ship 2 fixes for what stopped them.</p>
+  <div class="mantra-line"><span class="mantra-num">10</span><span class="mantra-word">users each</span></div>
+  <div class="sticky">
+    <p>The learning floor is a live MVP per team, 5 such users per student and 1 fix.</p>
+    <p class="why">Your line: fewer than 3 of your first 10 users reach the outcome by Module 07, and you rebuild the feature. Nobody comes back unprompted, and you bring a pivot.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">M06 homework, approved by Bastian on 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · how to do it</span>
+    <h2 class="title">Hand it over. Watch. <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">Fix</span> what stopped them</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px 20px;align-content:start"><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">1</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Split the work.</b> One leads the build, everyone brings users.</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">2</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Invite first buyers,</b> then sign-ups, then your segment's groups.</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">3</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Watch without steering.</b> Mute yourself or watch a recording.</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--diagram-magenta);color:#fff;font-size:28px;font-weight:800">!</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Watch out.</b> One hint makes it a guided demo.</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">4</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Ask four questions before each build.</b> Does it match the problem? For whom is it 10x better? Can you build it in 4 hours? How does it reach them?</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">5</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Fix what stopped them, cut what nobody used.</b> Two misses? Restart from your last version.</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">6</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Keep their data.</b> Never wipe it. Collect only what you need, and say where it goes, AI included (Legal Basics).</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">7</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Keep the ask.</b> Show your price. An early payment counts.</p></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:12px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">8</span><p style="font-size:25px;line-height:1.28;margin:0"><b>Get a blind second opinion.</b> Give an AI your raw records, minus hypothesis and names. Note where it disagrees.</p></div></div>
+  <footer class="prov" data-kind="Bastian">How to do it, M06 homework, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · what you come back with</span>
+    <h2 class="title">Good is <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">used</span>, not clicked</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:160px 1.4fr 1fr;gap:22px 24px;align-content:start"><div></div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;color:var(--primary)">GOOD</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;color:var(--muted-foreground)">WEAK</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-foreground);align-self:center">MVP</div><div style="padding:20px 26px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line);font-size:32px;font-weight:600;line-height:1.3">One feature, real input to outcome, 23 versions</div><div style="padding:20px 26px;border-radius:16px;background:var(--context);color:var(--context-foreground);font-size:32px;font-weight:500;line-height:1.3">Five features, "almost works"</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-foreground);align-self:center">Users</div><div style="padding:20px 26px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line);font-size:32px;font-weight:600;line-height:1.3">31 recruiters without help, 14 got their nudge, 6 came back</div><div style="padding:20px 26px;border-radius:16px;background:var(--context);color:var(--context-foreground);font-size:32px;font-weight:500;line-height:1.3">12 friends clicked</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-foreground);align-self:center">Fixes</div><div style="padding:20px 26px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line);font-size:32px;font-weight:600;line-height:1.3">"Nobody found Add." Moved, 3 more reached it</div><div style="padding:20px 26px;border-radius:16px;background:var(--context);color:var(--context-foreground);font-size:32px;font-weight:500;line-height:1.3">Dark mode</div></div>
+  <footer class="prov" data-kind="Illustrative">What you come back with, M06 homework. The examples follow the made-up recruiting venture.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Best Practices: Coding with AI. Course resource, <i>Course/resources/Best_Practices_Coding_with_AI.pdf</i>.</li>
+      <li>Anthropic. (n.d.). <i>Best practices for Claude Code</i>. Claude Code Docs. https://code.claude.com/docs/en/best-practices, accessed 2026-10-19.</li>
+      <li>Becker, J., Rush, N., Barnes, E., &amp; Rein, D. (2025). <i>Measuring the impact of early-2025 AI on experienced open-source developer productivity</i>. METR, 10 July 2025. https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/, accessed 2026-10-19.</li>
+      <li>Hess, A. (2013, 14 August). <i>The oldest McDonald's as architecture</i>. Alan Hess on Architecture. https://alanhess.blogspot.com/2013/08/the-oldest-mcdonalds-as-architecture.html, accessed 2026-10-19.</li>
+      <li>Hoffman, R. (2017, 29 March). <i>If there aren't any typos in this essay, we launched too late!</i> LinkedIn. https://www.linkedin.com/pulse/arent-any-typos-essay-we-launched-too-late-reid-hoffman/, accessed 2026-10-19.</li>
+      <li>Ambitious Entrepreneurship. Framework 02, Validation Hierarchy, the Glossary and the course resource Best Practices: Coding with AI. Course files.</li>
+      <li>Graham, P. (2013, July). <i>Do things that don't scale</i>. paulgraham.com/ds.html.</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Wrap-up and check-out">
+  <p class="statement">See you next week!</p>
+  </section>
+
+
+<section class="slide" data-archetype="divider" data-chapter="Workshop: build it, then hand it over" data-block>
+  <div class="head">
+    <span class="label">Module 06 · Prototyping with AI · Workshop · 90 minutes</span>
+    <h2 class="title">Workshop: Build it, then hand it over</h2>
+    <p class="summary">Map the parts, build in small steps, and send the link before you leave.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Workshop: build it, then hand it over">
+  <div class="head">
+    <span class="label">Workshop · step 1 of 3</span>
+    <h2 class="title">Map the parts</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">1</span>STEP 1 · 20 MIN</span>
+      <h3>MAP THE PARTS</h3>
+      <p class="goal">Know what must work.</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Draw your MVP: interface, logic, database, outside services.</span></li>
+        <li><i class="icon icon-arrow"></i><span>Mark each part: must work, or by hand for now.</span></li>
+        <li><i class="icon icon-arrow"></i><span>Workflow or app? Would a form and a sheet do?</span></li>
+        <li><i class="icon icon-arrow"></i><span>Write the brief: user, feature, input, outcome, manual, not-to-build.</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> A map and a brief.</span><span><b>Minutes</b> 20</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="20"></div>
+  <footer class="prov" data-kind="Bastian">M06 workshop, approved 2026-10-19. Legacy slides 456 to 459.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Workshop: build it, then hand it over">
+  <div class="head">
+    <span class="label">Workshop · step 2 of 3</span>
+    <h2 class="title">Build in small steps</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">2</span>STEP 2 · 50 MIN</span>
+      <h3>BUILD IN SMALL STEPS</h3>
+      <p class="goal">Real input runs through to the outcome.</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Load the brief as project instructions. Plan first, no code.</span></li>
+        <li><i class="icon icon-arrow"></i><span>One step at a time: ask, read the change, test, save.</span></li>
+        <li><i class="icon icon-arrow"></i><span>Two misses on one step? Restore and brief again.</span></li>
+        <li><i class="icon icon-arrow"></i><span>Wire the one API call. Keep the key out of the interface.</span></li>
+        <li><i class="icon icon-arrow"></i><span>Publish on your tool's hosting. Point your page's button at it.</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> A live link, versions saved.</span><span><b>Minutes</b> 50</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="50"></div>
+  <footer class="prov" data-kind="Bastian">M06 workshop, approved 2026-10-19. Legacy slides 456 to 459.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Workshop: build it, then hand it over">
+  <div class="head">
+    <span class="label">Workshop · step 3 of 3</span>
+    <h2 class="title">Happy path, then hand it over</h2>
+  </div>
+  <div class="content wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">3</span>STEP 3 · 20 MIN</span>
+      <h3>HAPPY PATH, THEN HAND IT OVER</h3>
+      <p class="goal">First users today.</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Log your line, dated, before the first user.</span></li>
+        <li><i class="icon icon-arrow"></i><span>Run the happy path: real data in, watch it run, outcome out?</span></li>
+        <li><i class="icon icon-arrow"></i><span>Send the link to your Module 05 first buyers. Don't steer.</span></li>
+        <li><i class="icon icon-arrow"></i><span>Commit to the bar. Pick floor or full. Set a midweek day.</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> A dated line, users invited, targets, midweek day.</span><span><b>Minutes</b> 20</span></p>
+    </div>
+  </div>
+  <div class="timer" data-timer="20"></div>
+  <footer class="prov" data-kind="Bastian">M06 workshop, approved 2026-10-19. Legacy slides 456 to 459.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Workshop: build it, then hand it over">
+  <div class="head">
+    <span class="label">Arrived empty-handed?</span>
+    <h2 class="title">Build the smallest slice that <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">works</span></h2>
+  </div>
+  <div class="content"><div class="sticky" style="font-size:40px;max-width:1200px">No winner? Build your best dummy's feature. Back at the problem? Build the smallest working slice, you behind the screen, and invite your interviewees.</div></div>
+  <footer class="prov" data-kind="Bastian">M06 workshop, approved 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Workshop: build it, then hand it over">
+  <span class="label">Homework until next time</span>
+  <p class="mantra-lead" style="max-width:1060px">Put your MVP live, let 10 people per student from your segment use it without your help, and ship 2 fixes for what stopped them.</p>
+  <div class="mantra-line"><span class="mantra-num">10</span><span class="mantra-word">users each</span></div>
+  <div class="sticky">
+    <p>The learning floor is a live MVP per team, 5 such users per student and 1 fix.</p>
+    <p class="why">Your line: fewer than 3 of your first 10 users reach the outcome by Module 07, and you rebuild the feature. Nobody comes back unprompted, and you bring a pivot.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">M06 homework, approved by Bastian on 2026-10-19.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Workshop: build it, then hand it over">
+  <p class="statement">See you next week!</p>
+  </section>
+
+
+<section class="slide" data-archetype="divider" data-variant="navy" data-chapter="Case discussion" data-block>
+  <div class="head">
+    <span class="label">Module 06 · Prototyping with AI · Case discussion · about 90 minutes</span>
+    <h2 class="title">Case discussion: Langfuse</h2>
+    <p class="summary">Stand with three founders deciding which borrowed part to replace first as strangers arrive.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Vote 1 · 16:00 UTC, 29 August 2023</span>
+    <h2 class="title">What do the founders replace or <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">build</span> first?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li>A · Open analytics on an open-source tool for every user</li><li>B · Integrate OpenTelemetry</li><li>C · Model-based evaluations and labeling, their stated next step</li></ol>
+    <div class="timer" data-timer="2"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Timeline · 2023</span>
+    <h2 class="title">Fifteen weeks from first commit to <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">strangers</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-content:start"><table class="table" style="font-size:24px"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody><tr><td style="white-space:nowrap;font-weight:700">18 May</td><td>Repository created, "kill all", a fresh "init"</td></tr><tr><td style="white-space:nowrap;font-weight:700">26 May</td><td>"v1"</td></tr><tr><td style="white-space:nowrap;font-weight:700">1 June</td><td>Accounts and a hosted cloud</td></tr><tr><td style="white-space:nowrap;font-weight:700">7 June</td><td>Sign-up by form, website button books a call with a founder</td></tr><tr><td style="white-space:nowrap;font-weight:700">26 June</td><td>Public sign-up, "Get started by yourself" next to "Guided onboarding"</td></tr></tbody></table><table class="table" style="font-size:24px"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody><tr><td style="white-space:nowrap;font-weight:700">17 July</td><td>Analytics on Looker Studio for flagged users</td></tr><tr><td style="white-space:nowrap;font-weight:700">14 August</td><td>Demo project for every new user</td></tr><tr><td style="white-space:nowrap;font-weight:700">20 August</td><td>Top product of the day on Product Hunt</td></tr><tr><td style="white-space:nowrap;font-weight:700">29 August, 16:14 UTC</td><td>Show HN</td></tr></tbody></table></div>
+  <footer class="prov" data-kind="Data">Exhibit 1 of the case, from the repositories, the founders' posts and Product Hunt. Langfuse case, M06, approved 2026-10-20.</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Exhibit 3, selected rows</span>
+    <h2 class="title">What a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">new user</span> met on 29 August 2023</h2>
+  </div>
+  <div class="content"><table class="table" style="font-size:24px"><thead><tr><th>What</th><th>State on 29 August 2023</th><th>Since</th></tr></thead><tbody><tr><td style="font-weight:700">Start screen</td><td>"Create new project" (get started by yourself), "View demo project" and "Guided onboarding" (a call with a founder)</td><td style="white-space:nowrap">26 June, as on 27 August</td></tr><tr><td style="font-weight:700">Demo project</td><td>View-only, live data from the documentation chatbot</td><td style="white-space:nowrap">14 August</td></tr><tr><td style="font-weight:700">Dashboards</td><td>Traces, token usage by model, scores, per-user views, for every user</td><td style="white-space:nowrap">By 27 August (video)</td></tr><tr><td style="font-weight:700">Analytics (Looker Studio)</td><td>For users with the flag "analytics-alpha" only. Others saw "Analytics is in closed alpha" and an invitation to get in touch</td><td style="white-space:nowrap">17 July</td></tr><tr><td style="font-weight:700">Support</td><td>Feedback button, support chat offered while setting up a project, a Discord community</td><td style="white-space:nowrap">23 June, 29 July</td></tr><tr><td style="font-weight:700">Account</td><td>No way to change or reset the password</td><td style="white-space:nowrap">Open issue of 21 August</td></tr></tbody></table></div>
+  <footer class="prov" data-kind="Data">Exhibit 3 of the Langfuse case, selected rows, with its source line in the case.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">In the founders' words · 29 August 2023</span>
+    <h2 class="title">Half a day, or a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">debt</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:center">
+    <div class="sticky" style="font-size:34px;--tilt:-1deg">"Integrating Looker Studio got us to first analytics charts in half a day."</div>
+    <div class="sticky" style="font-size:34px;--tilt:1deg">"As it is not open-source and does not work with our UI/UX, we are looking to switch it out for an OSS solution to flexibly generate charts and dashboards."</div>
+  </div>
+  <footer class="prov" data-kind="Data">Marc Klingen, Show HN post, 29 August 2023, as quoted in the case (Q06, Q07). Langfuse case, M06, approved 2026-10-20.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Board plan</span>
+    <h2 class="title">Mark what still needs a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">founder</span></h2>
+  </div>
+  <div class="content" style="position:relative"><div class="anchor" data-anchor="every-application"></div><div class="sticky" style="position:absolute;left:180px;top:-24px;font-size:24px;padding:8px 16px;max-width:900px;--tilt:-1deg">Columns: borrowed and why · what it costs a stranger · what they knew about use · what they would need to know. Votes top right.</div></div>
+  <footer class="prov" data-kind="Bastian">Board plan of the Langfuse teaching note. Every application ever, legacy slides 398 and 400 to 402.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Use without help · on 29 August 2023</span>
+    <h2 class="title">What did they know about <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">use</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(2,1fr);gap:22px 36px;align-content:center;font-size:30px;line-height:1.3">
+    <div><b>One user, many hours a day</b><br>as Deichmann reported it</div>
+    <div><b>Alpha users onboarded every week</b><br>the July update</div>
+    <div><b>Five named teams</b><br>on the landing page</div>
+    <div><b>370 stars, 21 forks</b><br>fifteen minutes after the post</div>
+    <div style="grid-column:1 / span 2" class="sticky">No published number for sign-ups, active users or returning users.</div>
+  </div>
+  <footer class="prov" data-kind="Data">The case, sections "What Users Did With It" and "Borrowed and Behind a Flag" (Q14, Q16, Q17, C32, C46, C50). Langfuse case, M06, approved 2026-10-20.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Vote 2 · same question</span>
+    <h2 class="title">What do the founders replace or <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">build</span> first?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li>A · Open analytics on an open-source tool for every user</li><li>B · Integrate OpenTelemetry</li><li>C · Model-based evaluations and labeling, their stated next step</li></ol>
+    <div class="timer" data-timer="2"></div>
+  </div>
+  </section>
+
+
+<section class="slide" data-archetype="claim" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Bridge · to your own build</span>
+    <h2 class="title">Mark what still needs <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">you</span></h2>
+  </div>
+  <div class="content"><div class="sticky" style="font-size:38px;max-width:1300px">Langfuse let strangers in with a call, a chat and a flag still in place. Now draw your own MVP on the four parts and mark what still needs you.</div></div>
+  <footer class="prov" data-kind="Bastian">Bridge of the Langfuse teaching note into workshop step 1.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Case discussion">
+  <p class="statement">See you next week!</p>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+</main>
+<script src="../../design/anchors.js"></script>
+<script src="../../design/deck.js"></script>
+</body>
+</html>

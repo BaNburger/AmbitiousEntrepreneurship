@@ -1,6 +1,6 @@
 # Workshop 02: Idea Stress Test
 
-Updated: 2026-10-19.
+Updated: 2026-10-20.
 
 > Module 02 · Finding Ideas · Workshop · [Goals M02-LG1 to LG4](README.md)
 
@@ -24,7 +24,7 @@ The examples follow one made-up team.
 
 **Goal.** Get every problem on paper before anyone judges one.
 
-1. **List your sources (3′).** Your Interview Log, itch, work, a shifting field, something missing.
+1. **List your sources (3′).** Your Interview Log, itch, work, your field in five years, something missing.
 2. **Fill 8 boxes (8′),** alone and silent, one idea each, "[who] struggles with [what]", never an app. Ugly counts.
 3. **Fill 8 more (8′),** for people you reach this week, in a field you know, nothing you'd refuse to build.
 4. **Read out your three best (6′),** merge, and tier them. S moonshots, A unsexy plumbing, B crowded trades, C wrapper zone, D tarpits many tried, F please don't.

@@ -1,6 +1,6 @@
 # Validation Hierarchy of Evidence
 
-Updated: 2026-10-19.
+Updated: 2026-10-20.
 
 *Stop guessing. Start proving.*
 
@@ -42,6 +42,7 @@ If you leave Module 04 still without quantitative evidence, something is wrong. 
 | 4 | A click dummy that people from your segment try | Module 05 |
 | 5 | A prototype built with AI | Module 06 |
 | 6 | A concierge offer or a paid pilot | Modules 08 and 09 |
+| 7 | Paying customers who stay and pay again, counted from your product's records, with a retention line written before you look | Modules 10 and 11 |
 
 ---
 

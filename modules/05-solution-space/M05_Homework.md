@@ -1,6 +1,6 @@
 # Homework 05: The Solution Space
 
-Updated: 2026-10-19.
+Updated: 2026-10-20.
 
 **Build one click dummy per founder and show the dummies in 15 guided demos per student with people from your segment, at least 7 per dummy, each ending in an ask that costs them something.** The learning floor is one click dummy per team and 5 such demos per student.
 
@@ -80,3 +80,11 @@ All in your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
 ## What Module 06 needs
 
 Module 06 builds your winner. Bring the dummy, your MVP and your first buyers.
+
+## Pre-read for Module 06
+
+Read the [Langfuse case](../06-prototyping/M06_Case_Langfuse.md) and prepare these questions.
+
+1. **(M06-LG1)** Draw Langfuse's first working version on 29 August 2023 as interface, logic, database and external services. Which parts had to work for a team that never spoke to the founders, and which still needed a founder?
+2. **(M06-LG2)** Looker Studio "got us to first analytics charts in half a day", and only users with a flag in the database, which no screen in the app could set, saw those charts. Was that the cheapest version that delivered the outcome, or a debt to pay before strangers arrived from Hacker News? What would you replace or build first, and why?
+3. **(M06-LG4)** Between June and August 2023 the founders added a feedback button, self-sign-up next to a call with a founder, a support chat and a demo project. What evidence did they have that teams reached the outcome without help and came back, and what would you want to know before deciding what to build next?

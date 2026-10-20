@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-19. Status: ready.
+/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-20. Status: ready.
    Owned by the course-design skill. Link after fonts.css and tokens.css and
    before archetypes.css. Decks link this file and never copy it.
    Sections: 1 stage, 2 slide frame, 3 generated chrome, 4 type roles,
@@ -121,6 +121,9 @@ html.is-present .slide a { cursor: pointer; }
 /* The one playful element: a sticky note that carries proof or the punchline. */
 .sticky { width: 560px; padding: 40px 44px 44px; background: var(--sticky); color: var(--foreground); font-size: 32px; font-weight: 500; line-height: 1.3; transform: rotate(var(--tilt, -2deg)); box-shadow: 0 18px 40px -16px hsl(220 16% 10% / 0.35); }
 .sticky b { font-weight: 700; }
+/* A sticky across the content width. Untilted and with less padding, because
+   a tilt of 2deg lifts the corners of a 1640 px note about 28 px past its box. */
+.sticky.wide { width: auto; max-width: 100%; padding: 22px 30px; transform: none; }
 
 .card { border: 1px solid var(--border); border-radius: calc(var(--radius) * 2); background: var(--card); padding: 36px 40px; }
 .card.is-hl { background: var(--primary-tint); border-color: var(--primary-line); }
@@ -195,6 +198,12 @@ html.is-present .slide a { cursor: pointer; }
 .anchor .venn .shape { mix-blend-mode: multiply; }
 .anchor .lbl.sm { font-size: 28px; }
 .anchor .lbl.xs { font-size: 24px; font-weight: 500; }
+.anchor .lbl.lg { font-size: 44px; font-weight: 800; letter-spacing: 0.02em; }
+.anchor .note.lg { font-size: 32px; font-weight: 500; }
+/* Sticky notes inside a cornerstone (the funnel's tool notes): a shadow and a folded corner that darken whatever lies below. */
+.anchor .shape.c-sticky { fill: var(--sticky); }
+.anchor .nshadow { fill: hsl(220 16% 10% / 0.14); }
+.anchor .fold { fill: hsl(220 16% 10% / 0.12); }
 .anchor .cap-t { font: 800 32px var(--font-sans); letter-spacing: -0.01em; }
 .anchor .phase-t { font: 800 30px var(--font-sans); dominant-baseline: central; }
 .anchor .t-blue { fill: var(--primary); }
@@ -208,6 +217,15 @@ html.is-present .slide a { cursor: pointer; }
 .anchor .divider { stroke: var(--border); stroke-width: 3; }
 .anchor .dot { fill: var(--foreground); }
 .anchor .gap { stroke: var(--background); stroke-width: 6; }
+.anchor .pivot { fill: none; stroke: var(--foreground); stroke-width: 16; stroke-linejoin: round; }
+/* An optional part (class opt) is drawn only when a slide lights it, like the double diamond's pivots. */
+.anchor .part.opt:not(.is-active) { display: none; }
+/* Trees (the KPI trees): grey wires outside every part join the boxes, and a lit part draws its path from the top (class link) in blue. Leaves are outlined, as on legacy 725 and 726. */
+.anchor .wire { fill: none; stroke: hsl(220 13% 78%); stroke-width: 5; stroke-linejoin: round; }
+.anchor .link { display: none; fill: none; stroke: var(--primary); stroke-width: 7; stroke-linejoin: round; }
+.anchor .part.is-active .link { display: inline; }
+.anchor .shape.c-outline { fill: var(--background); stroke: var(--primary); stroke-width: 4; }
+.anchor .lbl.md { font-size: 36px; font-weight: 800; }
 .anchor .pict circle, .anchor .pict path { stroke: none; }
 .anchor .p-blue circle, .anchor .p-blue path { fill: var(--primary); }
 .anchor .p-purple circle, .anchor .p-purple path { fill: var(--diagram-purple); }
@@ -233,10 +251,15 @@ html.is-present .slide a { cursor: pointer; }
    part highlighted. It carries no text, so nothing on it falls under 24 px. */
 .anchor-mini { position: absolute; top: 96px; right: var(--pad-x); width: var(--mini-w, 260px); padding: 12px 14px; border-radius: 14px; background: var(--background); border: 1px solid var(--border); box-shadow: var(--shadow-card); z-index: 3; }
 .anchor-mini svg text, .anchor-mini svg .cap { display: none !important; } /* wins over the active "Today" label */
+.anchor:not(.anchor-mini) .mini-only { display: none; } /* drawn only in the miniature, for example a bar where a line of text stands */
 .anchor-mini .open-marker { font-size: 24px; }
 /* In the miniature the inactive parts keep a visible grey, so the shape reads. */
 .anchor-mini.has-active .part:not(.is-active) .shape { fill: hsl(220 12% 80%); }
 .anchor-mini.has-active .part:not(.is-active) .brace, .anchor-mini.has-active .part:not(.is-active) .line { stroke: hsl(220 12% 75%); }
+/* Thin strokes vanish at miniature scale, so tree wires, links and outlines are drawn thicker there. */
+.anchor-mini .wire { stroke-width: 12; }
+.anchor-mini .link { stroke-width: 16; }
+.anchor-mini .shape.c-outline { stroke-width: 14; }
 .slide[data-anchor] > .head { padding-right: 300px; }
 
 /* ---------- 6. Builds and motion ---------- */
