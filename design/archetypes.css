@@ -81,6 +81,10 @@
 [data-archetype="divider"] .agenda li.now { font-size: 34px; font-weight: 700; background: hsl(0 0% 100% / 0.12); padding-top: 14px; padding-bottom: 14px; }
 [data-archetype="divider"] .agenda li.now::before { top: 19px; }
 /* More than nine chapters: a tighter step, still 24 px or more. */
+/* Main chapters (data-main-chapters on the deck): the session's input, marked
+   with a bar and numbers in the marker colour (Bastian, 2026-10-26). */
+[data-archetype="divider"] .agenda li.main { box-shadow: inset 6px 0 0 var(--marker); background: hsl(0 0% 100% / 0.06); font-weight: 600; }
+[data-archetype="divider"] .agenda li.main::before { color: var(--marker); font-weight: 700; }
 [data-archetype="divider"] .agenda.is-long li { padding-top: 7px; padding-bottom: 7px; font-size: 26px; }
 [data-archetype="divider"] .agenda.is-long li::before { top: 9px; }
 [data-archetype="divider"] .agenda.is-long li.now { font-size: 30px; padding-top: 10px; padding-bottom: 10px; }

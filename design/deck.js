@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime. Updated: 2026-10-19. Status: ready.
+/* Ambitious Entrepreneurship deck runtime. Updated: 2026-10-26. Status: ready.
    Owned by the course-design skill. One classic script, no modules and no
    fetch, so a deck also runs from file://. Load it at the end of <body>.
 
@@ -55,6 +55,10 @@
     return s.dataset.archetype === "divider" && s.dataset.chapter;
   }).map(function (s) { return s.dataset.chapter; });
   var chapter = -1, blockStart = 0;
+  // data-main-chapters="3|4|5|6" names the session's main chapters, the input
+  // that builds step by step. The agenda marks them, so the room sees which
+  // chapters carry the session and which are recap, read-out or wrap-up.
+  var mains = (deck.dataset.mainChapters || "").split("|").map(function (n) { return parseInt(n, 10); }).filter(function (n) { return n > 0; });
 
   // Each agenda item links to the first slide of its chapter, so the presenter
   // can jump there and the student PDF gets working links. Held-back slides are
@@ -67,8 +71,13 @@
   }, -1);
   firstOf.forEach(function (i, k) { if (!slides[i].id) slides[i].id = "chapter-" + (k + 1); });
 
+  // The student PDF (?print without all) leaves held slides out, so its page
+  // numbers count only the slides it shows. Presenting keeps every number.
+  var studentPrint = params.has("print") && !params.has("all"), shown = 0;
+
   slides.forEach(function (s, i) {
     var archetype = s.dataset.archetype || "";
+    if (!(studentPrint && s.hasAttribute("data-hold"))) shown++;
     if (s.dataset.chapter && chapters.indexOf(s.dataset.chapter) >= 0) chapter = chapters.indexOf(s.dataset.chapter);
     if (s.hasAttribute("data-block") && chapter >= 0) blockStart = chapter;
     var state = function (k) { return k < chapter && k >= blockStart ? "done" : k === chapter ? "now" : ""; };
@@ -90,7 +99,8 @@
     if (archetype === "divider" && chapters.length && !s.querySelector("ol.agenda")) {
       var agenda = make("ol", chapters.length > 9 ? "agenda is-long" : "agenda");
       chapters.forEach(function (name, k) {
-        var li = make("li", state(k));
+        var main = mains.indexOf(k + 1) >= 0;
+        var li = make("li", [state(k), main ? "main" : "", main && k + 1 === Math.min.apply(null, mains) ? "main-first" : ""].join(" ").trim());
         if (firstOf[k] != null) {
           var link = make("a", null, esc(name));
           link.href = "#" + slides[firstOf[k]].id;
@@ -118,7 +128,7 @@
         foot.appendChild(prov);
       }
       var sig = make("div", "sig", SIGNATURE);
-      sig.appendChild(make("span", "pg", esc([mod, pad(i + 1)].filter(Boolean).join(" · "))));
+      sig.appendChild(make("span", "pg", esc([mod, pad(studentPrint ? shown : i + 1)].filter(Boolean).join(" · "))));
       foot.appendChild(sig);
       s.appendChild(foot);
     }

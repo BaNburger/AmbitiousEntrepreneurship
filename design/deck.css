@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-20. Status: ready.
+/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-26. Status: ready.
    Owned by the course-design skill. Link after fonts.css and tokens.css and
    before archetypes.css. Decks link this file and never copy it.
    Sections: 1 stage, 2 slide frame, 3 generated chrome, 4 type roles,
@@ -226,6 +226,27 @@ html.is-present .slide a { cursor: pointer; }
 .anchor .part.is-active .link { display: inline; }
 .anchor .shape.c-outline { fill: var(--background); stroke: var(--primary); stroke-width: 4; }
 .anchor .lbl.md { font-size: 36px; font-weight: 800; }
+/* The M11 cornerstones (identity map, two curves, in that order, stressor map, jars). */
+.anchor .lbl.xl { font-size: 56px; font-weight: 800; letter-spacing: -0.01em; }
+.anchor .lbl.xxl { font-size: 120px; font-weight: 800; letter-spacing: -0.02em; }
+.anchor .cap-t.lg { font-size: 40px; }
+.anchor .kicker { font: 800 30px var(--font-sans); letter-spacing: 0.12em; fill: var(--muted-foreground); }
+.anchor .note.muted { fill: var(--muted-foreground); }
+/* A grey part (c-context), last in line like the profits or neutral like the stress box. Lit, it turns ink with a white label. */
+.anchor .shape.c-context { fill: var(--context); }
+.anchor .lbl.ctx { fill: var(--context-foreground); }
+.anchor.has-active .part.is-active .shape.c-context { fill: var(--foreground); }
+.anchor.has-active .part.is-active .shape.c-context ~ .lbl { fill: var(--primary-foreground); }
+/* A state part (class "opt state") redraws the whole cornerstone, like the identity map without its founder tile. It is drawn only when lit, and while lit it hides the parts of class base that follow it. */
+.anchor .part.state.is-active ~ .base { display: none; }
+/* Chrome's checkVisibility() calls SVG text inside a hidden group visible, so deck.py check would measure it. Hide that text itself too. */
+.anchor .part.opt:not(.is-active) text, .anchor .part.state.is-active ~ .base text { display: none; }
+/* Drawn lines: the two curves take the slide's text colour, so they turn white on a dark slide. Jars are outlines, rocks a darker grey when unlit. */
+.anchor .curve { fill: none; stroke: currentColor; stroke-width: 6; stroke-linecap: round; }
+.anchor .jar { fill: none; stroke: var(--context-foreground); stroke-width: 6; stroke-linejoin: round; }
+.anchor .arrowbody { fill: var(--context-foreground); }
+.anchor.has-active .part:not(.is-active) .curve, .anchor.has-active .part:not(.is-active) .jar { stroke: var(--context); }
+.anchor.has-active .part:not(.is-active) .shape.rock { fill: hsl(220 12% 80%); }
 .anchor .pict circle, .anchor .pict path { stroke: none; }
 .anchor .p-blue circle, .anchor .p-blue path { fill: var(--primary); }
 .anchor .p-purple circle, .anchor .p-purple path { fill: var(--diagram-purple); }
@@ -247,6 +268,32 @@ html.is-present .slide a { cursor: pointer; }
 .anchor.has-active .part:not(.is-active) .lbl, .anchor.has-active .part:not(.is-active) .note { fill: var(--context-foreground); }
 .anchor.has-active .part:not(.is-active) image { opacity: 0.35; }
 
+/* The course path (course-path, 2026-10-26). Grey without a lit part. The lit
+   module is blue with a Today note, the modules before it navy (their done marks
+   belong to every later module), the line solid up to today and dashed after.
+   Text of a hidden state is hidden directly, because checkVisibility() reports
+   SVG text in a hidden group as visible (see the M11 note above). */
+.anchor .cp-seg { fill: none; stroke: var(--border); stroke-width: 6; stroke-dasharray: 12 10; }
+.anchor .cp-seg.is-active { stroke: var(--diagram-navy); stroke-width: 8; stroke-dasharray: none; }
+.anchor .cp-base { fill: var(--card); stroke: var(--border); stroke-width: 4; }
+.anchor .cp-done, .anchor .cp-now, .anchor .cp-done text, .anchor .cp-now text { display: none; }
+.anchor .cp-done.is-active, .anchor .cp-now.is-active, .anchor .cp-done.is-active text, .anchor .cp-now.is-active text { display: inline; }
+.anchor .cp-done.is-active ~ .cp-text, .anchor .cp-now.is-active ~ .cp-text,
+.anchor .cp-done.is-active ~ .cp-text text, .anchor .cp-now.is-active ~ .cp-text text { display: none; }
+.anchor .cp-done circle { fill: var(--diagram-navy); }
+.anchor .cp-now circle { fill: var(--primary); }
+.anchor .cp-num { font: 800 30px var(--font-sans); fill: var(--primary-foreground); dominant-baseline: central; }
+.anchor .cp-now .cp-num { font-size: 34px; }
+.anchor .cp-text .cp-num { fill: var(--muted-foreground); }
+.anchor .cp-name { font: 700 27px var(--font-sans); fill: var(--foreground); }
+.anchor .cp-now .cp-name { font-weight: 800; fill: var(--primary); }
+.anchor .cp-text .cp-name { fill: var(--muted-foreground); }
+.anchor .cp-chip { fill: var(--sticky); }
+.anchor .cp-chip-t { font: 800 28px var(--font-sans); fill: var(--foreground); dominant-baseline: central; }
+/* Pivot or persevere (pivot-fork): the line is a sticky diamond with an ink edge. */
+.anchor .shape.c-soft { fill: var(--muted); }
+.anchor .fork-line { stroke: var(--foreground); stroke-width: 3; }
+
 /* Corner miniature: a small copy without text, top right, with the slide's
    part highlighted. It carries no text, so nothing on it falls under 24 px. */
 .anchor-mini { position: absolute; top: 96px; right: var(--pad-x); width: var(--mini-w, 260px); padding: 12px 14px; border-radius: 14px; background: var(--background); border: 1px solid var(--border); box-shadow: var(--shadow-card); z-index: 3; }
@@ -260,6 +307,10 @@ html.is-present .slide a { cursor: pointer; }
 .anchor-mini .wire { stroke-width: 12; }
 .anchor-mini .link { stroke-width: 16; }
 .anchor-mini .shape.c-outline { stroke-width: 14; }
+.anchor-mini .curve { stroke: var(--foreground); stroke-width: 28; }
+.anchor-mini .jar { stroke-width: 24; }
+.anchor-mini.has-active .part:not(.is-active) .curve, .anchor-mini.has-active .part:not(.is-active) .jar { stroke: hsl(220 12% 75%); }
+.anchor-mini.has-active .part:not(.is-active) .shape.rock { fill: hsl(220 12% 62%); }
 .slide[data-anchor] > .head { padding-right: 300px; }
 
 /* ---------- 6. Builds and motion ---------- */

@@ -1,4 +1,4 @@
-/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-20.
+/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-26.
    Owned by the course-design skill. Each is drawn once here, from Bastian's
    legacy slide, and placed in any deck as
      <div class="anchor" data-anchor="NAME" data-active="PART">   full size
@@ -14,7 +14,9 @@
    root-cause, problem-you-want, problem-oriented, founder-skills,
    ideation-stage, double-diamond, every-application, agent-loop,
    critical-known, funnel ("How make numbers go brrr"), kpi-tree and
-   kpi-tree-profit, stage-arrow. Others are added when a module needs them. */
+   kpi-tree-profit, stage-arrow, and from M11 identity-map, two-curves,
+   in-that-order, stressor-map and scary-bits, and for every opening
+   course-path and pivot-fork. Others are added when a module needs them. */
 window.AEAnchors = window.AEAnchors || {};
 
 /* Build-Measure-Learn, legacy slide 38. Framework: Ries, E. (2011). The Lean
@@ -543,6 +545,222 @@ window.AEAnchors["build-measure-learn"] = {
       source: "Bastian Burger, course framework, legacy slide 703, outcomes from legacy slides 704 to 706.",
       steps: ["ideation", "incubation", "acceleration"],
       svg: '<svg viewBox="0 0 1640 566" role="img" aria-label="Three stages as one arrow, ideation, incubation and acceleration, each with four outcomes">' + out + "</svg>"
+    };
+  })();
+
+  /* The five M11 cornerstones (founder health), from Bastian's lecture on
+     failure and staying happy (WS27 deck), drawn as the approved M11 deck
+     draws them, wording kept. */
+
+  /* The identity map, WS27 slides 70 and 71. A treemap of who you are: the
+     founder tile takes most of the space, the other tiles share the rest.
+     The tiles are an example. Two states: lit "without-founder" redraws the
+     map without the founder tile, the other tiles across the full width
+     ("Who am I?", slide 71). That part is a state (class "opt state"), drawn
+     only when lit, and while lit it hides the parts of class "base".
+     Parts: founder, others, without-founder. */
+  (function () {
+    // [label, colour, x0, y0, x1, y1 as fractions of the area, lines when the tile is narrow]
+    var cells = [
+      ["Bass Player", "c-purple", 0, 0, 1, 0.32],
+      ["Reliable Friend", "c-blue", 0, 0.32, 0.52, 0.83, ["Reliable", "Friend"]],
+      ["Hard Worker", "c-purple", 0.52, 0.32, 1, 0.65],
+      ["A-Grade Student", "c-navy", 0.52, 0.65, 1, 0.83, ["A-Grade", "Student"]],
+      ["Tennis Novice", "c-blue", 0, 0.83, 0.7, 1],
+      ["Good Driver", "c-navy", 0.7, 0.83, 1, 1, ["Good", "Driver"]]
+    ];
+    var H = 570, g = 8;
+    function tiles(x0, w, narrow) {
+      return cells.map(function (c) {
+        var x = x0 + c[2] * (w + g), y = c[3] * (H + g), cw = (c[4] - c[2]) * (w + g) - g, ch = (c[5] - c[3]) * (H + g) - g;
+        var cx = (x + cw / 2).toFixed(1), cy = y + ch / 2, rect = '<rect class="shape ' + c[1] + '" x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + ch.toFixed(1) + '" rx="8"/>';
+        if (!narrow) return rect + text("lbl md", cx, cy.toFixed(1), c[0]);
+        if (!c[6]) return rect + text("lbl", cx, cy.toFixed(1), c[0]);
+        return rect + text("lbl sm", cx, (cy - 17).toFixed(1), c[6][0]) + text("lbl sm", cx, (cy + 17).toFixed(1), c[6][1]);
+      }).join("");
+    }
+    A["identity-map"] = {
+      title: "Who am I?",
+      source: "Bastian Burger, lecture on failure and staying happy (WS27 deck, slides 70 and 71), as the M11 deck draws it. The tiles are an example.",
+      steps: ["founder", "others", "without-founder"],
+      svg: '<svg viewBox="0 0 1640 570" role="img" aria-label="Identity as a treemap: Startup Founder takes most of the space, small tiles for Bass Player, Reliable Friend, Hard Worker, A-Grade Student, Tennis Novice and Good Driver. Without the founder tile, the small tiles fill the map">' +
+        '<g class="part opt state" data-node="without-founder">' + tiles(0, 1640, false) + "</g>" +
+        '<g class="part base" data-node="founder"><rect class="shape c-blue" x="0" y="0" width="1100" height="' + H + '" rx="8"/>' + text("lbl xl", 550, H / 2, "Startup Founder") + "</g>" +
+        '<g class="part base" data-node="others">' + tiles(1108, 532, true) + "</g></svg>"
+    };
+  })();
+
+  /* Two curves, WS27 slides 30 and 50: one rises steeply, the other rises a
+     little and falls back. No labels, as in WS27. The lines take the text
+     colour of the slide (class curve), so they turn white on a dark slide.
+     Parts: steep, hump. */
+  A["two-curves"] = {
+    title: "Two curves",
+    source: "Bastian Burger, lecture on failure and staying happy (WS27 deck, slides 30 and 50), as the M11 deck draws it.",
+    steps: ["steep", "hump"],
+    svg: '<svg viewBox="0 -6 1640 652" role="img" aria-label="Two curves from the lower left. One rises steeply to the top right, the other rises a little, then falls back">' +
+      '<g class="part" data-node="hump"><path class="curve" d="M0 632 C 400 625, 560 470, 760 470 C 960 470, 1080 560, 1260 640"/></g>' +
+      '<g class="part" data-node="steep"><path class="curve" d="M0 630 C 500 620, 900 520, 1180 330 S 1450 60, 1500 0"/></g>' +
+      "</svg>"
+  };
+
+  /* In that order, WS27 slides 56 and 106, adapted from Horowitz (2014), who
+     takes care of the people, the products and the profits, in that order.
+     Bastian puts YOU in front. Each box is smaller than the one before, the
+     profits stay grey (class c-context) and turn ink when lit.
+     Parts: you, people, product, profits. */
+  A["in-that-order"] = {
+    title: "Take care of YOU first",
+    source: "Adapted from Horowitz, B. (2014). The hard thing about hard things. HarperCollins. As drawn in Bastian's lecture on failure and staying happy (WS27 deck, slides 56 and 106).",
+    steps: ["you", "people", "product", "profits"],
+    svg: '<svg viewBox="0 0 1640 400" role="img" aria-label="YOU, the people, the product, the profits, in that order, each box smaller than the one before">' +
+      '<g class="part" data-node="you"><rect class="shape c-blue" x="0" y="40" width="520" height="320" rx="28"/>' + text("lbl xxl", 260, 200, "YOU") + "</g>" +
+      '<g class="part" data-node="people"><rect class="shape c-purple" x="560" y="100" width="340" height="260" rx="24"/>' + text("lbl lg", 730, 230, "the people") + "</g>" +
+      '<g class="part" data-node="product"><rect class="shape c-navy" x="940" y="140" width="330" height="220" rx="24"/>' + text("lbl lg", 1105, 250, "the product") + "</g>" +
+      '<g class="part" data-node="profits"><rect class="shape c-context" x="1310" y="180" width="330" height="180" rx="24"/>' + text("lbl lg ctx", 1475, 270, "the profits") + "</g>" +
+      text("cap-t lg", 1640, 30, "In that order.", "end") + "</svg>"
+  };
+
+  /* The stressor map, WS27 slides 66 and 67 (five sources) plus 54
+     (loneliness, the course's sixth): stressor, stress, reaction. Six
+     sources lead into stress, stress leads to a reaction. The stress box is
+     grey (class c-context) and turns ink when lit. Parts: the six sources
+     uncertainty, money, social-pressure, workload, expectations, loneliness
+     (group sources), stress, reaction. */
+  (function () {
+    var src = [["uncertainty", "Uncertainty", "c-magenta"], ["money", "Money", "c-purple"], ["social-pressure", "Social pressure", "c-navy"],
+      ["workload", "Workload", "c-blue"], ["expectations", "Expectations", "c-magenta"], ["loneliness", "Loneliness", "c-purple"]];
+    var wires = "", out = "";
+    src.forEach(function (s, i) {
+      var y = 60 + i * 86, m = y + 35;
+      wires += " M410 " + m + " C 520 " + m + ", 560 320, 640 320";
+      out += '<g class="part" data-node="' + s[0] + '" data-group="sources"><rect class="shape ' + s[2] + '" x="0" y="' + y + '" width="400" height="70" rx="16"/>' + text("lbl md", 200, m, s[1]) + "</g>";
+    });
+    A["stressor-map"] = {
+      title: "Know where your stress comes from",
+      source: "Bastian Burger, lecture on failure and staying happy (WS27 deck, slides 66 and 67, loneliness from slide 54), as the M11 deck draws it.",
+      steps: ["sources", "stress", "reaction"],
+      svg: '<svg viewBox="0 8 1640 556" role="img" aria-label="The stressor map: six sources, uncertainty, money, social pressure, workload, expectations and loneliness, lead to stress, and stress leads to a reaction">' +
+        text("kicker", 200, 34, "STRESSORS", "middle") + '<path class="wire" d="' + wires.trim() + '"/>' + out +
+        '<g class="part" data-node="stress"><rect class="shape c-context" x="660" y="250" width="360" height="140" rx="24"/>' + text("lbl xl dark", 840, 320, "Stress") + "</g>" +
+        '<path class="arrowbody" d="M1030 317 H1152 V299 L1192 320 L1152 341 V323 H1030 Z"/>' +
+        '<g class="part" data-node="reaction"><rect class="shape c-blue" x="1200" y="250" width="440" height="140" rx="24"/>' + text("lbl xl", 1420, 320, "Reaction") + "</g></svg>"
+    };
+  })();
+
+  /* Pack the scary bits first, WS27 slide 100, redrawn because the jar photo
+     is third-party. Three jars: sand first leaves no room, then the rocks
+     won't fit, rocks first and the sand fills the gaps. The jars are 74 units
+     shorter than in the M11 deck, so the drawing fits under a title and a
+     subhead at full width. Parts: sand-first, wont-fit, rocks-first. */
+  (function () {
+    var jars = [["sand-first", 80, "1 · Sand first", "the small stuff", "dark"], ["wont-fit", 640, "2 · Then the rocks", "they won’t fit", "dark"],
+      ["rocks-first", 1200, "3 · Rocks first", "the sand fills the gaps", "t-blue"]];
+    function rock(cx, cy) { return '<circle class="shape c-purple rock" cx="' + cx + '" cy="' + cy + '" r="46"/>'; }
+    var out = "";
+    jars.forEach(function (j) {
+      var x = j[1], first = j[0] === "rocks-first";
+      out += '<g class="part" data-node="' + j[0] + '">' +
+        '<path class="jar" d="M' + x + " 120 L" + x + " 446 Q" + x + " 486 " + (x + 40) + " 486 L" + (x + 320) + " 486 Q" + (x + 360) + " 486 " + (x + 360) + " 446 L" + (x + 360) + ' 120"/>' +
+        '<rect class="shape c-sticky" x="' + (x + 6) + '" y="' + (first ? 256 : 230) + '" width="348" height="' + (first ? 224 : 250) + '" rx="30"/>';
+      if (first) [[90, 416], [190, 426], [280, 411], [140, 326], [245, 321]].forEach(function (p) { out += rock(x + p[0], p[1]); });
+      if (j[0] === "wont-fit") [[110, 180], [250, 175], [180, 95], [70, 70], [300, 75]].forEach(function (p) { out += rock(x + p[0], p[1]); });
+      out += text("lbl md " + j[4], x + 180, 524, j[2]) + text("note lg muted", x + 180, 582, j[3], "middle") + "</g>";
+    });
+    A["scary-bits"] = {
+      title: "Pack the scary bits first",
+      source: "Bastian Burger, lecture on failure and staying happy (WS27 deck, slide 100), the jars redrawn.",
+      steps: ["sand-first", "wont-fit", "rocks-first"],
+      svg: '<svg viewBox="0 18 1640 574" role="img" aria-label="Three jars. Sand first, then the rocks do not fit. Rocks first, the sand fills the gaps">' + out + "</svg>"
+    };
+  })();
+
+  /* The course path, for the opening "Where we are" of every input session
+     (Bastian, 2026-10-26, AGENTS.md "Where we are, then previously on"). New,
+     no legacy slide: the course path of the title slide drawn with module
+     names, as the M06 deck first drew it. Thirteen sessions as a snake, 00 to
+     06 left to right, 07 to 12 back. A deck lights today's module only,
+     data-active="m06". It turns blue with a Today note, every module before it
+     turns navy and the line runs solid up to it, dashed after it. That works
+     through groups: the done mark of module j and the line after it belong to
+     every later module. Without a lit part every module is grey.
+     Parts: m00 to m12. */
+  (function () {
+    var mods = [["Kickoff"], ["Team"], ["Finding", "ideas"], ["Problem", "space"], ["Validating", "problems"], ["Solution", "space"],
+      ["Prototyping"], ["The kill", "decision"], ["First", "users"], ["Prototype to", "product"], ["Product", "management"],
+      ["Founder", "health"], ["Fundraising,", "Demo Day"]];
+    var step = 234, y1 = 136, y2 = 320, r = 44, R = 58;
+    function nn(k) { return (k < 10 ? "0" : "") + k; }
+    function pos(k) { return k < 7 ? [117 + k * step, y1] : [117 + (13 - k) * step, y2]; }
+    function after(k) { var g = []; for (var j = k + 1; j < 13; j++) g.push("m" + nn(j)); return g.join(" "); }
+    function name(k, cx, cy, rad) {
+      var l = mods[k], top = cy === y1;
+      return l.map(function (t, i) {
+        var y = top ? cy - rad - 22 - (l.length - 1 - i) * 32 : cy + rad + 40 + i * 32;
+        return text("cp-name", cx, y, t, "middle");
+      }).join("");
+    }
+    var segs = "", stops = "";
+    for (var k = 0; k < 12; k++) {
+      var a = pos(k), b = pos(k + 1);
+      var d = k === 6 ? "M" + a[0] + " " + y1 + " C 1620 " + y1 + ", 1620 " + y2 + ", " + b[0] + " " + y2 : "M" + a[0] + " " + a[1] + " L" + b[0] + " " + b[1];
+      segs += '<path class="cp-seg" data-node="s' + nn(k) + '" data-group="' + after(k) + '" d="' + d + '"/>';
+    }
+    for (k = 0; k < 13; k++) {
+      var p = pos(k), cx = p[0], cy = p[1], top = cy === y1, chipY = top ? cy + R + 16 : cy - R - 64;
+      // The Today note points at its circle, up from below on the first row, down from above on the second.
+      var tail = top ? "M" + (cx - 14) + " " + chipY + " L" + cx + " " + (chipY - 14) + " L" + (cx + 14) + " " + chipY + " Z"
+        : "M" + (cx - 14) + " " + (chipY + 50) + " L" + cx + " " + (chipY + 64) + " L" + (cx + 14) + " " + (chipY + 50) + " Z";
+      stops += '<g class="cp">' +
+        '<circle class="cp-base" cx="' + cx + '" cy="' + cy + '" r="' + r + '"/>' +
+        '<g class="cp-done" data-node="d' + nn(k) + '"' + (k < 12 ? ' data-group="' + after(k) + '"' : "") + '><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"/>' +
+          text("cp-num", cx, cy, nn(k), "middle") + name(k, cx, cy, r) + "</g>" +
+        '<g class="cp-now" data-node="m' + nn(k) + '"><circle cx="' + cx + '" cy="' + cy + '" r="' + R + '"/>' +
+          text("cp-num", cx, cy, nn(k), "middle") + name(k, cx, cy, R) +
+          '<path class="cp-chip" d="' + tail + '"/><rect class="cp-chip" x="' + (cx - 85) + '" y="' + chipY + '" width="170" height="50" rx="25"/>' + text("cp-chip-t", cx, chipY + 25, "Today", "middle") + "</g>" +
+        '<g class="cp-text">' + text("cp-num", cx, cy, nn(k), "middle") + name(k, cx, cy, r) + "</g></g>";
+    }
+    A["course-path"] = {
+      title: "The course path",
+      source: "The course path of Ambitious Entrepreneurship, sessions 00 to 12, as the M06 deck first drew it (2026-10-26).",
+      steps: mods.map(function (m, i) { return "m" + nn(i); }),
+      svg: '<svg viewBox="0 0 1640 462" role="img" aria-label="Course path of thirteen sessions: 00 Kickoff, 01 Team, 02 Finding ideas, 03 Problem space, 04 Validating problems, 05 Solution space, 06 Prototyping, 07 The kill decision, 08 First users, 09 Prototype to product, 10 Product management, 11 Founder health, 12 Fundraising and Demo Day. Today\'s session is lit, the sessions before it are done">' +
+        '<g class="cp-segs">' + segs + "</g>" + stops + "</svg>"
+    };
+  })();
+
+  /* Pivot or persevere, for the opening "Where we are" of every input session
+     (Bastian, 2026-10-26). New, no legacy slide: after Ries, E. (2011), The
+     Lean Startup, with the pivot types of the course Glossary (type 1 another
+     solution to a proven problem, type 2 back to the problem space), as the
+     M06 deck first drew it. A test ends at the line written before it. Above
+     it you persevere, under it you pivot, and both are progress. Arrowheads
+     are drawn inside their part, so they fade with it.
+     Parts: test, line, persevere, pivot1, pivot2 (group pivot, with the
+     "Under the line" caption), rule. */
+  (function () {
+    function head(x, y, cls) { return '<path class="shape ' + cls + '" d="M' + x + " " + y + " l-22 -13 l0 26 z" + '"/>'; }
+    A["pivot-fork"] = {
+      title: "Pivot or persevere",
+      source: "After Ries, E. (2011). The Lean Startup. Crown Business. Pivot types as in the course Glossary.",
+      steps: ["test", "line", "persevere", "pivot1", "pivot2", "rule"],
+      svg: '<svg viewBox="0 0 1640 560" role="img" aria-label="Pivot or persevere. Your test ends at your line, written before. Above the line you persevere and take the next step. Under it you pivot, type 1 to another solution for the same problem, type 2 back to the problem space. Both are progress. The only miss is no line, so no decision">' +
+        '<g class="part" data-node="test"><rect class="shape c-navy" x="0" y="190" width="330" height="170" rx="18"/>' +
+          text("lbl md", 165, 250, "Your test") + text("lbl sm", 165, 302, "what people did") +
+          '<path class="line" d="M338 275 L404 275"/>' + head(426, 275, "c-ink") + "</g>" +
+        '<g class="part" data-node="line"><path class="shape c-sticky fork-line" d="M560 140 L700 275 L560 410 L420 275 Z"/>' +
+          text("lbl md dark", 560, 256, "Your line") + text("lbl sm dark", 560, 302, "written before") + "</g>" +
+        '<g class="part" data-node="persevere"><path class="line k-blue" d="M640 200 C 700 110, 740 90, 790 90"/>' + head(812, 90, "c-blue") +
+          '<rect class="shape c-blue" x="820" y="20" width="820" height="150" rx="18"/>' +
+          text("lbl md", 1230, 72, "Above the line: persevere") + text("lbl sm", 1230, 124, "Take the next step") + "</g>" +
+        '<g class="part" data-node="under" data-group="pivot"><path class="line k-magenta" d="M640 350 C 700 440, 740 330, 790 330"/>' + head(812, 330, "c-magenta") +
+          text("cap-t t-magenta", 1230, 228, "Under the line", "middle") + "</g>" +
+        '<g class="part" data-node="pivot1" data-group="pivot"><rect class="shape c-magenta" x="820" y="250" width="400" height="170" rx="18"/>' +
+          text("lbl md", 1020, 298, "Pivot, type 1") + text("lbl sm", 1020, 346, "same problem,") + text("lbl sm", 1020, 382, "another solution") + "</g>" +
+        '<g class="part" data-node="pivot2" data-group="pivot"><rect class="shape c-purple" x="1240" y="250" width="400" height="170" rx="18"/>' +
+          text("lbl md", 1440, 298, "Pivot, type 2") + text("lbl sm", 1440, 346, "back to the") + text("lbl sm", 1440, 382, "problem space") + "</g>" +
+        '<g class="part" data-node="rule"><rect class="shape c-soft" x="0" y="470" width="1640" height="80" rx="12"/>' +
+          text("lbl dark", 820, 510, "Both are progress. The only miss: no line, so no decision") + "</g></svg>"
     };
   })();
 })();
