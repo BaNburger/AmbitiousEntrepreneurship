@@ -1,6 +1,6 @@
 # Glossary — Words We Use Precisely
 
-Updated: 2026-10-20.
+Updated: 2026-10-26.
 
 This course brainwashes you into an ambitious, conversion-heavy mindset — and vocabulary is the delivery mechanism. These definitions are fixed. We will correct you in check-ins. Kindly. Every time.
 
@@ -34,6 +34,13 @@ This course brainwashes you into an ambitious, conversion-heavy mindset — and 
 | **Cohort** | Everyone who first paid (or first reached the outcome) in the same week or month, read on their own. |
 | **North Star metric** | One weekly count of the value paying customers get, in their units, broken into a few drivers with an owner each. Revenue follows from it. |
 | **Product-market fit** | Customers who stay and pay again without you pushing. The Sean Ellis share ("very disappointed") is a compass toward it, retention is the verdict. |
+| **Burn rate** | What the venture spends a month. Count the pay each founder would need to work on it full time, or every student team looks cheap. |
+| **Runway** | Months until the cash runs out: cash divided by burn minus revenue. |
+| **Default alive** | Your expenses stay as they are, your revenue keeps growing as it has, and you reach profitability on the money you have. If not, you are default dead ([framework 04](../frameworks/04_Default_Alive_Calculator.md), Graham 2015). |
+| **LTV, CAC, payback** | What a customer brings in over their life with you (lifetime value), what it costs to win one (acquisition cost), and the months until a customer has paid back that cost. Growth pays when LTV is well above CAC. |
+| **Non-dilutive money** | Money that costs you no shares: revenue, grants, prizes, loans. Customers' money first. |
+| **Power law** | In venture capital a few companies return the whole fund and most return less than they cost, so investors fund only what could get very big (Module 12). |
+| **Evidence pack** | Your Student Toolkit as it stands, each payment with its proof. What Demo Day is judged on, nothing extra to hand in. |
 | **Hair-on-fire segment** | The people who have the problem worst: frequency × intensity × current spend — and would text you at 2am about it. |
 | **Budget authority** | The person who can say yes to money. The pain-haver and the budget-holder are often different people; your Pain Map carries both. |
 | **Vision / Moonshot** | The mountain: market ceiling, why it matters, who joins you. Picks *which* wedges are worth driving. |

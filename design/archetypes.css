@@ -19,6 +19,35 @@
 .bar-note b { color: var(--primary); font-size: 44px; font-weight: 800; letter-spacing: -0.02em; margin-right: 12px; }
 .tiles { display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: 28px; }
 
+/* Icon list: a marker in front of each item, the concept in bold, one short
+   line under it. .cols puts it into columns (--cols, default 2). */
+.iconlist { list-style: none; padding: 0; margin: 0; display: grid; gap: 32px; }
+.iconlist.cols { grid-template-columns: repeat(var(--cols, 2), 1fr); column-gap: 64px; }
+.iconlist li { display: grid; grid-template-columns: 72px 1fr; gap: 28px; align-items: center; }
+.iconlist li > div > b { display: block; font-size: 36px; font-weight: 700; line-height: 1.2; }
+.iconlist li > div > span { display: block; font-size: 28px; line-height: 1.3; color: var(--muted-foreground); }
+
+/* Donut: a share drawn to scale. --v is the share in percent, the number in
+   the middle repeats it. .donuts sets several side by side. (Not .ring, which
+   decks use for their own marks.) */
+.donut { --v: 50; --c: var(--primary); position: relative; width: var(--donut, 360px); aspect-ratio: 1; display: grid; place-content: center; justify-items: center; text-align: center; gap: 6px; }
+.donut::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--c) calc(var(--v) * 1%), var(--context) 0); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 44px), #000 calc(100% - 43px)); mask: radial-gradient(farthest-side, transparent calc(100% - 44px), #000 calc(100% - 43px)); }
+.donut > * { position: relative; }
+.donut b { font-size: calc(var(--donut, 360px) * 0.22); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--c); }
+.donut span { max-width: calc(var(--donut, 360px) * 0.56); font-size: 26px; line-height: 1.25; color: var(--muted-foreground); }
+.donuts { display: flex; flex-wrap: wrap; gap: 72px; align-items: center; justify-content: center; }
+.donut.is-context { --c: var(--context-foreground); }
+
+/* Timeline: dated events on one line, read left to right, the decisive one
+   in blue (.is-hl). Each event has a date, a marker and two short lines. */
+.timeline { list-style: none; padding: 0; margin: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 32px; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 36px; right: 36px; top: 90px; height: 4px; background: var(--context); }
+.timeline li { position: relative; display: grid; gap: 16px; align-content: start; justify-items: start; }
+.timeline .when { height: 40px; font: 600 26px/40px var(--font-mono); letter-spacing: 0.04em; color: var(--muted-foreground); white-space: nowrap; }
+.timeline li > b { font-size: 32px; font-weight: 700; line-height: 1.2; }
+.timeline li > span:not(.when):not(.icon-dot) { font-size: 26px; line-height: 1.3; color: var(--muted-foreground); }
+.timeline li.is-hl .when, .timeline li.is-hl > b { color: var(--primary); }
+
 /* From and to: a weak version in grey, the better version in blue. */
 .fromto { display: grid; grid-template-columns: 1fr 72px 1fr; align-items: center; gap: 24px; }
 .fromto > .icon { width: 72px; height: 72px; color: var(--primary); }
@@ -131,6 +160,29 @@
 /* The tilt lifts the sticky's corners a few px past its box. The margin keeps them inside the frame. */
 .demo-side .sticky { width: calc(100% - 20px); margin: 10px; --tilt: -1.5deg; font-size: 30px; }
 
+/* Step variant (data-variant="step"): one step of a how-to guide, laid out by
+   .howto (not .step, which is the workshop card label). The crop
+   from scripts/shots.py is shown large enough to read, the element to use is
+   marked on top in HTML (.target, its box in percent of the crop, the badge
+   numbers it like the step list), and .where shows the whole window small
+   with the crop outlined, so students know where on the screen to look. */
+.content.howto { display: grid; grid-template-columns: auto 440px; justify-content: start; column-gap: 72px; align-items: start; height: 100%; }
+.shot.zoom { justify-self: start; width: fit-content; max-width: 100%; }
+.shot .frame { position: relative; line-height: 0; }
+.shot.zoom img { width: auto; max-width: 100%; max-height: var(--shot-h, 560px); }
+.shot .target { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); border-radius: 10px; outline: 6px solid var(--accent); outline-offset: 6px; box-shadow: 0 0 0 4000px hsl(220 16% 10% / 0.12); }
+.shot .target .badge { position: absolute; right: calc(100% + 18px); top: 50%; transform: translateY(-50%); width: 56px; height: 56px; font-size: 28px; line-height: 1; }
+.howto-side { display: grid; gap: 24px; align-content: start; }
+.howto-side .demo-steps { gap: 8px; }
+.howto-side .demo-steps li { font-size: 26px; gap: 14px; }
+.howto-side .demo-steps li .badge { width: 40px; height: 40px; font-size: 24px; }
+.where { margin: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-card); }
+.where .frame { position: relative; line-height: 0; }
+.where img { display: block; width: 100%; height: auto; }
+.where .crop { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); outline: 4px solid var(--accent); box-shadow: 0 0 0 4000px hsl(220 16% 10% / 0.32); }
+.howto-side .see { display: flex; gap: 16px; align-items: baseline; font-size: 28px; line-height: 1.3; }
+.howto-side .see .icon { flex: none; color: var(--primary); }
+
 /* ---------- 08 Tip ---------- */
 [data-archetype="tip"] .content { display: grid; align-content: center; gap: 44px; }
 [data-archetype="tip"] .why { font-size: 30px; line-height: 1.4; max-width: 1300px; padding-left: 28px; border-left: 4px solid var(--border); color: var(--muted-foreground); }
@@ -140,7 +192,7 @@
 .tool .title { font-size: 80px; }
 .tool .facts { list-style: none; padding: 0; margin: 36px 0 44px; display: grid; gap: 20px; font-size: 32px; line-height: 1.25; }
 .tool .facts li { display: grid; grid-template-columns: 52px 1fr; align-items: start; }
-.tool .facts .ic { font-size: 34px; line-height: 1.1; }
+.tool .facts .ic { font-size: 34px; line-height: 1.1; color: var(--primary); }
 
 /* ---------- 10 Framework ---------- */
 .funnel { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: stretch; gap: 0; }

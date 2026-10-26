@@ -1,4 +1,4 @@
-<!-- Updated: 2026-10-20 -->
+<!-- Updated: 2026-10-26 -->
 
 # Ambitious Entrepreneurship
 
@@ -70,11 +70,11 @@ Every module folder holds exactly what you need: `README` (start here) · lectur
 | 05 | [The Solution Space](modules/05-solution-space/) | Of all the ways to solve this problem, why this one? | Freeletics | Click Dummy Sprint |
 | 06 | [Prototyping with AI](modules/06-prototyping/) | What's the fastest thing you can build to learn? | Langfuse | Show & Build |
 | 07 | [The Kill Decision](modules/07-rapid-validation/) | Why should this startup die? | 6Wunderkinder | Kill Your Darlings |
-| 08 | [Finding First Users](modules/08-first-users/) | Who are your first ten customers — by name? | Stripe | The Collison Installation |
-| 09 | [From Prototype to Product](modules/09-prototype-to-product/) | How do you turn users into revenue? | Superhuman | Revenue Sprint |
-| 10 | [Product Management & Growth](modules/10-product-management/) | What do you build next — and what do you refuse to build? | Linear | Feature Graveyard |
-| 11 | [Founder Health](modules/11-founder-health/) | How do you build a company without breaking yourself? | Founder Wellbeing | The Energy Audit |
-| 12 | [Fundraising & Demo Day](modules/12-fundraising-demo-day/) | Can you tell the story — and show the money? | Celonis | Pitch Forge |
+| 08 | [Finding First Users](modules/08-first-users/) | Who are your first ten customers — by name? | Tacto | Sell by Hand |
+| 09 | [From Prototype to Product](modules/09-prototype-to-product/) | How do you turn users into revenue? | tado° | Revenue Sprint |
+| 10 | [Product Management & Growth](modules/10-product-management/) | What do you build next — and what do you refuse to build? | Tally | Feature Graveyard |
+| 11 | [Founder Health](modules/11-founder-health/) | How do you build a company without breaking yourself? | Pitch | The Energy Audit |
+| 12 | [Fundraising & Demo Day](modules/12-fundraising-demo-day/) | Can you tell the story — and show the money? | Personio | Demo Day |
 
 ---
 

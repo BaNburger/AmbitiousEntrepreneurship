@@ -1,6 +1,6 @@
 # The Team Stack — fork this, then go sell
 
-Updated: 2026-10-20.
+Updated: 2026-10-26.
 
 Thirty minutes of setup, once. Every hour saved on plumbing is an hour of selling. Tool names checked October 2026 — tools rot, the pattern doesn't.
 
@@ -29,7 +29,7 @@ Checked 19 October 2026. Tools are examples.
 2. Use the provider's hosted checkout. Your product only starts it.
 3. Count a payment when the provider's webhook says so, never from the success page. Check the signature, record each event once.
 4. Secret keys live on the server in environment variables. Never in the code, the chat or a variable the browser can read (`NEXT_PUBLIC_` and friends).
-5. Deploy from your repository. Vercel, Netlify and Cloudflare Pages deploy every push to main and give each branch a preview link.
+5. Deploy from your repository. Vercel, Netlify and Cloudflare Pages deploy every push to main. Vercel and Cloudflare Pages give each branch a preview link, Netlify each pull request, or each branch once branch deploys are on.
 
 ## 3. Interview capture that can't be faked (5 min)
 

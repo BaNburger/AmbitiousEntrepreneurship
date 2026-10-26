@@ -1,6 +1,6 @@
 # Essential Reading List
 
-Updated: 2026-10-20.
+Updated: 2026-10-26.
 
 *9 pieces. That's it. Each one changes how you think about building.*
 
@@ -106,7 +106,7 @@ These aren't required reading — they're the "go deeper" layer for students who
 |----------|--------|------|---------------|
 | **How to Build a Seed Pitch Deck** | Y Combinator | [ycombinator.com/library/2u](https://www.ycombinator.com/library/2u-how-to-build-your-seed-round-pitch-deck) | YC's official guide. Traction-first structure. |
 | **SAFE Agreement** | Y Combinator | [ycombinator.com/documents](https://www.ycombinator.com/documents) | The industry-standard early-stage investment doc. Free, open-source. |
-| **Sequoia Pitch Deck Template** | Sequoia Capital | [slideshare: Sequoia Pitch Deck](https://www.slideshare.net/slideshow/sequoia-capital-pitchdecktemplate/46231251) | The original 10-slide structure every VC expects. |
+| **Sequoia Pitch Deck Template** | Sequoia Capital | [sequoiacap.com: Writing a Business Plan](https://sequoiacap.com/article/writing-a-business-plan/) | The original 10-slide structure every VC expects. |
 | **Real Pitch Deck Examples** | Slidebean | [slidebean.com/pitch-deck-examples](https://slidebean.com/pitch-deck-examples) | 35+ real pitch decks from Airbnb, Buffer, Uber, etc. — see what actually got funded. |
 
 ### Accelerator Curricula (Free)

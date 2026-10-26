@@ -1,6 +1,6 @@
 # Exemplar: From Objection Log to Offer Change — Team TurbineTrack (M08–M09)
 
-Updated: 2026-10-20.
+Updated: 2026-10-26.
 
 *Synthetic exemplar — realistic but invented. The pattern-spotting at the bottom is the part most teams skip.*
 
@@ -21,7 +21,7 @@ Offer at first ask, the MVP's price from Module 05: €400 one-time for a 3-week
 
 **Patterns (3+ = act):** price STRUCTURE objections (1, 7 — never the amount!) · payment rails (5) · offline (8, + Markus in M03, + demo Q), already in build.
 
-**Offer change (committed 09.05):** €89/month flat per company (not per tech), cancel monthly, invoice + bank transfer as default payment, "your data exports to Excel anytime" line added. Price AMOUNT unchanged in year-value (€400 becomes €1,068/yr) — structure carried it.
+**Offer change (committed 09.05):** €89/month flat per company (not per tech), cancel monthly, invoice + bank transfer as default payment, "your data exports to Excel anytime" line added. The amount rose from €400 once to €1,068 a year (12 × €89), and no objection was about the amount. The structure carried it.
 
 **Result after change:** next 6 asks: 3 paying customers (50% vs 10% before). Objection 10 (solar) logged and REFUSED — wedge discipline.
 

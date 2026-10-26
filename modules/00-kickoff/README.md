@@ -1,6 +1,6 @@
 # Module 00 — Kickoff — No-Bullshit Entrepreneurship
 
-Updated: 2026-10-19.
+Updated: 2026-10-26.
 
 > **Core question:** What kills startups — and what will this course demand from you?
 

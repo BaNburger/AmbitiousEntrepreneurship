@@ -707,17 +707,16 @@ window.AEAnchors["build-measure-learn"] = {
       segs += '<path class="cp-seg" data-node="s' + nn(k) + '" data-group="' + after(k) + '" d="' + d + '"/>';
     }
     for (k = 0; k < 13; k++) {
-      var p = pos(k), cx = p[0], cy = p[1], top = cy === y1, chipY = top ? cy + R + 16 : cy - R - 64;
-      // The Today note points at its circle, up from below on the first row, down from above on the second.
-      var tail = top ? "M" + (cx - 14) + " " + chipY + " L" + cx + " " + (chipY - 14) + " L" + (cx + 14) + " " + chipY + " Z"
-        : "M" + (cx - 14) + " " + (chipY + 50) + " L" + cx + " " + (chipY + 64) + " L" + (cx + 14) + " " + (chipY + 50) + " Z";
+      // The Today badge overlaps the lit circle, below it on the first row and above it on the second,
+      // so it can only belong to that circle.
+      var p = pos(k), cx = p[0], cy = p[1], chipY = cy === y1 ? cy + R - 14 : cy - R - 36;
       stops += '<g class="cp">' +
         '<circle class="cp-base" cx="' + cx + '" cy="' + cy + '" r="' + r + '"/>' +
         '<g class="cp-done" data-node="d' + nn(k) + '"' + (k < 12 ? ' data-group="' + after(k) + '"' : "") + '><circle cx="' + cx + '" cy="' + cy + '" r="' + r + '"/>' +
           text("cp-num", cx, cy, nn(k), "middle") + name(k, cx, cy, r) + "</g>" +
         '<g class="cp-now" data-node="m' + nn(k) + '"><circle cx="' + cx + '" cy="' + cy + '" r="' + R + '"/>' +
           text("cp-num", cx, cy, nn(k), "middle") + name(k, cx, cy, R) +
-          '<path class="cp-chip" d="' + tail + '"/><rect class="cp-chip" x="' + (cx - 85) + '" y="' + chipY + '" width="170" height="50" rx="25"/>' + text("cp-chip-t", cx, chipY + 25, "Today", "middle") + "</g>" +
+          '<rect class="cp-chip" x="' + (cx - 85) + '" y="' + chipY + '" width="170" height="50" rx="25"/>' + text("cp-chip-t", cx, chipY + 25, "Today", "middle") + "</g>" +
         '<g class="cp-text">' + text("cp-num", cx, cy, nn(k), "middle") + name(k, cx, cy, r) + "</g></g>";
     }
     A["course-path"] = {
