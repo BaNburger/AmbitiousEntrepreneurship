@@ -1,4 +1,4 @@
-/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-26.
+/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-30.
    Owned by the course-design skill. Each is drawn once here, from Bastian's
    legacy slide, and placed in any deck as
      <div class="anchor" data-anchor="NAME" data-active="PART">   full size
@@ -15,8 +15,10 @@
    ideation-stage, double-diamond, every-application, agent-loop,
    critical-known, funnel ("How make numbers go brrr"), kpi-tree and
    kpi-tree-profit, stage-arrow, and from M11 identity-map, two-curves,
-   in-that-order, stressor-map and scary-bits, and for every opening
-   course-path and pivot-fork. Others are added when a module needs them. */
+   in-that-order, stressor-map and scary-bits, for every opening
+   course-path and pivot-fork, and on AI at work freeze-rule, task-compass,
+   autonomy-levels and build-ladder. Others are added when a module needs
+   them. */
 window.AEAnchors = window.AEAnchors || {};
 
 /* Build-Measure-Learn, legacy slide 38. Framework: Ries, E. (2011). The Lean
@@ -25,6 +27,14 @@ window.AEAnchors["build-measure-learn"] = {
   title: "Build-Measure-Learn",
   source: "Ries, E. (2011). The Lean Startup. Crown Business.",
   steps: ["build", "measure", "learn"],
+  /* Click details (deck.js), Bastian's reading of the loop (2026-10-30, M00
+     feedback): start at Learn, test one hypothesis, only paying customers
+     measure, and with AI the brake is on building. */
+  details: {
+    learn: ["Learn: start here", "Your own insight is the start. Pick the one hypothesis you believe brings you to your next paying customer, or to a 10x step. One, not a list. Learning is yours, nobody does it for you."],
+    build: ["Build: only what tests it", "Build the smallest thing that tests that one hypothesis, as fast as you can. With AI, building is cheap, so the skill is braking. Whatever extra you build gets measured too and blurs what you learn."],
+    measure: ["Measure: with real customers", "Only real customers count, and a real customer opens their wallet. ChatGPT can give you a hint, but ChatGPT is never your customer. It does not pay."]
+  },
   svg: '<svg viewBox="0 0 1100 680" role="img" aria-label="Build-Measure-Learn loop">' +
     '<defs>' +
     '<marker id="ae-head-grey" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="hsl(220 13% 78%)"/></marker>' +
@@ -69,7 +79,9 @@ window.AEAnchors["build-measure-learn"] = {
      tests what interviews suggested with closed questions about past
      behaviour (Bastian, M04 gate F, 2026-10-19, AGENTS.md "Course
      decisions"). Its part name stays "survey". Groups: ideation, incubation,
-     acceleration, apex. */
+     acceleration, apex. The phases read Problem space, Solution space and
+     Growth phase, and their part names stay (Bastian, 2026-10-30, M00 and M01
+     feedback). Each rung and phase opens a detail on click (deck.js). */
   (function () {
     var levels = [
       ["anecdotal", "Anecdotal evidence", "ideation", "c-magenta"],
@@ -94,7 +106,7 @@ window.AEAnchors["build-measure-learn"] = {
         '<polygon class="shape ' + l[3] + '" points="' + pts[0] + "," + pts[1] + " " + pts[2] + "," + pts[3] + " " + pts[4] + "," + pts[5] + " " + pts[6] + "," + pts[7] + '"/>' +
         (i < 9 ? text("lbl sm", cx, ym, l[1]) : text("note strong", (cx - hm - 18).toFixed(0), ym, l[1], "end")) + "</g>";
     });
-    [["ideation", "Ideation phase", 0, "magenta"], ["incubation", "Incubation phase", 3, "navy"], ["acceleration", "Acceleration phase", 6, "blue"]].forEach(function (ph) {
+    [["ideation", "Problem space", 0, "magenta"], ["incubation", "Solution space", 3, "navy"], ["acceleration", "Growth phase", 6, "blue"]].forEach(function (ph) {
       var yb = 596 - ph[2] * 50, yt = yb - 146, ym = (yb + yt) / 2;
       out += '<g class="part phase" data-node="' + ph[0] + '" data-group="' + ph[0] + '">' +
         '<path class="brace k-' + ph[3] + '" d="M1180 ' + yb + " Q1204 " + yb + " 1204 " + (yb - 22) + " L1204 " + (ym + 12) + " L1218 " + ym + " L1204 " + (ym - 12) + " L1204 " + (yt + 22) + " Q1204 " + yt + " 1180 " + yt + '"/>' +
@@ -103,8 +115,24 @@ window.AEAnchors["build-measure-learn"] = {
     A["evidence-pyramid"] = {
       title: "Hierarchy of evidence",
       source: "Bastian Burger, course framework, legacy slides 128 and 328.",
+      details: {
+        anecdotal: ["Anecdotal evidence", "One person tells you something, or you lived it yourself. Enough to start looking, never enough to decide."],
+        interviews: ["Qualitative interviews", "Conversations about the last time the problem happened. They build your theory: who has the problem, what it costs, what they do today."],
+        survey: ["Quantitative evidence", "Tests how strong the effect is that your interviews suggested: how many in your segment act on it. A survey about past behaviour, or a landing page that counts clicks."],
+        mockup: ["Wireframe mockup", "A quick thing that only shows how the solution could look. People react to it, nothing works yet."],
+        prototype: ["Functional prototype", "It works. A slice of the product solves the problem for real users, even if you run parts of it by hand."],
+        paid: ["Paid prototype", "Somebody opens their wallet for it. The first rung that counts as validation, everything below is signal."],
+        "early-product": ["Growing early product", "Customers pay again and new ones arrive. The question moves from whether it works to whether it grows."],
+        growth: ["Net positive growth", "You win more customers than you lose, month after month."],
+        margins: ["Positive margins", "Each sale earns more than it costs to deliver."],
+        sustainable: ["Sustainable business", "The business carries itself, without your next funding round."],
+        market: ["Efficient market", "Others copy you and prices settle. By now everyone has the evidence, and so does every competitor."],
+        ideation: ["Problem space", "Rungs 1 to 3. Is the problem real, who has it, and how many?"],
+        incubation: ["Solution space", "Rungs 4 to 6. Does your solution solve it, and will someone pay?"],
+        acceleration: ["Growth phase", "Rungs 7 to 9. Does it work as a business, again and again?"]
+      },
       steps: levels.map(function (l) { return l[0]; }).concat(["ideation", "incubation", "acceleration", "apex"]),
-      svg: '<svg viewBox="0 0 1640 600" role="img" aria-label="Hierarchy of evidence in the lean startup, eleven levels in three phases">' + out + "</svg>"
+      svg: '<svg viewBox="0 0 1640 600" role="img" aria-label="Hierarchy of evidence in the lean startup, eleven levels in three phases: problem space, solution space, growth phase">' + out + "</svg>"
     };
   })();
 
@@ -252,9 +280,11 @@ window.AEAnchors["build-measure-learn"] = {
 
   /* The ideation stage, legacy slide 704 (re-shown in M10). Driven
      individuals move through three pillars to four outcomes. Typos fixed.
+     The band reads Problem space since 2026-10-30, the course's name for
+     the phase (Bastian, M01 feedback), and the anchor name stays.
      Parts: learn, team, problem, outcomes. */
   (function () {
-    var out = '<path class="shape c-magenta" d="M0 0 H960 L1000 36 L960 72 H0 Z"/>' + text("lbl", 480, 37, "Ideation") +
+    var out = '<path class="shape c-magenta" d="M0 0 H960 L1000 36 L960 72 H0 Z"/>' + text("lbl", 480, 37, "Problem space") +
       lines("cap-t", 140, 250, ["Driven,", "smart and", "engaged", "individuals"], 44, "middle") +
       '<path class="tile" d="M290 150 H1150 V112 L1215 320 L1150 528 V490 H290 Z"/>';
     [["learn", "Pillar 1", ["Learn what", "it takes"], "How do I do it?"],
@@ -270,10 +300,10 @@ window.AEAnchors["build-measure-learn"] = {
     outcomes.forEach(function (o, i) { out += text("lbl xs", 1435, 214 + i * 84, o[0]) + text("lbl xs", 1435, 244 + i * 84, o[1]); });
     out += "</g>";
     A["ideation-stage"] = {
-      title: "Understanding the problem during the ideation stage",
+      title: "Understanding the problem in the problem space",
       source: "Bastian Burger, course framework, legacy slide 704.",
       steps: ["learn", "team", "problem", "outcomes"],
-      svg: '<svg viewBox="0 0 1640 548" role="img" aria-label="Ideation stage, three pillars lead driven individuals to four outcomes">' + out + "</svg>"
+      svg: '<svg viewBox="0 0 1640 548" role="img" aria-label="Problem space, three pillars lead driven individuals to four outcomes">' + out + "</svg>"
     };
   })();
 
@@ -519,14 +549,17 @@ window.AEAnchors["build-measure-learn"] = {
      the phase colours of the evidence pyramid (magenta, navy, blue), so the
      two cornerstones name the same stages alike. Parts: ideation, incubation,
      acceleration (each its arrow segment and its outcomes), groups arrow
-     (the three segments) and outcomes (the three cards). */
-  (function () {
+     (the three segments) and outcomes (the three cards). Since 2026-10-30 the
+     arrow reads Problem space, Solution space and Growth phase, as the
+     pyramid does (Bastian, M01 feedback). "stage-arrow-legacy" keeps the old
+     names for the M01 archive deck on ideation, incubation and acceleration. */
+  function stageArrow(names) {
     var stages = [
-      ["ideation", "Ideation", "c-magenta", [["Team committed", "for full-time work"], ["Team completed by all", "necessary disciplines"],
+      ["ideation", names[0], "c-magenta", [["Team committed", "for full-time work"], ["Team completed by all", "necessary disciplines"],
         ["Founders agree on hard and", "soft facts about funding"], ["Agreement on an", "interesting problem space"]]],
-      ["incubation", "Incubation", "c-navy", [["A fundable business with a clear", "business plan for the next 12 months"], ["Paid pilot customers with", "completely conducted projects"],
+      ["incubation", names[1], "c-navy", [["A fundable business with a clear", "business plan for the next 12 months"], ["Paid pilot customers with", "completely conducted projects"],
         ["Validated value proposition", "with real customers"], ["Clear setup around team,", "processes, idea and more"]]],
-      ["acceleration", "Acceleration", "c-blue", [["Business gets progressively", "de-risked and starts turning profits"], ["Fundable through", "Series A and B rounds"],
+      ["acceleration", names[2], "c-blue", [["Business gets progressively", "de-risked and starts turning profits"], ["Fundable through", "Series A and B rounds"],
         ["Self-sufficient business", "at each funding round"], ["Gut feeling gets replaced", "by data in daily operations"]]]
     ];
     var cw = 528, gap = 28, d = 40, h = 100, top = 132, out = "";
@@ -540,13 +573,20 @@ window.AEAnchors["build-measure-learn"] = {
       s[3].forEach(function (o, k) { out += text("lbl xs", c, top + 110 + k * 88, o[0]) + text("lbl xs", c, top + 140 + k * 88, o[1]); });
       out += "</g>";
     });
-    A["stage-arrow"] = {
-      title: "Ideation, incubation, acceleration",
-      source: "Bastian Burger, course framework, legacy slide 703, outcomes from legacy slides 704 to 706.",
-      steps: ["ideation", "incubation", "acceleration"],
-      svg: '<svg viewBox="0 0 1640 566" role="img" aria-label="Three stages as one arrow, ideation, incubation and acceleration, each with four outcomes">' + out + "</svg>"
-    };
-  })();
+    return '<svg viewBox="0 0 1640 566" role="img" aria-label="Three stages as one arrow, ' + names.join(", ").toLowerCase() + ', each with four outcomes">' + out + "</svg>";
+  }
+  A["stage-arrow"] = {
+    title: "Problem space, solution space, growth phase",
+    source: "Bastian Burger, course framework, legacy slide 703, outcomes from legacy slides 704 to 706.",
+    steps: ["ideation", "incubation", "acceleration"],
+    svg: stageArrow(["Problem space", "Solution space", "Growth phase"])
+  };
+  A["stage-arrow-legacy"] = {
+    title: "Ideation, incubation, acceleration",
+    source: A["stage-arrow"].source,
+    steps: A["stage-arrow"].steps,
+    svg: stageArrow(["Ideation", "Incubation", "Acceleration"])
+  };
 
   /* The five M11 cornerstones (founder health), from Bastian's lecture on
      failure and staying happy (WS27 deck), drawn as the approved M11 deck
@@ -760,6 +800,127 @@ window.AEAnchors["build-measure-learn"] = {
           text("lbl md", 1440, 298, "Pivot, type 2") + text("lbl sm", 1440, 346, "back to the") + text("lbl sm", 1440, 382, "problem space") + "</g>" +
         '<g class="part" data-node="rule"><rect class="shape c-soft" x="0" y="470" width="1640" height="80" rx="12"/>' +
           text("lbl dark", 820, 510, "Both are progress. The only miss: no line, so no decision") + "</g></svg>"
+    };
+  })();
+
+  /* Four cornerstones on AI at work, promoted on 2026-10-26 from the deck-local
+     dt-freeze, dt-compass, dt-autonomy and dt-ladder of the executive module
+     "Digitale Trends und Technologien" (Guest Lectures/2026-11-06_…/working/
+     build/dtlib.py), with English labels and the same drawing and parts. New,
+     no legacy slide. That deck keeps its own German copies under the dt- names. */
+
+  /* The freeze rule, "The third time, you get a button". Burger, B. (2026),
+     Towards Intent-Based Computing, section 3.4: the first time the model does
+     the work and you approve it, the second time it shows what differs, the
+     third time you get a button with fixed steps and no model inside. Each
+     time the box rises. For Prototyping (M06) and Prototype to product (M09).
+     Parts: first, second, third. */
+  (function () {
+    var steps = [["first", "c-navy", 0, 250, "1st time", ["AI does it,", "you approve"]],
+      ["second", "c-blue", 570, 150, "2nd time", ["AI shows", "what differs"]],
+      ["third", "c-magenta", 1140, 30, "3rd time", ["fixed steps,", "no AI"]]];
+    var out = DEFS;
+    steps.forEach(function (s) {
+      var x = s[2], y = s[3];
+      var g = '<rect class="shape ' + s[1] + '" x="' + x + '" y="' + y + '" width="500" height="' + (450 - y) + '" rx="18"/>' +
+        text("lbl md", x + 250, y + 62, s[4]) + lines("lbl", x + 250, y + 122, s[5], 40);
+      if (s[0] === "third") g += '<rect class="shape c-paper" x="' + (x + 100) + '" y="' + (y + 230) + '" width="300" height="110" rx="55"/>' +
+        text("lbl md dark", x + 250, y + 285, "Button");
+      out += '<g class="part" data-node="' + s[0] + '">' + g + "</g>";
+    });
+    A["freeze-rule"] = {
+      title: "The third time, you get a button",
+      source: "Burger, B. (2026). Towards Intent-Based Computing, section 3.4, the freeze rule.",
+      steps: ["first", "second", "third"],
+      svg: '<svg viewBox="0 0 1640 460" role="img" aria-label="The third time, you get a button. The first time AI does the task and you approve it, the second time it shows what differs, the third time it becomes a button with fixed steps and no AI">' +
+        out + arrow(505, 230, 560, 190) + arrow(1075, 130, 1130, 90) + "</svg>"
+    };
+  })();
+
+  /* The task compass: tasks sorted by repetition (rare and different each
+     time, or often and always the same) and by judgment and relationships.
+     Each corner gives AI another role, and the corner of frequent tasks with
+     little judgment is the freeze rule. New, drawn for that executive module
+     after the freeze rule. For deciding what to automate in a team's own
+     operations (First users M08, Prototype to product M09).
+     Parts: human, prepare, assist, freeze. */
+  (function () {
+    var q = [["human", "c-purple", 220, 0, "Stays with you", "AI as a sparring partner"],
+      ["prepare", "c-magenta", 940, 0, "AI prepares", "you decide"],
+      ["assist", "c-navy", 220, 250, "AI as an assistant", "you check every time"],
+      ["freeze", "c-blue", 940, 250, "Freeze it", "the third time, a button"]];
+    var out = DEFS;
+    q.forEach(function (c) {
+      out += '<g class="part" data-node="' + c[0] + '"><rect class="shape ' + c[1] + '" x="' + c[2] + '" y="' + c[3] + '" width="700" height="220" rx="18"/>' +
+        text("lbl md", c[2] + 350, c[3] + 92, c[4]) + text("lbl", c[2] + 350, c[3] + 150, c[5]) + "</g>";
+    });
+    A["task-compass"] = {
+      title: "Task compass",
+      source: "Course graphic after the freeze rule in Burger, B. (2026), Towards Intent-Based Computing.",
+      steps: ["human", "prepare", "assist", "freeze"],
+      svg: '<svg viewBox="0 0 1640 540" role="img" aria-label="Task compass: tasks sorted by repetition and judgment. Often the same with little judgment: freeze it. Rare with little judgment: AI as an assistant, you check every time. Often the same with a lot of judgment: AI prepares, you decide. Rare with a lot of judgment: it stays with you">' +
+        out + arrow(200, 468, 200, 14) + arrow(220, 486, 1630, 486) +
+        lines("note strong", 180, 64, ["high", "judgment,", "relationships"], 34, "end") + lines("note strong", 180, 360, ["low", "judgment"], 34, "end") +
+        text("note strong", 230, 528, "rare, different each time", "start") + text("note strong", 1640, 528, "often, always the same", "end") + "</svg>"
+    };
+  })();
+
+  /* Autonomy is earned: an AI feature or agent climbs from intern (observes,
+     you do it) to junior (proposes, you decide) to senior (acts within limits,
+     you check the receipts). Promote slow, demote fast. Burger, B. (2026),
+     Towards Principal Computing, the harness rules ("intern observes, junior
+     proposes, senior acts", "Demote fast, promote slow"). For Product
+     management (M10). The arrows stay outside the parts: promotion runs one
+     level up at a time, and demotion one level down, from acting to proposing
+     as the paper's harness does. The labels sit
+     higher in their boxes than in the German original, so the short intern
+     box keeps a margin under its second line. Parts: intern, junior, senior. */
+  (function () {
+    var st = [["intern", "c-navy", 0, 250, "Intern", ["observes,", "you do it"]],
+      ["junior", "c-blue", 580, 140, "Junior", ["proposes,", "you decide"]],
+      ["senior", "c-magenta", 1160, 30, "Senior", ["acts within limits,", "you check the receipts"]]];
+    var out = DEFS;
+    st.forEach(function (s) {
+      var x = s[2], y = s[3];
+      out += '<g class="part" data-node="' + s[0] + '"><rect class="shape ' + s[1] + '" x="' + x + '" y="' + y + '" width="480" height="' + (430 - y) + '" rx="18"/>' +
+        text("lbl md", x + 240, y + 50, s[4]) + lines("lbl", x + 240, y + 100, s[5], 38) + "</g>";
+    });
+    A["autonomy-levels"] = {
+      title: "Autonomy is earned",
+      source: "Burger, B. (2026). Towards Principal Computing, the autonomy levels and the rule “Demote fast, promote slow”.",
+      steps: ["intern", "junior", "senior"],
+      svg: '<svg viewBox="0 0 1640 540" role="img" aria-label="Autonomy is earned: the intern observes, the junior proposes, the senior acts within limits. Promote slow, one level at a time. Demote fast, from acting back to proposing">' +
+        out + '<path class="line" d="M240 236 C 260 120, 420 90, 570 120" marker-end="url(#ae-arrow)"/>' +
+        '<path class="line" d="M820 126 C 840 40, 1000 20, 1150 50" marker-end="url(#ae-arrow)"/>' + text("note strong t-blue", 60, 90, "promote slow", "start") +
+        '<path class="line dash k-magenta" d="M1400 440 C 1380 520, 840 520, 820 444" marker-end="url(#ae-arrow)"/>' +
+        text("note strong t-magenta", 1110, 530, "demote fast", "middle") + "</svg>"
+    };
+  })();
+
+  /* The build ladder: template, assistant, workflow, agent. Each step up
+     costs more effort and risk and needs a wider mandate, so a team starts at
+     the bottom. Course graphic after Bastian's stages use, build, automate
+     (2024) and his ladder from assistant to agent (2025), as that executive
+     module first drew it, its labels set higher for the same margin. For
+     Prototyping (M06) and Prototype to product (M09).
+     Parts: prompt, assistant, workflow, agent. */
+  (function () {
+    var steps = [["prompt", "c-navy", 380, "Template", ["a brief", "to copy"]],
+      ["assistant", "c-blue", 260, "Assistant", ["knows your", "documents"]],
+      ["workflow", "c-magenta", 140, "Workflow", ["runs", "by itself"]],
+      ["agent", "c-purple", 20, "Agent", ["plans and", "acts on its own"]]];
+    var out = DEFS;
+    steps.forEach(function (s, i) {
+      var x = i * 420, y = s[2];
+      out += '<g class="part" data-node="' + s[0] + '"><rect class="shape ' + s[1] + '" x="' + x + '" y="' + y + '" width="380" height="' + (560 - y) + '" rx="18"/>' +
+        text("lbl md", x + 190, y + 50, s[3]) + lines("lbl", x + 190, y + 100, s[4], 38) + "</g>";
+    });
+    A["build-ladder"] = {
+      title: "The build ladder",
+      source: "Course graphic after Bastian's stages use, build, automate (2024) and his ladder from assistant to agent (2025).",
+      steps: ["prompt", "assistant", "workflow", "agent"],
+      svg: '<svg viewBox="0 0 1640 560" role="img" aria-label="The build ladder: a template to copy, an assistant that knows your documents, a workflow that runs by itself, an agent that plans and acts on its own. Effort, risk and the mandate it needs rise with every step">' +
+        out + lines("note strong", 0, 40, ["Effort, risk and the", "mandate it needs rise"], 36, "start") + "</svg>"
     };
   })();
 })();

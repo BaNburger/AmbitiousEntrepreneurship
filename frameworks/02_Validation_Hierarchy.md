@@ -1,6 +1,6 @@
 # Validation Hierarchy of Evidence
 
-Updated: 2026-10-20.
+Updated: 2026-10-30.
 
 *Stop guessing. Start proving.*
 
@@ -12,13 +12,13 @@ Not all evidence is equal. The course uses one hierarchy, the pyramid every modu
 
 | Phase | Rung | What it is | What it can show |
 |---|---|---|---|
-| Ideation | 1. Anecdotal evidence | Stories you heard, your own experience | That a problem might exist |
-| Ideation | 2. Qualitative interviews | Conversations about past behaviour and spend, with verbatim quotes | That named people have the problem and what it costs them |
-| Ideation | 3. Quantitative evidence | A survey that tests what your interviews suggested, or a landing page that counts what people do | How many people in your segment act on it |
-| Incubation | 4. Wireframe mockup | A clickable mock that people try | Whether they get the solution and want it |
-| Incubation | 5. Functional prototype | A slice of the product that works | Whether it solves the problem |
-| Incubation | 6. Paid prototype | Somebody pays for it | Validation. A wallet opened |
-| Acceleration | 7 to 9. Growing early product, net positive growth, positive margins | Customers pay repeatedly and the business grows | That it works as a business |
+| Problem space | 1. Anecdotal evidence | Stories you heard, your own experience | That a problem might exist |
+| Problem space | 2. Qualitative interviews | Conversations about past behaviour and spend, with verbatim quotes | That named people have the problem and what it costs them |
+| Problem space | 3. Quantitative evidence | A survey that tests what your interviews suggested, or a landing page that counts what people do | How many people in your segment act on it |
+| Solution space | 4. Wireframe mockup | A clickable mock that people try | Whether they get the solution and want it |
+| Solution space | 5. Functional prototype | A slice of the product that works | Whether it solves the problem |
+| Solution space | 6. Paid prototype | Somebody pays for it | Validation. A wallet opened |
+| Growth phase | 7 to 9. Growing early product, net positive growth, positive margins | Customers pay repeatedly and the business grows | That it works as a business |
 | Top | Sustainable business, efficient market | | |
 
 **When a survey counts.** A survey earns rung 3 only when it tests what your interviews suggested, with closed questions about past behaviour. A survey about the future or about your solution counts as opinion, however many people answer it.

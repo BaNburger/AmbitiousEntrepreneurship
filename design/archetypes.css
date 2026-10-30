@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship slide archetypes. Updated: 2026-10-19. Status: ready.
+/* Ambitious Entrepreneurship slide archetypes. Updated: 2026-10-30. Status: ready.
    Owned by the course-design skill. Link after deck.css. Every rule is scoped
    to [data-archetype="name"] or is a shared exhibit component (drawn to
    scale, quadrant, from and to). Templates live in design/archetypes/ and the
@@ -31,7 +31,11 @@
    the middle repeats it. .donuts sets several side by side. (Not .ring, which
    decks use for their own marks.) */
 .donut { --v: 50; --c: var(--primary); position: relative; width: var(--donut, 360px); aspect-ratio: 1; display: grid; place-content: center; justify-items: center; text-align: center; gap: 6px; }
-.donut::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--c) calc(var(--v) * 1%), var(--context) 0); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 44px), #000 calc(100% - 43px)); mask: radial-gradient(farthest-side, transparent calc(100% - 44px), #000 calc(100% - 43px)); }
+/* The ring is cut with a clip path, not a CSS mask. Chrome prints a mask as a nested
+   transparency group that Apple's PDF viewers (iPad, Preview) clip, so the donut
+   vanished in student PDFs (HHL review, 2026-10-27). The polygon is a 72-point outer
+   circle and a 44 px thinner inner one, filled even-odd, so the hole stays see-through. */
+.donut::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(var(--c) calc(var(--v) * 1%), var(--context) 0); clip-path: polygon(evenodd, 50% 0%, 54.36% 0.19%, 58.68% 0.76%, 62.94% 1.7%, 67.1% 3.02%, 71.13% 4.68%, 75% 6.7%, 78.68% 9.04%, 82.14% 11.7%, 85.36% 14.64%, 88.3% 17.86%, 90.96% 21.32%, 93.3% 25%, 95.32% 28.87%, 96.98% 32.9%, 98.3% 37.06%, 99.24% 41.32%, 99.81% 45.64%, 100% 50%, 99.81% 54.36%, 99.24% 58.68%, 98.3% 62.94%, 96.98% 67.1%, 95.32% 71.13%, 93.3% 75%, 90.96% 78.68%, 88.3% 82.14%, 85.36% 85.36%, 82.14% 88.3%, 78.68% 90.96%, 75% 93.3%, 71.13% 95.32%, 67.1% 96.98%, 62.94% 98.3%, 58.68% 99.24%, 54.36% 99.81%, 50% 100%, 45.64% 99.81%, 41.32% 99.24%, 37.06% 98.3%, 32.9% 96.98%, 28.87% 95.32%, 25% 93.3%, 21.32% 90.96%, 17.86% 88.3%, 14.64% 85.36%, 11.7% 82.14%, 9.04% 78.68%, 6.7% 75%, 4.68% 71.13%, 3.02% 67.1%, 1.7% 62.94%, 0.76% 58.68%, 0.19% 54.36%, 0% 50%, 0.19% 45.64%, 0.76% 41.32%, 1.7% 37.06%, 3.02% 32.9%, 4.68% 28.87%, 6.7% 25%, 9.04% 21.32%, 11.7% 17.86%, 14.64% 14.64%, 17.86% 11.7%, 21.32% 9.04%, 25% 6.7%, 28.87% 4.68%, 32.9% 3.02%, 37.06% 1.7%, 41.32% 0.76%, 45.64% 0.19%, 50% 0%, 50% calc(0% + 44px), calc(45.64% + 3.83px) calc(0.19% + 43.83px), calc(41.32% + 7.64px) calc(0.76% + 43.33px), calc(37.06% + 11.39px) calc(1.7% + 42.5px), calc(32.9% + 15.05px) calc(3.02% + 41.35px), calc(28.87% + 18.6px) calc(4.68% + 39.88px), calc(25% + 22px) calc(6.7% + 38.11px), calc(21.32% + 25.24px) calc(9.04% + 36.04px), calc(17.86% + 28.28px) calc(11.7% + 33.71px), calc(14.64% + 31.11px) calc(14.64% + 31.11px), calc(11.7% + 33.71px) calc(17.86% + 28.28px), calc(9.04% + 36.04px) calc(21.32% + 25.24px), calc(6.7% + 38.11px) calc(25% + 22px), calc(4.68% + 39.88px) calc(28.87% + 18.6px), calc(3.02% + 41.35px) calc(32.9% + 15.05px), calc(1.7% + 42.5px) calc(37.06% + 11.39px), calc(0.76% + 43.33px) calc(41.32% + 7.64px), calc(0.19% + 43.83px) calc(45.64% + 3.83px), calc(0% + 44px) 50%, calc(0.19% + 43.83px) calc(54.36% - 3.83px), calc(0.76% + 43.33px) calc(58.68% - 7.64px), calc(1.7% + 42.5px) calc(62.94% - 11.39px), calc(3.02% + 41.35px) calc(67.1% - 15.05px), calc(4.68% + 39.88px) calc(71.13% - 18.6px), calc(6.7% + 38.11px) calc(75% - 22px), calc(9.04% + 36.04px) calc(78.68% - 25.24px), calc(11.7% + 33.71px) calc(82.14% - 28.28px), calc(14.64% + 31.11px) calc(85.36% - 31.11px), calc(17.86% + 28.28px) calc(88.3% - 33.71px), calc(21.32% + 25.24px) calc(90.96% - 36.04px), calc(25% + 22px) calc(93.3% - 38.11px), calc(28.87% + 18.6px) calc(95.32% - 39.88px), calc(32.9% + 15.05px) calc(96.98% - 41.35px), calc(37.06% + 11.39px) calc(98.3% - 42.5px), calc(41.32% + 7.64px) calc(99.24% - 43.33px), calc(45.64% + 3.83px) calc(99.81% - 43.83px), 50% calc(100% - 44px), calc(54.36% - 3.83px) calc(99.81% - 43.83px), calc(58.68% - 7.64px) calc(99.24% - 43.33px), calc(62.94% - 11.39px) calc(98.3% - 42.5px), calc(67.1% - 15.05px) calc(96.98% - 41.35px), calc(71.13% - 18.6px) calc(95.32% - 39.88px), calc(75% - 22px) calc(93.3% - 38.11px), calc(78.68% - 25.24px) calc(90.96% - 36.04px), calc(82.14% - 28.28px) calc(88.3% - 33.71px), calc(85.36% - 31.11px) calc(85.36% - 31.11px), calc(88.3% - 33.71px) calc(82.14% - 28.28px), calc(90.96% - 36.04px) calc(78.68% - 25.24px), calc(93.3% - 38.11px) calc(75% - 22px), calc(95.32% - 39.88px) calc(71.13% - 18.6px), calc(96.98% - 41.35px) calc(67.1% - 15.05px), calc(98.3% - 42.5px) calc(62.94% - 11.39px), calc(99.24% - 43.33px) calc(58.68% - 7.64px), calc(99.81% - 43.83px) calc(54.36% - 3.83px), calc(100% - 44px) 50%, calc(99.81% - 43.83px) calc(45.64% + 3.83px), calc(99.24% - 43.33px) calc(41.32% + 7.64px), calc(98.3% - 42.5px) calc(37.06% + 11.39px), calc(96.98% - 41.35px) calc(32.9% + 15.05px), calc(95.32% - 39.88px) calc(28.87% + 18.6px), calc(93.3% - 38.11px) calc(25% + 22px), calc(90.96% - 36.04px) calc(21.32% + 25.24px), calc(88.3% - 33.71px) calc(17.86% + 28.28px), calc(85.36% - 31.11px) calc(14.64% + 31.11px), calc(82.14% - 28.28px) calc(11.7% + 33.71px), calc(78.68% - 25.24px) calc(9.04% + 36.04px), calc(75% - 22px) calc(6.7% + 38.11px), calc(71.13% - 18.6px) calc(4.68% + 39.88px), calc(67.1% - 15.05px) calc(3.02% + 41.35px), calc(62.94% - 11.39px) calc(1.7% + 42.5px), calc(58.68% - 7.64px) calc(0.76% + 43.33px), calc(54.36% - 3.83px) calc(0.19% + 43.83px), 50% calc(0% + 44px)); }
 .donut > * { position: relative; }
 .donut b { font-size: calc(var(--donut, 360px) * 0.22); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--c); }
 .donut span { max-width: calc(var(--donut, 360px) * 0.56); font-size: 26px; line-height: 1.25; color: var(--muted-foreground); }
@@ -221,6 +225,14 @@
 /* ---------- 12 Retrieval (question, then answer) ---------- */
 .recall { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: start; }
 .recall ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; counter-reset: recall; }
+/* Empty answer lines read as a form left blank (Bastian, 2026-10-30), so a
+   question without answers shows the question and its timer only. */
+.recall li:empty { display: none; }
+.recall:has(> ol):not(:has(> ol > li:not(:empty))) { grid-template-columns: 1fr; justify-items: start; margin-top: 24px; }
+.slide:has(.recall > ol):not(:has(.recall > ol > li:not(:empty))) > .head .title { font-size: 88px; line-height: 1.05; max-width: 1500px; }
+.recall:has(> ol):not(:has(> ol > li:not(:empty)))::after { content: ""; position: absolute; right: 150px; bottom: 150px; width: 470px; height: 470px; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b5cc5' stroke-opacity='0.16' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E") center / contain no-repeat; }
+.recall ol:not(:has(> li:not(:empty))) { display: none; }
 .recall li { counter-increment: recall; display: flex; gap: 24px; align-items: center; height: 88px; border-bottom: 3px dashed var(--border); }
 .recall li::before { content: counter(recall); display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius); background: var(--context); color: var(--context-foreground); font: 600 28px var(--font-mono); }
 .answers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-content: start; }
@@ -255,7 +267,28 @@
 .credible .card h3 { font-size: 36px; }
 .credible .card .kind { font-size: 26px; color: var(--primary); font-weight: 600; }
 .credible .card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 26px; line-height: 1.3; }
+.credible .sym-row { display: flex; align-items: center; gap: 18px; }
+.credible .sym { display: flex; align-items: center; justify-content: center; min-width: 50px; height: 46px; color: var(--primary); }
+.credible .sym .icon { width: 46px; height: 46px; }
+.credible .sym b { font: 800 50px/1 var(--font-sans); letter-spacing: -0.05em; }
 .asks { margin-top: 28px; display: flex; gap: 20px; }
+
+/* Answer bands for a check-in the room answers by show of hands (Bastian,
+   2026-10-30, M01 slide 4): one band per answer, each a tally cell the
+   presenter clicks once per hand, the band of the bar marked .is-bar.
+   <div class="content bands-layout"><div class="bands"><div class="band"
+   data-tally="10"><span class="icon icon-message-circle"></span><b>0</b>
+   <span>not yet</span><small>optional note</small></div>…</div>
+   <div class="timer" data-timer="2"></div></div> */
+.bands-layout { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+.bands { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 24px; }
+.band { --tally-base: var(--background); min-height: 400px; border: 3px solid var(--primary-line); border-radius: 28px; display: grid; justify-items: center; align-content: start; gap: 14px; padding: 64px 12px 24px; text-align: center; }
+.band.is-bar { --tally-base: var(--primary-tint); border-color: var(--primary); }
+.band > .icon { width: 60px; height: 60px; color: var(--primary); }
+.band > b { font: 800 110px/1 var(--font-sans); letter-spacing: -0.04em; color: var(--primary); white-space: nowrap; }
+.band.is-word > b { font-size: 76px; }
+.band > span:not(.icon) { font-size: 32px; font-weight: 700; line-height: 1.2; }
+.band > small { font-size: 24px; font-weight: 600; color: var(--muted-foreground); }
 .asks span { flex: 1; padding: 18px 26px; border-radius: var(--radius); background: var(--primary-tint); border: 2px solid var(--primary-line); font-size: 32px; font-weight: 700; text-align: center; }
 
 /* ---------- 15 Workshop cards ---------- */

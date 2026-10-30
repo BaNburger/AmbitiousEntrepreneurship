@@ -1,6 +1,6 @@
 # Homework 02: Finding Ideas
 
-Updated: 2026-10-19.
+Updated: 2026-10-30.
 
 **Hold 15 problem conversations per student about the problem behind your chosen idea.** The learning floor is 5 conversations per student.
 
@@ -10,7 +10,7 @@ Updated: 2026-10-19.
 
 ![Founder-problem fit](media/fig-problem-you-want.png "Your pitch is the star. Sharpen it after every 3 talks.")
 
-![Ideation phase](media/fig-evidence-pyramid-ideation.png "This week, the bottom steps.")
+![Problem space](media/fig-evidence-pyramid-ideation.png "This week, the bottom steps.")
 
 ## What you come back with
 

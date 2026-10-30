@@ -1,6 +1,6 @@
 # Workshop 06: Show & Build
 
-Updated: 2026-10-19.
+Updated: 2026-10-30.
 
 > Module 06 · Prototyping with AI · Workshop · [Goals M06-LG1 to LG4](README.md)
 
@@ -26,7 +26,7 @@ By the start of Module 07, your team has its MVP live, has watched people from y
 
 1. **Draw your MVP (5′)** as interface, logic, database, outside services. One feature.
 2. **Mark each part (5′)** "must work" or "by hand". You behind the screen is fine.
-3. **Pick the cheapest form (3′).** A workflow runs by itself from trigger to result. Users drive an app. Would a form and a sheet do?
+3. **Pick the cheapest form (3′).** Would a form, a sheet or a step by hand deliver the outcome? Build only the part that must work.
 4. **Write the brief (7′)** for your agent. User, feature, input, outcome, what stays manual, what not to build.
 
 | Good | Weak |

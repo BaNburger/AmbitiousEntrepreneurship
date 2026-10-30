@@ -8,6 +8,19 @@
 <link rel="stylesheet" href="../../design/tokens.css">
 <link rel="stylesheet" href="../../design/deck.css">
 <link rel="stylesheet" href="../../design/archetypes.css">
+<style>
+/* Axes and numbers (Bastian, 2026-10-30): a value axis under .scale bars, its name, and a heading per bar group. */
+.scale-axis { position: relative; height: 34px; margin-top: -10px; border-top: 2px solid var(--context-foreground); font: 600 24px/1 var(--font-mono); color: var(--muted-foreground); }
+.scale-axis span { position: absolute; top: 8px; transform: translateX(-50%); white-space: nowrap; }
+.scale-axis span:first-child { transform: none; }
+.scale-axis span:last-child { transform: translateX(-100%); }
+.scale-name { margin-top: -14px; font: 600 24px/1.25 var(--font-mono); letter-spacing: 0.04em; color: var(--foreground); }
+.scale-head { font-size: 30px; font-weight: 800; line-height: 1.2; }
+.scale-head ~ .scale-head { margin-top: 18px; }
+/* Our own course (Bastian, 2026-10-30): the course's statement on the quote layout, without a quote mark. */
+.quote-layout blockquote.own { padding-top: 0; }
+.quote-layout blockquote.own::before { content: none; }
+</style>
 </head>
 <body>
 <main class="deck" data-module="M04" data-module-title="Validating problems" data-chapters="Previously on Ambitious Entrepreneurship|Your presentations|Rank it: what your evidence proves|Draw it: the line before the data|Launch it: a page that tests your problem|Count it: visitors from your segment|Wrap-up and check-out|Workshop: launch a page that tests your problem|Case discussion" data-main-chapters="3|4|5|6">
@@ -52,13 +65,11 @@
   </section>
 <section class="slide" data-archetype="retrieval" data-variant="question">
   <div class="head">
-    <span class="label">Check-in · Slido or hands</span>
+    <span class="label">Check-in · Show of hands</span>
     <h2 class="title">How many people agreed to a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">next step</span>?</h2>
+    <p class="sub">Hands up for your band. One click on the band per hand</p>
   </div>
-  <div class="content recall">
-    <ol><li></li><li></li><li></li></ol>
-    <div class="timer" data-timer="2"></div>
-  </div>
+  <div class="content bands-layout"><div class="bands"><div class="band" data-tally="10"><span class="icon icon-handshake" aria-hidden="true"></span><b>0</b><span>not yet</span></div><div class="band" data-tally="10"><span class="icon icon-handshake" aria-hidden="true"></span><b>1</b><span>started</span><small>under the floor of 2</small></div><div class="band" data-tally="10"><span class="icon icon-handshake" aria-hidden="true"></span><b>2–4</b><span>floor reached</span></div><div class="band is-bar" data-tally="10"><span class="icon icon-handshake" aria-hidden="true"></span><b>5+</b><span>full bar</span><small>5 per student</small></div></div><div class="timer" data-timer="2"></div></div>
   </section>
 
 <section class="slide" data-archetype="claim">
@@ -322,6 +333,8 @@
         <span class="scale-label"><b>44%</b> · Registered Reports, hypotheses filed first</span>
         <div class="bar"><div class="seg is-hl" style="flex: 0 0 44.0%; --delay: 0.2s" data-anim="grow">positive</div></div>
       </div>
+      <div class="scale-axis"><span style="left:0%">0%</span><span style="left:50%">50%</span><span style="left:100%">100%</span></div>
+      <p class="scale-name">% of papers whose first hypothesis came out positive</p>
     </div>
     <div class="tiles" style="--cols: 2">
       <div class="tile"><b>57% <i class="icon icon-arrow"></i> 8%</b><span>heart trials with a benefit, before and after 2000</span></div>
@@ -346,6 +359,8 @@
         <span class="scale-label"><b>19%</b> · control group, 11 of 57</span>
         <div class="bar"><div class="seg" style="flex: 0 0 38.6%; --delay: 0.2s" data-anim="grow">pivoted</div></div>
       </div>
+      <div class="scale-axis"><span style="left:0%">0%</span><span style="left:50%">25%</span><span style="left:100%">50%</span></div>
+      <p class="scale-name">% of startups that pivoted</p>
     </div>
     <div class="tiles" style="--cols: 2">
       <div class="tile"><b>116</b><span>Italian startups, randomized</span></div>
@@ -431,11 +446,11 @@
 <section class="slide" data-archetype="quote" data-chapter="Launch it: a page that tests your problem" data-anchor="evidence-pyramid" data-anchor-part="survey">
   <div class="quote-layout">
     <figure>
-      <blockquote><p>The first thing we always tell founders is to <span class="hl">launch their product right away</span> …</p></blockquote>
-      <figcaption><b>Geoff Ralston</b>, Y Combinator, 2017</figcaption>
+      <blockquote class="own"><p>Launch <span class="hl">right away</span>. A page is the smallest launch there is.</p></blockquote>
+      <figcaption>Only a launch shows whether you meet a need.</figcaption>
     </figure>
   </div>
-  <footer class="prov" data-kind="YC">Ralston, G. (2017, September 25). YC's essential startup advice. Y Combinator blog.</footer>
+  <footer class="prov" data-kind="YC">After Ralston, G. (2017, September 25). YC's essential startup advice. Y Combinator blog. Launching right away is the first piece of his advice.</footer>
   </section>
 
 <section class="slide" data-archetype="framework" data-chapter="Launch it: a page that tests your problem">
@@ -470,12 +485,13 @@
   </div>
   <div class="content media-split" style="--media-w: 920px">
     <div class="fromto" style="grid-template-columns:1fr;gap:16px">
-      <div class="from"><span class="label">From</span><p>A hands-on online course</p></div>
+      <div class="from"><span class="label">From</span><p>AI-powered recruiting platform</p></div>
       <i class="icon icon-arrow" style="transform:rotate(90deg);justify-self:center"></i>
-      <div class="to"><span class="label">To</span><p>Structure your <span class="hl">startup operations</span></p></div>
+      <div class="to"><span class="label">To</span><p>Know within a day when a finalist <span class="hl">goes silent</span></p></div>
     </div>
-      </div>
-  <footer class="prov" data-kind="Bastian">Landing page content.</footer>
+    <figure class="photo" style="--photo-h: 500px"><div style="position:relative;overflow:hidden;border-radius:20px;box-shadow:var(--shadow-card);line-height:0"><img src="media/m04-landing-page.png" alt="A made-up landing page for in-house recruiters. Headline: Know within a day when a finalist goes silent. One-liner: A daily check for in-house recruiters that flags every finalist who stopped answering, so you call before they sign elsewhere. A form with work email, your role and one button, Book a 15-minute call. A recruiter quote: Our best finalist went quiet for a week. When we noticed, she had signed elsewhere. Three benefits: no finalist lost to silence, no chasing by hand, call the right one first. Impressum and privacy at the bottom. The headline ringed" style="display:block;width:920px;height:auto;max-height:none;border-radius:0;box-shadow:none"><span style="position:absolute;left:2.5%;top:22%;width:57.5%;height:17%;border-radius:10px;outline:6px solid var(--accent);outline-offset:6px;box-shadow:0 0 0 4000px hsl(220 16% 10% / 0.14)"></span></div></figure>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Page prototyped for this course, the made-up recruiting team of the workshop.</footer>
   </section>
 
 <section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="survey" data-chapter="Launch it: a page that tests your problem">
@@ -485,12 +501,13 @@
   </div>
   <div class="content media-split" style="--media-w: 920px">
     <div class="fromto" style="grid-template-columns:1fr;gap:16px">
-      <div class="from"><span class="label">From</span><p>Bundle is a course</p></div>
+      <div class="from"><span class="label">From</span><p>It's a recruiting tool</p></div>
       <i class="icon icon-arrow" style="transform:rotate(90deg);justify-self:center"></i>
-      <div class="to"><span class="label">To</span><p>A course <span class="hl">for entrepreneurs</span> to <span class="hl">structure internal operations</span></p></div>
+      <div class="to"><span class="label">To</span><p>A daily check <span class="hl">for in-house recruiters</span> that <span class="hl">flags every finalist who stopped answering</span></p></div>
     </div>
-      </div>
-  <footer class="prov" data-kind="Bastian">Landing page content.</footer>
+    <figure class="photo" style="--photo-h: 500px"><div style="position:relative;overflow:hidden;border-radius:20px;box-shadow:var(--shadow-card);line-height:0"><img src="media/m04-landing-page.png" alt="A made-up landing page for in-house recruiters. Headline: Know within a day when a finalist goes silent. One-liner: A daily check for in-house recruiters that flags every finalist who stopped answering, so you call before they sign elsewhere. A form with work email, your role and one button, Book a 15-minute call. A recruiter quote: Our best finalist went quiet for a week. When we noticed, she had signed elsewhere. Three benefits: no finalist lost to silence, no chasing by hand, call the right one first. Impressum and privacy at the bottom. The one-liner ringed" style="display:block;width:920px;height:auto;max-height:none;border-radius:0;box-shadow:none"><span style="position:absolute;left:2.5%;top:43%;width:60%;height:14.5%;border-radius:10px;outline:6px solid var(--accent);outline-offset:6px;box-shadow:0 0 0 4000px hsl(220 16% 10% / 0.14)"></span></div></figure>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Page prototyped for this course, the made-up recruiting team of the workshop.</footer>
   </section>
 
 <section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="survey" data-chapter="Launch it: a page that tests your problem">
@@ -502,10 +519,11 @@
     <div class="fromto" style="grid-template-columns:1fr;gap:16px">
       <div class="from"><span class="label">From</span><p>Features of your product</p></div>
       <i class="icon icon-arrow" style="transform:rotate(90deg);justify-self:center"></i>
-      <div class="to"><span class="label">To</span><p><span class="hl">More structure. Less manual work.</span></p></div>
+      <div class="to"><span class="label">To</span><p><span class="hl">No finalist lost to silence. No chasing by hand.</span></p></div>
     </div>
-      </div>
-  <footer class="prov" data-kind="Bastian">Landing page content.</footer>
+    <figure class="photo" style="--photo-h: 500px"><div style="position:relative;overflow:hidden;border-radius:20px;box-shadow:var(--shadow-card);line-height:0"><img src="media/m04-landing-page.png" alt="A made-up landing page for in-house recruiters. Headline: Know within a day when a finalist goes silent. One-liner: A daily check for in-house recruiters that flags every finalist who stopped answering, so you call before they sign elsewhere. A form with work email, your role and one button, Book a 15-minute call. A recruiter quote: Our best finalist went quiet for a week. When we noticed, she had signed elsewhere. Three benefits: no finalist lost to silence, no chasing by hand, call the right one first. Impressum and privacy at the bottom. The three benefits ringed" style="display:block;width:920px;height:auto;max-height:none;border-radius:0;box-shadow:none"><span style="position:absolute;left:2.5%;top:73.5%;width:95%;height:10.5%;border-radius:10px;outline:6px solid var(--accent);outline-offset:6px;box-shadow:0 0 0 4000px hsl(220 16% 10% / 0.14)"></span></div></figure>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Page prototyped for this course, the made-up recruiting team of the workshop.</footer>
   </section>
 
 <section class="slide" data-archetype="tip" data-anchor="evidence-pyramid" data-anchor-part="survey" data-chapter="Launch it: a page that tests your problem">
@@ -519,8 +537,9 @@
       <i class="icon icon-arrow" style="transform:rotate(90deg);justify-self:center"></i>
       <div class="to"><span class="label">To</span><p><span class="hl">Apply now · Book a call · Buy</span></p></div>
     </div>
-      </div>
-  <footer class="prov" data-kind="Bastian">Landing page content.</footer>
+    <figure class="photo" style="--photo-h: 500px"><div style="position:relative;overflow:hidden;border-radius:20px;box-shadow:var(--shadow-card);line-height:0"><img src="media/m04-landing-page.png" alt="A made-up landing page for in-house recruiters. Headline: Know within a day when a finalist goes silent. One-liner: A daily check for in-house recruiters that flags every finalist who stopped answering, so you call before they sign elsewhere. A form with work email, your role and one button, Book a 15-minute call. A recruiter quote: Our best finalist went quiet for a week. When we noticed, she had signed elsewhere. Three benefits: no finalist lost to silence, no chasing by hand, call the right one first. Impressum and privacy at the bottom. The form and its one button ringed" style="display:block;width:920px;height:auto;max-height:none;border-radius:0;box-shadow:none"><span style="position:absolute;left:2.5%;top:60.5%;width:57%;height:10.5%;border-radius:10px;outline:6px solid var(--accent);outline-offset:6px;box-shadow:0 0 0 4000px hsl(220 16% 10% / 0.14)"></span></div></figure>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Page prototyped for this course, the made-up recruiting team of the workshop.</footer>
   </section>
 
 <section class="slide" data-archetype="retrieval" data-variant="question" data-anchor="evidence-pyramid" data-anchor-part="survey" data-chapter="Launch it: a page that tests your problem">
@@ -736,23 +755,25 @@
     <h2 class="title">Warm traffic converts. Cold traffic <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">costs</span></h2>
   </div>
   <div class="content">
-    <div class="scale">
+    <div class="scale" style="gap:14px">
       <div class="scale-row">
         <span class="scale-label"><b>16.9%</b> · email, people on your own list</span>
-        <div class="bar"><div class="seg is-hl" style="flex: 0 0 84.5%; --delay: 0.0s" data-anim="grow">warm</div></div>
+        <div class="bar" style="height:64px"><div class="seg is-hl" style="flex: 0 0 84.5%; --delay: 0.0s" data-anim="grow">warm</div></div>
       </div>
       <div class="scale-row">
         <span class="scale-label"><b>4.1%</b> · paid search</span>
-        <div class="bar"><div class="seg" style="flex: 0 0 20.5%; --delay: 0.2s" data-anim="grow"></div></div>
+        <div class="bar" style="height:64px"><div class="seg" style="flex: 0 0 20.5%; --delay: 0.2s" data-anim="grow"></div></div>
       </div>
       <div class="scale-row">
         <span class="scale-label"><b>2.9%</b> · paid social</span>
-        <div class="bar"><div class="seg" style="flex: 0 0 14.5%; --delay: 0.4s" data-anim="grow"></div></div>
+        <div class="bar" style="height:64px"><div class="seg" style="flex: 0 0 14.5%; --delay: 0.4s" data-anim="grow"></div></div>
       </div>
       <div class="scale-row">
         <span class="scale-label"><b>3.8%</b> · all SaaS landing pages</span>
-        <div class="bar"><div class="seg" style="flex: 0 0 19.0%; --delay: 0.6s" data-anim="grow"></div></div>
+        <div class="bar" style="height:64px"><div class="seg" style="flex: 0 0 19.0%; --delay: 0.6s" data-anim="grow"></div></div>
       </div>
+      <div class="scale-axis"><span style="left:0%">0%</span><span style="left:50%">10%</span><span style="left:100%">20%</span></div>
+      <p class="scale-name">% of visitors who convert, by source</p>
     </div>
   </div>
   <footer class="prov" data-kind="Data">Unbounce, Conversion Benchmark Report 2024, SaaS medians. A conversion is any click or form event. Bars to scale, 0 to 20%.</footer>
@@ -852,8 +873,9 @@
   <div class="head">
     <span class="label">Reading your result</span>
     <h2 class="title">Read the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">curve</span>, then your number</h2>
+    <p class="sub">Each curve shows visitors a day, over the weeks after launch</p>
   </div>
-  <div class="content diagram"><svg viewBox="0 0 1640 640" role="img" aria-label="Three engagement curves: no interest, organic interest, external shock"><rect x="0" y="0" width="500" height="64" rx="12" style="fill:var(--key)"/><text x="250" y="43" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">No interest</text><path d="M30 300 L30 90 M30 300 L480 300" style="stroke:var(--muted-foreground);stroke-width:3;fill:none"/><path d="M40 290 C 70 290, 80 110, 100 110 C 120 110, 130 285, 170 288 L470 290" style="stroke:var(--key);stroke-width:7;fill:none" data-anim="draw"/><text x="30" y="340" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Starting hype</text><text x="480" y="340" text-anchor="end" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">No engagement</text><text x="250" y="400" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Wrong group, problem</text><text x="250" y="438" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">or words</text><rect x="0" y="470" width="500" height="70" rx="10" style="fill:var(--sticky)"/><text x="250" y="515" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Rework the problem space</text><rect x="570" y="0" width="500" height="64" rx="12" style="fill:var(--primary)"/><text x="820" y="43" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Organic interest</text><path d="M600 300 L600 90 M600 300 L1050 300" style="stroke:var(--muted-foreground);stroke-width:3;fill:none"/><path d="M600 292 C 700 288, 800 250, 1050 140" style="stroke:var(--primary);stroke-width:7;fill:none" data-anim="draw"/><text x="600" y="340" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Slow start</text><text x="1050" y="340" text-anchor="end" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Steady growth</text><text x="820" y="400" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Right group, sustained</text><text x="820" y="438" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">interest, good words</text><rect x="570" y="470" width="500" height="70" rx="10" style="fill:var(--sticky)"/><text x="820" y="515" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Find more of them</text><rect x="1140" y="0" width="500" height="64" rx="12" style="fill:var(--diagram-purple)"/><text x="1390" y="43" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">External shock</text><path d="M1170 300 L1170 90 M1170 300 L1620 300" style="stroke:var(--muted-foreground);stroke-width:3;fill:none"/><path d="M1170 290 C 1190 290, 1200 110, 1215 110 C 1235 110, 1245 230, 1290 232 L1610 222" style="stroke:var(--diagram-purple);stroke-width:7;fill:none" data-anim="draw"/><text x="1170" y="340" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Sharp spike</text><text x="1620" y="340" text-anchor="end" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Back, a bit higher</text><text x="1390" y="400" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">An article or a post</text><text x="1390" y="438" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">went viral</text><rect x="1140" y="470" width="500" height="70" rx="10" style="fill:var(--sticky)"/><text x="1390" y="515" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Don't count the spike</text><rect x="0" y="580" width="1640" height="56" rx="10" style="fill:var(--diagram-navy)"/><text x="820" y="618" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Impressions &lt; clicks &lt; sign-ups. Remember the hierarchy of evidence!</text></svg></div>
+  <div class="content diagram"><svg viewBox="0 0 1640 576" role="img" aria-label="Three engagement curves of visitors a day over the weeks after launch: no interest, organic interest, external shock"><rect x="0" y="0" width="500" height="64" rx="12" style="fill:var(--key)"/><text x="250" y="43" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">No interest</text><text x="42" y="92" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">visitors a day</text><path d="M30 300 L30 90 M30 300 L480 300" style="stroke:var(--muted-foreground);stroke-width:3;fill:none"/><path d="M40 290 C 70 290, 80 110, 100 110 C 120 110, 130 285, 170 288 L470 290" style="stroke:var(--key);stroke-width:7;fill:none" data-anim="draw"/><text x="30" y="340" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Starting hype</text><text x="480" y="340" text-anchor="end" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">No engagement</text><text x="250" y="382" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Wrong group, problem</text><text x="250" y="416" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">or words</text><rect x="0" y="436" width="500" height="64" rx="10" style="fill:var(--sticky)"/><text x="250" y="478" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Rework the problem space</text><rect x="570" y="0" width="500" height="64" rx="12" style="fill:var(--primary)"/><text x="820" y="43" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">Organic interest</text><text x="612" y="92" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">visitors a day</text><path d="M600 300 L600 90 M600 300 L1050 300" style="stroke:var(--muted-foreground);stroke-width:3;fill:none"/><path d="M600 292 C 700 288, 800 250, 1050 140" style="stroke:var(--primary);stroke-width:7;fill:none" data-anim="draw"/><text x="600" y="340" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Slow start</text><text x="1050" y="340" text-anchor="end" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Steady growth</text><text x="820" y="382" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Right group, sustained</text><text x="820" y="416" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">interest, good words</text><rect x="570" y="436" width="500" height="64" rx="10" style="fill:var(--sticky)"/><text x="820" y="478" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Find more of them</text><rect x="1140" y="0" width="500" height="64" rx="12" style="fill:var(--diagram-purple)"/><text x="1390" y="43" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:800;font-family:Inter,sans-serif">External shock</text><text x="1182" y="92" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">visitors a day</text><path d="M1170 300 L1170 90 M1170 300 L1620 300" style="stroke:var(--muted-foreground);stroke-width:3;fill:none"/><path d="M1170 290 C 1190 290, 1200 110, 1215 110 C 1235 110, 1245 230, 1290 232 L1610 222" style="stroke:var(--diagram-purple);stroke-width:7;fill:none" data-anim="draw"/><text x="1170" y="340" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Sharp spike</text><text x="1620" y="340" text-anchor="end" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Back, a bit higher</text><text x="1390" y="382" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">An article or a post</text><text x="1390" y="416" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">went viral</text><rect x="1140" y="436" width="500" height="64" rx="10" style="fill:var(--sticky)"/><text x="1390" y="478" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Don't count the spike</text><rect x="0" y="516" width="1640" height="56" rx="10" style="fill:var(--diagram-navy)"/><text x="820" y="554" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Impressions &lt; clicks &lt; sign-ups. Remember the hierarchy of evidence!</text></svg></div>
   <footer class="prov" data-kind="Bastian">Monitoring engagement in a problem space.</footer>
   </section>
 
@@ -863,19 +885,21 @@
     <h2 class="title">Double down where your <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">segment</span> converts</h2>
   </div>
   <div class="content">
-    <div class="scale">
+    <div class="scale" style="gap:14px">
       <div class="scale-row">
         <span class="scale-label"><b>11.5%</b> · LinkedIn posts in 2 wind-industry groups</span>
-        <div class="bar"><div class="seg" style="flex: 0 0 57.5%; --delay: 0.0s" data-anim="grow">7 of 61</div></div>
+        <div class="bar" style="height:64px"><div class="seg" style="flex: 0 0 57.5%; --delay: 0.0s" data-anim="grow">7 of 61</div></div>
       </div>
       <div class="scale-row">
         <span class="scale-label"><b>16.7%</b> · Direct outreach, 30 emails</span>
-        <div class="bar"><div class="seg is-hl" style="flex: 0 0 83.5%; --delay: 0.2s" data-anim="grow">4 of 24</div></div>
+        <div class="bar" style="height:64px"><div class="seg is-hl" style="flex: 0 0 83.5%; --delay: 0.2s" data-anim="grow">4 of 24</div></div>
       </div>
       <div class="scale-row">
         <span class="scale-label"><b>2.3%</b> · €50 search ads</span>
-        <div class="bar"><div class="seg" style="flex: 0 0 11.5%; --delay: 0.4s" data-anim="grow">2 of 87</div></div>
+        <div class="bar" style="height:64px"><div class="seg" style="flex: 0 0 11.5%; --delay: 0.4s" data-anim="grow">2 of 87</div></div>
       </div>
+      <div class="scale-axis"><span style="left:0%">0%</span><span style="left:50%">10%</span><span style="left:100%">20%</span></div>
+      <p class="scale-name">% of visitors from the source who signed up</p>
     </div>
     <div class="tiles" style="--cols: 2">
       <div class="tile is-hl"><b>12.9%</b><span>segment only, 11 of 85</span></div>
@@ -1176,7 +1200,7 @@
     <span class="label">Case · Exhibit 1 · newsletter subscribers, 2013</span>
     <h2 class="title">What do 14,000 sign-ups <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">prove</span>?</h2>
   </div>
-  <div class="content diagram"><svg viewBox="0 0 1640 560" role="img" aria-label="Newsletter subscribers from 4,670 on 26 January to more than 14,000 on 10 May 2013, bars to scale"><path d="M0 470 L1640 470" style="stroke:var(--border);stroke-width:4"/><rect x="40" y="339.24" width="200" height="130.76000000000002" rx="10" style="fill:var(--primary)"/><text x="140.0" y="321.24" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">4,670</text><text x="140.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">26 Jan</text><rect x="312" y="220.744" width="200" height="249.256" rx="10" style="fill:var(--primary)"/><text x="412.0" y="202.744" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">8,902</text><text x="412.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">28 Mar</text><rect x="584" y="207.72400000000005" width="200" height="262.27599999999995" rx="10" style="fill:var(--primary)"/><text x="684.0" y="189.72400000000005" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">9,367</text><text x="684.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">3 Apr, eve</text><rect x="856" y="203.356" width="200" height="266.644" rx="10" style="fill:var(--primary)"/><text x="956.0" y="185.356" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">9,523</text><text x="956.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">4 Apr</text><rect x="1128" y="110.48000000000002" width="200" height="359.52" rx="10" style="fill:var(--primary)"/><text x="1228.0" y="92.48000000000002" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">12,840</text><text x="1228.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">8 May</text><rect x="1400" y="78.0" width="200" height="392.0" rx="10" style="fill:var(--key)"/><text x="1500.0" y="60.0" text-anchor="middle" style="fill:var(--key);font-size:34px;font-weight:800;font-family:Inter,sans-serif">14,000+</text><text x="1500.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">10 May</text></svg></div>
+  <div class="content diagram"><svg viewBox="0 0 1640 560" role="img" aria-label="Newsletter subscribers from 4,670 on 26 January to more than 14,000 on 10 May 2013, bars to scale"><text x="0" y="26" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Newsletter subscribers, by date in 2013</text><path d="M0 470 L1640 470" style="stroke:var(--border);stroke-width:4"/><rect x="40" y="339.24" width="200" height="130.76000000000002" rx="10" style="fill:var(--primary)"/><text x="140.0" y="321.24" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">4,670</text><text x="140.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">26 Jan</text><rect x="312" y="220.744" width="200" height="249.256" rx="10" style="fill:var(--primary)"/><text x="412.0" y="202.744" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">8,902</text><text x="412.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">28 Mar</text><rect x="584" y="207.72400000000005" width="200" height="262.27599999999995" rx="10" style="fill:var(--primary)"/><text x="684.0" y="189.72400000000005" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">9,367</text><text x="684.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">3 Apr, eve</text><rect x="856" y="203.356" width="200" height="266.644" rx="10" style="fill:var(--primary)"/><text x="956.0" y="185.356" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">9,523</text><text x="956.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">4 Apr</text><rect x="1128" y="110.48000000000002" width="200" height="359.52" rx="10" style="fill:var(--primary)"/><text x="1228.0" y="92.48000000000002" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">12,840</text><text x="1228.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">8 May</text><rect x="1400" y="78.0" width="200" height="392.0" rx="10" style="fill:var(--key)"/><text x="1500.0" y="60.0" text-anchor="middle" style="fill:var(--key);font-size:34px;font-weight:800;font-family:Inter,sans-serif">14,000+</text><text x="1500.0" y="516" text-anchor="middle" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">10 May</text></svg></div>
   <footer class="prov" data-kind="Data">Validating problems (M04) case, Exhibit 1: archived newsletter counter, Fairphone blog of 4 April 2013 (company figures for the evening of 3 April and for 4 April), Telecompaper of 10 May 2013 ("more than 14,000", drawn at 14,000). Bars to scale, 0 to 15,000.</footer>
   </section>
 
@@ -1240,11 +1264,6 @@
 <section class="slide" data-archetype="closing" data-chapter="Case discussion">
   <p class="statement">See you next time!</p>
   </section>
-
-
-
-
-
 
 </main>
 <script src="../../design/anchors.js"></script>

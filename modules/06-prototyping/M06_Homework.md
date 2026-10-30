@@ -1,6 +1,6 @@
 # Homework 06: Prototyping with AI
 
-Updated: 2026-10-20.
+Updated: 2026-10-30.
 
 **Put your MVP live, let 10 people per student from your segment use it without your help, and ship 2 fixes for what stopped them.** The learning floor is a live MVP per team, 5 such users per student and 1 fix.
 
@@ -34,7 +34,7 @@ Made up.
 | Segment users without your help, per student | 5 | 10 |
 | Fixes for what stopped them, per team | 1 | 2 |
 
-Used means with their own real input. A user counts once per team, for whoever brought them, rebuilds included. Your first buyers count. Friends, classmates and AI testers never. Without help means nobody steers. Working behind the screen is fine.
+Used means with their own real input. A user counts once per team, for whoever brought them, rebuilds included. Test daily with co-founders, classmates and your segment. The bar counts only your segment and first buyers. Without help means nobody steers. Working behind the screen is fine.
 
 ## Your kill line
 

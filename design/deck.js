@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime. Updated: 2026-10-26. Status: ready.
+/* Ambitious Entrepreneurship deck runtime. Updated: 2026-10-30. Status: ready.
    Owned by the course-design skill. One classic script, no modules and no
    fetch, so a deck also runs from file://. Load it at the end of <body>.
 
@@ -12,7 +12,10 @@
    (each item links to its chapter),
    the footer (source line, signature, page) and runs builds (data-step),
    motion (data-anim), timers (data-timer, minutes), videos (data-autoplay),
-   the presenter view and print mode.
+   click details (data-pop, anchors.js details, data-details-page), tally
+   cells (data-tally), confetti (data-confetti), read-out symbols, the
+   presenter view and print mode. Source lines of kind "Bastian" show only
+   their citations.
 
    URL: ?print (every slide, final state, held-back slides left out),
    ?print&all (held-back slides kept), ?presenter, #n (slide number).
@@ -42,6 +45,84 @@
     });
   }
   function pad(n) { return String(n).padStart(2, "0"); }
+
+  /* ---------- Details (click to open) ---------- */
+  // A trigger [data-pop="key"] opens the <div class="pop" data-pop-for="key">
+  // on its slide, and a part of a full-size anchor opens the detail its
+  // anchors.js entry gives (details: { node: ["Title", "text"] }). Presenting,
+  // one detail is open at a time. A slide with data-details-page gets a page
+  // after it in print with every detail as a card, under the same page number,
+  // so the student PDF keeps what the room heard and the numbers stay those of
+  // the live deck (Bastian, 2026-10-30, M00 feedback on the evidence pyramid).
+  var anchorsDef = window.AEAnchors || {};
+  function detailsOf(s) {
+    var list = [];
+    s.querySelectorAll(".pop[data-pop-for]").forEach(function (p) {
+      var h = p.querySelector("h3, b");
+      list.push([h ? h.textContent : "", p.innerHTML.replace(h ? h.outerHTML : "", "")]);
+    });
+    s.querySelectorAll("div.anchor[data-anchor]").forEach(function (a) {
+      var d = (anchorsDef[a.dataset.anchor] || {}).details || {};
+      Object.keys(d).forEach(function (k) { list.push([d[k][0], esc(d[k][1])]); });
+    });
+    return list;
+  }
+  if (params.has("print")) {
+    slides.slice().forEach(function (s) {
+      if (!s.hasAttribute("data-details-page")) return;
+      var list = detailsOf(s);
+      if (!list.length) return;
+      var t = s.querySelector(".title");
+      var de = (document.documentElement.lang || "").slice(0, 2) === "de";
+      var page = make("section", "slide");
+      page.dataset.archetype = "details";
+      page.setAttribute("data-details-of", "");
+      if (s.hasAttribute("data-hold")) page.setAttribute("data-hold", "");
+      page.innerHTML = '<div class="head"><span class="label">' + (de ? "Im Detail" : "In detail") + '</span><h2 class="title">' +
+        (t ? t.innerHTML : "") + '</h2></div><div class="content"><div class="details-grid' + (list.length > 6 ? ' is-dense" style="grid-template-rows:repeat(' + Math.ceil(list.length / 2) + ',auto)' : "") + '">' +
+        list.map(function (d) { return '<div class="card"><h3>' + esc(d[0]) + "</h3><p>" + d[1] + "</p></div>"; }).join("") + "</div></div>";
+      var src = s.querySelector(":scope > footer.prov");
+      if (src) page.appendChild(src.cloneNode(true));
+      s.after(page);
+    });
+    slides = Array.prototype.slice.call(deck.querySelectorAll(":scope > section.slide"));
+  }
+
+  /* ---------- Own-view source lines ---------- */
+  // Bastian, 2026-10-30: a source that is only his own assessment stays off
+  // the slide, because whatever carries no source is his view anyway. A
+  // source line with data-kind="Bastian" (or "Einschätzung") keeps its
+  // provenance in the HTML for instructors. The slide shows it only where it
+  // also carries a citation or a credit (a link, a year in brackets, "et al.",
+  // "after" a name, a photo or logo credit), then without the tag and without
+  // the leading sentences that only name the course or Bastian as the source.
+  var OWN_KIND = /^(bastian|einschätzung)$/i;
+  var KEEP = /\((?:[^()]*\D)?(1[89]|20)\d\d[a-z]?\)|et al\.|\bafter [A-Z]|\bnach [A-ZÄÖÜ]|photo|foto|logo|pexels|pixabay|wikimedia|CC BY|CC0|©|trademark|marken/i;
+  // A lead sentence ends at a full stop before a word, not after an initial
+  // ("Bower, S. A."). One that also cites someone loses only its own-view
+  // opening ("Course material, adapted from X" shows "Adapted from X").
+  var OWN_START = /^\s*(?:Bastian(?: Burger)?'s [^,.]*|Course (?:material|graphic)|Course [a-z-]+ format|The course's own [^,.]*|My [^,.]*|(?:Eigene )?Einschätzung[^,.]*)/i;
+  var SENTENCE = /^\s*(?:[^.]|\.(?!\s+[A-ZÄÖÜ][a-zäöüß]|\s*$))*\.\s*/;
+  // Approval dates are the workspace's process, not a source (review of
+  // 2026-10-30): "workshop, approved 2026-10-19" shows as "workshop".
+  var APPROVED = /,?\s*\(?approved(?: by Bastian)?(?: on)? \d{4}-\d{2}-\d{2}\)?/g;
+  slides.forEach(function (s) {
+    var src = s.querySelector(":scope > footer.prov");
+    if (src) src.childNodes.forEach(function (n) { if (n.nodeType === 3) n.nodeValue = n.nodeValue.replace(APPROVED, ""); });
+    if (!src || !OWN_KIND.test((src.dataset.kind || "").trim())) return;
+    if (!src.querySelector("a[href]") && !KEEP.test(src.textContent)) { src.remove(); return; }
+    src.dataset.kind = "";
+    var first = src.firstChild;
+    while (first && first.nodeType === 3 && OWN_START.test(first.nodeValue)) {
+      var lead = (first.nodeValue.match(SENTENCE) || [first.nodeValue])[0];
+      if (KEEP.test(lead)) {
+        var rest = first.nodeValue.replace(OWN_START, "").replace(/^\s*,\s*/, "");
+        first.nodeValue = rest.charAt(0).toUpperCase() + rest.slice(1);
+        break;
+      }
+      first.nodeValue = first.nodeValue.slice(lead.length);
+    }
+  });
 
   /* ---------- Chrome ---------- */
   // Chapters come from data-chapters="A|B|C" on the deck, or else from the
@@ -73,11 +154,13 @@
 
   // The student PDF (?print without all) leaves held slides out, so its page
   // numbers count only the slides it shows. Presenting keeps every number.
-  var studentPrint = params.has("print") && !params.has("all"), shown = 0;
+  var studentPrint = params.has("print") && !params.has("all"), shown = 0, all = 0;
 
   slides.forEach(function (s, i) {
     var archetype = s.dataset.archetype || "";
-    if (!(studentPrint && s.hasAttribute("data-hold"))) shown++;
+    var extra = s.hasAttribute("data-details-of");
+    if (!extra && !(studentPrint && s.hasAttribute("data-hold"))) shown++;
+    if (!extra) all++;
     if (s.dataset.chapter && chapters.indexOf(s.dataset.chapter) >= 0) chapter = chapters.indexOf(s.dataset.chapter);
     if (s.hasAttribute("data-block") && chapter >= 0) blockStart = chapter;
     var state = function (k) { return k < chapter && k >= blockStart ? "done" : k === chapter ? "now" : ""; };
@@ -128,7 +211,7 @@
         foot.appendChild(prov);
       }
       var sig = make("div", "sig", SIGNATURE);
-      sig.appendChild(make("span", "pg", esc([mod, pad(studentPrint ? shown : i + 1)].filter(Boolean).join(" · "))));
+      sig.appendChild(make("span", "pg", esc([mod, pad(studentPrint ? shown : all)].filter(Boolean).join(" · "))));
       foot.appendChild(sig);
       s.appendChild(foot);
     }
@@ -152,6 +235,24 @@
   // External links open in a new tab. setAttribute, because an SVG <a> has a
   // read-only target property, and assigning it stopped the runtime here.
   deck.querySelectorAll('a[href^="http"]').forEach(function (a) { a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener"); });
+
+  /* ---------- Read-out symbols ---------- */
+  // The read-out slide ("Your presentations · make it credible") shows each
+  // kind of evidence as a symbol, not only as a word: a chart for facts, a
+  // number for numbers, quotation marks for quotes, a picture for images
+  // (Bastian, 2026-10-30, M01 slide 12: show, don't tell). A card that
+  // brings its own symbol, its h3 inside a row, keeps it.
+  var SYMBOLS = { facts: '<span class="icon icon-chart-column"></span>', numbers: "<b>12</b>",
+    quotes: '<span class="icon icon-quote"></span>', images: '<span class="icon icon-image"></span>' };
+  deck.querySelectorAll(".credible > .card").forEach(function (c) {
+    var h = c.querySelector(":scope > h3"), k = h && h.textContent.trim().toLowerCase();
+    if (!h || !SYMBOLS[k]) return;
+    var row = make("div", "sym-row"), sym = make("span", "sym", SYMBOLS[k]);
+    sym.setAttribute("aria-hidden", "true");
+    c.insertBefore(row, h);
+    row.appendChild(sym);
+    row.appendChild(h);
+  });
 
   /* ---------- Anchor diagrams (design/anchors.js) ---------- */
   // Full size: <div class="anchor" data-anchor="name" data-active="part">.
@@ -177,6 +278,16 @@
   }
   deck.querySelectorAll("div.anchor[data-anchor]").forEach(function (a) {
     drawAnchor(a, a.dataset.anchor, words(a.dataset.active || a.dataset.anchorPart));
+    // Parts with a detail in anchors.js open it on click (see Details above).
+    var details = (anchors[a.dataset.anchor] || {}).details, s = a.closest("section.slide");
+    if (!details || !s) return;
+    a.querySelectorAll("[data-node]").forEach(function (n) {
+      var d = details[n.dataset.node];
+      if (!d) return;
+      var key = a.dataset.anchor + "-" + n.dataset.node;
+      n.setAttribute("data-pop", key);
+      if (!s.querySelector('.pop[data-pop-for="' + key + '"]')) s.appendChild(make("div", "pop", "<h3>" + esc(d[0]) + "</h3><p>" + esc(d[1]) + "</p>")).dataset.popFor = key;
+    });
   });
   slides.forEach(function (s) {
     if (!s.dataset.anchor || s.querySelector(":scope > .anchor-mini")) return;
@@ -301,8 +412,11 @@
       void s.offsetWidth; // restart motion when a slide is entered again
       s.classList.add("is-active");
     }
+    var forward = entering || n > step;
+    if (entering && cur >= 0) closePops(slides[cur]);
     cur = i;
     step = n;
+    if (forward) fireConfetti(slides[i], n, entering);
     if (location.hash !== "#" + (i + 1)) history.replaceState(null, "", "#" + (i + 1));
     if (presenter) {
       bar.querySelector(".p-count").textContent = (i + 1) + " / " + slides.length + (maxStep(slides[i]) ? "  ·  step " + n + "/" + maxStep(slides[i]) : "");
@@ -342,6 +456,72 @@
     }
   });
 
+  /* ---------- Details, tallies and confetti (presenting only) ---------- */
+  function closePops(s) {
+    s.querySelectorAll(".pop.is-open").forEach(function (p) { p.classList.remove("is-open"); });
+    s.querySelectorAll("[data-pop].is-picked").forEach(function (t) { t.classList.remove("is-picked"); });
+  }
+  deck.addEventListener("click", function (e) {
+    var s = e.target.closest("section.slide");
+    if (!s) return;
+    var open = e.target.closest(".pop.is-open");
+    var trig = e.target.closest("[data-pop]");
+    if (open || (!trig && s.querySelector(".pop.is-open"))) { e.stopPropagation(); closePops(s); return; }
+    if (!trig) return;
+    e.stopPropagation();
+    var pop = s.querySelector('.pop[data-pop-for="' + trig.getAttribute("data-pop") + '"]');
+    var was = pop && pop.classList.contains("is-open");
+    closePops(s);
+    if (pop && !was) { pop.classList.add("is-open"); trig.classList.add("is-picked"); }
+  }, true);
+
+  // A tally cell [data-tally="10"] darkens by one step per click, from the
+  // lightest tint to the full colour at the given count (10 if none), so a
+  // grid on the wall turns into a heat map of the room's answers. Shift-click
+  // or right-click takes one back (Bastian, 2026-10-30, HHL slides 5 and 130).
+  deck.querySelectorAll("[data-tally]").forEach(function (t) {
+    var max = parseInt(t.dataset.tally, 10) || 10;
+    function set(n) {
+      n = Math.max(0, n);
+      t.dataset.count = n;
+      t.style.setProperty("--tally", Math.min(1, n / max).toFixed(3));
+      t.classList.toggle("is-tallied", n > 0);
+      t.classList.toggle("is-dark", n / max > 0.55);
+    }
+    set(0);
+    t.addEventListener("click", function (ev) { ev.stopPropagation(); set(+t.dataset.count + (ev.shiftKey || ev.altKey ? -1 : 1)); });
+    t.addEventListener("contextmenu", function (ev) { ev.preventDefault(); ev.stopPropagation(); set(+t.dataset.count - 1); });
+  });
+
+  // An element with data-confetti bursts confetti when its build step shows it,
+  // or when its slide is entered if it has no step (Bastian, 2026-10-30, M00).
+  var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var CONFETTI = ["var(--primary)", "var(--accent)", "var(--marker)", "var(--diagram-magenta)", "var(--key)", "hsl(150 60% 40%)"];
+  function confetti(el) {
+    if (calm) return;
+    var s = el.closest("section.slide"), r = el.getBoundingClientRect(), b = s.getBoundingClientRect();
+    var k = b.width / 1920 || 1, burst = make("div", "confetti");
+    burst.style.left = ((r.left + r.width / 2 - b.left) / k) + "px";
+    burst.style.top = ((r.top + r.height / 2 - b.top) / k) + "px";
+    for (var j = 0; j < 90; j++) {
+      var p = make("i"), a = Math.random() * Math.PI * 2, v = 260 + Math.random() * 520;
+      p.style.setProperty("--dx", Math.round(Math.cos(a) * v) + "px");
+      p.style.setProperty("--dy", Math.round(Math.sin(a) * v * 0.7 - 260) + "px");
+      p.style.setProperty("--rot", Math.round(Math.random() * 1080 - 540) + "deg");
+      p.style.background = CONFETTI[j % CONFETTI.length];
+      p.style.animationDelay = Math.round(Math.random() * 120) + "ms";
+      burst.appendChild(p);
+    }
+    s.appendChild(burst);
+    setTimeout(function () { burst.remove(); }, 2600);
+  }
+  function fireConfetti(s, n, entering) {
+    s.querySelectorAll("[data-confetti]").forEach(function (el) {
+      var at = parseInt(el.dataset.step, 10) || 0;
+      if (at ? at === n : entering) confetti(el);
+    });
+  }
+
   deck.addEventListener("click", function (e) {
     var link = e.target.closest("a[data-goto]");
     if (!link) return;
@@ -350,7 +530,7 @@
   });
   if (!presenter) {
     deck.addEventListener("click", function (e) {
-      if (e.target.closest("a, button, video, .timer, input, textarea, select")) return;
+      if (e.target.closest("a, button, video, .timer, input, textarea, select, [data-pop], [data-tally], .pop")) return;
       if (e.clientX < innerWidth / 3) prev(); else next();
     });
   }

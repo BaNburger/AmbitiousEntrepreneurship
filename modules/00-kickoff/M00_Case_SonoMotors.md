@@ -1,6 +1,6 @@
 # Sono Motors: 21,000 Reservations and a 50-Day Test
 
-Updated: 2026-10-19.
+Updated: 2026-10-30.
 
 > Module 00 · Kickoff · Case, read at home this week
 
@@ -124,7 +124,7 @@ Source: Compiled by the case writer from the company documents in the notes.
 
 ## From the Lecture
 
-The hierarchy of evidence shown in the Module 00 lecture, with the ideation phase and the paid prototype highlighted.
+The hierarchy of evidence shown in the Module 00 lecture, with the problem space and the paid prototype highlighted.
 
 ![Hierarchy of evidence in the lean startup](media/evidence-pyramid-paid.png "Hierarchy of evidence, as in the Module 00 lecture")
 

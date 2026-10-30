@@ -1,6 +1,6 @@
 # Module 06 — Prototyping with AI
 
-Updated: 2026-10-20.
+Updated: 2026-10-30.
 
 > **Core question:** What is the fastest thing you can build to learn?
 
@@ -9,7 +9,7 @@ Updated: 2026-10-20.
 ## Learning goals
 
 1. **M06-LG1.** Students can draw their MVP as the parts every application has, an interface, logic, a database and external services reached through APIs, decide for each part what must work for a user to reach the outcome and what may stay manual, and keep the data users enter safe and intact while they rebuild the rest.
-2. **M06-LG2.** Students can tell a workflow from an app, prototype the cheapest version that delivers the outcome, starting from a spreadsheet, a form or a manual step where that is enough, and connect the parts through an API call, for example to an AI model, so that one user's real input runs through to the outcome.
+2. **M06-LG2.** Students can prototype the cheapest version that delivers the outcome, starting from a spreadsheet, a form or a manual step where that is enough, and connect the parts through an API call, for example to an AI model, so that one user's real input runs through to the outcome.
 3. **M06-LG3.** Students can build the one feature by directing an AI coding agent as its product owner, briefing it with written project instructions, splitting the work into small steps they can test, reviewing and testing what it built, keeping every version under version control, working in iterations of at most 4 hours and starting over after two failed attempts instead of patching.
 4. **M06-LG4.** Students can hand their live MVP to people from their segment who use it without help, see whether they reach the outcome and come back, fix what stopped them and cut what nobody used, and read the result as a functional prototype, signal until someone pays.
 

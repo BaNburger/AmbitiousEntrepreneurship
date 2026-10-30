@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M08 Lecture · Finding First Users</title>
+<link rel="stylesheet" href="../../design/fonts.css">
+<link rel="stylesheet" href="../../design/tokens.css">
+<link rel="stylesheet" href="../../design/deck.css">
+<link rel="stylesheet" href="../../design/archetypes.css">
+<style>
+/* M08 exhibits. The funnel follows legacy 501. */
+.dm { border: 2px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-card); overflow: hidden; background: var(--card); }
+.dm-bar { background: var(--muted); padding: 12px 24px; font: 700 26px/1.2 var(--font-sans); color: var(--foreground); display: flex; gap: 16px; align-items: center; }
+.dm-bar .ava { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--primary); color: var(--primary-foreground); font-weight: 800; }
+.dm-body { padding: 24px 30px; font: 500 32px/1.5 var(--font-sans); color: var(--foreground); }
+.dm-bad { box-shadow: none; background: var(--context); border-color: var(--context); }
+.dm-bad .dm-body { color: var(--context-foreground); font-size: 28px; padding: 16px 30px; }
+.hl1 { background: var(--marker); border-radius: 6px; padding: 0 4px; }
+.hl2 { background: var(--primary-tint); border-radius: 6px; padding: 0 4px; font-weight: 800; }
+.hl3 { border-bottom: 5px solid var(--diagram-magenta); font-weight: 700; }
+.nb { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--diagram-navy); color: var(--primary-foreground); font: 800 26px/1 var(--font-sans); margin-left: 8px; vertical-align: middle; }
+.gift { display: grid; gap: 6px; padding: 20px 26px; border-radius: 14px; background: var(--sticky); max-width: 760px; font: 500 28px/1.3 var(--font-sans); color: var(--foreground); }
+.gift b { font-size: 32px; }
+.chat { display: grid; gap: 22px; }
+.chat .bub { max-width: 920px; padding: 22px 28px; border-radius: 22px; font: 500 34px/1.4 var(--font-sans); }
+.chat .them { background: var(--muted); color: var(--foreground); justify-self: start; }
+.chat .you { background: var(--primary); color: var(--primary-foreground); justify-self: end; }
+.chat .you .hl2 { color: var(--foreground); background: var(--marker); }
+.chat .quiet { justify-self: end; background: var(--sticky); color: var(--foreground); font-weight: 700; }
+.notask { margin: 0; font: 500 32px/1.35 var(--font-sans); color: var(--muted-foreground); }
+.sheet { display: grid; gap: 10px; }
+.sheet-name { font: 700 24px/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--primary); }
+.sheet table { border-collapse: collapse; width: 100%; font: 500 24px/1.25 var(--font-sans); color: var(--foreground); }
+.sheet th { background: var(--muted); border: 1px solid var(--border); padding: 8px 10px; text-align: left; font-weight: 700; vertical-align: bottom; }
+.sheet td { border: 1px solid var(--border); padding: 10px; vertical-align: top; }
+.sheet tr.lit td { background: var(--marker); font-weight: 700; }
+.board { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; align-items: start; }
+.board .ph { font: 700 24px/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--primary); border-bottom: 3px solid var(--primary); padding-bottom: 8px; margin-bottom: 12px; }
+.board .ph-no { color: var(--muted-foreground); border-color: var(--border); }
+.board .pcard { background: var(--card); border: 2px solid var(--border); border-radius: 10px; padding: 12px; font: 600 24px/1.25 var(--font-sans); margin-bottom: 10px; color: var(--foreground); }
+.board .pcard.lit { border-color: var(--diagram-magenta); background: var(--marker); }
+.board .pcard span { display: block; font-weight: 800; margin-top: 6px; }
+.gw { display: grid; grid-template-rows: 1fr 1fr; gap: 20px; }
+.gw > div { border-radius: 16px; padding: 22px 26px; display: grid; align-content: start; gap: 10px; }
+.gw span { font: 700 24px/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.gw p { margin: 0; font: 600 30px/1.3 var(--font-sans); }
+.gw-good { background: var(--primary-tint); border: 2px solid var(--primary-line); }
+.gw-good span { color: var(--primary); }
+.gw-weak { background: var(--context); color: var(--context-foreground); }
+.gw-weak p { font-weight: 500; }
+/* Class-only images leave the student PDF. The exhibits left on the slide grow into the space. */
+html.is-print:not(.show-all) .rooms .photo { --photo-h: 470px !important; }
+@media print { html:not(.show-all) .rooms .photo { --photo-h: 470px !important; } }
+html.is-print:not(.show-all) .rooms .photo { justify-items: center; }
+@media print { html:not(.show-all) .rooms .photo { justify-items: center; } }
+</style>
+</head>
+<body>
+<main class="deck" data-module="M08" data-module-title="Finding first users" data-chapters="Previously on Ambitious Entrepreneurship|Your presentations|Do it by hand: things that don't scale|Sell it: like a founder|Count it: make the numbers go brrr|Charge for it: ask for money today|Wrap-up and check-out|Workshop: Sell by hand|Case discussion" data-main-chapters="3|4|5|6">
+
+
+<section class="slide" data-archetype="title">
+  <div class="head">
+    <span class="label">Module 08 · Ambitious Entrepreneurship</span>
+    <h1 class="title">Finding First Users</h1>
+    <p class="sub">Who are your first ten customers — by name?</p>
+  </div>
+  <div class="course-path" aria-label="Course path, module 08 of 00 to 12">
+    <span class="label">Course path</span>
+    <ol><li class="done">00</li><li class="done">01</li><li class="done">02</li><li class="done">03</li><li class="done">04</li><li class="done">05</li><li class="done">06</li><li class="done">07</li><li class="now">08</li><li>09</li><li>10</li><li>11</li><li>12</li></ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim">
+  <div class="head">
+    <span class="label">Course material · scan now</span>
+    <h2 class="title">All slides live on <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">GitHub</span></h2>
+    <p class="sub">The newest version, free, no account needed</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:520px 1fr;gap:72px;align-items:center">
+    <div style="display:grid;justify-items:center;gap:20px"><div style="width:420px;height:420px"><svg class="qr" style="width:100%;height:100%;display:block" viewBox="-2 -2 37 37" role="img" aria-label="QR code linking to github.com/BaNburger/AmbitiousEntrepreneurship"><path d="M0 0.5h7m2 0h1m1 0h1m3 0h4m1 0h2m1 0h1m2 0h7m-33 1h1m5 0h1m4 0h2m2 0h2m1 0h1m1 0h1m5 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h1m1 0h1m4 0h1m4 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h3m4 0h1m4 0h1m3 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h2m1 0h4m1 0h3m1 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h1m3 0h1m4 0h1m6 0h1m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h1m5 0h1m1 0h1m1 0h1m2 0h1m2 0h1m-25 1h1m1 0h5m4 0h4m2 0h1m1 0h1m6 0h5m-31 1h2m1 0h1m3 0h1m1 0h2m1 0h2m4 0h4m1 0h1m2 0h2m1 0h4m-31 1h1m1 0h1m1 0h10m2 0h1m2 0h2m1 0h2m2 0h1m1 0h2m-32 1h1m2 0h3m4 0h2m1 0h1m4 0h2m1 0h2m1 0h2m2 0h4m-32 1h2m2 0h5m1 0h2m2 0h3m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m2 0h1m-33 1h1m3 0h2m3 0h1m2 0h2m1 0h1m2 0h3m2 0h1m2 0h1m2 0h4m-33 1h1m1 0h2m2 0h3m1 0h1m1 0h1m1 0h5m1 0h1m1 0h1m2 0h2m1 0h1m1 0h2m-30 1h1m2 0h1m6 0h1m1 0h2m2 0h2m1 0h1m3 0h3m1 0h2m-31 1h1m4 0h5m2 0h2m1 0h3m4 0h1m1 0h2m1 0h2m3 0h1m-30 1h1m5 0h5m2 0h1m3 0h1m2 0h1m2 0h2m1 0h2m1 0h1m-32 1h1m2 0h1m1 0h2m2 0h1m1 0h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h5m1 0h2m-30 1h3m2 0h1m1 0h2m4 0h2m1 0h4m4 0h5m1 0h1m-33 1h1m1 0h2m2 0h1m4 0h5m2 0h3m1 0h1m1 0h2m2 0h2m-30 1h1m1 0h4m1 0h1m3 0h1m2 0h3m1 0h4m1 0h1m1 0h2m5 0h1m-33 1h1m1 0h1m1 0h4m3 0h1m1 0h2m9 0h2m3 0h3m-32 1h1m1 0h1m1 0h2m1 0h4m5 0h1m2 0h1m1 0h6m2 0h2m1 0h1m-33 1h1m1 0h3m1 0h3m3 0h3m2 0h1m4 0h1m1 0h5m2 0h1m-24 1h2m2 0h1m3 0h2m1 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h1m-33 1h7m2 0h3m2 0h4m2 0h5m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h5m3 0h4m-32 1h1m1 0h3m1 0h1m1 0h3m1 0h1m2 0h2m2 0h2m1 0h1m1 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m2 0h3m1 0h4m2 0h2m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h6m1 0h4m1 0h1m1 0h1m3 0h2m1 0h1m-30 1h1m5 0h1m6 0h1m1 0h1m2 0h1m1 0h4m1 0h1m2 0h3m-31 1h7m1 0h3m2 0h3m1 0h1m4 0h3m2 0h1m1 0h1m1 0h1" style="fill:none;stroke:var(--foreground);stroke-width:1"/></svg></div><a href="https://github.com/BaNburger/AmbitiousEntrepreneurship" style="font:600 26px/1.25 var(--font-mono);color:var(--primary);text-decoration:none;text-align:center">github.com/BaNburger/<br>AmbitiousEntrepreneurship</a></div>
+    <ol style="list-style:none;margin:0;padding:0;display:grid;gap:34px"><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start"><span style="display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font:800 30px var(--font-sans)">1</span><span style="font-size:34px;line-height:1.25"><b>Open the link</b><br><span style="font-size:28px;color:var(--muted-foreground)">github.com/BaNburger/AmbitiousEntrepreneurship</span></span></li><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start"><span style="display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font:800 30px var(--font-sans)">2</span><span style="font-size:34px;line-height:1.25"><b>Go to modules</b><br><span style="font-size:28px;color:var(--muted-foreground)">then 08-first-users</span></span></li><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start"><span style="display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font:800 30px var(--font-sans)">3</span><span style="font-size:34px;line-height:1.25"><b>Click the lecture PDF</b><br><span style="font-size:28px;color:var(--muted-foreground)">M08_Lecture_Finding-First-Users.pdf, download top right</span></span></li></ol>
+  </div>
+  <footer class="prov">Public course repository of Ambitious Entrepreneurship. The QR code opens <a href="https://github.com/BaNburger/AmbitiousEntrepreneurship">github.com/BaNburger/AmbitiousEntrepreneurship</a>.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim">
+  <div class="head">
+    <span class="label">Where we are · the course</span>
+    <h2 class="title">From a verdict to the first <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">euro</span></h2>
+    <p class="sub">Thirteen sessions from first idea to first revenue. What teams have by now:</p>
+  </div>
+  <div class="content" style="display:grid;gap:14px;align-content:start">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px"><div style="padding:10px 18px;border-radius:14px;background:var(--muted);font-size:26px;line-height:1.25"><b>A live MVP people used</b><br><span style="color:var(--muted-foreground);font-size:24px">Prototyping (M06)</span></div><div style="padding:10px 18px;border-radius:14px;background:var(--muted);font-size:26px;line-height:1.25"><b>A verdict: Go, Pivot or Kill</b><br><span style="color:var(--muted-foreground);font-size:24px">The kill decision (M07)</span></div><div style="padding:10px 18px;border-radius:14px;background:var(--muted);font-size:26px;line-height:1.25"><b>An offer with a price and names</b><br><span style="color:var(--muted-foreground);font-size:24px">The kill decision (M07)</span></div></div>
+    <div class="anchor" data-anchor="course-path" data-active="m08"></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">The course path of Ambitious Entrepreneurship, sessions 00 to 12.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question">
+  <div class="head">
+    <span class="label">Check-in · Show of hands</span>
+    <h2 class="title">Go, Pivot or Kill. Did your <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">line</span> confirm it?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center"><svg viewBox="0 0 1640 400" role="img" aria-label="Go, Pivot or Kill, confirmed or changed" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="0" width="520" height="230" rx="22" style="fill:var(--primary)"/><text x="260" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:96px;font-weight:800;font-family:Inter,sans-serif">Go</text><rect x="560" y="0" width="520" height="230" rx="22" style="fill:var(--diagram-purple)"/><text x="820" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:96px;font-weight:800;font-family:Inter,sans-serif">Pivot</text><rect x="1120" y="0" width="520" height="230" rx="22" style="fill:var(--diagram-magenta)"/><text x="1380" y="150" text-anchor="middle" style="fill:var(--primary-foreground);font-size:96px;font-weight:800;font-family:Inter,sans-serif">Kill</text><text x="820" y="320" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Confirmed or changed against your line?</text><text x="820" y="380" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:600;font-family:Inter,sans-serif">And the offer and price you sell from today</text></svg><div class="timer" data-timer="2"></div></div>
+  </section>
+
+<section class="slide" data-archetype="claim">
+  <div class="head">
+    <span class="label">Pivot or persevere</span>
+    <h2 class="title">Under your line? That is a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">decision</span>, not a failure</h2>
+    <p class="sub">Every verdict is progress, and every verdict sells today</p>
+  </div>
+  <div class="content diagram"><div class="anchor" data-anchor="pivot-fork"></div></div>
+  <footer class="prov" data-kind="Framework">Pivot or persevere after Ries, E. (2011), The Lean Startup. Pivot types as in the course Glossary.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim">
+  <div class="head">
+    <span class="label">Accountability</span>
+    <h2 class="title">Three questions, every session</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 480" role="img" aria-label="Three accountability questions, new revenue lit" style="display:block;width:100%;height:auto;margin:0 auto"><text x="270" y="200" text-anchor="middle" style="fill:var(--context);font-size:200px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="270" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">User interactions?</text><text x="270" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">What did you learn?</text><rect x="560" y="40" width="520" height="340" rx="22" style="fill:var(--primary-tint);stroke:var(--primary);stroke-width:4"/><text x="820" y="200" text-anchor="middle" style="fill:var(--primary);font-size:200px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="820" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">New revenue?</text><text x="820" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why did they pay?</text><text x="1370" y="200" text-anchor="middle" style="fill:var(--context);font-size:200px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="1370" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">Shipped?</text><text x="1370" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why does it matter?</text><rect x="0" y="410" width="1640" height="64" rx="10" style="fill:var(--sticky)"/><text x="820" y="453" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">🦄 Report target vs. actual in small groups</text></svg></div>
+  <footer class="prov" data-kind="Bastian">The accountability questions of the course, Kickoff (M00).</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Previously on Ambitious Entrepreneurship">
+  <div class="head">
+    <span class="label">Chapter 1 of 9</span>
+    <h2 class="title">Previously on Ambitious Entrepreneurship</h2>
+    <p class="summary">Four pictures from earlier sessions that you need to follow today.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Previously on Ambitious Entrepreneurship">
+  <div class="head">
+    <span class="label">Previously · The kill decision (M07) · rung six</span>
+    <h2 class="title">You tested at the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">wallet</span> line</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="paid"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence. Glossary, "Validation".</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Previously on Ambitious Entrepreneurship">
+  <div class="head">
+    <span class="label">Previously · The kill decision (M07)</span>
+    <h2 class="title">Your monkey was the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">unknown</span> that could kill you</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="critical-known" data-active="priority"></div></div>
+  <footer class="prov" data-kind="Bastian">Course material, critical against known. Glossary, "Monkey first".</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Previously on Ambitious Entrepreneurship">
+  <div class="head">
+    <span class="label">Previously · Prototyping (M06)</span>
+    <h2 class="title">Your MVP is live. Now it needs <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">customers</span></h2>
+    <p class="sub">The user box still needs one who pays</p>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="every-application" data-active="user"></div></div>
+  <footer class="prov" data-kind="Bastian">Every application ever.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Previously on Ambitious Entrepreneurship">
+  <div class="head">
+    <span class="label">Previously · Prototyping (M06)</span>
+    <h2 class="title">Four questions before <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">every</span> build</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 430" role="img" aria-label="Four questions before every build, question 4 lit" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="0" width="800" height="200" rx="22" style="fill:var(--context)"/><text x="70" y="130" text-anchor="middle" style="fill:var(--context-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">1</text><foreignObject x="150" y="25" width="620" height="150"><div xmlns="http://www.w3.org/1999/xhtml" style="height:150px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:var(--context-foreground);font-size:38px;font-weight:700;line-height:1.2">Does your solution match the problem?</div></foreignObject><rect x="830" y="0" width="800" height="200" rx="22" style="fill:var(--context)"/><text x="900" y="130" text-anchor="middle" style="fill:var(--context-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">2</text><foreignObject x="980" y="25" width="620" height="150"><div xmlns="http://www.w3.org/1999/xhtml" style="height:150px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:var(--context-foreground);font-size:38px;font-weight:700;line-height:1.2">For whom is it 10x better than what they have now?</div></foreignObject><rect x="0" y="230" width="800" height="200" rx="22" style="fill:var(--context)"/><text x="70" y="360" text-anchor="middle" style="fill:var(--context-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">3</text><foreignObject x="150" y="255" width="620" height="150"><div xmlns="http://www.w3.org/1999/xhtml" style="height:150px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:var(--context-foreground);font-size:38px;font-weight:700;line-height:1.2">How can you build this in 4 hours?</div></foreignObject><rect x="830" y="230" width="800" height="200" rx="22" style="fill:var(--primary)"/><text x="900" y="360" text-anchor="middle" style="fill:var(--primary-foreground);font-size:110px;font-weight:800;font-family:Inter,sans-serif">4</text><foreignObject x="980" y="255" width="620" height="150"><div xmlns="http://www.w3.org/1999/xhtml" style="height:150px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:var(--primary-foreground);font-size:38px;font-weight:700;line-height:1.2">How can you get it in the hand of your customers?</div></foreignObject></svg></div>
+  <footer class="prov" data-kind="Bastian">Course material, as Prototyping (M06) and The kill decision (M07) show them.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Previously on Ambitious Entrepreneurship">
+  <div class="head">
+    <span class="label">Today's question · question 4</span>
+    <h2 class="title">How can you get it <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">in the hand</span> of your customers?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li></li><li></li></ol>
+    <div class="timer" data-timer="1"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Your presentations">
+  <div class="head">
+    <span class="label">Chapter 2 of 9</span>
+    <h2 class="title">Your presentations</h2>
+    <p class="summary">Each team confirms its verdict and names the offer and price it sells today.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="checkin" data-chapter="Your presentations">
+  <div class="head">
+    <span class="label">Your presentations · make it credible</span>
+    <h2 class="title">Show us where you're at in 3 minutes or less!</h2>
+  </div>
+  <div class="timer" data-timer="3"></div>
+  <div class="content">
+    <div class="credible">
+      <div class="card"><h3>Facts</h3><span class="kind">The monkey</span><ul><li>In one sentence</li><li>Why it was the critical unknown</li></ul></div>
+      <div class="card"><h3>Numbers</h3><span class="kind">Your Toolkit</span><ul><li>People tested per student</li><li>The line next to its result</li><li>Scorecard total, weakest section</li></ul></div>
+      <div class="card"><h3>Quotes</h3><span class="kind">The test</span><ul><li>Two, with roles, not names</li></ul></div>
+      <div class="card"><h3>Images</h3><span class="kind">The offer</span><ul><li>Offer with its price</li><li>Kill Ritual page, if anything died</li></ul></div>
+    </div>
+    <div class="asks"><span>Verdict: confirmed or changed against the line, and a pivot's type</span></div>
+    <div class="asks"><span>What did you do?</span><span>What did you learn?</span><span>How can we help?</span></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Course check-in format. Categories from the homework of The kill decision (M07), "Read-out".</footer>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Input 1 of 4 · Chapter 3 of 9</span>
+    <h2 class="title">Do it by hand: things that don't scale</h2>
+    <p class="summary">Get each first user by hand, set it up on the spot, deliver what's missing.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Input 1 of 4 · Do it by hand · three questions</span>
+    <h2 class="title">Where do your first <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">ten</span> come from?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">Where do your first ten customers come from?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">What do you do on the call?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">And if you killed your idea?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="quote" data-chapter="Do it by hand: things that don't scale">
+  <div class="quote-layout">
+    <figure>
+      <blockquote><p>The most common unscalable thing founders have to do at the start is to <span class="hl">recruit users manually</span>.</p></blockquote>
+      <figcaption><b>Paul Graham</b>, co-founder of Y Combinator</figcaption>
+    </figure>
+    <div class="book">
+      <span class="label">Essay</span>
+      <h3>Do Things That Don't Scale</h3>
+      <p>Paul Graham, July 2013</p>
+    </div>
+  </div>
+  <footer class="prov" data-kind="YC">Graham, P. (2013, July). Do things that don't scale. paulgraham.com/ds.html</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Do things that don't scale</span>
+    <h2 class="title">Your first ten customers won't come from a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">tool</span></h2>
+    <p class="sub">Founders get their first ten by hand, one person at a time</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Customers 1 to 3 from people one introduction away, 4 to 10 from things that do not scale, 10 to 50 with tools, drawn to the customer count" style="display:block;width:100%;height:auto;margin:0 auto"><defs><marker id="ld" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--foreground)"/></marker></defs><path d="M60 400 L1610 400" style="stroke:var(--foreground);stroke-width:4;fill:none" marker-end="url(#ld)"/><path d="M60.0 392 L60.0 412" style="stroke:var(--foreground);stroke-width:4;fill:none"/><text x="60.0" y="448" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:700;font-family:Inter,sans-serif">0</text><path d="M151.2 392 L151.2 412" style="stroke:var(--foreground);stroke-width:4;fill:none"/><text x="151.2" y="448" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:700;font-family:Inter,sans-serif">3</text><path d="M364.0 392 L364.0 412" style="stroke:var(--foreground);stroke-width:4;fill:none"/><text x="364.0" y="448" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:700;font-family:Inter,sans-serif">10</text><path d="M1580.0 392 L1580.0 412" style="stroke:var(--foreground);stroke-width:4;fill:none"/><text x="1580.0" y="448" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:700;font-family:Inter,sans-serif">50</text><text x="1520" y="448" text-anchor="end" style="fill:var(--muted-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">customers</text><rect x="60.0" y="300" width="91.19999999999999" height="90" rx="8" style="fill:var(--diagram-navy)"/><rect x="151.2" y="260" width="212.8" height="130" rx="8" style="fill:var(--diagram-magenta)"/><rect x="364.0" y="300" width="1216.0" height="90" rx="8" style="fill:var(--context)"/><rect x="0" y="0" width="440" height="150" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="24" y="56" text-anchor="start" style="fill:var(--diagram-navy);font-size:40px;font-weight:800;font-family:Inter,sans-serif">1 to 3</text><text x="24" y="112" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">People one introduction away</text><rect x="500" y="0" width="520" height="150" rx="14" style="fill:var(--primary-tint);stroke:var(--diagram-magenta);stroke-width:4"/><text x="524" y="56" text-anchor="start" style="fill:var(--diagram-magenta);font-size:40px;font-weight:800;font-family:Inter,sans-serif">4 to 10</text><text x="524" y="112" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Things that don't scale</text><rect x="1080" y="0" width="560" height="150" rx="14" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><text x="1104" y="56" text-anchor="start" style="fill:var(--context-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">10 to 50</text><text x="1104" y="112" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">Tools like Apollo and Clay</text><path d="M105.6 154 L105.6 296" style="stroke:var(--diagram-navy);stroke-width:3;fill:none"/><path d="M257.6 154 L257.6 256" style="stroke:var(--diagram-magenta);stroke-width:3;fill:none"/><path d="M972.0 154 L972.0 296" style="stroke:var(--context-foreground);stroke-width:3;fill:none"/></svg></div>
+  <footer class="prov" data-kind="YC">Kolysh (2026), How to get your first 10 customers, Y Combinator. Drawn to the customer count.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Do things that don't scale</span>
+    <h2 class="title">Skip the sign-up link. Set it up <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">while they watch</span></h2>
+    <p class="sub">A yes without use is a yes you lose</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 510" role="img" aria-label="Two paths after a yes: send the sign-up link and lose them, or set it up together until the first outcome is on screen" style="display:block;width:94%;height:auto;margin:0 auto"><defs><marker id="pg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><defs><marker id="pb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><rect x="0" y="180" width="300" height="150" rx="20" style="fill:var(--diagram-navy)"/><foreignObject x="0" y="180" width="300" height="150"><div xmlns="http://www.w3.org/1999/xhtml" style="height:150px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:34px;font-weight:800">"Sounds<br>interesting!"</div></foreignObject><rect x="380" y="10" width="380" height="120" rx="16" style="fill:var(--context)"/><foreignObject x="380" y="10" width="380" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:28px;font-weight:700;line-height:1.2">"Great, I'll send you the sign-up link"</div></foreignObject><rect x="820" y="10" width="250" height="120" rx="16" style="fill:var(--context)"/><foreignObject x="820" y="10" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:28px;font-weight:700;line-height:1.2">Their inbox</div></foreignObject><rect x="1110" y="10" width="250" height="120" rx="16" style="fill:var(--context)"/><foreignObject x="1110" y="10" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:28px;font-weight:700;line-height:1.2">"Later, maybe"</div></foreignObject><rect x="1400" y="10" width="250" height="120" rx="16" style="fill:var(--context)"/><foreignObject x="1400" y="10" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:28px;font-weight:700;line-height:1.2">Gone</div></foreignObject><path d="M300 230 L372 70" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#pg)"/><path d="M760 70 L812 70" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#pg)"/><path d="M1070 70 L1102 70" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#pg)"/><path d="M1360 70 L1392 70" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#pg)"/><rect x="380" y="380" width="380" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="380" y="380" width="380" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:800;line-height:1.2">"Got five minutes? Let's set it up now"</div></foreignObject><rect x="820" y="380" width="250" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="820" y="380" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:800;line-height:1.2">Their own data in</div></foreignObject><rect x="1110" y="380" width="250" height="120" rx="16" style="fill:var(--marker)"/><foreignObject x="1110" y="380" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--foreground);font-size:28px;font-weight:800;line-height:1.2">First outcome on screen</div></foreignObject><rect x="1400" y="380" width="250" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="1400" y="380" width="250" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:800;line-height:1.2">Used today</div></foreignObject><path d="M300 280 L372 440" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#pb)"/><path d="M760 440 L812 440" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#pb)"/><path d="M1070 440 L1102 440" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#pb)"/><path d="M1360 440 L1392 440" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#pb)"/></svg></div>
+  <footer class="prov" data-kind="YC">After Graham (2013), Do things that don't scale. Paths made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Make numbers go brrr · customers</span>
+    <h2 class="title">Be their <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">concierge</span>. It's real revenue</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="funnel" data-active="customers"></div></div>
+  <footer class="prov" data-kind="Bastian">Course material, the customers stage. Glossary, "Concierge".</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Worked example · made up</span>
+    <h2 class="title">Set up on the call, delivered <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">by hand</span></h2>
+    <p class="sub">Finalist Alert's first customer, step by step</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 480" role="img" aria-label="Three steps: set up on the call, checked by hand that evening, alert sent by hand next morning" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="0" width="520" height="90" rx="16" style="fill:var(--diagram-navy)"/><text x="260" y="58" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">On the call</text><rect x="0" y="110" width="520" height="260" rx="16" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><foreignObject x="20" y="120" width="480" height="240"><div xmlns="http://www.w3.org/1999/xhtml" style="height:240px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--foreground);font-size:34px;font-weight:600;line-height:1.3">Her three open roles go into the sheet while she watches</div></foreignObject><rect x="552" y="0" width="520" height="90" rx="16" style="fill:var(--diagram-navy)"/><text x="812" y="58" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">That evening</text><rect x="552" y="110" width="520" height="260" rx="16" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><foreignObject x="572" y="120" width="480" height="240"><div xmlns="http://www.w3.org/1999/xhtml" style="height:240px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--foreground);font-size:34px;font-weight:600;line-height:1.3">A founder checks the finalists' replies, by hand</div></foreignObject><rect x="1104" y="0" width="520" height="90" rx="16" style="fill:var(--primary)"/><text x="1364" y="58" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Next morning</text><rect x="1104" y="110" width="520" height="260" rx="16" style="fill:var(--card);stroke:var(--border);stroke-width:3"/><foreignObject x="1124" y="120" width="480" height="240"><div xmlns="http://www.w3.org/1999/xhtml" style="height:240px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--foreground);font-size:34px;font-weight:600;line-height:1.3">"Your finalist for the Munich role hasn't replied in 4 days."</div></foreignObject><g transform="rotate(-6 150 420)"><rect x="30" y="400" width="260" height="70" rx="10" style="fill:var(--marker)"/><text x="160" y="447" text-anchor="middle" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">€49 a month</text></g><text x="1380" y="450" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:700;font-family:Inter,sans-serif">WhatsApp, sent by hand</text></svg></div>
+  <footer class="prov" data-kind="Illustrative">Made-up recruiting venture of the course, "Finalist Alert".</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Restart after a kill</span>
+    <h2 class="title">Killed it? You still <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">sell today</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 420" role="img" aria-label="Restart after a kill in four steps, the concierge offer lit" style="display:block;width:100%;height:auto;margin:0 auto"><defs><marker id="rs" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--context-foreground)"/></marker></defs><rect x="0" y="40" width="370" height="230" rx="20" style="fill:var(--context)"/><text x="50" y="110" text-anchor="middle" style="fill:var(--context-foreground);font-size:64px;font-weight:800;font-family:Inter,sans-serif">1</text><foreignObject x="20" y="120" width="330" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:34px;font-weight:700;line-height:1.2">Read what seven weeks produced</div></foreignObject><path d="M374 155 L408 155" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#rs)"/><rect x="415" y="40" width="370" height="230" rx="20" style="fill:var(--context)"/><text x="465" y="110" text-anchor="middle" style="fill:var(--context-foreground);font-size:64px;font-weight:800;font-family:Inter,sans-serif">2</text><foreignObject x="435" y="120" width="330" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:34px;font-weight:700;line-height:1.2">Pick the strongest asset</div></foreignObject><path d="M789 155 L823 155" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#rs)"/><rect x="830" y="40" width="370" height="230" rx="20" style="fill:var(--primary)"/><text x="880" y="110" text-anchor="middle" style="fill:var(--primary-foreground);font-size:64px;font-weight:800;font-family:Inter,sans-serif">3</text><foreignObject x="850" y="120" width="330" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:34px;font-weight:700;line-height:1.2">Make a concierge offer, with a price</div></foreignObject><path d="M1204 155 L1238 155" style="stroke:var(--context-foreground);stroke-width:5;fill:none" marker-end="url(#rs)"/><rect x="1245" y="40" width="370" height="230" rx="20" style="fill:var(--context)"/><text x="1295" y="110" text-anchor="middle" style="fill:var(--context-foreground);font-size:64px;font-weight:800;font-family:Inter,sans-serif">4</text><foreignObject x="1265" y="120" width="330" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:34px;font-weight:700;line-height:1.2">Name the people</div></foreignObject><rect x="0" y="320" width="1640" height="90" rx="12" style="fill:var(--sticky)"/><text x="820" y="378" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">A concierge offer counts like any other offer</text></svg></div>
+  <footer class="prov" data-kind="Framework">GPK Decision Framework, framework 03, "Restart After a Kill". Glossary, "Concierge". Grading Rubric, "The A-Kill".</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Now you · alone · 2 minutes</span>
+    <h2 class="title">What will you do <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">by hand</span> from today?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1200px 1fr;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 344" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="330" height="96" rx="48" style="fill:var(--primary)"/><text x="165.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Set up</text><text x="370" y="62" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">What you set up on the call</text><rect x="0" y="124" width="330" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="165.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">By hand</text><text x="370" y="186" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">What you do that the product can't</text><rect x="0" y="248" width="330" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="165.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Price</text><text x="370" y="310" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">What it costs them</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="2"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Three lines in your notes</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Do it by hand: things that don't scale">
+  <div class="head">
+    <span class="label">Input 1 of 4 · Do it by hand · the answers</span>
+    <h2 class="title">Do it by hand: set it up while they <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">watch</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Where do your first ten customers come from?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Not from a tool. Founders get them by hand, one by one</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What do you do on the call?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Skip the sign-up link. Set it up while they watch, be their concierge</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">And if you killed your idea?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">You still sell today, starting from what your weeks produced</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Input 2 of 4 · Chapter 4 of 9</span>
+    <h2 class="title">Sell it: like a founder</h2>
+    <p class="summary">Switch from learning to selling, ask the right people, and never drop a thread.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Input 2 of 4 · Sell it · three questions</span>
+    <h2 class="title">Who sells your first <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">customers</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">When do you switch from learning to selling?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">Whom do you ask?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">What happens after the first message?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Sell like a founder</span>
+    <h2 class="title">You're in luck. You're not selling used cars!</h2>
+    <p class="sub">As a founder, you are the first salesperson</p>
+  </div>
+  <div class="content media-split flip" style="--media-w: 640px">
+        <div style="display:grid;gap:28px"><p style="font:700 40px/1.25 var(--font-sans);margin:0">Sales = structured conversations that turn interest into <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">commitment</span></p><svg viewBox="0 0 900 410" role="img" aria-label="Three steps: spend time, change behaviour, spend money" style="display:block;width:100%;height:auto;margin:0 auto;max-width:900px"><rect x="0" y="260" width="280" height="140" rx="16" style="fill:var(--context)"/><foreignObject x="0" y="260" width="280" height="110"><div xmlns="http://www.w3.org/1999/xhtml" style="height:110px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:32px;font-weight:800">Spend time</div></foreignObject><rect x="300" y="150" width="280" height="250" rx="16" style="fill:var(--context)"/><foreignObject x="300" y="150" width="280" height="110"><div xmlns="http://www.w3.org/1999/xhtml" style="height:110px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:32px;font-weight:800">Change behaviour</div></foreignObject><rect x="600" y="40" width="280" height="360" rx="16" style="fill:var(--diagram-magenta)"/><foreignObject x="600" y="40" width="280" height="110"><div xmlns="http://www.w3.org/1999/xhtml" style="height:110px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:32px;font-weight:800">Spend money</div></foreignObject></svg></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Kolysh (2026): the founder doing it personally is the advantage.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="problem-solution" data-anchor-part="solution" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">From discovery to sales</span>
+    <h2 class="title">When the pattern repeats, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">start selling</span></h2>
+    <p class="sub">Still 80% listening, 20% demo</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 500" role="img" aria-label="Customer discovery on the problem, the sales conversation on the solution" style="display:block;width:100%;height:auto;margin:0 auto"><defs><marker id="tz" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><polygon points="560,470 1080,470 1000,330 640,330" style="fill:var(--diagram-magenta)"/><text x="820" y="415" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Problem</text><polygon points="620,230 1020,230 960,90 680,90" style="fill:var(--primary)"/><text x="820" y="175" text-anchor="middle" style="fill:var(--primary-foreground);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Solution</text><path d="M820 320 L820 244" style="stroke:var(--primary);stroke-width:10;fill:none" marker-end="url(#tz)"/><foreignObject x="0" y="60" width="520" height="420"><div xmlns="http://www.w3.org/1999/xhtml" style="height:420px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:30px;line-height:1.35;color:var(--foreground)"><div><b style="font-size:34px">Customer discovery</b><br>"I want to understand your problem and context"<br><span style="color:var(--muted-foreground)">Learning, not pitching</span></div></div></foreignObject><rect x="1110" y="50" width="530" height="440" rx="18" style="fill:var(--primary-tint);stroke:var(--primary);stroke-width:4"/><foreignObject x="1130" y="60" width="490" height="420"><div xmlns="http://www.w3.org/1999/xhtml" style="height:420px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:30px;line-height:1.35;color:var(--foreground)"><div><b style="font-size:34px">Sales conversation</b><br>"I think we can help, here's how"<br>Match their problem with your offer, ask for <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">one next step</span></div></div></foreignObject></svg></div>
+  <footer class="prov" data-kind="Bastian">Mom Test cheatsheet, framework 01.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Whom to ask</span>
+    <h2 class="title">Ask people who pass <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">all four</span></h2>
+    <p class="sub">The Pain Map from Problem space (M03) already names who holds the budget</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="Four filters for your first customers, they have money lit" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="40" y="0" width="520" height="104" rx="10" style="fill:var(--primary)"/><foreignObject x="40" y="0" width="520" height="104"><div xmlns="http://www.w3.org/1999/xhtml" style="height:104px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:34px;font-weight:700;line-height:1.15">They like your value proposition</div></foreignObject><text x="300" y="146" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">Every lecture ever</text><rect x="1080" y="0" width="520" height="104" rx="10" style="fill:var(--diagram-magenta)"/><foreignObject x="1080" y="0" width="520" height="104"><div xmlns="http://www.w3.org/1999/xhtml" style="height:104px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:34px;font-weight:700;line-height:1.15">They have money</div></foreignObject><text x="1340" y="146" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">They can say yes to paying</text><rect x="40" y="240" width="520" height="104" rx="10" style="fill:var(--primary)"/><foreignObject x="40" y="240" width="520" height="104"><div xmlns="http://www.w3.org/1999/xhtml" style="height:104px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:34px;font-weight:700;line-height:1.15">They are hungry</div></foreignObject><text x="300" y="386" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">They feel the pain right now</text><rect x="1080" y="240" width="520" height="104" rx="10" style="fill:var(--primary)"/><foreignObject x="1080" y="240" width="520" height="104"><div xmlns="http://www.w3.org/1999/xhtml" style="height:104px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:34px;font-weight:700;line-height:1.15">They are around</div></foreignObject><text x="1340" y="386" text-anchor="middle" style="fill:var(--muted-foreground);font-size:30px;font-weight:500;font-family:Inter,sans-serif">You can reach and serve them</text><ellipse cx="820" cy="222" rx="200" ry="96" style="fill:var(--diagram-navy)"/><foreignObject x="620" y="126" width="400" height="192"><div xmlns="http://www.w3.org/1999/xhtml" style="height:192px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:38px;font-weight:800;line-height:1.15">Your first<br>customers</div></foreignObject><rect x="560" y="400" width="520" height="84" rx="10" style="fill:var(--context)"/><text x="820" y="455" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">+ what else?</text><text x="820" y="524" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:500;font-family:Inter,sans-serif">Depends on what you offer</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Course material, redrawn. Glossary, "Budget authority".</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Whom to ask · B2B</span>
+    <h2 class="title">In B2B, more than <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">one person</span> decides</h2>
+    <p class="sub">Find the user, the champion and who pays</p>
+  </div>
+  <div class="content media-split" style="--media-w: 560px">
+    <div style="display:grid;gap:24px"><svg viewBox="0 0 960 390" role="img" aria-label="Six roles in a buying group, the economic buyer lit" style="display:block;width:100%;height:auto;margin:0 auto;max-width:960px"><circle cx="75" cy="56" r="44" style="fill:var(--context)"/><rect x="20" y="112" width="110" height="170" rx="44" style="fill:var(--context)"/><foreignObject x="0" y="296" width="150" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="height:90px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:600;line-height:1.15;color:var(--foreground)">End user</div></foreignObject><circle cx="235" cy="56" r="44" style="fill:var(--context)"/><rect x="180" y="112" width="110" height="170" rx="44" style="fill:var(--context)"/><foreignObject x="160" y="296" width="150" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="height:90px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:600;line-height:1.15;color:var(--foreground)">Champion</div></foreignObject><circle cx="395" cy="56" r="44" style="fill:var(--diagram-magenta)"/><rect x="340" y="112" width="110" height="170" rx="44" style="fill:var(--diagram-magenta)"/><foreignObject x="320" y="296" width="150" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="height:90px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:800;line-height:1.15;color:var(--foreground)">Economic buyer</div></foreignObject><circle cx="555" cy="56" r="44" style="fill:var(--context)"/><rect x="500" y="112" width="110" height="170" rx="44" style="fill:var(--context)"/><foreignObject x="480" y="296" width="150" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="height:90px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:600;line-height:1.15;color:var(--foreground)">Influencer</div></foreignObject><circle cx="715" cy="56" r="44" style="fill:var(--context)"/><rect x="660" y="112" width="110" height="170" rx="44" style="fill:var(--context)"/><foreignObject x="640" y="296" width="150" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="height:90px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:600;line-height:1.15;color:var(--foreground)">Veto</div></foreignObject><circle cx="875" cy="56" r="44" style="fill:var(--context)"/><rect x="820" y="112" width="110" height="170" rx="44" style="fill:var(--context)"/><foreignObject x="800" y="296" width="150" height="90"><div xmlns="http://www.w3.org/1999/xhtml" style="height:90px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:600;line-height:1.15;color:var(--foreground)">Purchasing</div></foreignObject></svg><p style="font:700 34px/1.3 var(--font-sans);margin:0">Ask your champion: "Who else has to <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">say yes</span>?"</p></div>
+      </div>
+  <footer class="prov" data-kind="Framework">Aulet (2013), the decision-making unit.</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Whom to ask · B2B</span>
+    <h2 class="title">Ask someone who can <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">sign</span> your price</h2>
+    <p class="sub">Signing limits at one large German corporate</p>
+  </div>
+  <div class="content"><table class="table"><thead><tr><th>Title</th><th>Can sign up to</th><th>What convinces them</th></tr></thead><tbody><tr><td>CEO</td><td>€10 million</td><td>10-year vision, P&amp;L impact</td></tr><tr><td>CXO</td><td>€1 million</td><td>P&amp;L impact, competitive advantage</td></tr><tr><td>SVP or VP</td><td>€500,000</td><td>Revenue gains, cost efficiency</td></tr><tr><td>Director</td><td>€100,000</td><td>Cost efficiency in €</td></tr><tr><td>Head</td><td>€50,000</td><td>Product benefit</td></tr><tr class="is-hl"><td>Manager</td><td>€1,000</td><td>Product benefit</td></tr></tbody></table></div>
+  <footer class="prov" data-kind="Bastian">Course material, "Illustration based on a large corporate client in Germany".</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Whom to ask</span>
+    <h2 class="title">Friends open doors. <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">Strangers</span> pay</h2>
+    <p class="sub">Start in your records, then one introduction away</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="Three rings: your records, one introduction away, where your segment gathers. Friends introduce, they don't pay" style="display:block;width:100%;height:auto;margin:0 auto"><defs><marker id="rg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--foreground)"/></marker></defs><circle cx="270" cy="270" r="262" style="fill:var(--muted)"/><circle cx="270" cy="270" r="180" style="fill:#fff;stroke:var(--primary);stroke-width:4"/><circle cx="270" cy="270" r="96" style="fill:var(--primary)"/><foreignObject x="180" y="210" width="180" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:32px;font-weight:800;line-height:1.1">Your records</div></foreignObject><path d="M368 270 L600 270" style="stroke:var(--primary);stroke-width:3;fill:none"/><path d="M397 143 L600 150" style="stroke:var(--primary);stroke-width:3;fill:none"/><path d="M455 85 L600 40" style="stroke:var(--foreground);stroke-width:3;fill:none"/><foreignObject x="615" y="0" width="1025" height="80"><div xmlns="http://www.w3.org/1999/xhtml" style="height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.25;color:var(--foreground)"><div style="text-align:left"><b>Where your segment gathers</b> · groups, events, forums</div></div></foreignObject><foreignObject x="615" y="110" width="1025" height="80"><div xmlns="http://www.w3.org/1999/xhtml" style="height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.25;color:var(--foreground)"><div style="text-align:left"><b style="color:var(--primary)">One introduction away</b> · ask every buyer and every no for names</div></div></foreignObject><foreignObject x="615" y="220" width="1025" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.25;color:var(--foreground)"><div style="text-align:left"><b style="color:var(--primary)">Your records</b> · the ten from The kill decision (M07), first buyers, the Use Log, sign-ups, interviewees</div></div></foreignObject><rect x="615" y="370" width="1025" height="150" rx="18" style="fill:var(--context)"/><foreignObject x="640" y="380" width="980" height="130"><div xmlns="http://www.w3.org/1999/xhtml" style="height:130px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.3;color:var(--context-foreground)"><div style="text-align:left"><b>Friends, family, classmates</b><br>Ask them for introductions, not for money</div></div></foreignObject></svg></div>
+  <footer class="prov" data-kind="YC">Kolysh (2026). Grading Rubric and First users (M08) homework, who counts.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Whom to ask · re-shown from Validating problems (M04)</span>
+    <h2 class="title">Name the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">room</span>, not the channel</h2>
+    <p class="sub">Go where they already complain in public</p>
+  </div>
+  <div class="content rooms" style="display:flex;gap:40px;align-items:flex-start">
+        <div style="flex:1;display:grid;gap:16px"><span class="label">Online communities · one named event</span><figure class="photo" style="--photo-h: 360px"><img src="media/legacy-242-luma-crop.png" alt="Luma app listing upcoming events in Munich"></figure></div>
+    <div style="flex:1;display:grid;gap:16px"><span class="label">Offline places · a canteen</span><figure class="photo" style="--photo-h: 360px"><img src="media/legacy-242-phone-208.jpg" alt="Google Maps of a research campus with labs, cafes and a supermarket"></figure></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Course material, as Validating problems (M04) showed them. Phone screenshots, Bastian, 2025. Kolysh (2026): find the place where the pain is expressed in public.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Now you · alone · 2 minutes</span>
+    <h2 class="title">Name the first <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">three</span> you'll ask</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1200px 1fr;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 344" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="330" height="96" rx="48" style="fill:var(--primary)"/><text x="165.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Open</text><text x="370" y="62" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">Your Interview Log and Use Log</text><rect x="0" y="124" width="330" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="165.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Filter</text><text x="370" y="186" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">Three who pass all four</text><rect x="0" y="248" width="330" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="165.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Note</text><text x="370" y="310" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">Where each one came from</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="2"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Three names</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="posting" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Outreach · 1 of 2</span>
+    <h2 class="title">Write in <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">their words</span>. Ask for one next step</h2>
+    <p class="sub">Under 75 words. Read it out loud first</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center">
+    <div style="display:grid;gap:24px">
+      <div class="dm"><div class="dm-bar"><span class="ava">L</span>Lena · agency recruiter · message</div><div class="dm-body">Hi Lena, in March you said <span class="hl1">"I lose a finalist every month and find out too late."</span><b class="nb">1</b> We now flag that by WhatsApp, <span class="hl2">€49 a month</span><b class="nb">2</b>. <span class="hl3">Can I set it up with you Thursday at 10:30? 15 minutes.</span><b class="nb">3</b></div></div>
+      <div class="dm dm-bad"><div class="dm-body"><s>Hi! We're building an AI platform that revolutionises recruiting. Check out our website. Would you be interested?</s></div></div>
+    </div>
+    <div style="display:grid;gap:22px"><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center"><b class="nb">1</b><span style="font:700 32px/1.2 var(--font-sans)">Their words</span></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center"><b class="nb">2</b><span style="font:700 32px/1.2 var(--font-sans)">Your price</span></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center"><b class="nb">3</b><span style="font:700 32px/1.2 var(--font-sans)">One next step</span></div></div>
+  </div>
+  <footer class="prov" data-kind="YC">Kolysh (2026): under 75 words, one clear call to action, read it out loud. Mom Test cheatsheet, framework 01: seek commitment and advancement. Message made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="posting" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Outreach · 2 of 2</span>
+    <h2 class="title">Give <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">first</span>, then ask</h2>
+    <p class="sub">Never come empty-handed</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center">
+    <div style="display:grid;gap:20px"><div class="dm"><div class="dm-bar"><span class="ava">@</span>Email · "Two minutes, five warning signs"</div><div class="dm-body">Hi Lena, we interviewed 14 recruiters about finalists who drop out. Here are the five warning signs they named.<b class="nb">1</b> If you like, I'll watch your current finalists for them. <span class="hl3">Thursday 10:30?</span><b class="nb">2</b></div></div><div class="gift"><span class="label">Attachment · one page</span><b>5 warning signs before a finalist drops out</b><span>What 14 recruiters told us</span></div></div>
+    <div style="display:grid;gap:22px"><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center"><b class="nb">1</b><span style="font:700 32px/1.2 var(--font-sans)">The gift, before the ask</span></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center"><b class="nb">2</b><span style="font:700 32px/1.2 var(--font-sans)">Then one next step</span></div></div>
+  </div>
+  <footer class="prov" data-kind="YC">Kolysh (2026): the highest-converting outreach gave something before asking. Course material, "Give first, take second" and "Never come empty handed". Email made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-chapter="Sell it: like a founder" data-anchor="funnel" data-anchor-part="posting">
+  <span class="label">Check before you send</span>
+  <p class="mantra-lead">As a rule of thumb, 1 high-quality lead is worth about</p>
+  <div class="mantra-line"><span class="mantra-num" style="--num-size: 260px;white-space:nowrap">10–50</span><span class="mantra-word" style="font-size:96px">low-quality leads</span></div>
+  <div class="sticky"><p>Passes all four? Their words? One next step?</p></div>
+  <footer class="prov" data-kind="Bastian">Bastian's rule of thumb. No study found for the ratio.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="interviewing" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">The call</span>
+    <h2 class="title">Prepare five minutes. <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">Listen</span> for the rest</h2>
+    <p class="sub">Then ask for one next step</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 460" role="img" aria-label="A sales call: prepared first five minutes, listening most of the time, then the ask" style="display:block;width:100%;height:auto;margin:0 auto"><defs><marker id="tl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--foreground)"/></marker></defs><rect x="0" y="0" width="420" height="130" rx="14" style="fill:var(--diagram-navy)"/><text x="210.0" y="58" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">First 5 minutes</text><text x="210.0" y="104" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Prepared, not improvised</text><rect x="440" y="0" width="880" height="130" rx="14" style="fill:var(--primary)"/><text x="880.0" y="58" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">They talk, you listen</text><text x="880.0" y="104" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">About 80% of the time</text><rect x="1340" y="0" width="300" height="130" rx="14" style="fill:var(--diagram-magenta)"/><text x="1490.0" y="58" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">The ask</text><text x="1490.0" y="104" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">One next step</text><foreignObject x="0" y="150" width="420" height="300"><div xmlns="http://www.w3.org/1999/xhtml" style="height:300px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;align-items:flex-start;font-size:28px;line-height:1.35;color:var(--foreground)"><div style="text-align:left">Goal of the call<br>Your walk-away (BATNA)<br>"Is this a good time to speak?"</div></div></foreignObject><rect x="440" y="160" width="420" height="290" rx="14" style="fill:var(--context)"/><foreignObject x="460" y="170" width="380" height="270"><div xmlns="http://www.w3.org/1999/xhtml" style="height:270px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.45;color:var(--context-foreground)"><div style="text-align:left"><b>Listening to reply</b><br><s>Evaluate</s> · <s>Probe</s><br><s>Advise</s> · <s>Interpret</s></div></div></foreignObject><rect x="880" y="160" width="440" height="290" rx="14" style="fill:var(--primary-tint);stroke:var(--primary);stroke-width:4"/><foreignObject x="900" y="170" width="400" height="270"><div xmlns="http://www.w3.org/1999/xhtml" style="height:270px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.45;color:var(--foreground)"><div style="text-align:left"><b>Listening to understand</b><br>Mimic · <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">Rephrase</span><br>Reflect</div></div></foreignObject><foreignObject x="1340" y="150" width="300" height="300"><div xmlns="http://www.w3.org/1999/xhtml" style="height:300px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;align-items:flex-start;font-size:28px;line-height:1.35;color:var(--foreground)"><div style="text-align:left">Rephrase their pain, then ask for the next step</div></div></foreignObject></svg></div>
+  <footer class="prov" data-kind="Research">Weger et al. (2014), 115 people: active listening made them feel more understood than advice. Covey (1989), habit 5. Fisher and Ury (1981), BATNA. Antoine's tricks, Bastian's course material.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="funnel" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Sell like a founder</span>
+    <h2 class="title">Never, never drop the thread!</h2>
+    <p class="sub">Follow up three or four times, until yes or no</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:560px 1fr;gap:28px;align-items:center">
+    <svg viewBox="0 0 560 420" role="img" aria-label="Three touch paths flow into one pipeline sheet" style="display:block;width:100%;height:auto;margin:0 auto"><defs><marker id="pl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><rect x="0" y="0" width="200" height="100" rx="12" style="fill:var(--context)"/><foreignObject x="0" y="0" width="200" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:var(--context-foreground)">LinkedIn</div></foreignObject><path d="M206 50 L250 50" style="stroke:var(--primary);stroke-width:4;fill:none" marker-end="url(#pl)"/><rect x="256" y="0" width="200" height="100" rx="12" style="fill:var(--context)"/><foreignObject x="256" y="0" width="200" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:var(--context-foreground)">Call booked</div></foreignObject><path d="M462 50 C 520 50, 520 220, 560 220" style="stroke:var(--primary);stroke-width:4;fill:none" marker-end="url(#pl)"/><rect x="0" y="150" width="200" height="100" rx="12" style="fill:var(--context)"/><foreignObject x="0" y="150" width="200" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:var(--context-foreground)">Landing page</div></foreignObject><path d="M206 200 L250 200" style="stroke:var(--primary);stroke-width:4;fill:none" marker-end="url(#pl)"/><rect x="256" y="150" width="200" height="100" rx="12" style="fill:var(--context)"/><foreignObject x="256" y="150" width="200" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:var(--context-foreground)">Email left</div></foreignObject><path d="M462 200 C 520 200, 520 220, 560 220" style="stroke:var(--primary);stroke-width:4;fill:none" marker-end="url(#pl)"/><rect x="0" y="300" width="200" height="100" rx="12" style="fill:var(--context)"/><foreignObject x="0" y="300" width="200" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:var(--context-foreground)">Sign-up</div></foreignObject><path d="M206 350 L250 350" style="stroke:var(--primary);stroke-width:4;fill:none" marker-end="url(#pl)"/><rect x="256" y="300" width="200" height="100" rx="12" style="fill:var(--context)"/><foreignObject x="256" y="300" width="200" height="100"><div xmlns="http://www.w3.org/1999/xhtml" style="height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:var(--context-foreground)">Account info</div></foreignObject><path d="M462 350 C 520 350, 520 220, 560 220" style="stroke:var(--primary);stroke-width:4;fill:none" marker-end="url(#pl)"/></svg>
+    <div class="sheet"><div class="sheet-name">Pipeline · Student Toolkit · made up</div><table><thead><tr><th>Person (name)</th><th>Channel</th><th>Touches (dates)</th><th>Next follow-up</th><th>Reply</th><th>Offer and price asked</th><th>Answer</th><th>Paid on</th></tr></thead><tbody><tr><td>Recruiter, Berlin</td><td>Demo user</td><td>Mon</td><td></td><td>yes</td><td>€49 a month</td><td>paid</td><td>Wed</td></tr><tr class="lit"><td>Lena, agency</td><td>Demo user</td><td>Mon, Thu</td><td>next Mon</td><td>yes</td><td>€49 a month</td><td>later</td><td></td></tr><tr><td>HR lead, 40 staff</td><td>Introduction</td><td>Tue</td><td>next Fri</td><td>none</td><td></td><td></td><td></td></tr><tr><td>Recruiter, Hamburg</td><td>Meetup</td><td>Mon, Wed</td><td></td><td>no</td><td>€49 a month</td><td>no</td><td></td></tr></tbody></table></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Pipeline sheet, Student Toolkit. Kolysh (2026): follow up three or four times over a couple of weeks.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Sell it: like a founder">
+  <div class="head">
+    <span class="label">Input 2 of 4 · Sell it · the answers</span>
+    <h2 class="title">Sell it: you are the first <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">salesperson</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">When do you switch from learning to selling?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">When the pattern repeats. Still 80% listening, 20% demo</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Whom do you ask?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">People who pass all four checks and can sign your price. Strangers pay</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What happens after the first message?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">You follow up three or four times, until yes or no</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Input 3 of 4 · Chapter 5 of 9</span>
+    <h2 class="title">Count it: make the numbers go brrr</h2>
+    <p class="summary">Count every step from stranger to activated user, then double down on what works.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Input 3 of 4 · Count it · three questions</span>
+    <h2 class="title">What do you <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">count</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">What do you count?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">How do you push each stage?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">When do you double down?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="stages" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Make numbers go brrr</span>
+    <h2 class="title">Every step loses <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">most</span> of the people</h2>
+    <p class="sub">Bastian's example, 47,060 impressions to 5 customers</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 530" role="img" aria-label="Impressions 47,060, clicks 1,600 (minus 97 percent), sign-ups 64 (minus 96 percent), customers 5 (minus 92 percent), on a log scale" style="display:block;width:100%;height:auto;margin:0 auto"><text x="0" y="58" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Impressions</text><rect x="240" y="0" width="1121.4364614816006" height="76" rx="10" style="fill:var(--primary)"/><text x="1381.4364614816006" y="52" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">47,060</text><text x="0" y="158" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Clicks</text><rect x="240" y="100" width="768.988795837422" height="76" rx="10" style="fill:var(--primary)"/><text x="1028.988795837422" y="152" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">1,600</text><rect x="1172.988795837422" y="114" width="130" height="50" rx="10" style="fill:var(--marker)"/><text x="1237.988795837422" y="151" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:32px;font-weight:800;font-family:Inter,sans-serif">−97%</text><text x="0" y="258" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Sign-ups</text><rect x="240" y="200" width="433.4831937561329" height="76" rx="10" style="fill:var(--primary)"/><text x="693.4831937561329" y="252" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">64</text><rect x="765.4831937561329" y="214" width="130" height="50" rx="10" style="fill:var(--marker)"/><text x="830.4831937561329" y="251" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:32px;font-weight:800;font-family:Inter,sans-serif">−96%</text><text x="0" y="358" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Customers</text><rect x="240" y="300" width="167.75280104064453" height="76" rx="10" style="fill:var(--diagram-navy)"/><text x="427.7528010406445" y="352" text-anchor="start" style="fill:var(--foreground);font-size:38px;font-weight:800;font-family:Inter,sans-serif">5</text><rect x="475.7528010406445" y="314" width="130" height="50" rx="10" style="fill:var(--marker)"/><text x="540.7528010406445" y="351" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:32px;font-weight:800;font-family:Inter,sans-serif">−92%</text><text x="240" y="424" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">People per step, log scale. Each step keeps only 3% to 8% of the one before</text><path d="M1500 0 L1530 0 L1530 276 L1500 276" style="stroke:var(--muted-foreground);stroke-width:4;fill:none"/><foreignObject x="1300" y="290" width="340" height="80"><div xmlns="http://www.w3.org/1999/xhtml" style="height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-end;font-size:26px;font-weight:700;color:var(--muted-foreground)">Validating problems (M04) stopped here</div></foreignObject><rect x="0" y="450" width="1640" height="70" rx="10" style="fill:var(--diagram-navy)"/><text x="820" y="496" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">On each conversion, you lose about 1–2 orders of magnitude</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Course material, example numbers. Unbounce (2024): SaaS landing pages convert a median 3.8% of visitors.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="customers" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Make numbers go brrr</span>
+    <h2 class="title">Count <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">people</span>, not page views</h2>
+    <p class="sub">Reached, replied, talked, activated, paid</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="From the page funnel of legacy 501 to the people funnel of this week, activated lit" style="display:block;width:90%;height:auto;margin:0 auto"><defs><marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><rect x="0" y="0" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="60" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Impressions</text><rect x="0" y="120" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="180" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Clicks</text><rect x="0" y="240" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="300" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Sign-ups</text><rect x="0" y="360" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="420" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Customers</text><text x="210" y="520" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">The page funnel</text><rect x="760" y="0" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Reached</text><rect x="760" y="96" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="148" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Replied</text><rect x="760" y="192" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="244" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Talked</text><rect x="760" y="288" width="460" height="80" rx="10" style="fill:var(--diagram-magenta)"/><text x="990" y="340" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Activated</text><rect x="760" y="384" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="436" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Paid</text><text x="990" y="520" text-anchor="middle" style="fill:var(--primary);font-size:28px;font-weight:700;font-family:Inter,sans-serif">People from your segment, by name</text><path d="M740 6 L740 458" style="stroke:var(--primary);stroke-width:8;fill:none"/><path d="M440 230 L716 230" style="stroke:var(--primary);stroke-width:8;fill:none" marker-end="url(#mp)"/><foreignObject x="1250" y="270" width="390" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.3;color:var(--foreground)"><div style="text-align:left"><b>Activated</b> = reached the outcome your product promises</div></div></foreignObject></svg></div>
+  <footer class="prov" data-kind="Framework">Glossary, "Activated user". Use Log and Pipeline sheets, Student Toolkit.</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Make numbers go brrr · today's session on one page</span>
+    <h2 class="title">Push every stage with its own tool</h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="funnel"></div></div>
+  <footer class="prov" data-kind="Bastian">Course graphic, the funnel and its states.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="funnel" data-anchor-part="flywheel" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Make numbers go brrr</span>
+    <h2 class="title">Start the flywheel and <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">keep it going</span>!</h2>
+    <p class="sub">When you need the attention, it's way too late to start</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 520" role="img" aria-label="Flywheel: you post about your successes, people repost, people hear about you, people think you are successful, you win attention" style="display:block;width:100%;height:auto;margin:0 auto"><defs><marker id="fw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><rect x="300" y="330" width="380" height="120" rx="16" style="fill:var(--diagram-magenta)"/><foreignObject x="300" y="330" width="380" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:700;line-height:1.2">You post about your successes</div></foreignObject><rect x="300" y="70" width="380" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="300" y="70" width="380" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:700;line-height:1.2">People repost and talk about you</div></foreignObject><rect x="820" y="0" width="380" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="820" y="0" width="380" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:700;line-height:1.2">People hear about you from all over</div></foreignObject><rect x="1180" y="200" width="380" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="1180" y="200" width="380" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:700;line-height:1.2">People think you must be successful</div></foreignObject><rect x="800" y="400" width="380" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="800" y="400" width="380" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:700;line-height:1.2">You win a prize or media attention</div></foreignObject><path d="M490 320 L490 200" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#fw)"/><path d="M690 120 L810 70" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#fw)"/><path d="M1210 90 L1300 190" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#fw)"/><path d="M1300 330 L1190 410" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#fw)"/><path d="M790 460 L690 420" style="stroke:var(--primary);stroke-width:6;fill:none" marker-end="url(#fw)"/><rect x="0" y="380" width="240" height="120" rx="12" style="fill:var(--sticky)"/><foreignObject x="0" y="380" width="240" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;font-size:28px;font-weight:700;color:var(--foreground)">Start small: your first user</div></foreignObject><foreignObject x="1220" y="380" width="420" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:28px;font-weight:600;color:var(--foreground)">Don't stop! If people stop hearing from you, they forget</div></foreignObject></svg></div>
+  <footer class="prov" data-kind="Bastian">Course material, redrawn without its illustration.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="funnel" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Worked example · made up</span>
+    <h2 class="title">Count every step, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">per channel</span></h2>
+    <p class="sub">Finalist Alert's first week, four channels</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 520" role="img" aria-label="Funnel per channel: demo users 10, 8, 7, 5, 3. Introductions 8, 6, 5, 3, 1. Cold LinkedIn 40, 4, 2, 1, 0. Recruiter meetup 6, 6, 4, 1, 0" style="display:block;width:100%;height:auto;margin:0 auto"><text x="10" y="30" text-anchor="start" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Channel · people per step</text><text x="560" y="30" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Reached</text><text x="776" y="30" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Replied</text><text x="992" y="30" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Talked</text><text x="1208" y="30" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Activated</text><text x="1424" y="30" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Paid</text><rect x="0" y="50" width="1640" height="100" rx="12" style="fill:var(--primary-tint);stroke:var(--primary);stroke-width:3"/><foreignObject x="10" y="60" width="440" height="80"><div xmlns="http://www.w3.org/1999/xhtml" style="height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:28px;font-weight:700;line-height:1.15;color:var(--foreground)">Earlier demo users</div></foreignObject><rect x="470" y="74" width="32.5" height="52" rx="6" style="fill:var(--primary)"/><text x="514.5" y="112" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">10</text><rect x="686" y="74" width="26.0" height="52" rx="6" style="fill:var(--primary)"/><text x="724.0" y="112" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">8</text><rect x="902" y="74" width="22.75" height="52" rx="6" style="fill:var(--primary)"/><text x="936.75" y="112" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">7</text><rect x="1118" y="74" width="16.25" height="52" rx="6" style="fill:var(--primary)"/><text x="1146.25" y="112" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">5</text><rect x="1334" y="74" width="9.75" height="52" rx="6" style="fill:var(--primary)"/><text x="1355.75" y="112" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">3</text><foreignObject x="10" y="170" width="440" height="80"><div xmlns="http://www.w3.org/1999/xhtml" style="height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:28px;font-weight:700;line-height:1.15;color:var(--foreground)">Introductions</div></foreignObject><rect x="470" y="184" width="26.0" height="52" rx="6" style="fill:var(--context)"/><text x="508.0" y="222" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">8</text><rect x="686" y="184" width="19.5" height="52" rx="6" style="fill:var(--context)"/><text x="717.5" y="222" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">6</text><rect x="902" y="184" width="16.25" height="52" rx="6" style="fill:var(--context)"/><text x="930.25" y="222" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">5</text><rect x="1118" y="184" width="9.75" height="52" rx="6" style="fill:var(--context)"/><text x="1139.75" y="222" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">3</text><rect x="1334" y="184" width="6" height="52" rx="6" style="fill:var(--context)"/><text x="1352" y="222" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">1</text><foreignObject x="10" y="280" width="440" height="80"><div xmlns="http://www.w3.org/1999/xhtml" style="height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:28px;font-weight:700;line-height:1.15;color:var(--foreground)">Cold LinkedIn</div></foreignObject><rect x="470" y="294" width="130.0" height="52" rx="6" style="fill:var(--context)"/><text x="612.0" y="332" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">40</text><rect x="686" y="294" width="13.0" height="52" rx="6" style="fill:var(--context)"/><text x="711.0" y="332" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">4</text><rect x="902" y="294" width="6.5" height="52" rx="6" style="fill:var(--context)"/><text x="920.5" y="332" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">2</text><rect x="1118" y="294" width="6" height="52" rx="6" style="fill:var(--context)"/><text x="1136" y="332" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">1</text><rect x="1334" y="294" width="6" height="52" rx="6" style="fill:var(--context)"/><text x="1352" y="332" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">0</text><foreignObject x="10" y="390" width="440" height="80"><div xmlns="http://www.w3.org/1999/xhtml" style="height:80px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:28px;font-weight:700;line-height:1.15;color:var(--foreground)">Recruiter meetup</div></foreignObject><rect x="470" y="404" width="19.5" height="52" rx="6" style="fill:var(--context)"/><text x="501.5" y="442" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">6</text><rect x="686" y="404" width="19.5" height="52" rx="6" style="fill:var(--context)"/><text x="717.5" y="442" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">6</text><rect x="902" y="404" width="13.0" height="52" rx="6" style="fill:var(--context)"/><text x="927.0" y="442" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">4</text><rect x="1118" y="404" width="6" height="52" rx="6" style="fill:var(--context)"/><text x="1136" y="442" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">1</text><rect x="1334" y="404" width="6" height="52" rx="6" style="fill:var(--context)"/><text x="1352" y="442" text-anchor="start" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">0</text><text x="708.0" y="382" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:30px;font-weight:800;font-family:Inter,sans-serif">−90%</text></svg></div>
+  <footer class="prov" data-kind="Illustrative">Made-up recruiting venture of the course, "Finalist Alert". Bars to scale, 0 to 40 people. Counted in the Pipeline sheet.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="funnel" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Make numbers go brrr</span>
+    <h2 class="title">Double down where <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">activated users</span> come from</h2>
+    <p class="sub">2x the input. More than 2x the outcome?</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:500px 1fr 400px;gap:40px;align-items:start">
+    <div style="display:grid;gap:12px"><span class="label">Where visits come from</span><figure class="photo" style="--photo-h: 380px"><img src="media/legacy-506-clarity-referrers.png" alt="Microsoft Clarity referrer panel with page visits per source"></figure></div>
+    <div style="display:grid;gap:12px"><span class="label">Activated users per channel · made up</span><svg viewBox="0 0 700 388" role="img" aria-label="Activated users per channel: demo users 5, introductions 3, cold LinkedIn 1, recruiter meetup 1. Double down on demo users" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="0" width="700" height="88" rx="12" style="fill:var(--primary-tint);stroke:var(--primary);stroke-width:3"/><rect x="560" y="18" width="126" height="52" rx="8" style="fill:var(--marker)"/><text x="623" y="53" text-anchor="middle" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">Here</text><foreignObject x="16" y="0" width="270" height="88"><div xmlns="http://www.w3.org/1999/xhtml" style="height:88px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:30px;font-weight:700;line-height:1.15;color:var(--foreground)">Demo users</div></foreignObject><rect x="290" y="18" width="200.0" height="52" rx="6" style="fill:var(--primary)"/><text x="506.0" y="57" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">5</text><foreignObject x="16" y="100" width="270" height="88"><div xmlns="http://www.w3.org/1999/xhtml" style="height:88px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:30px;font-weight:700;line-height:1.15;color:var(--foreground)">Introductions</div></foreignObject><rect x="290" y="118" width="120.0" height="52" rx="6" style="fill:var(--context)"/><text x="426.0" y="157" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">3</text><foreignObject x="16" y="200" width="270" height="88"><div xmlns="http://www.w3.org/1999/xhtml" style="height:88px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:30px;font-weight:700;line-height:1.15;color:var(--foreground)">Cold LinkedIn</div></foreignObject><rect x="290" y="218" width="40.0" height="52" rx="6" style="fill:var(--context)"/><text x="346.0" y="257" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">1</text><foreignObject x="16" y="300" width="270" height="88"><div xmlns="http://www.w3.org/1999/xhtml" style="height:88px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;font-size:30px;font-weight:700;line-height:1.15;color:var(--foreground)">Recruiter meetup</div></foreignObject><rect x="290" y="318" width="40.0" height="52" rx="6" style="fill:var(--context)"/><text x="346.0" y="357" text-anchor="start" style="fill:var(--foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">1</text></svg></div>
+    <div style="display:grid;gap:12px"><span class="label">Then measure again</span><svg viewBox="0 0 500 520" role="img" aria-label="Loop: twice the input into the best channel, more than twice the outcome" style="display:block;width:90%;height:auto;margin:0 auto"><defs><marker id="lp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><text x="250" y="40" text-anchor="middle" style="fill:var(--foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">2x the input</text><path d="M30 80 C 200 160, 300 160, 470 80" style="stroke:var(--primary);stroke-width:7;fill:none" marker-end="url(#lp)"/><rect x="80" y="200" width="340" height="120" rx="16" style="fill:var(--primary)"/><foreignObject x="80" y="200" width="340" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:34px;font-weight:800">Demo users</div></foreignObject><path d="M470 440 C 300 360, 200 360, 30 440" style="stroke:var(--diagram-magenta);stroke-width:7;fill:none" marker-end="url(#lp)"/><text x="250" y="500" text-anchor="middle" style="fill:var(--diagram-magenta);font-size:36px;font-weight:800;font-family:Inter,sans-serif">> 2x the outcome?</text></svg></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Microsoft Clarity screenshot on Bastian's screen, undated, page visits per referrer as set up in Validating problems (M04), branded and project names covered. Logos are trademarks of their owners. Activated users from the worked example of Finalist Alert, made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-anchor="funnel" data-anchor-part="posting" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Make numbers go brrr</span>
+    <h2 class="title">Once a channel works, reach <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">100 people</span> through it</h2>
+    <p class="sub">Then 1,000, then tests on your own site</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 520" role="img" aria-label="Upper rungs of the testing ladder: reach 100 people lit, reach 1,000 people, on-site tests" style="display:block;width:90%;height:auto;margin:0 auto"><polygon points="240,0 1400,0 1480,120 160,120" style="fill:var(--primary)"/><text x="820" y="55" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Launch MVP on-site tests</text><text x="820" y="98" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Plan the strategy, set up on-site metrics</text><polygon points="180,140 1460,140 1540,260 100,260" style="fill:var(--primary)"/><text x="820" y="195" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Reach 1,000 people</text><text x="820" y="238" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">A paid audience, quantitative</text><polygon points="120,280 1520,280 1600,400 40,400" style="fill:var(--diagram-magenta)"/><text x="820" y="335" text-anchor="middle" style="fill:var(--primary-foreground);font-size:36px;font-weight:800;font-family:Inter,sans-serif">Reach 100 people</text><text x="820" y="378" text-anchor="middle" style="fill:var(--primary-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Targeted social media, qualitative</text><rect x="0" y="440" width="1640" height="70" rx="10" style="fill:var(--context)"/><text x="820" y="487" text-anchor="middle" style="fill:var(--context-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Below them: team, friends, loose contacts and strangers, the earlier rungs</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Course material, upper rungs, time labels removed, its testers counted as people reached.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-anchor="funnel" data-anchor-part="funnel" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Now you · pairs · 2 minutes</span>
+    <h2 class="title">Where do most of your people <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">drop</span>?</h2>
+  </div>
+  <div class="content recall">
+    <ol><li></li><li></li><li></li><li></li><li></li></ol>
+    <div class="timer" data-timer="2"></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Count it: make the numbers go brrr">
+  <div class="head">
+    <span class="label">Input 3 of 4 · Count it · the answers</span>
+    <h2 class="title">Count it: people, per step, per <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">channel</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What do you count?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">People, not page views: reached, replied, talked, activated, paid</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you push each stage?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Each stage with its own tool. Start the flywheel before you need it</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">When do you double down?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Where your activated users come from. Then reach 100 people through it</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Input 4 of 4 · Chapter 6 of 9</span>
+    <h2 class="title">Charge for it: ask for money today</h2>
+    <p class="summary">Ask at your offer's price, take the payment on the spot, log every objection.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Input 4 of 4 · Charge for it · three questions</span>
+    <h2 class="title">When do you ask for <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">money</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">Why ask for money now?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">How do you ask?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">What counts as a payment?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="build" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Mantra · re-shown from Validating problems (M04)</span>
+    <h2 class="title">Real validation comes through the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">credit card</span></h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Sign-ups, active users, paying customers as three rising steps"><g><rect x="0" y="300" width="520" height="170" rx="18" style="fill:var(--context)"/><text x="260" y="370" text-anchor="middle" style="fill:var(--foreground);font-size:42px;font-weight:800;font-family:Inter,sans-serif">Get sign-ups</text><text x="260" y="420" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">signal</text></g><g data-step="1"><rect x="540" y="160" width="520" height="310" rx="18" style="fill:var(--primary)"/><text x="800" y="230" text-anchor="middle" style="fill:var(--primary-foreground);font-size:42px;font-weight:800;font-family:Inter,sans-serif">Get active users</text><text x="800" y="280" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">signal</text></g><g data-step="2"><rect x="1080" y="20" width="520" height="450" rx="18" style="fill:var(--key)"/><text x="1340" y="90" text-anchor="middle" style="fill:var(--primary-foreground);font-size:42px;font-weight:800;font-family:Inter,sans-serif">Get paying customers</text><text x="1340" y="140" text-anchor="middle" style="fill:var(--primary-foreground);font-size:32px;font-weight:600;font-family:Inter,sans-serif">validation</text></g></svg></div>
+  <footer class="prov" data-kind="Bastian">Course material, as Validating problems (M04) showed it. Glossary, "Validation" and "Signal".</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="paid" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Ask for money today</span>
+    <h2 class="title">Customers pay. Everyone else is a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">fan</span></h2>
+    <p class="sub">Fans are lovely and pay no rent</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="A fan likes and signs up, a customer has paid" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="0" width="760" height="470" rx="22" style="fill:var(--context)"/><circle cx="190" cy="150" r="70" style="fill:var(--context-foreground)"/><rect x="110" y="230" width="160" height="200" rx="60" style="fill:var(--context-foreground)"/><path d="M0,-8 C-8,-22 -32,-12 -20,8 L0,28 L20,8 C32,-12 8,-22 0,-8 Z" transform="translate(420 110) scale(1.4)" style="fill:var(--diagram-magenta)"/><path d="M0,-8 C-8,-22 -32,-12 -20,8 L0,28 L20,8 C32,-12 8,-22 0,-8 Z" transform="translate(500 110) scale(1.4)" style="fill:var(--diagram-magenta)"/><path d="M0,-8 C-8,-22 -32,-12 -20,8 L0,28 L20,8 C32,-12 8,-22 0,-8 Z" transform="translate(580 110) scale(1.4)" style="fill:var(--diagram-magenta)"/><foreignObject x="330" y="170" width="410" height="260"><div xmlns="http://www.w3.org/1999/xhtml" style="height:260px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:32px;line-height:1.35;color:var(--context-foreground)"><div style="text-align:left"><b>Fan</b><br>Likes it, signs up, says "love it"</div></div></foreignObject><rect x="880" y="0" width="760" height="470" rx="22" style="fill:var(--primary-tint);stroke:var(--primary);stroke-width:4"/><circle cx="1070" cy="150" r="70" style="fill:var(--primary)"/><rect x="990" y="230" width="160" height="200" rx="60" style="fill:var(--primary)"/><rect x="1230" y="60" width="300" height="110" rx="10" style="fill:var(--marker)"/><text x="1380" y="130" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">€49 paid</text><foreignObject x="1210" y="190" width="410" height="240"><div xmlns="http://www.w3.org/1999/xhtml" style="height:240px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:32px;line-height:1.35;color:var(--foreground)"><div style="text-align:left"><b>Customer</b><br>Their money is on your account</div></div></foreignObject></svg></div>
+  <footer class="prov" data-kind="Bastian">Course material, "Their money is on your bank account". Glossary, "Customer".</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="paid" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Ask for money today · research</span>
+    <h2 class="title">"I'd pay for that" is <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">not a payment</span></h2>
+    <p class="sub">Stated values ran a median 1.35 times real ones</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1080px 1fr;gap:48px;align-items:center"><svg viewBox="0 0 1150 430" role="img" aria-label="Stated willingness to pay 1.35 against actual payment 1.00, median of 28 studies" style="display:block;width:100%;height:auto;margin:0 auto"><text x="0" y="90" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Said they'd pay</text><rect x="300" y="20" width="700.0" height="110" rx="12" style="fill:var(--context)"/><text x="1020.0" y="94" text-anchor="start" style="fill:var(--foreground);font-size:52px;font-weight:800;font-family:Inter,sans-serif">1.35</text><text x="0" y="240" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Actually paid</text><rect x="300" y="170" width="518.5185185185185" height="110" rx="12" style="fill:var(--primary)"/><text x="838.5185185185185" y="244" text-anchor="start" style="fill:var(--foreground);font-size:52px;font-weight:800;font-family:Inter,sans-serif">1.00</text><text x="0" y="370" text-anchor="start" style="fill:var(--muted-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Stated value as a multiple of the real payment, real = 1.00.</text><text x="0" y="410" text-anchor="start" style="fill:var(--muted-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Median of 28 studies, 83 comparisons. Many far above it.</text></svg><div class="sticky" style="font-size:30px;max-width:460px">"I'd pay $X for that." Hypothetical money isn't real. Ask for a pre-order.</div></div>
+  <footer class="prov" data-kind="Research">Murphy et al. (2005), 28 valuation studies. Mom Test, framework 01.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="paid" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Ask for money today · research</span>
+    <h2 class="title">Zero is a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">special</span> price</h2>
+    <p class="sub">One cent less, and the choices flipped</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 400" role="img" aria-label="At 1 cent 27 percent took the Kiss, when free 69 percent did" style="display:block;width:100%;height:auto;margin:0 auto"><text x="0" y="110" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Kiss 1¢, truffle 15¢</text><rect x="420" y="40" width="318.6" height="110" rx="0" style="fill:var(--context)"/><text x="444" y="110" text-anchor="start" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Kiss 27%</text><rect x="738.6" y="40" width="861.4" height="110" rx="0" style="fill:var(--primary)"/><text x="1576" y="110" text-anchor="end" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Truffle 73%</text><text x="0" y="280" text-anchor="start" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">Kiss free, truffle 14¢</text><rect x="420" y="210" width="814.1999999999999" height="110" rx="0" style="fill:var(--diagram-magenta)"/><text x="444" y="280" text-anchor="start" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Kiss 69%</text><rect x="1234.1999999999998" y="210" width="365.80000000000007" height="110" rx="0" style="fill:var(--primary)"/><text x="1576" y="280" text-anchor="end" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Truffle 31%</text><text x="420" y="384" text-anchor="start" style="fill:var(--muted-foreground);font-size:26px;font-weight:600;font-family:Inter,sans-serif">Share of buyers who took each chocolate, each row 100%</text></svg></div>
+  <footer class="prov" data-kind="Research">Shampanier, Mazar and Ariely (2007), experiment 2: real purchases, 398 people, shares of those who took a chocolate.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="paid" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">The ask</span>
+    <h2 class="title">Ask today, at your <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">offer's price</span></h2>
+    <p class="sub">Name the price, send the link, stay quiet</p>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 520px;gap:56px;align-items:center">
+    <div class="chat"><div class="bub them">This would really help us.</div><div class="bub you">It's <span class="hl2">€49 a month</span>. I can set it up now and send you the payment link while we talk. Shall we?</div><div class="bub quiet">… and then stop talking</div></div>
+    <div style="display:grid;gap:20px"><span class="label">Not an ask</span><p class="notask"><s>"Would you pay for something like this?"</s></p><p class="notask"><s>"We launch soon. Can I add you to the list?"</s></p></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">First users (M08) homework, move 5, ask at your price. Team Stack, section 2: send the link while on the call. Antoine's tricks: after closing, shut up. Call made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-variant="step" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Live demo · Stripe Payment Link · sandbox</span>
+    <h2 class="title">Step 1: Create the product and its price</h2>
+  </div>
+  <div class="content howto" style="grid-template-columns:auto 1fr;column-gap:48px">
+    <figure class="shot zoom" style="--shot-h:600px"><div class="frame"><img src="media/m08-pay-1-product.png" data-dpr="2" alt="The provider's Add a new product panel in sandbox mode: name Finalist Alert, first month, Recurring, price 49.00 euros, billing period Monthly, and the Add product button"><span class="target" style="--x:69.87%;--y:82.44%;--w:19.63%;--h:10.43%"><span class="badge" style="left:calc(100% + 18px);right:auto">1</span></span></div></figure>
+    <div class="howto-side">
+      <figure class="where" style="width:400px"><div class="frame"><img src="media/m08-pay-1-product-full.png" alt=""><span class="crop" style="--x:17.24%;--y:34.66%;--w:52.63%;--h:52.27%"></span></div></figure>
+      <ol class="demo-steps"><li class="now"><span class="badge">1</span>Create the product and its price</li><li class=""><span class="badge">2</span>Create the link</li><li class=""><span class="badge">3</span>Send it while you're still talking</li><li class=""><span class="badge">4</span>See the payment arrive</li></ol>
+      <div class="sticky" style="width:auto;padding:20px 26px;font-size:26px;--tilt:-1deg">Sandbox first. No real money moves.</div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">A payment provider's sandbox, prototyped for this course. Stripe's real screens look different. Steps and button names after docs.stripe.com/payment-links, accessed 2026-10-20, product made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-variant="step" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Live demo · Stripe Payment Link · sandbox</span>
+    <h2 class="title">Step 2: Create the link</h2>
+  </div>
+  <div class="content howto" style="grid-template-columns:auto 1fr;column-gap:48px">
+    <figure class="shot zoom" style="--shot-h:600px"><div class="frame"><img src="media/m08-pay-2-link.png" data-dpr="2" alt="New payment link with the product Finalist Alert, first month, 49 euros a month, selected, quantity 1, and the Create link button"><span class="target" style="--x:74.8%;--y:75.5%;--w:17.7%;--h:10.43%"><span class="badge" style="right:calc(100% + 18px)">2</span></span></div></figure>
+    <div class="howto-side">
+      <figure class="where" style="width:400px"><div class="frame"><img src="media/m08-pay-2-link-full.png" alt=""><span class="crop" style="--x:17.24%;--y:31.02%;--w:52.63%;--h:52.27%"></span></div></figure>
+      <ol class="demo-steps"><li class=""><span class="badge">1</span>Create the product and its price</li><li class="now"><span class="badge">2</span>Create the link</li><li class=""><span class="badge">3</span>Send it while you're still talking</li><li class=""><span class="badge">4</span>See the payment arrive</li></ol>
+      <div class="sticky" style="width:auto;padding:20px 26px;font-size:26px;--tilt:-1deg">One shared team account, never a private one.</div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">A payment provider's sandbox, prototyped for this course. Stripe's real screens look different. Steps and button names after docs.stripe.com/payment-links, accessed 2026-10-20, product made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-variant="step" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Live demo · Stripe Payment Link · sandbox</span>
+    <h2 class="title">Step 3: Send it while you're still talking</h2>
+  </div>
+  <div class="content howto" style="grid-template-columns:auto 1fr;column-gap:48px">
+    <figure class="shot zoom" style="--shot-h:600px"><div class="frame"><img src="media/m08-pay-3-copy.png" data-dpr="2" alt="Your payment link is ready: the sandbox link with a Copy button, and QR code, Buy button and Open"><span class="target" style="--x:77.28%;--y:45.36%;--w:14.97%;--h:10.43%"><span class="badge" style="right:calc(100% + 18px)">3</span></span></div></figure>
+    <div class="howto-side">
+      <figure class="where" style="width:400px"><div class="frame"><img src="media/m08-pay-3-copy-full.png" alt=""><span class="crop" style="--x:17.24%;--y:18.75%;--w:52.63%;--h:52.27%"></span></div></figure>
+      <ol class="demo-steps"><li class=""><span class="badge">1</span>Create the product and its price</li><li class=""><span class="badge">2</span>Create the link</li><li class="now"><span class="badge">3</span>Send it while you're still talking</li><li class=""><span class="badge">4</span>See the payment arrive</li></ol>
+      <div class="sticky" style="width:auto;padding:20px 26px;font-size:26px;--tilt:-1deg">Paste it into the chat. Then stop talking.</div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">A payment provider's sandbox, prototyped for this course. Stripe's real screens look different. Steps and button names after docs.stripe.com/payment-links, accessed 2026-10-20, product made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="demo" data-variant="step" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Live demo · Stripe Payment Link · sandbox</span>
+    <h2 class="title">Step 4: See the payment arrive</h2>
+  </div>
+  <div class="content howto" style="grid-template-columns:auto 1fr;column-gap:48px">
+    <figure class="shot zoom" style="--shot-h:600px"><div class="frame"><img src="media/m08-pay-4-payment.png" data-dpr="2" alt="Payments in sandbox mode: one payment of 49.00 euros, Succeeded, Finalist Alert, first month, card ending 4242"><span class="target" style="--x:2.88%;--y:32.39%;--w:92.75%;--h:11.09%"><span class="badge" style="left:16px;right:auto;top:calc(100% + 22px);transform:none">4</span></span></div></figure>
+    <div class="howto-side">
+      <figure class="where" style="width:400px"><div class="frame"><img src="media/m08-pay-4-payment-full.png" alt=""><span class="crop" style="--x:18.62%;--y:25.91%;--w:52.63%;--h:52.27%"></span></div></figure>
+      <ol class="demo-steps"><li class=""><span class="badge">1</span>Create the product and its price</li><li class=""><span class="badge">2</span>Create the link</li><li class=""><span class="badge">3</span>Send it while you're still talking</li><li class="now"><span class="badge">4</span>See the payment arrive</li></ol>
+      <div class="sticky" style="width:auto;padding:20px 26px;font-size:26px;--tilt:-1deg">Crop customer data out of your proof.</div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">A payment provider's sandbox, prototyped for this course. Stripe's real screens look different. Steps and button names after docs.stripe.com/payment-links, accessed 2026-10-20, product made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Ask for money today</span>
+    <h2 class="title">B2B often pays by invoice. <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">Number it</span> from 001</h2>
+    <p class="sub">Paid, a numbered invoice counts like a link</p>
+  </div>
+  <div class="content media-split flip" style="--media-w: 1000px">
+    <figure class="photo" style="--photo-h: 520px"><img src="media/invoice-example.png" alt="A made-up numbered invoice, number 001, for one month of Finalist Alert at 49 euros" style="box-shadow:none"></figure>
+    <div style="display:grid;gap:28px"><p style="font:700 40px/1.3 var(--font-sans);margin:0">The number makes it <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">proof</span>. Count from 001.</p><div class="sticky" style="font-size:30px">Bigger B2B deals add two things: a signed contract, and the ink is dry.</div></div>
+  </div>
+  <footer class="prov" data-kind="Bastian">Grading Rubric. Legal Basics, section 4. Invoice made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Ask for money today</span>
+    <h2 class="title">Log every no, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">word for word</span></h2>
+    <p class="sub">Heard three times? Change the offer or the product</p>
+  </div>
+  <div class="content"><table class="table"><thead><tr><th>#</th><th>Who</th><th>Word for word</th><th>Category</th></tr></thead><tbody><tr><td>1</td><td>Owner, 6 techs</td><td>"€400 for software we might not keep? I pay per use, not upfront."</td><td>price structure</td></tr><tr><td>5</td><td>Ops lead, 8 techs</td><td>"Send an invoice and I'll get it approved — don't make me use PayPal."</td><td>payment rails</td></tr><tr><td>7</td><td>Owner, 20 techs</td><td>"Per-tech pricing punishes me for growing."</td><td>price structure</td></tr><tr class="is-hl"><td>8</td><td>Ops lead, 11 techs</td><td>"Can it work offline?" (third time asked)</td><td>product/constraint</td></tr></tbody></table></div>
+  <footer class="prov" data-kind="Illustrative">Objection Log exemplar, team TurbineTrack, synthetic, in the course resources.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Ask for money today</span>
+    <h2 class="title">Count only payments from <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">outside</span> your social graph</h2>
+    <p class="sub">Any amount counts. Friends' money never does</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 460" role="img" aria-label="Inner circle of people you knew before and course teams does not count, people you met through the venture count with a link, invoice or deposit" style="display:block;width:100%;height:auto;margin:0 auto"><circle cx="820" cy="230" r="225" style="fill:var(--primary-tint);stroke:var(--primary);stroke-width:4"/><circle cx="820" cy="250" r="125" style="fill:var(--context)"/><foreignObject x="710" y="170" width="220" height="120"><div xmlns="http://www.w3.org/1999/xhtml" style="height:120px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:var(--context-foreground);font-size:26px;font-weight:700;line-height:1.2">Anyone you knew before · course teams</div></foreignObject><text x="820" y="318" text-anchor="middle" style="fill:var(--context-foreground);font-size:26px;font-weight:800;font-family:Inter,sans-serif">€ never counts</text><text x="820" y="70" text-anchor="middle" style="fill:var(--primary);font-size:28px;font-weight:800;font-family:Inter,sans-serif">People you met</text><text x="820" y="104" text-anchor="middle" style="fill:var(--primary);font-size:28px;font-weight:800;font-family:Inter,sans-serif">through this venture</text><rect x="220" y="90" width="260" height="84" rx="10" style="fill:var(--marker)"/><text x="350" y="144" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Payment link</text><rect x="1160" y="90" width="260" height="84" rx="10" style="fill:var(--marker)"/><text x="1290" y="144" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Paid invoice</text><rect x="1160" y="300" width="260" height="84" rx="10" style="fill:var(--marker)"/><text x="1290" y="354" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Deposit</text></svg></div>
+  <footer class="prov" data-kind="Bastian">Grading Rubric, the Revenue Ladder. First users (M08) homework, the bar.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Now you · pairs in your team · 2 minutes</span>
+    <h2 class="title">Say your price sentence <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">out loud</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1200px 1fr;gap:64px;align-items:center">
+    <div><svg viewBox="0 0 1200 344" style="display:block;width:100%;height:auto" role="img" aria-label="Prompts"><rect x="0" y="0" width="330" height="96" rx="48" style="fill:var(--primary)"/><text x="165.0" y="61" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Write</text><text x="370" y="62" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">What they get, the price, the next step today</text><rect x="0" y="124" width="330" height="96" rx="48" style="fill:var(--diagram-magenta)"/><text x="165.0" y="185" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Say</text><text x="370" y="186" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">It to your co-founder</text><rect x="0" y="248" width="330" height="96" rx="48" style="fill:var(--diagram-navy)"/><text x="165.0" y="309" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Stop</text><text x="370" y="310" text-anchor="start" style="fill:var(--foreground);font-size:36px;font-weight:600;font-family:Inter,sans-serif">Talking after the price</text></svg></div>
+    <div style="display:grid;gap:32px;justify-items:start"><div class="timer" data-timer="2"></div><div><span class="label">Output</span><p style="font-size:32px;font-weight:700;margin-top:8px">Your price sentence</p></div></div>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Charge for it: ask for money today">
+  <div class="head">
+    <span class="label">Input 4 of 4 · Charge for it · the answers</span>
+    <h2 class="title">Charge for it: name the price, then stay <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">quiet</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why ask for money now?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Customers pay, everyone else is a fan. "I'd pay for that" is no payment</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you ask?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Today, at your offer's price: name it, send the link, stay quiet</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What counts as a payment?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Any amount from outside your social graph. A paid, numbered invoice counts too</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Chapter 7 of 9</span>
+    <h2 class="title">Wrap-up and check-out</h2>
+    <p class="summary">Two pictures to keep, three questions to reflect on, and your week.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="claim" data-anchor="funnel" data-anchor-part="customers" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Recap · today</span>
+    <h2 class="title">Be their concierge, then count <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">people</span> up to paid</h2>
+    <p class="sub">Per channel, not page views</p>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="From the page funnel of legacy 501 to the people funnel of this week, activated lit" style="display:block;width:90%;height:auto;margin:0 auto"><defs><marker id="mp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><rect x="0" y="0" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="60" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Impressions</text><rect x="0" y="120" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="180" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Clicks</text><rect x="0" y="240" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="300" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Sign-ups</text><rect x="0" y="360" width="420" height="96" rx="10" style="fill:var(--context)"/><text x="210" y="420" text-anchor="middle" style="fill:var(--context-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Customers</text><text x="210" y="520" text-anchor="middle" style="fill:var(--muted-foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">The page funnel</text><rect x="760" y="0" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="52" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Reached</text><rect x="760" y="96" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="148" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Replied</text><rect x="760" y="192" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="244" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Talked</text><rect x="760" y="288" width="460" height="80" rx="10" style="fill:var(--diagram-magenta)"/><text x="990" y="340" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Activated</text><rect x="760" y="384" width="460" height="80" rx="10" style="fill:var(--primary)"/><text x="990" y="436" text-anchor="middle" style="fill:var(--primary-foreground);font-size:34px;font-weight:800;font-family:Inter,sans-serif">Paid</text><text x="990" y="520" text-anchor="middle" style="fill:var(--primary);font-size:28px;font-weight:700;font-family:Inter,sans-serif">People from your segment, by name</text><path d="M740 6 L740 458" style="stroke:var(--primary);stroke-width:8;fill:none"/><path d="M440 230 L716 230" style="stroke:var(--primary);stroke-width:8;fill:none" marker-end="url(#mp)"/><foreignObject x="1250" y="270" width="390" height="140"><div xmlns="http://www.w3.org/1999/xhtml" style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;font-size:30px;line-height:1.3;color:var(--foreground)"><div style="text-align:left"><b>Activated</b> = reached the outcome your product promises</div></div></foreignObject></svg></div>
+  <footer class="prov" data-kind="Framework">Course graphic, the funnel. Glossary, "Activated user".</footer>
+  </section>
+
+<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Recap · rung six</span>
+    <h2 class="title">From today you climb to the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">wallet</span></h2>
+  </div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="paid"></div></div>
+  <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup.</footer>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 1 of 3 · the content</span><h2 class="title">What could you apply?</h2></div>
+  <div class="content refl" style="--cols: 2"><div class="card"><span class="emo">🛠️</span><p>What could you <span class="hl">apply</span>?</p></div><div class="card"><span class="emo">🤕</span><p>What gave you a <span class="hl">hard time</span>?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 2 of 3 · the process</span><h2 class="title">Man vs. machine</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🤖</span><p>Where did <span class="hl">AI</span> actually help you?</p></div><div class="card"><span class="emo">🧠</span><p>Where was <span class="hl">your genius</span> needed?</p></div><div class="card"><span class="emo">🕴️</span><p>What are your best <span class="hl">hacks</span> to share?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="reflection" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">Reflection 3 of 3 · the results</span><h2 class="title">Rose, thorn, bud</h2></div>
+  <div class="content refl"><div class="card"><span class="emo">🌹</span><p>What was the <span class="hl">breakthrough</span> today?</p></div><div class="card"><span class="emo">🌵</span><p>What was the <span class="hl">hardest part</span> today?</p></div><div class="card"><span class="emo">🌱</span><p>What is an <span class="hl">idea/feature</span> you didn't have time to finish, but want to explore later?</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Wrap-up and check-out">
+  <span class="label">Homework until next time</span>
+  <p class="mantra-lead" style="max-width:1000px;font-size:42px"><b>Ask named people from your segment to pay for your offer at its price, and win 3 paying users from outside your social graph, shown in your payment dashboard or on a numbered invoice.</b></p>
+  <div class="mantra-line"><span class="mantra-num">3</span><span class="mantra-word">paying users</span></div>
+  <div class="sticky" style="width:600px;font-size:26px;bottom:140px">
+    <p>The learning floor is your first € from outside your social graph.</p>
+    <p class="why">"If none of the first 10 people from our segment we ask to pay says yes by [midweek date], we change the offer or the segment before the next ask. No yes from fewer than 10 asks crosses it too." Logged before the first ask, counted across the team.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">First users (M08) homework, the bar and the kill line.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · how to do it</span>
+    <h2 class="title">Set up payment <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">first</span>. Then ask and follow up</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 1fr;gap:16px 22px;align-content:start"><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:14px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">1</span><div><p style="font-size:28px;line-height:1.3;margin:0"><b>Set up a way to get paid</b> first, a team payment link (Team Stack, section 2) or an invoice from 001 (Legal Basics, section 4).</p></div></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:14px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">2</span><div><p style="font-size:28px;line-height:1.3;margin:0"><b>Start in your records,</b> The ten from The kill decision (M07) first. Ask every buyer and every no for names. Then your segment's groups, found by AI research.</p></div></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:14px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">4</span><div><p style="font-size:28px;line-height:1.3;margin:0"><b>Get them on a call.</b> Listen 80% of the time. Record only with consent.</p></div></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:14px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">5</span><div><p style="font-size:28px;line-height:1.3;margin:0"><b>Ask for the money there,</b> at your price. Send the link while you talk.</p><p style="font-size:26px;line-height:1.3;margin:10px 0 0;color:var(--diagram-magenta)"><b>Watch out.</b> "Would you pay?" is not an ask. A favour discount is not a sale.</p></div></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:14px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">6</span><div><p style="font-size:28px;line-height:1.3;margin:0"><b>Set it up for them on the spot.</b> Do by hand what the product can't.</p></div></div><div style="display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:14px 18px;border-radius:14px;background:var(--card);border:2px solid var(--border)"><span style="display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font-size:28px;font-weight:800">7</span><div><p style="font-size:28px;line-height:1.3;margin:0"><b>Follow up until yes or no.</b> Date every open thread. Log objections word for word.</p></div></div></div>
+  <footer class="prov" data-kind="Bastian">How to do it, moves 1, 2, 4, 5, 6 and 7, First users (M08) homework.</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Wrap-up and check-out">
+  <div class="head">
+    <span class="label">Homework · what you come back with</span>
+    <h2 class="title">Good is paid by <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">strangers</span></h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:220px 1.3fr 1fr;gap:22px 24px;align-content:start"><div></div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;color:var(--primary)">GOOD</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;color:var(--muted-foreground)">WEAK</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-foreground);align-self:center">Asks</div><div style="padding:20px 26px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line);font-size:34px;font-weight:600;line-height:1.3">18 recruiters asked on calls, €49</div><div style="padding:20px 26px;border-radius:16px;background:var(--context);color:var(--context-foreground);font-size:34px;font-weight:500;line-height:1.3">40 cold messages</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-foreground);align-self:center">Customers</div><div style="padding:20px 26px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line);font-size:34px;font-weight:600;line-height:1.3">3 by link, 1 by invoice, all strangers</div><div style="padding:20px 26px;border-radius:16px;background:var(--context);color:var(--context-foreground);font-size:34px;font-weight:500;line-height:1.3">An aunt paid "to help"</div><div style="font:700 26px var(--font-mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-foreground);align-self:center">Next</div><div style="padding:20px 26px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line);font-size:34px;font-weight:600;line-height:1.3">Demo users convert, cold LinkedIn doesn't</div><div style="padding:20px 26px;border-radius:16px;background:var(--context);color:var(--context-foreground);font-size:34px;font-weight:500;line-height:1.3">"Everyone loved it"</div></div>
+  <footer class="prov" data-kind="Illustrative">What you come back with, First users (M08) homework. Made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 1 of 2</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Aulet, B. (2013). <i>Disciplined entrepreneurship: 24 steps to a successful startup</i>. Wiley. Decision-making unit as summarised on d-eship.com.</li>
+      <li>Covey, S. R. (1989). <i>The 7 habits of highly effective people</i>. Free Press. Habit 5, franklincovey.com.</li>
+      <li>Fisher, R., &amp; Ury, W. (1981). <i>Getting to yes: Negotiating agreement without giving in</i>. Houghton Mifflin.</li>
+      <li>Graham, P. (2013, July). <i>Do things that don't scale</i>. paulgraham.com/ds.html</li>
+      <li>Kolysh, M. (2026, June 22). <i>How to get your first 10 customers</i> [Video]. Y Combinator, YC Startup Library.</li>
+      <li>Murphy, J. J., Allen, P. G., Stevens, T. H., &amp; Weatherhead, D. (2005). A meta-analysis of hypothetical bias in stated preference valuation. <i>Environmental and Resource Economics, 30</i>(3), 313–325.</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and check-out">
+  <div class="head"><span class="label">References · 2 of 2</span><h2 class="title">Sources in this deck</h2></div>
+  <div class="content">
+    <ol class="refs">
+      <li>Shampanier, K., Mazar, N., &amp; Ariely, D. (2007). Zero as a special price: The true value of free products. <i>Marketing Science, 26</i>(6), 742–757.</li>
+      <li>Stripe. (2026). <i>Payment Links</i> and <i>Testing</i> documentation. docs.stripe.com, accessed 20 October 2026.</li>
+      <li>Unbounce. (2024). <i>Conversion benchmark report: SaaS</i>. unbounce.com/conversion-benchmark-report/saas-conversion-rate/</li>
+      <li>Weger, H., Castle Bell, G., Minei, E. M., &amp; Robinson, M. C. (2014). The relative effectiveness of active listening in initial interactions. <i>International Journal of Listening, 28</i>(1), 13–31.</li>
+      <li>Course resources: Glossary, Grading Rubric, Team Stack (section 2), Legal Basics (section 4), Objection Log exemplar, frameworks 01, 02, 03 and 06.</li>
+    </ol>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Wrap-up and check-out">
+  <p class="statement">Go sell. See you with your first customers!</p>
+  </section>
+
+
+<section class="slide" data-archetype="title" data-chapter="Workshop: Sell by hand" data-block>
+  <div class="head">
+    <span class="label">Module 08 · Finding First Users · Workshop · 90 minutes</span>
+    <h1 class="title">Workshop: Sell by hand</h1>
+    <p class="sub">Who are your first ten customers — by name?</p>
+  </div>
+  <div class="course-path" aria-label="Course path, module 08 of 00 to 12"><span class="label">Course path</span><ol><li class="done">00</li><li class="done">01</li><li class="done">02</li><li class="done">03</li><li class="done">04</li><li class="done">05</li><li class="done">06</li><li class="done">07</li><li class="now">08</li><li>09</li><li>10</li><li>11</li><li>12</li></ol></div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-chapter="Workshop: Sell by hand">
+  <div class="head">
+    <span class="label">Module 08 · Workshop</span>
+    <h2 class="title">Workshop: Sell by hand</h2>
+    <p class="summary">Real people, real asks, real money, with a founder in every conversation.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: Sell by hand">
+  <div class="head">
+    <span class="label">Workshop · step 1 of 3</span>
+    <h2 class="title">Name your ten, write the ask</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 560px;gap:36px;align-items:stretch"><div class="wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">1</span>STEP 1 · 25 MIN</span>
+      <h3>NAME YOUR TEN, WRITE THE ASK</h3>
+      <p class="goal">Ten people who pass all four, a message each</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Confirm your verdict, offer and price</span></li>
+        <li><i class="icon icon-arrow"></i><span>Pull names from your records, the ten from The kill decision (M07) first</span></li>
+        <li><i class="icon icon-arrow"></i><span>Keep those who pass all four filters</span></li>
+        <li><i class="icon icon-arrow"></i><span>Log the line, dated with your midweek day, first</span></li>
+        <li><i class="icon icon-arrow"></i><span>Write in their words. Quote, offer, price, one next step</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Ten names and messages, a dated line</span><span><b>Minutes</b> 25</span></p>
+    </div>
+  </div>
+  <div class="gw">
+    <div class="gw-good"><span>Good</span><p>"Lena, you lose a finalist a month. We set it up in 20 minutes, €49 a month. Call at 10?"</p></div>
+    <div class="gw-weak"><span>Weak</span><p>"We're revolutionizing recruiting with AI. See our website!"</p></div>
+  </div></div>
+  <div class="timer" data-timer="25"></div>
+  <footer class="prov" data-kind="Bastian">First users (M08) workshop, step 1. Good and weak examples made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: Sell by hand">
+  <div class="head">
+    <span class="label">Workshop · step 2 of 3</span>
+    <h2 class="title">Ask live, set it up</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 560px;gap:36px;align-items:stretch"><div class="wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">2</span>STEP 2 · 40 MIN</span>
+      <h3>ASK LIVE, SET IT UP</h3>
+      <p class="goal">Every yes turned into use before the call ends</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Rehearse with a co-founder or an AI, labelled as prep</span></li>
+        <li><i class="icon icon-arrow"></i><span>Call whoever said yes to a demo, then message</span></li>
+        <li><i class="icon icon-arrow"></i><span>Ask for the money at your price, then stay quiet</span></li>
+        <li><i class="icon icon-arrow"></i><span>Set it up on a shared screen, send the link</span></li>
+        <li><i class="icon icon-arrow"></i><span>Log every answer, objections word for word</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> Asks made, answers and objections logged</span><span><b>Minutes</b> 40</span></p>
+    </div>
+  </div>
+  <div class="gw">
+    <div class="gw-good"><span>Good</span><p>Six asked, two calls, Lena paid €49 by link. Her objection, "Who types in our candidates?"</p></div>
+    <div class="gw-weak"><span>Weak</span><p>Ten LinkedIn messages with a link. "We'll see."</p></div>
+  </div></div>
+  <div class="timer" data-timer="40"></div>
+  <footer class="prov" data-kind="Bastian">First users (M08) workshop, step 2. Good and weak examples made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="workshop" data-variant="fields" data-chapter="Workshop: Sell by hand">
+  <div class="head">
+    <span class="label">Workshop · step 3 of 3</span>
+    <h2 class="title">Count, then commit</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 560px;gap:36px;align-items:stretch"><div class="wcards" style="--cols: 1">
+    <div class="wcard">
+      <span class="step"><span class="badge">3</span>STEP 3 · 25 MIN</span>
+      <h3>COUNT, THEN COMMIT</h3>
+      <p class="goal">Find the drop. Commit the week</p>
+      <ul>
+        <li><i class="icon icon-arrow"></i><span>Draw your funnel per channel, reached to paid</span></li>
+        <li><i class="icon icon-arrow"></i><span>Pick the channel that brings activated users</span></li>
+        <li><i class="icon icon-arrow"></i><span>Date every follow-up, never drop the thread</span></li>
+        <li><i class="icon icon-arrow"></i><span>Copy the bar, each founder names an ask count</span></li>
+      </ul>
+      <p class="out"><span><b>Output</b> A funnel per channel, follow-ups, targets</span><span><b>Minutes</b> 25</span></p>
+    </div>
+  </div>
+  <div class="gw">
+    <div class="gw-good"><span>Good</span><p>Demo users, 6 reached, 2 talked, 1 activated, 1 paid. Cold LinkedIn, 4 reached, 0 replies. Double down on demo users.</p></div>
+    <div class="gw-weak"><span>Weak</span><p>"1,200 impressions on our post!"</p></div>
+  </div></div>
+  <div class="timer" data-timer="25"></div>
+  <footer class="prov" data-kind="Bastian">First users (M08) workshop, step 3. Good and weak examples made up.</footer>
+  </section>
+
+<section class="slide" data-archetype="claim" data-chapter="Workshop: Sell by hand">
+  <div class="head">
+    <span class="label">Workshop · during step 1</span>
+    <h2 class="title">Arrived <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">empty-handed</span>?</h2>
+  </div>
+  <div class="content"><div class="sticky" style="font-size:40px;max-width:1300px">No offer or names? Price a concierge offer, what you'd do by hand for one person. Name ten from your interviews and your segment's groups. Ask.</div></div>
+  <footer class="prov" data-kind="Bastian">First users (M08) workshop, "Arrived empty-handed?".</footer>
+  </section>
+
+<section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Workshop: Sell by hand">
+  <span class="label">Homework until next time</span>
+  <p class="mantra-lead" style="max-width:1000px;font-size:42px"><b>Ask named people from your segment to pay for your offer at its price, and win 3 paying users from outside your social graph, shown in your payment dashboard or on a numbered invoice.</b></p>
+  <div class="mantra-line"><span class="mantra-num">3</span><span class="mantra-word">paying users</span></div>
+  <div class="sticky" style="width:600px;font-size:26px;bottom:140px">
+    <p>The learning floor is your first € from outside your social graph.</p>
+    <p class="why">"If none of the first 10 people from our segment we ask to pay says yes by [midweek date], we change the offer or the segment before the next ask. No yes from fewer than 10 asks crosses it too." Logged before the first ask, counted across the team.</p>
+  </div>
+  <footer class="prov" data-kind="Bastian">First users (M08) homework, the bar and the kill line.</footer>
+  </section>
+
+<section class="slide" data-archetype="closing" data-chapter="Workshop: Sell by hand">
+  <p class="statement">Go sell. See you with your first customers!</p>
+  </section>
+
+
+<section class="slide" data-archetype="title" data-chapter="Case discussion" data-block>
+  <div class="head">
+    <span class="label">Module 08 · Finding First Users · Case discussion · about 90 minutes</span>
+    <h1 class="title">Case discussion</h1>
+    <p class="sub">Who are your first ten customers — by name?</p>
+  </div>
+  <div class="course-path" aria-label="Course path, module 08 of 00 to 12"><span class="label">Course path</span><ol><li class="done">00</li><li class="done">01</li><li class="done">02</li><li class="done">03</li><li class="done">04</li><li class="done">05</li><li class="done">06</li><li class="done">07</li><li class="now">08</li><li>09</li><li>10</li><li>11</li><li>12</li></ol></div>
+  </section>
+
+<section class="slide" data-archetype="divider" data-variant="navy" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Module 08 · Case discussion</span>
+    <h2 class="title">Tacto: The First Customers</h2>
+    <p class="summary">Late September 2020 in Munich, with funding, a website and no customer on record.</p>
+  </div>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Vote 1 · hands or poll</span>
+    <h2 class="title">What should Tacto ask its first customers <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">for</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center"><svg viewBox="0 0 1640 260" role="img" aria-label="Vote: A, time and feedback in a partnership, or B, money from the first conversation at a price the founders name" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="0" width="800" height="260" rx="22" style="fill:var(--primary)"/><text x="80" y="160" text-anchor="middle" style="fill:var(--primary-foreground);font-size:120px;font-weight:800;font-family:Inter,sans-serif">A</text><foreignObject x="170" y="30" width="600" height="200"><div xmlns="http://www.w3.org/1999/xhtml" style="height:200px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:#fff;font-size:38px;font-weight:700;line-height:1.25">Time and feedback in a partnership</div></foreignObject><rect x="830" y="0" width="800" height="260" rx="22" style="fill:var(--diagram-magenta)"/><text x="910" y="160" text-anchor="middle" style="fill:var(--primary-foreground);font-size:120px;font-weight:800;font-family:Inter,sans-serif">B</text><foreignObject x="1000" y="30" width="600" height="200"><div xmlns="http://www.w3.org/1999/xhtml" style="height:200px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:#fff;font-size:38px;font-weight:700;line-height:1.25">Money from the first conversation, at a price the founders name</div></foreignObject></svg><div class="timer" data-timer="2"></div></div>
+  <footer class="prov">Case Tacto: The First Customers. Vote 1, before the discussion.</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · timeline</span>
+    <h2 class="title">From a start in early 2020 to a website with <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">no customer</span></h2>
+  </div>
+  <div class="content"><table class="table" style="font-size:26px"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody><tr><td style="white-space:nowrap">Early 2020</td><td>The founders start and talk with a wide range of Mittelstand firms, by Petry's account of 2023</td></tr><tr><td style="white-space:nowrap">16 July 2020</td><td>Entered in the commercial register as Tactum Technology GmbH, share capital €25,002</td></tr><tr><td style="white-space:nowrap">Mid-2020</td><td>First financing round, by Petry's account of 2023</td></tr><tr><td style="white-space:nowrap">22 August 2020</td><td>Name Tacto Technology GmbH, share capital €30,165</td></tr><tr><td style="white-space:nowrap">7 September 2020</td><td>deutsche-startups.de reports the investment by Visionaries Club and UVC Partners, amount not disclosed</td></tr><tr class="is-hl"><td style="white-space:nowrap">23 September 2020</td><td>First archived capture of tacto.ai, no product, no price, no customer on the site</td></tr></tbody></table></div>
+  <footer class="prov">Case Tacto: The First Customers. Exhibit 1, shortened, with two lines from the case text. The "by Petry's account" rows are his recollections of 2023.</footer>
+  </section>
+
+<section class="slide" data-archetype="table" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · Exhibit 2</span>
+    <h2 class="title">What tacto.ai showed on 23 September 2020</h2>
+  </div>
+  <div class="content"><table class="table" style="font-size:24px"><thead><tr><th>Page</th><th>What it said, verbatim</th></tr></thead><tbody><tr><td style="white-space:nowrap">Home, promise</td><td>"We support procurement teams to focus on what matters by automating what does not."</td></tr><tr><td style="white-space:nowrap">Home, call to action</td><td>"Interested in what we are building? Get in touch via hello@tacto.ai"</td></tr><tr><td style="white-space:nowrap">About, investors</td><td>Visionaries Club, "a Berlin-based early stage VC fund backed by leading European digital founders and family business entrepreneurs". UVC Partners, offering "strategic and operational support, as well as access to a vast network of corporate partners, experienced industry experts and international follow-on investors"</td></tr><tr><td style="white-space:nowrap">About, business angels</td><td>"Hanno Renner (Co-Founder Personio), Johannes Reck (Co-Founder GetYourGuide), Torsten Reil (Co-Founder NaturalMotion), and Michael Wax (Co-Founder Forto)"</td></tr><tr class="is-hl"><td style="white-space:nowrap">Not on the site</td><td>Product screens, a price, customers, partners</td></tr></tbody></table></div>
+  <footer class="prov">Source: tacto.ai, home page, About page and imprint, Internet Archive captures of 23 September 2020, see the case's notes. Extracted by the case writer, links and e-mail addresses of individuals left out. Case Tacto: The First Customers.</footer>
+  </section>
+
+<section class="slide" data-archetype="framework" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Case · board plan</span>
+    <h2 class="title">Whom first, and what does a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">yes</span> prove?</h2>
+  </div>
+  <div class="content diagram"><svg viewBox="0 0 1640 500" role="img" aria-label="Board plan: four columns, our records, investors' introductions, strangers in the segment, what a yes proves, and the two vote counts in the top right" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="90" width="390" height="70" rx="10" style="fill:var(--diagram-navy)"/><foreignObject x="0" y="90" width="390" height="70"><div xmlns="http://www.w3.org/1999/xhtml" style="height:70px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:800">Our records</div></foreignObject><rect x="0" y="170" width="390" height="330" rx="10" style="fill:var(--card);stroke:var(--border);stroke-width:3;stroke-dasharray:12 10"/><rect x="412" y="90" width="390" height="70" rx="10" style="fill:var(--diagram-navy)"/><foreignObject x="412" y="90" width="390" height="70"><div xmlns="http://www.w3.org/1999/xhtml" style="height:70px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:800">Investors' introductions</div></foreignObject><rect x="412" y="170" width="390" height="330" rx="10" style="fill:var(--card);stroke:var(--border);stroke-width:3;stroke-dasharray:12 10"/><rect x="824" y="90" width="390" height="70" rx="10" style="fill:var(--diagram-navy)"/><foreignObject x="824" y="90" width="390" height="70"><div xmlns="http://www.w3.org/1999/xhtml" style="height:70px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:800">Strangers in the segment</div></foreignObject><rect x="824" y="170" width="390" height="330" rx="10" style="fill:var(--card);stroke:var(--border);stroke-width:3;stroke-dasharray:12 10"/><rect x="1236" y="90" width="390" height="70" rx="10" style="fill:var(--diagram-magenta)"/><foreignObject x="1236" y="90" width="390" height="70"><div xmlns="http://www.w3.org/1999/xhtml" style="height:70px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;color:#fff;font-size:28px;font-weight:800">What a yes proves</div></foreignObject><rect x="1236" y="170" width="390" height="330" rx="10" style="fill:var(--card);stroke:var(--border);stroke-width:3;stroke-dasharray:12 10"/><rect x="1240" y="0" width="400" height="70" rx="10" style="fill:var(--sticky)"/><text x="1440" y="46" text-anchor="middle" style="fill:var(--foreground);font-size:30px;font-weight:800;font-family:Inter,sans-serif">Votes · A __ · B __</text></svg></div>
+  <footer class="prov">Case Tacto: The First Customers. Board plan for the discussion.</footer>
+  </section>
+
+<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Case discussion">
+  <div class="head">
+    <span class="label">Vote 2 · hands or poll</span>
+    <h2 class="title">Same question. Who <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">moved</span>?</h2>
+  </div>
+  <div class="content" style="display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center"><svg viewBox="0 0 1640 260" role="img" aria-label="Vote: A, time and feedback in a partnership, or B, money from the first conversation at a price the founders name" style="display:block;width:100%;height:auto;margin:0 auto"><rect x="0" y="0" width="800" height="260" rx="22" style="fill:var(--primary)"/><text x="80" y="160" text-anchor="middle" style="fill:var(--primary-foreground);font-size:120px;font-weight:800;font-family:Inter,sans-serif">A</text><foreignObject x="170" y="30" width="600" height="200"><div xmlns="http://www.w3.org/1999/xhtml" style="height:200px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:#fff;font-size:38px;font-weight:700;line-height:1.25">Time and feedback in a partnership</div></foreignObject><rect x="830" y="0" width="800" height="260" rx="22" style="fill:var(--diagram-magenta)"/><text x="910" y="160" text-anchor="middle" style="fill:var(--primary-foreground);font-size:120px;font-weight:800;font-family:Inter,sans-serif">B</text><foreignObject x="1000" y="30" width="600" height="200"><div xmlns="http://www.w3.org/1999/xhtml" style="height:200px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Inter,sans-serif;justify-content:flex-start;text-align:left;color:#fff;font-size:38px;font-weight:700;line-height:1.25">Money from the first conversation, at a price the founders name</div></foreignObject></svg><div class="timer" data-timer="2"></div></div>
+  <footer class="prov">Case Tacto: The First Customers. Vote 2, the same question after the discussion.</footer>
+  </section>
+
+
+
+
+
+<section class="slide" data-archetype="closing" data-chapter="Case discussion">
+  <p class="statement">Go sell. See you with your first customers!</p>
+  </section>
+
+
+</main>
+<script src="../../design/anchors.js"></script>
+<script src="../../design/deck.js"></script>
+</body>
+</html>

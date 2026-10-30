@@ -1,6 +1,6 @@
 # Module 08 — Finding First Users
 
-Updated: 2026-10-19.
+Updated: 2026-10-30.
 
 > **Core question:** Who are your first ten customers — by name?
 
@@ -15,18 +15,20 @@ Updated: 2026-10-19.
 
 **This week's goal.** By the start of Module 09, your team has asked named people from your segment to pay, holds your first customers from outside your social graph, and knows which channel and which ask bring the next ones.
 
-**This week's bar:** first outside-€ (pass) · 3 paying users (stretch) — dashboard-verified. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Ask named people from your segment to pay for your offer at its price, and win 3 paying users from outside your social graph, shown in your payment dashboard or on a numbered invoice. The learning floor is your first € from outside your social graph. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
 
 ## Materials
 
 | Part | File |
 |---|---|
 | Lecture | [M08_Lecture_Finding-First-Users.pdf](M08_Lecture_Finding-First-Users.pdf) |
-| Workshop — *The Collison Installation* | [M08_Workshop_Collison-Installation.md](M08_Workshop_Collison-Installation.md) |
-| Case — *Stripe* | [M08_Case_Stripe.md](M08_Case_Stripe.md) ([PDF](M08_Case_Stripe.pdf)) |
-| Homework | [M08_Homework.md](M08_Homework.md) |
+| Workshop — *Sell by Hand* | [M08_Workshop_Sell-by-Hand.md](M08_Workshop_Sell-by-Hand.md) ([PDF](M08_Workshop_Sell-by-Hand.pdf)) |
+| Case — *Tacto* (read before class) | [M08_Case_Tacto.md](M08_Case_Tacto.md) ([PDF](M08_Case_Tacto.pdf)) |
+| Homework | [M08_Homework.md](M08_Homework.md) ([PDF](M08_Homework.pdf)) |
 
-**The case in one line:** Walking to users' laptops and installing the product yourself
+**The case in one line:** Three Munich founders with funding and no customer on record decide whom to ask first, and for what.
+
+**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Go/Pivot/Kill Framework](../../frameworks/03_GPK_Decision_Framework.md) (Restart After a Kill) · [Student Toolkit](../../resources/Student_Toolkit.xlsx) (Pipeline, KPI Tracker, Kill Criteria Log) · [Exemplar Objection Log](../../resources/exemplars/Exemplar_Objection_Log.md) · [Team Stack](../../resources/TEAM_STACK.md) (section 2) · [Legal Basics](../../resources/LEGAL_BASICS.md) (section 4)
 
 ---
 

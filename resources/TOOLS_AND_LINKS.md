@@ -1,6 +1,6 @@
 # Tools & External Resources
 
-Updated: 2026-10-19.
+Updated: 2026-10-26.
 
 ## Your Weekly Tool
 **Student_Toolkit.xlsx** — in this folder. Contains your Interview Log, Experiment Tracker, and KPI Dashboard. This is the ONE file you use every week.
@@ -36,6 +36,26 @@ Session recordings and heatmaps of your live page or MVP. EU visitors must conse
 
 ### Claude / ChatGPT
 For everything else — writing copy, analyzing interviews, generating code, brainstorming solutions. Use AI as your first employee.
+
+---
+
+## What AI Can Do, and the Rules
+
+### An Opinionated Guide to Which AI to Use (Ethan Mollick, July 2026)
+https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22
+Which tool for which job, and why you should give an agent a real task from your own work. About ten minutes.
+
+### Navigating the Jagged Technological Frontier (Organization Science, 2026)
+https://doi.org/10.1287/orsc.2025.21838
+758 BCG consultants worked with and without GPT-4. On tasks inside the frontier they were faster and better. On one task just outside it, 84.5% got it right without AI and only 60% to 70.6% with it. So test AI on tasks whose answer you know before you trust it with your research. Open access.
+
+### METR: Measuring AI Ability to Complete Long Tasks
+https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
+How long a task an AI agent finishes on its own, and how fast that grows. The length has doubled about every seven months since 2019. Read it before you promise what your AI feature will do alone.
+
+### AI Literacy, Questions and Answers (European Commission)
+https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers
+What Article 4 of the EU AI Act asks of every company that uses AI, as amended in July 2026. No certificate is required. Read it before your team or your customers rely on your AI.
 
 ---
 

@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-26. Status: ready.
+/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-30. Status: ready.
    Owned by the course-design skill. Link after fonts.css and tokens.css and
    before archetypes.css. Decks link this file and never copy it.
    Sections: 1 stage, 2 slide frame, 3 generated chrome, 4 type roles,
@@ -171,6 +171,48 @@ html.is-present .slide a { cursor: pointer; }
 .shot .bar { height: 36px; background: var(--muted); display: flex; gap: 10px; align-items: center; padding: 0 16px; }
 .shot .bar i { width: 13px; height: 13px; border-radius: 50%; background: hsl(220 13% 82%); }
 .shot img, .shot video { display: block; width: 100%; height: auto; }
+
+/* Click details (deck.js "Details"). A trigger shows a pointer and a dotted
+   underline or outline, the open detail floats as a card over the slide's
+   right half until the next click. Place a pop with inline left/top/width
+   where the right half holds the thing it explains. Print never shows the
+   overlay, a slide with data-details-page gets its own details page. */
+[data-pop] { cursor: pointer; }
+.anchor [data-pop]:hover .shape, .anchor [data-pop].is-picked .shape { stroke: var(--foreground); stroke-width: 6; }
+.anchor .node[data-pop]:hover rect, .anchor .node[data-pop].is-picked rect { stroke: var(--foreground); stroke-width: 6; }
+.pop { display: none; position: absolute; z-index: 30; right: 96px; top: 230px; width: 700px; padding: 34px 40px; background: var(--background); border: 3px solid var(--primary); border-radius: 22px; box-shadow: 0 24px 60px -12px hsl(220 16% 10% / 0.35); font-size: 30px; line-height: 1.35; }
+.pop.is-open { display: block; animation: ae-pop 0.18s ease-out; }
+.pop h3 { font-size: 40px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.1; color: var(--primary); margin-bottom: 14px; }
+.pop p + p { margin-top: 12px; }
+@keyframes ae-pop { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: none; } }
+html.is-print .pop { display: none !important; }
+[data-archetype="details"] .details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-content: start; }
+[data-archetype="details"] .details-grid.is-dense { grid-template-columns: 1fr 1fr; grid-auto-flow: column; gap: 10px 48px; }
+[data-archetype="details"] .is-dense .card { font-size: 24px; line-height: 1.3; padding: 4px 0 4px 22px; border: 0; border-left: 5px solid var(--primary-line); border-radius: 0; background: none; }
+[data-archetype="details"] .is-dense .card h3, [data-archetype="details"] .is-dense .card p { display: inline; font-size: 24px; line-height: 1.3; }
+[data-archetype="details"] .is-dense .card h3::after { content: ". "; }
+[data-archetype="details"] .card { padding: 24px 28px; }
+[data-archetype="details"] .card h3 { font-size: 30px; color: var(--primary); margin-bottom: 8px; }
+[data-archetype="details"] .card p { font-size: 24px; line-height: 1.3; }
+
+/* Tally cells (deck.js). Each click darkens the cell one step from the
+   lightest tint to the full colour; set --tally-color on the cell or a parent
+   to pick the hue. The count shows small in the corner. */
+[data-tally] { cursor: pointer; user-select: none; position: relative; background-color: color-mix(in srgb, var(--tally-color, var(--primary)) calc(var(--tally, 0) * 100%), var(--tally-base, var(--background))); transition: background-color 0.2s, color 0.2s; }
+[data-tally].is-dark { color: var(--primary-foreground); }
+[data-tally].is-dark * { color: inherit !important; }
+[data-tally].is-tallied::after { content: attr(data-count); position: absolute; right: 10px; bottom: 6px; font: 700 24px/1 var(--font-mono); opacity: 0.75; }
+
+/* Confetti (deck.js), a short burst from the element that set it off. */
+.confetti { position: absolute; z-index: 40; width: 0; height: 0; pointer-events: none; }
+.confetti i { position: absolute; left: 0; top: 0; width: 14px; height: 22px; border-radius: 3px; opacity: 0; animation: ae-confetti 1.9s cubic-bezier(0.15, 0.6, 0.35, 1) forwards; }
+.confetti i:nth-child(3n) { width: 18px; height: 12px; }
+.confetti i:nth-child(4n) { border-radius: 50%; width: 14px; height: 14px; }
+@keyframes ae-confetti {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0); }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--dy) + 520px)) rotate(var(--rot)); }
+}
 
 /* Anchor diagrams, drawn once in anchors.js. Active steps and the edges
    leading into them are blue, the rest stays grey and readable. Text is set
@@ -366,6 +408,10 @@ html.is-print:not(.show-all) .slide [data-hold] { display: none !important; }
   html, body { height: auto !important; overflow: visible !important; background: none !important; }
   .deck { position: static !important; }
   .slide { display: flex !important; position: relative !important; left: auto !important; top: auto !important; transform: none !important; break-after: page; }
+  /* Size containment makes each slide one unbroken piece for Chrome's print layout. Without it,
+     a grid item that a centred grid pushes above its content box was left out of the PDF while
+     the screen showed it (HHL deck, 2026-10-26). The slide's size is fixed, so nothing moves. */
+  .slide { contain: size; }
   .slide [data-step] { opacity: 1 !important; visibility: visible !important; }
   html:not(.show-all) .slide[data-hold], html:not(.show-all) .slide [data-hold] { display: none !important; }
   .presenter-bar, .presenter-notes { display: none !important; }
