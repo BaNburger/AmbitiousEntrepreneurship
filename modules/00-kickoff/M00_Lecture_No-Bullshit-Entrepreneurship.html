@@ -73,6 +73,7 @@
   .arrows2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-content: center; height: 100%; }
   .arrows2 .box { min-height: 360px; }
   .arrows2 .box b { font: 800 96px/1 var(--font-sans); }
+  .arrows2 .box h3 { font-size: 64px; line-height: 1.05; letter-spacing: -0.02em; }
   .openph { border: 4px dashed var(--key); border-radius: 28px; display: grid; place-content: center; text-align: center; gap: 16px; height: 100%; padding: 40px; }
   .openph p { font: 700 40px/1.3 var(--font-mono); color: var(--key); }
   .thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 24px; align-content: start; }
@@ -218,6 +219,19 @@
   .minibars.two .scale-label { grid-column: 1 / -1; }
   .minibars.two .mb { grid-template-columns: 200px 1fr; }
   .minibars.two .bar { height: 48px; }
+  /* Glance test fixes, round 1 (2026-11-01). */
+  .sticky.grant-tag { position: absolute; top: 0; right: 0; width: auto; padding: 26px 36px 28px; display: grid; gap: 6px; --tilt: 2deg; z-index: 1; }
+  .grant-tag b { font-size: 44px; font-weight: 800; line-height: 1.1; }
+  .grant-tag span { font-size: 30px; font-weight: 600; line-height: 1.2; color: var(--context-foreground); }
+  .jobwrap { display: grid; gap: 40px; align-content: center; height: 100%; }
+  .jobwrap .waves { height: auto; }
+  .waves.job .wave.you .logo, .waves.job .wave.you b, .waves.job .wave.you span { color: var(--primary); }
+  .waves.job .wave.you .dot { background: var(--primary); }
+  .jobband { margin: 0 3%; border-radius: 20px; background: var(--primary); color: var(--primary-foreground); display: flex; justify-content: center; align-items: baseline; gap: 16px; padding: 20px 36px; }
+  .jobband b { font-size: 56px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .jobband span { font-size: 40px; font-weight: 600; line-height: 1.1; }
+  .anchor-wrap { position: relative; }
+  .anchor-over { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 </style>
 </head>
 <body>
@@ -559,19 +573,20 @@
         <text x="560" y="32">MOST IMPORTANT</text><text x="1640" y="32" text-anchor="end">LEAST IMPORTANT</text>
       </g>
       <g style="font-family:Inter,sans-serif;font-size:36px;font-weight:800;fill:var(--foreground)">
-        <text x="0" y="98" style="fill:var(--key)">Every field</text><text x="0" y="200">Biotech</text><text x="0" y="268">Medical devices</text><text x="0" y="336">IT hardware*</text><text x="0" y="404">Software</text>
+        <text x="0" y="98" style="font-weight:600;fill:var(--muted-foreground)">Every field</text><text x="0" y="212">Biotech</text><text x="0" y="276">Medical devices</text><text x="0" y="340">IT hardware*</text><text x="0" y="404" style="fill:var(--primary)">Software</text>
       </g>
-      <circle cx="600" cy="86" r="28" style="fill:var(--key)"/>
-      <text x="648" y="98" style="font-family:Inter,sans-serif;font-size:36px;font-weight:800;fill:var(--key)">A paying customer</text>
-      <text x="580" y="150" style="font-family:Inter,sans-serif;font-size:28px;font-weight:600;fill:var(--muted-foreground)">Patents, as ranked by founders</text>
+      <circle cx="600" cy="86" r="22" style="fill:none;stroke:var(--muted-foreground);stroke-width:5"/>
+      <text x="648" y="98" style="font-family:Inter,sans-serif;font-size:36px;font-weight:600;fill:var(--muted-foreground)">A paying customer</text>
+      <line x1="0" y1="124" x2="1640" y2="124" style="stroke:var(--border);stroke-width:3"/>
+      <text x="580" y="160" style="font-family:Inter,sans-serif;font-size:32px;font-weight:800;fill:var(--foreground)">Patents, ranked by founders</text>
       <g style="stroke:var(--border);stroke-width:8;stroke-linecap:round">
-        <line x1="580" y1="188" x2="1620" y2="188"/><line x1="580" y1="256" x2="1620" y2="256"/><line x1="580" y1="324" x2="1620" y2="324"/><line x1="580" y1="392" x2="1620" y2="392"/>
+        <line x1="580" y1="200" x2="1620" y2="200"/><line x1="580" y1="264" x2="1620" y2="264"/><line x1="580" y1="328" x2="1620" y2="328"/><line x1="580" y1="392" x2="1620" y2="392"/>
       </g>
       <g data-anim="rise">
-        <circle cx="820" cy="188" r="26" style="fill:var(--primary)"/>
-        <circle cx="1010" cy="256" r="26" style="fill:var(--primary)"/>
-        <circle cx="1050" cy="324" r="26" style="fill:var(--primary)"/>
-        <circle cx="1588" cy="392" r="31" style="fill:var(--context-foreground)"/><text x="1588" y="403" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--primary-foreground)">last</text>
+        <circle cx="820" cy="200" r="24" style="fill:var(--muted-foreground)"/>
+        <circle cx="1010" cy="264" r="24" style="fill:var(--muted-foreground)"/>
+        <circle cx="1050" cy="328" r="24" style="fill:var(--muted-foreground)"/>
+        <circle cx="1584" cy="390" r="34" style="fill:var(--primary)"/><text x="1584" y="401" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--primary-foreground)">last</text>
       </g>
       <rect x="0" y="428" width="1640" height="50" rx="10" style="fill:var(--sticky)"/>
       <text x="20" y="463" style="font-family:Inter,sans-serif;font-size:30px;font-weight:700;fill:var(--foreground)">Either way, a patent doesn't tell you anyone wants the product</text>
@@ -585,7 +600,7 @@
     <span class="label">Grants</span>
     <h2 class="title">A grant buys you <span class="mark">time</span>, not evidence</h2>
   </div>
-  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="paid"></div></div>
+  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="paid"></div><div class="sticky grant-tag"><b>A grant buys time</b><span>Not on the pyramid</span></div></div>
   <footer class="prov" data-kind="Bastian">Bastian's view, 2026-10-20. EXIST pays up to €3,000 a month for a year (BMWi, 2021).</footer>
   </section>
 
@@ -671,7 +686,7 @@
     <h2 class="title">Tech changes. The <span class="mark">founder's job</span> doesn't</h2>
     <p class="sub">Every wave needed people who turned it into something others pay for</p>
   </div>
-  <div class="content waves">
+  <div class="content jobwrap"><div class="waves job">
     <div class="wave"><div class="logo"><img src="media/logo-siemens.svg" alt="Siemens"></div><i class="dot"></i><b>1847</b><span>telegraph</span></div>
     <div class="wave"><div class="logo"><img src="media/logo-ibm.svg" alt="IBM"></div><i class="dot"></i><b>1911</b><span>punch cards</span></div>
     <div class="wave"><div class="logo"><img src="media/logo-intel.svg" alt="Intel"></div><i class="dot"></i><b>1968</b><span>microchips</span></div>
@@ -679,25 +694,10 @@
     <div class="wave"><div class="logo"><img src="media/logo-google.svg" alt="Google"></div><i class="dot"></i><b>1998</b><span>the web</span></div>
     <div class="wave"><div class="logo"><img src="media/logo-openai.svg" alt="OpenAI"></div><i class="dot"></i><b>2015</b><span>AI</span></div>
     <div class="wave you"><div class="logo">?</div><i class="dot"></i><b>Now</b><span>you</span></div>
-  </div>
+  </div><div class="jobband"><b>Same job,</b><span>something others pay for</span></div></div>
   <footer class="prov" data-kind="Bastian">Bastian's framing (2026-10-19). Founding years from Wikipedia, retrieved 2026-10-19. Logos are trademarks of their owners.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Ground it: start from a problem">
-  <div class="head">
-    <span class="label">Before the internet</span>
-    <h2 class="title">Startups happened before the internet, but they had a problem</h2>
-  </div>
-  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="Nasdaq Composite, monthly average, 1994 to 2005: from about 790 in January 1994 to 4,803 in March 2000, down to 1,242 in October 2002">
-      <g style="font-family:Inter,sans-serif;font-size:26px;fill:var(--muted-foreground)"><line x1="140" y1="388.0" x2="1600" y2="388.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="397.0" text-anchor="end">1,000</text><line x1="140" y1="296.0" x2="1600" y2="296.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="305.0" text-anchor="end">2,000</text><line x1="140" y1="204.0" x2="1600" y2="204.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="213.0" text-anchor="end">3,000</text><line x1="140" y1="112.0" x2="1600" y2="112.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="121.0" text-anchor="end">4,000</text><line x1="140" y1="20.0" x2="1600" y2="20.0" style="stroke:var(--border);stroke-width:2"/><text x="120" y="29.0" text-anchor="end">5,000</text><text x="140.0" y="520" text-anchor="middle">1994</text><text x="385.0" y="520" text-anchor="middle">1996</text><text x="630.1" y="520" text-anchor="middle">1998</text><text x="875.1" y="520" text-anchor="middle">2000</text><text x="1120.1" y="520" text-anchor="middle">2002</text><text x="1365.2" y="520" text-anchor="middle">2004</text></g>
-      <path d="M140 480 L140.0 407.5 L150.2 407.5 L160.4 407.7 L170.6 412.6 L180.8 413.0 L191.0 413.5 L201.3 414.4 L211.5 412.0 L221.7 409.7 L231.9 409.9 L242.1 410.0 L252.3 412.4 L262.5 410.3 L272.7 407.8 L282.9 405.7 L293.1 404.1 L303.4 400.9 L313.6 396.6 L323.8 389.9 L334.0 387.1 L344.2 383.3 L354.4 386.0 L364.6 383.7 L374.8 383.7 L385.0 385.7 L395.2 379.4 L405.5 379.5 L415.7 375.5 L425.9 367.7 L436.1 369.1 L446.3 378.3 L456.5 375.6 L466.7 370.8 L476.9 366.5 L487.1 364.1 L497.3 361.1 L507.6 356.2 L517.8 355.9 L528.0 362.0 L538.2 367.3 L548.4 355.6 L558.6 349.1 L568.8 339.1 L579.0 333.1 L589.2 327.3 L599.4 325.2 L609.7 332.7 L619.9 335.8 L630.1 335.5 L640.3 322.2 L650.5 316.1 L660.7 309.6 L670.9 311.1 L681.1 314.8 L691.3 301.4 L701.5 315.8 L711.7 327.0 L722.0 331.4 L732.2 306.2 L742.4 289.5 L752.6 263.1 L762.8 263.2 L773.0 260.0 L783.2 246.5 L793.4 248.8 L803.6 248.1 L813.8 227.8 L824.1 236.9 L834.3 221.7 L844.5 221.0 L854.7 182.8 L864.9 135.9 L875.1 110.8 L885.3 74.2 L895.5 38.1 L905.7 124.5 L915.9 155.4 L926.2 124.4 L936.4 110.4 L946.6 120.3 L956.8 123.4 L967.0 173.3 L977.2 198.9 L987.4 235.5 L997.6 235.6 L1007.8 254.6 L1018.0 297.2 L1028.3 302.1 L1038.5 279.3 L1048.7 285.7 L1058.9 292.9 L1069.1 302.5 L1079.3 335.3 L1089.5 327.6 L1099.7 308.0 L1109.9 298.1 L1120.1 298.1 L1130.3 314.4 L1140.6 308.6 L1150.8 318.2 L1161.0 327.3 L1171.2 341.5 L1181.4 356.2 L1191.6 357.9 L1201.8 364.9 L1212.0 365.7 L1222.2 350.4 L1232.4 352.4 L1242.7 352.1 L1252.9 359.3 L1263.1 355.8 L1273.3 350.2 L1283.5 339.7 L1293.7 330.0 L1303.9 322.1 L1314.1 321.2 L1324.3 309.2 L1334.5 304.7 L1344.8 301.7 L1355.0 300.2 L1365.2 287.2 L1375.4 291.6 L1385.6 297.9 L1395.8 294.3 L1406.0 302.4 L1416.2 295.8 L1426.4 304.0 L1436.6 312.4 L1446.9 306.6 L1457.1 301.7 L1467.3 290.2 L1477.5 282.2 L1487.7 289.4 L1497.9 290.0 L1508.1 293.2 L1518.3 299.9 L1528.5 295.5 L1538.7 289.2 L1549.0 282.6 L1559.2 281.5 L1569.4 282.7 L1579.6 288.0 L1589.8 277.3 L1600.0 273.4 L1600 480 Z" style="fill:var(--context);stroke:var(--muted-foreground);stroke-width:2"/>
-      <circle cx="895.5" cy="38.1" r="12" style="fill:var(--key)"/><text x="919.5" y="56.1" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--foreground)">March 2000: 4,803</text>
-      <circle cx="1212.0" cy="365.7" r="12" style="fill:var(--primary)"/><text x="1236.0" y="415.7" style="font-family:Inter,sans-serif;font-size:30px;font-weight:800;fill:var(--foreground)">Oct 2002: 1,242, down 74%</text>
-      <text transform="translate(26 250) rotate(-90)" text-anchor="middle" style="font-family:Inter,sans-serif;font-size:27px;font-weight:600;fill:var(--muted-foreground)">Index points, monthly average</text>
-      <text x="1600" y="520" text-anchor="end" style="font-family:Inter,sans-serif;font-size:27px;font-weight:600;fill:var(--muted-foreground)">Year</text>
-    </svg></div>
-  <footer class="prov" data-kind="Data">Nasdaq Composite index, monthly average of daily closes (NASDAQCOM), via FRED, Federal Reserve Bank of St. Louis. Course material, redrawn without logos.</footer>
-  </section>
 
 <section class="slide" data-archetype="quote" data-variant="field" data-chapter="Ground it: start from a problem">
   <div class="quote-layout">
@@ -867,7 +867,7 @@
     <span class="label">Cornerstone · hierarchy of evidence</span>
     <h2 class="title">It's a <span class="mark">signal</span> until somebody pays</h2>
   </div>
-  <div class="content"><div class="anchor" data-anchor="evidence-pyramid" data-active="ideation paid"></div></div>
+  <div class="content"><div class="anchor-wrap"><div class="anchor" data-anchor="evidence-pyramid" data-active="paid"></div><svg class="anchor-over" viewBox="0 0 1640 600" aria-hidden="true"><path d="M30 596 L10 596 L244 350 L264 350" style="fill:none;stroke:var(--muted-foreground);stroke-width:5;stroke-linejoin:round;stroke-linecap:round"/><text x="166" y="424" text-anchor="end" style="font-family:Inter,sans-serif;font-size:34px;font-weight:800;fill:var(--muted-foreground)">Signal</text></svg></div></div>
   <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup.</footer>
   </section>
 
@@ -1024,7 +1024,7 @@
     <span class="label">Every week</span>
     <h2 class="title">Every week, your <span class="mark">target</span> against your actual</h2>
   </div>
-  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Three weekly accountability questions and the unicorn move"><text x="270" y="200" text-anchor="middle" style="fill:var(--diagram-purple);font-size:230px;font-weight:800;font-family:Inter,sans-serif">1</text><text x="270" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">User interactions?</text><text x="270" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">What did you learn?</text><text x="820" y="200" text-anchor="middle" style="fill:var(--diagram-purple);font-size:230px;font-weight:800;font-family:Inter,sans-serif">2</text><text x="820" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">New revenue?</text><text x="820" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why did they pay, or not?</text><text x="1370" y="200" text-anchor="middle" style="fill:var(--diagram-purple);font-size:230px;font-weight:800;font-family:Inter,sans-serif">3</text><text x="1370" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">What did you ship?</text><text x="1370" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why does it matter to them?</text><rect x="0" y="400" width="1640" height="64" rx="10" style="fill:var(--sticky)"/><text x="820" y="443" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">🦄 Report target vs. actual. Say candidly why you hit it or missed it</text></svg></div>
+  <div class="content diagram"><svg viewBox="0 0 1640 470" role="img" aria-label="Three accountability questions: user interactions, new revenue, shipped" style="display:block;width:100%;height:auto"><circle cx="270" cy="128" r="96" style="fill:var(--primary-tint)"/><svg x="220" y="78" width="100" height="100" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:var(--primary);stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg><text x="270" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:46px;font-weight:800;font-family:Inter,sans-serif">User interactions?</text><text x="270" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">What did you learn?</text><circle cx="820" cy="128" r="96" style="fill:var(--primary-tint)"/><svg x="770" y="78" width="100" height="100" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:var(--primary);stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></svg><text x="820" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:46px;font-weight:800;font-family:Inter,sans-serif">New revenue?</text><text x="820" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why did they pay?</text><circle cx="1370" cy="128" r="96" style="fill:var(--primary-tint)"/><svg x="1320" y="78" width="100" height="100" viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:var(--primary);stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /></svg><text x="1370" y="290" text-anchor="middle" style="fill:var(--foreground);font-size:46px;font-weight:800;font-family:Inter,sans-serif">Shipped?</text><text x="1370" y="346" text-anchor="middle" style="fill:var(--muted-foreground);font-size:34px;font-weight:500;font-family:Inter,sans-serif">Why does it matter?</text><rect x="0" y="400" width="1640" height="64" rx="10" style="fill:var(--sticky)"/><text x="820" y="443" text-anchor="middle" style="fill:var(--foreground);font-size:32px;font-weight:700;font-family:Inter,sans-serif">🦄 Report target vs. actual. Say candidly why you hit it or missed it</text></svg></div>
   <footer class="prov" data-kind="Bastian">Weekly goals and accountability questions.</footer>
   </section>
 
@@ -1054,7 +1054,7 @@
     <h2 class="title">Under your line? That is a <span class="mark">decision</span>, not a failure</h2>
     <p class="sub">From today, every test ends in one of two moves, and both are progress</p>
   </div>
-  <div class="content diagram"><div class="anchor" data-anchor="pivot-fork"></div></div>
+  <div class="content diagram"><div class="anchor" data-anchor="pivot-fork" data-active="line pivot rule"></div></div>
   <footer class="prov" data-kind="Framework">Pivot or persevere after Ries, E. (2011), The Lean Startup. Pivot types as in the course Glossary.</footer>
   </section>
 
@@ -1156,9 +1156,9 @@
         <div class="seg t1" style="flex: 0 0 calc(26% - 3.2px)" data-anim="grow">Stretching</div>
         <div class="seg t3" style="flex: 0 0 calc(10% - 3.2px); --delay: 0.2s" data-anim="grow">Sweet spot</div>
         <div class="seg t1" style="flex: 0 0 calc(10% - 3.2px); --delay: 0.4s" data-anim="grow">Good</div>
-        <div class="seg" style="flex: 0 0 calc(20% - 3.2px)">Sandbagging</div>
+        <div class="seg" style="flex: 0 0 calc(20% - 3.2px)">Too small<small>sandbagging</small></div>
       </div>
-      <div class="ticks"><span style="left: 0">0%</span><span style="left: 34%">34%</span><span style="left: 60%">60%</span><span style="left: 70%">70%</span><span style="left: 80%">80%</span></div>
+      <div class="ticks"><span style="left: 0">0%</span><span style="left: 34%">34%</span><span style="left: 60%">60%</span><span style="left: 70%">70%</span><span style="left: 80%">80%</span><span style="left: 100%; transform: translateX(-100%)">100%</span></div>
     </div>
     <div class="sticky wide" style="max-width: 1180px"><p>Hit them all? You set them too small. Nobody checks your goals but you, so aim at two in three.</p></div>
   </div>
@@ -1232,7 +1232,7 @@
       <div class="bar" style="height: 120px">
         <div class="seg is-hl" style="flex: 30" data-anim="grow">Evidence quality<small>30%</small></div>
         <div class="seg is-hl" style="flex: 30; --delay: 0.15s" data-anim="grow">Decision discipline<small>30%</small></div>
-        <div class="seg" style="flex: 30; --delay: 0.3s" data-anim="grow">Verified traction<small>30%</small></div>
+        <div class="seg is-hl" style="flex: 30; --delay: 0.3s" data-anim="grow">Verified traction<small>30%</small></div>
         <div class="seg" style="flex: 10; --delay: 0.45s" data-anim="grow">Commu&shy;nication<small>10%</small></div>
       </div>
     </div>
@@ -1262,7 +1262,7 @@
 <section class="slide" data-archetype="claim" data-chapter="How this course works">
   <div class="head">
     <span class="label">How we work together</span>
-    <h2 class="title">Be present or be elsewhere</h2>
+    <h2 class="title">Coachability, accountability, bias to action. Or <span class="mark">be elsewhere</span></h2>
   </div>
   <div class="content big123">
     <div><b>1</b><h3><span class="icon icon-ear hero" aria-hidden="true" style="width:46px;height:46px;vertical-align:-8px;margin-right:14px;color:currentColor"></span>Together we grow: coachability</h3><p>We give candid and productive feedback. We listen and seek to understand.</p></div>
@@ -1332,8 +1332,8 @@
     <h2 class="title">Find teammates now, or <span class="mark">we match you</span></h2>
   </div>
   <div class="content arrows2">
-    <div class="box field field-blue"><b>4a</b><h3><span class="icon icon-users hero" aria-hidden="true" style="width:46px;height:46px;vertical-align:-8px;margin-right:14px;color:currentColor"></span>Find teammates</h3><ul><li>Say your problem space in one sentence</li><li>Talk to the people who share it, from today</li></ul></div>
-    <div class="box field field-purple"><b>4b</b><h3><span class="icon icon-handshake hero" aria-hidden="true" style="width:46px;height:46px;vertical-align:-8px;margin-right:14px;color:currentColor"></span>We match you</h3><ul><li>Nobody found by Team (M01)?</li><li>We match you on your problem space</li></ul></div>
+    <div class="box field field-blue"><h3><span class="icon icon-users hero" aria-hidden="true" style="width:46px;height:46px;vertical-align:-8px;margin-right:14px;color:currentColor"></span>Find teammates</h3><ul><li>Say your problem space in one sentence</li><li>Talk to the people who share it, from today</li></ul></div>
+    <div class="box field field-purple"><h3><span class="icon icon-handshake hero" aria-hidden="true" style="width:46px;height:46px;vertical-align:-8px;margin-right:14px;color:currentColor"></span>We match you</h3><ul><li>Nobody found by Team (M01)?</li><li>We match you on your problem space</li></ul></div>
   </div>
   <footer class="prov" data-kind="Bastian">Participation and team allocation. Teams commit in Team (M01) (2026-10-19).</footer>
   </section>
@@ -1353,7 +1353,7 @@
       <h2 class="title">One full turn by <span class="mark">next time</span>, not this semester</h2>
       <p class="sub">You started today. Close it by Team (M01)</p>
     </div>
-    <div class="anchor" data-anchor="build-measure-learn" data-active="build"></div>
+    <div class="anchor-wrap"><div class="anchor" data-anchor="build-measure-learn" data-active="build"></div><svg class="anchor-over" viewBox="0 0 1100 680" aria-hidden="true"><text x="180" y="598" text-anchor="middle" style="font-family:'Source Code Pro',monospace;font-size:27px;font-weight:600;letter-spacing:0.12em;fill:var(--primary)">NEXT TIME</text></svg></div>
   </div>
   <footer class="prov" data-kind="Framework">Ries, E. (2011). <i>The Lean Startup</i>.</footer>
   </section>
@@ -1420,8 +1420,8 @@
       <tbody>
         <tr><td>Who</td><td>Lab managers in biotech start-ups</td><td>"Researchers"</td></tr>
         <tr><td>Raised</td><td>4 of 10, before I named it</td><td>Only once I named it</td></tr>
-        <tr><td>Cost</td><td>4 hours a week, 2 built Excel trackers</td><td>"Annoying, but we live with it"</td></tr>
-        <tr class="is-hl"><td>How many</td><td>6 of 10, in 4 labs</td><td>Me and my flatmate</td></tr>
+        <tr class="is-hl"><td>Cost</td><td>4 hours a week, 2 built Excel trackers</td><td>"Annoying, but we live with it"</td></tr>
+        <tr><td>How many</td><td>6 of 10, in 4 labs</td><td>Me and my flatmate</td></tr>
       </tbody>
     </table>
   </div>

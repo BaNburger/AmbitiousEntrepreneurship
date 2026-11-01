@@ -1,4 +1,4 @@
-/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-30.
+/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-31.
    Owned by the course-design skill. Each is drawn once here, from Bastian's
    legacy slide, and placed in any deck as
      <div class="anchor" data-anchor="NAME" data-active="PART">   full size
@@ -386,7 +386,9 @@ window.AEAnchors["build-measure-learn"] = {
   /* The agent loop, new for M06 (no legacy slide): a written brief and a plan
      in small steps, then one step, test, review and save a version before the
      next step. Two misses lead back to the last saved version and a new
-     brief. Parts: brief, plan, step, test, review, save (group cycle), restart. */
+     brief, drawn in a quiet grey since the glance test of 2026-10-31 (M06 57
+     and 87), so the loop and not the exception catches the eye.
+     Parts: brief, plan, step, test, review, save (group cycle), restart. */
   (function () {
     function node(name, group, color, x, y, w, title, sub) {
       return '<g class="part" data-node="' + name + '"' + (group ? ' data-group="' + group + '"' : "") + '>' +
@@ -403,8 +405,8 @@ window.AEAnchors["build-measure-learn"] = {
       arrow(256, 300, 312, 300) + arrow(586, 286, 692, 172) +
       arrow(1008, 150, 1112, 150) + arrow(1270, 216, 1270, 352) + arrow(1114, 420, 1008, 420) +
       '<g class="part" data-node="next" data-group="cycle">' + arrow(850, 354, 850, 218) + text("note strong t-blue", 876, 296, "next") + "</g>" +
-      '<g class="part" data-node="restart"><path class="line dash k-magenta" d="M1270 84 C 1270 10, 125 10, 125 232" marker-end="url(#ae-arrow)"/>' +
-      text("cap-t t-magenta", 700, 2, "Two misses? Restore the last version, brief again", "middle") + "</g>";
+      '<g class="part" data-node="restart"><path class="line dash k-muted" d="M1270 84 C 1270 10, 125 10, 125 232" marker-end="url(#ae-arrow)"/>' +
+      text("cap-t t-muted", 700, 2, "Two misses? Restore the last version, brief again", "middle") + "</g>";
     A["agent-loop"] = {
       title: "The agent loop",
       source: "Bastian Burger, course material for M06, no legacy slide.",

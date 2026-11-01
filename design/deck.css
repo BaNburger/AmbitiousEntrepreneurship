@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-30. Status: ready.
+/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-31. Status: ready.
    Owned by the course-design skill. Link after fonts.css and tokens.css and
    before archetypes.css. Decks link this file and never copy it.
    Sections: 1 stage, 2 slide frame, 3 generated chrome, 4 type roles,
@@ -271,6 +271,8 @@ html.is-print .pop { display: none !important; }
 .anchor .k-blue { stroke: var(--primary); }
 .anchor .k-navy { stroke: var(--diagram-navy); }
 .anchor .k-magenta { stroke: var(--diagram-magenta); }
+.anchor .k-muted { stroke: var(--muted-foreground); }
+.anchor .t-muted { fill: var(--muted-foreground); }
 .anchor .divider { stroke: var(--border); stroke-width: 3; }
 .anchor .dot { fill: var(--foreground); }
 .anchor .gap { stroke: var(--background); stroke-width: 6; }
