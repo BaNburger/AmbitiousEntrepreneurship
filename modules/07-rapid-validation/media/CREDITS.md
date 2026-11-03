@@ -1,9 +1,37 @@
 # Photo credits
 
-Updated: 2026-10-26.
+Updated: 2026-11-02.
 
 Stock photos in this folder come from Pexels under the [Pexels License](https://www.pexels.com/license/) or from Pixabay under the [Pixabay Content License](https://pixabay.com/service/license-summary/). They keep their own licence and are not covered by the course's CC BY-NC-SA licence. The slide that shows a photo credits it in its source line.
 
 | File | Photo | Photographer | Retrieved | Shows |
 |---|---|---|---|---|
 | `whiteboard-hypotheses.jpg` | [Pixabay 4904883](https://pixabay.com/photos/engineer-engineering-software-4904883/) | [This_is_Engineering](https://pixabay.com/users/This_is_Engineering-11384528/) | 2026-10-26 | A person writes on a whiteboard during a planning session |
+| `m07-monkey.jpg` | [Pixabay 4788331](https://pixabay.com/photos/monkey-eyes-animal-primate-cute-4788331/) | [a_m_o_u_t_o_n](https://pixabay.com/users/a_m_o_u_t_o_n-9408103/) | 2026-11-02 | A macaque looks straight into the camera |
+| `m07-monkey-rock.jpg` | [Pixabay 6491669](https://pixabay.com/photos/monkey-animal-mammal-zoo-primate-6491669/) | [17831348](https://pixabay.com/users/17831348-17831348/) | 2026-11-02 | A monkey sits on top of a rock under a blue sky |
+| `m07-pedestal.jpg` | [Pixabay 3285801](https://pixabay.com/photos/column-ornament-base-plinth-3285801/) | [Crava_Emanuele](https://pixabay.com/users/Crava_Emanuele-8297760/) | 2026-11-02 | An ornate painted pedestal with nothing on top |
+| `m07-sea.jpg` | [Pixabay 7409361](https://pixabay.com/photos/sea-waves-ocean-sunny-water-7409361/) | [janchrhorn](https://pixabay.com/users/janchrhorn-4975403/) | 2026-11-02 | Open sea under a clear sky |
+| `m07-earthrise.jpg` | [Pixabay 11014](https://pixabay.com/photos/earth-moon-lunar-surface-11014/) | [WikiImages](https://pixabay.com/users/WikiImages-1897/) | 2026-11-02 | The Earth rising over the surface of the Moon |
+| `m07-lettuce.jpg` | [Pixabay 732996](https://pixabay.com/photos/flat-fruit-gang-fresh-vegetables-732996/) | [jayy](https://pixabay.com/users/jayy-726665/) | 2026-11-02 | Rows of lettuce growing under artificial light in an indoor farm |
+| `m07-drone.jpg` | [Pixabay 1134764](https://pixabay.com/photos/drone-sky-leisure-box-1134764/) | [kimhyeri](https://pixabay.com/users/kimhyeri-1170096/) | 2026-11-02 | A drone carries a cardboard box through the air |
+| `m07-recruiter.jpg` | [Pixabay 5817031](https://pixabay.com/photos/meeting-conference-laptop-interview-5817031/) | [Tumisu](https://pixabay.com/users/Tumisu-148124/) | 2026-11-02 | A recruiter on a video call with a candidate on her laptop |
+| `m07-leap.jpg` | [Pixabay 1822503](https://pixabay.com/photos/achieve-woman-girl-jumping-running-1822503/) | [sasint](https://pixabay.com/users/sasint-3639875/) | 2026-11-02 | A runner leaps across a gap between two ridges at sunset |
+| `m07-lab.jpg` | [Pixabay 2815641](https://pixabay.com/photos/laboratory-analysis-chemistry-2815641/) | [jarmoluk](https://pixabay.com/users/jarmoluk-143740/) | 2026-11-02 | A researcher in a white coat works at a laboratory bench |
+| `m07-boardroom.jpg` | [Pixabay 2673316](https://pixabay.com/photos/iocenters-meeting-room-kuwait-city-2673316/) | [websubs](https://pixabay.com/users/websubs-6247111/) | 2026-11-02 | An empty boardroom with a long table and a city view |
+| `m07-writing-alone.jpg` | [Pixabay 594132](https://pixabay.com/photos/office-startup-business-home-office-594132/) | [StartupStockPhotos](https://pixabay.com/users/StartupStockPhotos-690514/) | 2026-11-02 | A person writes alone in a notebook at a desk |
+| `m07-door.jpg` | [Pixabay 1756962](https://pixabay.com/photos/door-closed-entrance-room-handle-1756962/) | [qimono](https://pixabay.com/users/qimono-1962238/) | 2026-11-02 | A closed door set into a patterned wall |
+| `m07-curtain.jpg` | [Pixabay 4609877](https://pixabay.com/photos/movie-theater-curtain-theatre-movie-4609877/) | [onkelglocke](https://pixabay.com/users/onkelglocke-12931647/) | 2026-11-02 | A closed stage curtain seen from the front rows |
+| `m07-concierge.jpg` | [Pixabay 5975961](https://pixabay.com/photos/receptionist-man-hotel-work-5975961/) | [Rodrigo_SalomonHC](https://pixabay.com/users/Rodrigo_SalomonHC-20127871/) | 2026-11-02 | A concierge at a hotel desk looks after a request |
+| `m07-payment.jpg` | [Pixabay 3118720](https://pixabay.com/photos/paying-cash-industry-people-3118720/) | [ClickerHappy](https://pixabay.com/users/ClickerHappy-324082/) | 2026-11-02 | One hand passes banknotes to another at a market stall |
+| `m07-notes-wall.jpg` | [Pixabay 3267505](https://pixabay.com/photos/startup-whiteboard-room-indoors-3267505/) | [StartupStockPhotos](https://pixabay.com/users/StartupStockPhotos-690514/) | 2026-11-02 | A founder stands in front of a wall full of notes and sketches |
+| `m07-pairs.jpg` | [Pixabay 1807505](https://pixabay.com/photos/students-computers-laptops-smiling-1807505/) | [sasint](https://pixabay.com/users/sasint-3639875/) | 2026-11-02 | Students work together on laptops on a lawn |
+| `m07-out-loud.jpg` | [Pixabay 4702060](https://pixabay.com/photos/woman-work-office-whiteboard-4702060/) | [This_is_Engineering](https://pixabay.com/users/This_is_Engineering-11384528/) | 2026-11-02 | A founder speaks to her team in front of a whiteboard |
+| `m07-applause.jpg` | [Pixabay 6016862](https://pixabay.com/photos/woman-clapping-gesture-girl-person-6016862/) | [YasDO](https://pixabay.com/users/YasDO-14344255/) | 2026-11-02 | A woman in an audience applauds with a smile |
+| `m07-mud.jpg` | [Pixabay 1280278](https://pixabay.com/photos/earth-wet-earth-mud-floor-slippery-1280278/) | [Myriams-Fotos](https://pixabay.com/users/Myriams-Fotos-1627417/) | 2026-11-02 | A hiking shoe sinks into wet mud |
+| `m07-training.jpg` | [Pixabay 4165307](https://pixabay.com/photos/software-development-guest-post-4165307/) | [DiggityMarketing](https://pixabay.com/users/DiggityMarketing-12123926/) | 2026-11-02 | A trainer explains a plan at a whiteboard to a small group of founders |
+| `m07-records.jpg` | [Pixabay 1850170](https://pixabay.com/photos/archive-boxes-shelf-folders-1850170/) | [Pexels](https://pixabay.com/users/Pexels-2286921/) | 2026-11-02 | Long shelves of boxes and folders in an archive |
+| `m07-student-exam.jpg` | [Pixabay 1836380](https://pixabay.com/photos/book-desk-indoors-person-reading-1836380/) | [Pexels](https://pixabay.com/users/Pexels-2286921/) | 2026-11-02 | A student reads a book in an empty lecture hall |
+| `m07-product-team.jpg` | [Pixabay 5382501](https://pixabay.com/photos/job-office-team-business-internet-5382501/) | [RonaldCandonga](https://pixabay.com/users/RonaldCandonga-17383039/) | 2026-11-02 | A product team around a table with laptops showing charts |
+| `m07-dropped-paper.jpg` | [Pixabay 1891732](https://pixabay.com/photos/pencil-notebook-crumpled-paper-1891732/) | [congerdesign](https://pixabay.com/users/congerdesign-509903/) | 2026-11-02 | A crumpled sheet of paper and a pencil on a notebook |
+| `m07-airship.jpg` | [Pixabay 361153](https://pixabay.com/photos/zeppelin-airship-white-heaven-ride-361153/) | [hakelbudel](https://pixabay.com/users/hakelbudel-279503/) | 2026-11-02 | A white airship with a plain hull against a blue sky |
+| `m07-edge-of-space.jpg` | [Pixabay 11602](https://pixabay.com/photos/moon-moonrise-space-space-travel-11602/) | [WikiImages](https://pixabay.com/users/WikiImages-1897/) | 2026-11-02 | The thin blue edge of the atmosphere above white clouds, with black space above it |

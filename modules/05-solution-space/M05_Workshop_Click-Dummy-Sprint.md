@@ -1,10 +1,10 @@
 # Workshop 05: Click Dummy Sprint
 
-Updated: 2026-10-19.
+Updated: 2026-11-02.
 
 > Module 05 · The Solution Space · Workshop · [Goals M05-LG1 to LG4](README.md)
 
-![Double diamond](media/double-diamond-solution.png "Step 1 goes wide. The demos decide.")
+![Think big, test small, for solutions](media/think-big-solutions.png "Step 1 goes wide. The demos decide.")
 
 ![Smoke and mirrors](media/smoke-and-mirrors.png "Build only the interface. Behind it, you.")
 

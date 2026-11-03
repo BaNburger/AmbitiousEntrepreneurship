@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship slide archetypes. Updated: 2026-10-30. Status: ready.
+/* Ambitious Entrepreneurship slide archetypes. Updated: 2026-11-02. Status: ready.
    Owned by the course-design skill. Link after deck.css. Every rule is scoped
    to [data-archetype="name"] or is a shared exhibit component (drawn to
    scale, quadrant, from and to). Templates live in design/archetypes/ and the
@@ -189,6 +189,13 @@
 
 /* ---------- 08 Tip ---------- */
 [data-archetype="tip"] .content { display: grid; align-content: center; gap: 44px; }
+/* The tip in the form Bastian called the nicest (M04 slides 41 to 44, 2026-11-02): from
+   and to stacked on the left, how it looks in reality on the right, the point ringed. */
+.tip-split { display: grid; grid-template-columns: 1fr var(--media-w, 920px); gap: 56px; align-items: center; height: 100%; min-height: 0; }
+.tip-split .fromto { grid-template-columns: 1fr; gap: 16px; }
+.tip-split .fromto > .icon { transform: rotate(90deg); justify-self: center; }
+.tip-split .tip-see { margin: 0; position: relative; line-height: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-card); }
+.tip-split .tip-see > img { display: block; width: 100%; height: auto; max-height: 640px; object-fit: cover; object-position: top left; }
 [data-archetype="tip"] .why { font-size: 30px; line-height: 1.4; max-width: 1300px; padding-left: 28px; border-left: 4px solid var(--border); color: var(--muted-foreground); }
 
 /* ---------- 09 Tool ---------- */
@@ -236,6 +243,8 @@
 .recall li { counter-increment: recall; display: flex; gap: 24px; align-items: center; height: 88px; border-bottom: 3px dashed var(--border); }
 .recall li::before { content: counter(recall); display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius); background: var(--context); color: var(--context-foreground); font: 600 28px var(--font-mono); }
 .answers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-content: start; }
+/* A vote with its answers and a timer: the timer stands beside them, not under the last card. */
+[data-archetype="retrieval"] .content:has(> .answers + .timer) { display: grid; grid-template-columns: 1fr auto; gap: 56px; align-items: center; align-content: center; }
 .answers .card { display: grid; grid-template-columns: auto 1fr; gap: 8px 24px; align-items: start; align-content: start; padding: 32px 36px; }
 .answers .card .badge { grid-row: span 2; }
 .answers .card h3 { font-size: 36px; }
@@ -271,6 +280,24 @@
 .credible .sym { display: flex; align-items: center; justify-content: center; min-width: 50px; height: 46px; color: var(--primary); }
 .credible .sym .icon { width: 46px; height: 46px; }
 .credible .sym b { font: 800 50px/1 var(--font-sans); letter-spacing: -0.05em; }
+/* The read-out in its one form (design/shared-slides/readout.html, Bastian 2026-11-02):
+   four kinds of evidence on a strongly greyed photo, one line each, three bold asks. */
+.credible .card.ev { position: relative; isolation: isolate; overflow: hidden; align-content: start; min-height: 288px; padding: 26px 28px 30px; background: hsl(220 20% 96%); border: 2px solid var(--border); }
+.credible .card.ev > .ev-bg { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
+.credible .card.ev .sym-row { gap: 16px; }
+.credible .card.ev .sym { min-width: 64px; height: 64px; }
+.credible .card.ev .sym .icon { width: 60px; height: 60px; }
+.credible .card.ev .sym b { font-size: 72px; }
+.credible .card.ev h3 { font-size: 44px; font-weight: 800; letter-spacing: -0.015em; }
+.credible .card.ev .kind { font-size: 26px; color: var(--primary-strong); font-weight: 700; }
+.credible .card.ev p { font-size: 28px; line-height: 1.28; font-weight: 500; color: var(--foreground); }
+.readout-also { margin-top: 20px; padding: 14px 28px; border-radius: 16px; background: var(--sticky); font-size: 30px; line-height: 1.25; font-weight: 700; color: var(--foreground); }
+.readout-also:empty { display: none; }
+.asks.is-bold { margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.asks.is-bold > span { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 24px 28px; border: 0; border-radius: 20px; background: var(--primary); color: var(--primary-foreground); font-size: 38px; font-weight: 800; letter-spacing: -0.01em; text-align: left; }
+.asks.is-bold > span:nth-child(2) { background: var(--diagram-magenta); }
+.asks.is-bold > span:nth-child(3) { background: var(--diagram-navy); }
+.asks.is-bold > span .icon { flex: none; width: 52px; height: 52px; color: inherit; }
 .asks { margin-top: 28px; display: flex; gap: 20px; }
 
 /* Answer bands for a check-in the room answers by show of hands (Bastian,
@@ -393,3 +420,30 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]), .media-split:has(>
 [data-variant="fields"] .wcard .step { margin: 0 -28px 6px; padding: 16px 28px; background: var(--field); color: var(--primary-foreground); }
 [data-variant="fields"] .wcard .step .badge { background: var(--background); color: var(--field); }
 
+/* The workshop timer is a pill, not a bar across the slide (found on M04, 2026-11-02). */
+.slide[data-archetype="workshop"] > .timer { align-self: flex-end; margin-top: 14px; }
+
+/* ---------- Layouts of the shared slides (design/shared-slides/, 2026-11-02) ---------- */
+/* The tier list of startup ideas. */
+.tiers { display: grid; gap: 10px; }
+.tier { display: grid; grid-template-columns: 220px 1fr; gap: 10px; min-height: 76px; }
+.tier .tl { border-radius: 12px; display: grid; place-content: center; text-align: center; color: var(--primary-foreground); }
+.tier .tl b { font-size: 44px; font-weight: 800; line-height: 1; }
+.tier .tl span { font-size: 24px; font-weight: 600; }
+.tier .tr { border-radius: 12px; background: var(--muted); display: flex; gap: 10px; align-items: center; align-content: center; padding: 8px 16px; flex-wrap: wrap; }
+.tchip { border-radius: 10px; background: var(--background); border: 2px solid var(--border); padding: 6px 12px; font-size: 24px; font-weight: 600; color: var(--foreground); }
+[data-shared="tarpit"] .tiers { gap: 6px; }
+[data-shared="tarpit"] .tier { min-height: 0; }
+/* The 24 steps of Disciplined Entrepreneurship. */
+.steps24 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.steps24 div { border-radius: 10px; background: var(--context); color: var(--context-foreground); padding: 10px 12px; font-size: 24px; line-height: 1.2; min-height: 108px; }
+.steps24 div b { display: block; font: 700 26px/1 var(--font-mono); margin-bottom: 6px; color: var(--foreground); }
+.steps24 div.hl { background: var(--primary); color: var(--primary-foreground); }
+.steps24 div.hl b { color: var(--primary-foreground); }
+/* Two mock-ups side by side, technology first against problem first. */
+.pf2 { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-content: center; height: 100%; }
+.pf2 figure { margin: 0; display: grid; gap: 14px; justify-items: start; }
+.pf2 figcaption { font-size: 28px; line-height: 1.2; color: var(--muted-foreground); }
+.pf2 figcaption b { display: block; font-size: 36px; font-weight: 800; color: var(--context-foreground); }
+.pf2 .good figcaption b { color: var(--primary); }
+.pf2 img { width: 82%; height: auto; border-radius: 18px; }

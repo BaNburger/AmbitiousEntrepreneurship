@@ -8,6 +8,52 @@
 <link rel="stylesheet" href="../../design/tokens.css">
 <link rel="stylesheet" href="../../design/deck.css">
 <link rel="stylesheet" href="../../design/archetypes.css">
+<style>
+/* M11 only, feedback round of 2026-11-02. */
+/* Bastian's own photos run full bleed, as in his lecture. */
+.slide[data-m11="photo"] { padding: 0; background: hsl(220 16% 14%); }
+.slide[data-m11="photo"] .chrome-top { display: none; }
+.slide[data-m11] > img.m11-bleed { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.slide[data-m11="photo"] > img.m11-whole { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.slide[data-m11="photo"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(to top, hsl(222 47% 8% / 0.8), hsl(222 47% 8% / 0)); }
+.slide[data-m11="photo"] .chrome-foot { z-index: 1; border-top-color: transparent; color: #fff; }
+.slide[data-m11="photo"] .chrome-foot .sig b, .slide[data-m11="photo"] .chrome-foot .pg { color: #fff; }
+/* A closing statement over a full-bleed photo. */
+.slide[data-m11="over"] { background: hsl(222 47% 10%); }
+.slide[data-m11="over"]::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, hsl(222 47% 8% / 0.82), hsl(222 47% 8% / 0.5) 62%, hsl(222 47% 8% / 0.2)); }
+.slide[data-m11="over"] > .statement, .slide[data-m11="over"] > .signoff { position: relative; z-index: 2; }
+.slide[data-m11="over"] .chrome-foot { z-index: 2; }
+/* The head full of questions. The text runs off every edge on purpose. */
+.slide[data-m11="wall"] { padding: 0; background: hsl(220 16% 22%); }
+.slide[data-m11="wall"] .chrome-foot { display: none; }
+.m11-wall { position: absolute; left: -58px; top: -26px; width: 2420px; margin: 0; color: #fff; font: 800 54px/1.17 var(--font-sans); letter-spacing: -0.01em; }
+/* A question slide with its own picture instead of the drawn question mark. */
+.slide[data-m11="q"] .recall::after { display: none !important; }
+/* The relabel: two name tags, the same failure, what is left. */
+.m11-relabel { display: grid; gap: 26px; align-content: center; }
+.m11-relabel .row { display: grid; grid-template-columns: 1fr 250px 1fr; gap: 24px; align-items: center; }
+.m11-tag { display: grid; grid-template-rows: auto 1fr; min-height: 226px; border: 4px solid var(--primary); border-radius: 22px; overflow: hidden; background: var(--card); box-shadow: var(--shadow-card); }
+.m11-tag small { padding: 8px 28px; background: var(--primary); color: var(--primary-foreground); font: 700 26px var(--font-mono); letter-spacing: 0.08em; }
+.m11-tag div { display: grid; gap: 8px; align-content: center; padding: 14px 28px; }
+.m11-tag b { font-size: 52px; font-weight: 800; line-height: 1.08; letter-spacing: -0.02em; }
+.m11-tag span { font-size: 30px; font-weight: 600; line-height: 1.2; color: var(--muted-foreground); }
+.m11-tag.is-old { border-color: var(--context-foreground); }
+.m11-tag.is-old small { background: var(--context-foreground); }
+.m11-tag.is-gone { display: grid; grid-template-rows: 1fr; place-items: center; border: 4px dashed var(--context-foreground); background: transparent; box-shadow: none; }
+.m11-tag.is-gone b { color: var(--muted-foreground); }
+.m11-fail { display: grid; justify-items: center; gap: 8px; text-align: center; font-size: 28px; font-weight: 700; line-height: 1.2; color: var(--muted-foreground); }
+.m11-fail .icon { width: 64px; height: 64px; color: var(--diagram-magenta); }
+/* The practices: photo on top, one line, one number. */
+.m11-practice { display: grid; grid-template-rows: 250px auto 1fr; gap: 12px; min-height: 0; }
+.m11-practice .photo-tile > .cap { padding: 44px 20px 14px; }
+.m11-practice .photo-tile > .cap b { font-size: 36px; }
+.m11-practice p { font-size: 27px; font-weight: 500; line-height: 1.24; }
+.m11-practice p.stat { align-self: end; padding-top: 10px; border-top: 2px solid var(--border); font-size: 25px; font-weight: 700; line-height: 1.22; color: var(--primary); }
+/* Bars on a track from 0 to 100%. */
+.m11-track { position: relative; height: 44px; border-radius: 10px; background: var(--muted); }
+.m11-track > div { height: 100%; border-radius: 10px; }
+.m11-track > b { position: absolute; top: 50%; transform: translateY(-50%); font: 800 34px var(--font-sans); }
+</style>
 </head>
 <body>
 <main class="deck" data-module="M11" data-module-title="Founder health" data-chapters="Previously on Ambitious Entrepreneurship|Your presentations|Expect it: a brief history of failure|See it: my story|Feel it: prepare to be alone|Your turn|Carry it: lessons from 20+ founders|Close it: when it's over|Own it: not one single regret|Wrap-up and fireside|Workshop: the energy audit|Case discussion" data-main-chapters="3|4|5|7|8|9">
@@ -25,8 +71,8 @@
   </div>
   </section>
 
-<section class="slide" data-archetype="claim">
-  <div class="head">
+<section class="slide" data-shared="repo" data-archetype="claim">
+<div class="head">
     <span class="label">Course material · scan now</span>
     <h2 class="title">All slides live on <span class="mark">GitHub</span></h2>
     <p class="sub">The newest version, free, no account needed</p>
@@ -36,7 +82,7 @@
     <ol style="list-style:none;margin:0;padding:0;display:grid;gap:34px"><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start"><span style="display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font:800 30px var(--font-sans)">1</span><span style="font-size:34px;line-height:1.25"><b>Open the link</b><br><span style="font-size:28px;color:var(--muted-foreground)">github.com/BaNburger/AmbitiousEntrepreneurship</span></span></li><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start"><span style="display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font:800 30px var(--font-sans)">2</span><span style="font-size:34px;line-height:1.25"><b>Go to modules</b><br><span style="font-size:28px;color:var(--muted-foreground)">then 11-founder-health</span></span></li><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start"><span style="display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--primary);color:var(--primary-foreground);font:800 30px var(--font-sans)">3</span><span style="font-size:34px;line-height:1.25"><b>Click the lecture PDF</b><br><span style="font-size:28px;color:var(--muted-foreground)">M11_Lecture_Founder-Health.pdf, download top right</span></span></li></ol>
   </div>
   <footer class="prov">Public course repository of Ambitious Entrepreneurship. The QR code opens <a href="https://github.com/BaNburger/AmbitiousEntrepreneurship">github.com/BaNburger/AmbitiousEntrepreneurship</a>.</footer>
-  </section>
+</section>
 
 <section class="slide" data-archetype="claim">
   <div class="head">
@@ -45,9 +91,9 @@
     <p class="sub">Nothing you say is collected, graded or read out</p>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-content:center">
-    <div class="field field-blue" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif">🫶<br>Share what you choose</div>
-    <div class="field field-purple" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif">🚪<br>Sit out anything, no reason needed</div>
-    <div class="field field-navy" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif">☎️<br>Where to get help is at the end</div>
+    <div class="field field-blue" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif"><span class="icon icon-heart" aria-hidden="true" style="display:block;width:76px;height:76px;margin-bottom:22px"></span>Share what you choose</div>
+    <div class="field field-purple" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif"><span class="icon icon-log-out" aria-hidden="true" style="display:block;width:76px;height:76px;margin-bottom:22px"></span>Sit out anything, no reason needed</div>
+    <div class="field field-navy" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif"><span class="icon icon-smartphone" aria-hidden="true" style="display:block;width:76px;height:76px;margin-bottom:22px"></span>Where to get help is at the end</div>
   </div>
   <footer class="prov" data-kind="Bastian">Founder health (M11) frame, confirmed 2026-10-20. Help routes on the wrap-up slides and in the homework.</footer>
   </section>
@@ -65,26 +111,28 @@
   <footer class="prov" data-kind="Bastian">The course path of Ambitious Entrepreneurship, sessions 00 to 12.</footer>
   </section>
 
-<section class="slide" data-archetype="retrieval" data-variant="question">
+<section class="slide" data-archetype="retrieval" data-variant="question" data-m11="q">
   <div class="head">
     <span class="label">Check-in · table talk</span>
     <h2 class="title">Which failure are you secretly <span class="mark">proud</span> of?</h2>
   </div>
-  <div class="content recall">
+  <div class="content recall" style="grid-template-columns:auto 1fr;gap:72px;align-items:center;justify-items:stretch;margin-top:24px">
     <ol><li></li><li></li></ol>
     <div class="timer" data-timer="3"></div>
+    <figure class="photo-tile" style="height:520px"><img src="media/m11-table-talk.jpg" alt="A group of students talking around a table"></figure>
   </div>
+  <footer class="prov">Photo: StockSnap on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim">
-  <div class="head">
-    <span class="label">Pivot or persevere</span>
-    <h2 class="title">Under your line? That is a <span class="mark">decision</span>, not a failure</h2>
-    <p class="sub">Your last test: did half your paying customers come back?</p>
-  </div>
-  <div class="content diagram"><div class="anchor" data-anchor="pivot-fork"></div></div>
-  <footer class="prov" data-kind="Framework">Pivot or persevere after Ries, E. (2011), The Lean Startup. Pivot types as in the course Glossary.</footer>
-  </section>
+<section class="slide" data-shared="line" data-archetype="claim">
+<div class="head">
+<span class="label">Pivot or persevere</span>
+<h2 class="title">Under your line? That is a <span class="mark">decision</span>, not a failure</h2>
+<p class="sub">Did half your paying customers come back?</p>
+</div>
+<div class="content diagram"><div class="anchor" data-anchor="pivot-fork" data-active=""></div></div>
+<footer class="prov" data-kind="Framework">Pivot or persevere after Ries, E. (2011), The Lean Startup. Pivot types as in the course Glossary.</footer>
+</section>
 
 <section class="slide" data-archetype="divider" data-chapter="Previously on Ambitious Entrepreneurship">
   <div class="head">
@@ -112,15 +160,15 @@
   <footer class="prov" data-kind="Bastian">"How make numbers go brrr", as First users (M08) to Product management (M10) showed it.</footer>
   </section>
 
-<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Previously on Ambitious Entrepreneurship">
+<section class="slide" data-archetype="retrieval" data-variant="question" data-m11="q" data-chapter="Previously on Ambitious Entrepreneurship">
   <div class="head">
     <span class="label">Today's question · think, don't answer</span>
     <h2 class="title">How do you build a company without <span class="mark">breaking yourself</span>?</h2>
   </div>
-  <div class="content recall" style="grid-template-columns:1fr auto 300px;align-items:center">
+  <div class="content recall" style="grid-template-columns:auto 1fr;gap:72px;align-items:center;justify-items:stretch">
     <ol><li></li></ol>
     <div class="timer" data-timer="1"></div>
-    <span class="icon icon-heart hero" aria-hidden="true" style="justify-self:center"></span>
+    <span class="icon icon-heart" aria-hidden="true" style="justify-self:end;width:420px;height:420px;color:var(--primary)"></span>
   </div>
   </section>
 
@@ -132,30 +180,30 @@
   </div>
   </section>
 
-<section class="slide" data-archetype="checkin" data-chapter="Your presentations">
-  <div class="head">
-    <span class="label">Your presentations · make it credible</span>
-    <h2 class="title">Show us where you're at in 3 minutes or less!</h2>
-  </div>
-  <div class="timer" data-timer="3"></div>
-  <div class="content">
-    <div class="credible">
-      <div class="card"><h3>Facts</h3><span class="kind">Product management (M10)</span><ul><li>North Star, drivers</li><li>Build or grow, Now bets</li></ul></div>
-      <div class="card"><h3>Numbers</h3><span class="kind">Your records</span><ul><li>Revenue vs €1,000, €3,000</li><li>Back in 14 days, lost</li><li>North Star, kill line</li></ul></div>
-      <div class="card"><h3>Quotes</h3><span class="kind">Customers</span><ul><li>Why one left</li><li>Why one stays</li></ul></div>
-      <div class="card"><h3>Images</h3><span class="kind">KPI Tracker</span><ul><li>Cropped, no customer data</li></ul></div>
-    </div>
-    <div class="asks"><span>The bets: expected effect against what happened, and one no you sent</span></div>
-    <div class="asks"><span>What did you do?</span><span>What did you learn?</span><span>How can we help?</span></div>
-  </div>
-  <footer class="prov" data-kind="Bastian">Course check-in format. Categories from section 7 of the Product management (M10) workshop slide brief, approved 2026-10-20.</footer>
-  </section>
+<section class="slide" data-shared="readout" data-archetype="checkin" data-chapter="Your presentations">
+<div class="head">
+<span class="label">Your presentations · make it credible</span>
+<h2 class="title">Show us where you're at in <span class="mark">3 minutes</span> or less!</h2>
+</div>
+<div class="timer" data-timer="3"></div>
+<div class="content">
+<div class="credible">
+<div class="card ev"><img class="ev-bg" src="../../design/media/readout-facts.jpg" alt=""><div class="sym-row"><span class="sym" aria-hidden="true"><span class="icon icon-chart-column"></span></span><h3>Facts</h3></div><span class="kind">Statistics or research</span><p>North Star and its drivers, build or grow, Now bets</p></div>
+<div class="card ev"><img class="ev-bg" src="../../design/media/readout-numbers.jpg" alt=""><div class="sym-row"><span class="sym" aria-hidden="true"><b>12</b></span><h3>Numbers</h3></div><span class="kind">Usage or surveys</span><p>Revenue against €1,000 and €3,000, back in 14 days, lost, kill line</p></div>
+<div class="card ev"><img class="ev-bg" src="../../design/media/readout-quotes.jpg" alt=""><div class="sym-row"><span class="sym" aria-hidden="true"><span class="icon icon-quote"></span></span><h3>Quotes</h3></div><span class="kind">Interviews</span><p>Why one customer left, why one stays</p></div>
+<div class="card ev"><img class="ev-bg" src="../../design/media/readout-images.jpg" alt=""><div class="sym-row"><span class="sym" aria-hidden="true"><span class="icon icon-image"></span></span><h3>Images</h3></div><span class="kind">Screenshots or users</span><p>KPI Tracker, cropped, no customer data</p></div>
+</div>
+<p class="readout-also">The bets: expected effect against what happened, and one no you sent</p>
+<div class="asks is-bold"><span><i class="icon icon-hammer" aria-hidden="true"></i>What did you do?</span><span><i class="icon icon-lightbulb" aria-hidden="true"></i>What did you learn?</span><span><i class="icon icon-handshake" aria-hidden="true"></i>How can we help?</span></div>
+</div>
+<footer class="prov">Photos on Pixabay: lil_foot_, 6689062, Surprising_Media, tranmautritam.</footer>
+</section>
 
 <section class="slide" data-archetype="divider" data-chapter="Expect it: a brief history of failure">
   <div class="head">
     <span class="label">Input 1 of 6 · Chapter 3 of 12</span>
     <h2 class="title">Expect it: a brief history of failure</h2>
-    <p class="summary">Most startups fail, the process is known, and it is all just theory.</p>
+    <p class="summary">Most startups fail, mistakes come with trying, and the process is known.</p>
   </div>
   </section>
 
@@ -168,24 +216,25 @@
   </section>
 
 <section class="slide" data-archetype="quote" data-variant="field" data-chapter="Expect it: a brief history of failure">
-  <div class="quote-layout">
+  <div class="quote-layout" style="grid-template-columns:1fr 640px;gap:64px">
     <figure>
       <blockquote><p>I can accept failure. Everyone fails at something. But I can't accept <span class="hl">not trying</span>.</p></blockquote>
       <figcaption><b>Michael Jordan</b></figcaption>
     </figure>
+    <figure class="photo-tile" style="height:700px"><img src="media/m11-hoop.jpg" alt="A player reaches for a basketball above the hoop against an orange sunset, in silhouette"></figure>
   </div>
-  <footer class="prov">Jordan, M. (1994). I can't accept not trying. HarperSanFrancisco, p. 129, as Wikiquote gives it.</footer>
+  <footer class="prov"><a class="cite" href="https://en.wikiquote.org/wiki/Michael_Jordan">Jordan, M. (1994). I can't accept not trying. HarperSanFrancisco, p. 129, as Wikiquote gives it.</a> Photo: tortugamediaservices on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Expect it: a brief history of failure">
-  <div class="head">
+<section class="slide" data-shared="rarely-die" data-archetype="claim" data-chapter="Expect it: a brief history of failure">
+<div class="head">
     <span class="label">Why do startups fail?</span>
     <h2 class="title">Startups rarely die of <span class="mark">one thing</span></h2>
-    <p class="sub">Top reasons in 111 post-mortems, several per startup</p>
+    <p class="sub">% of 111 post-mortems since 2018 naming each reason, coloured by area</p>
   </div>
-  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="Top reasons startups fail, CB Insights 2021" style="display:block;width:100%;height:auto"><text x="560" y="36" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Ran out of cash or failed to raise</text><rect x="590" y="6" width="900.0" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1500.0" y="36" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">38%</text><text x="560" y="90" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">No market need</text><rect x="590" y="60" width="828.9473684210526" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1428.9473684210525" y="90" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">35%</text><text x="560" y="144" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Got outcompeted</text><rect x="590" y="114" width="473.6842105263158" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1073.6842105263158" y="144" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">20%</text><text x="560" y="198" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Flawed business model</text><rect x="590" y="168" width="450.0" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1050.0" y="198" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">19%</text><text x="560" y="252" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Regulatory or legal challenges</text><rect x="590" y="222" width="426.31578947368416" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1026.3157894736842" y="252" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">18%</text><text x="560" y="306" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Pricing or cost issues</text><rect x="590" y="276" width="355.2631578947368" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="955.2631578947369" y="306" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">15%</text><text x="560" y="360" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Not the right team</text><rect x="590" y="330" width="331.57894736842104" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="931.578947368421" y="360" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">14%</text><text x="560" y="414" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Product mistimed</text><rect x="590" y="384" width="236.8421052631579" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="836.8421052631579" y="414" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">10%</text><text x="560" y="468" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Poor product</text><rect x="590" y="438" width="189.4736842105263" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="789.4736842105262" y="468" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">8%</text><text x="590" y="528" text-anchor="start" style="fill:var(--muted-foreground);font-size:28px;font-weight:600;font-family:Inter,sans-serif">Share of the 111 post-mortems that name the reason</text></svg></div>
-  <footer class="prov" data-kind="Data">CB Insights, "The top 12 reasons startups fail", 3 August 2021, 111 post-mortems, top 9 of 12 shown. Several reasons per startup. Data as in The kill decision (M07).</footer>
-  </section>
+  <div class="content diagram"><svg viewBox="0 0 1640 540" role="img" aria-label="Top reasons startups fail, CB Insights 2021" style="display:block;width:100%;height:auto"><text x="560" y="36" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Ran out of cash or failed to raise</text><rect x="590" y="6" width="900.0" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1500.0" y="36" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">38%</text><text x="560" y="90" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">No market need</text><rect x="590" y="60" width="828.9473684210526" height="40" rx="8" style="fill:var(--diagram-magenta)"/><text x="1428.9473684210525" y="90" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">35%</text><text x="560" y="144" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Got outcompeted</text><rect x="590" y="114" width="473.6842105263158" height="40" rx="8" style="fill:var(--diagram-purple)"/><text x="1073.6842105263158" y="144" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">20%</text><text x="560" y="198" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Flawed business model</text><rect x="590" y="168" width="450.0" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1050.0" y="198" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">19%</text><text x="560" y="252" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Regulatory or legal challenges</text><rect x="590" y="222" width="426.31578947368416" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="1026.3157894736842" y="252" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">18%</text><text x="560" y="306" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Pricing or cost issues</text><rect x="590" y="276" width="355.2631578947368" height="40" rx="8" style="fill:var(--diagram-navy)"/><text x="955.2631578947369" y="306" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">15%</text><text x="560" y="360" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Not the right team</text><rect x="590" y="330" width="331.57894736842104" height="40" rx="8" style="fill:var(--context)"/><text x="931.578947368421" y="360" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">14%</text><text x="560" y="414" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Product mistimed</text><rect x="590" y="384" width="236.8421052631579" height="40" rx="8" style="fill:var(--diagram-magenta)"/><text x="836.8421052631579" y="414" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">10%</text><text x="560" y="468" text-anchor="end" style="fill:var(--foreground);font-size:28px;font-weight:700;font-family:Inter,sans-serif">Poor product</text><rect x="590" y="438" width="189.4736842105263" height="40" rx="8" style="fill:var(--diagram-purple)"/><text x="789.4736842105262" y="468" text-anchor="start" style="fill:var(--foreground);font-size:28px;font-weight:800;font-family:Inter,sans-serif">8%</text><rect x="590" y="500" width="30" height="30" rx="6" style="fill:var(--diagram-magenta)"/><text x="632" y="525" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Customer</text><rect x="840" y="500" width="30" height="30" rx="6" style="fill:var(--diagram-purple)"/><text x="882" y="525" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Solution</text><rect x="1090" y="500" width="30" height="30" rx="6" style="fill:var(--diagram-navy)"/><text x="1132" y="525" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Business</text><rect x="1340" y="500" width="30" height="30" rx="6" style="fill:var(--context)"/><text x="1382" y="525" text-anchor="start" style="fill:var(--foreground);font-size:26px;font-weight:700;font-family:Inter,sans-serif">Team</text><text x="1640" y="300" text-anchor="end" style="fill:var(--primary);font-size:40px;font-weight:800;font-family:Inter,sans-serif">Several reasons</text><text x="1640" y="350" text-anchor="end" style="fill:var(--primary);font-size:40px;font-weight:800;font-family:Inter,sans-serif">per startup</text></svg></div>
+  <footer class="prov" data-kind="Data"><a class="cite" href="https://web.archive.org/web/20221203033217/https://www.cbinsights.com/research/report/startup-failure-reasons-top/">CB Insights, "The top 12 reasons startups fail", 3 August 2021</a>, 111 post-mortems, top 9 of 12 shown.  Colours are the course's grouping.</footer>
+</section>
 
 <section class="slide" data-archetype="claim" data-chapter="Expect it: a brief history of failure">
   <div class="head">
@@ -197,59 +246,71 @@
     <figure style="margin:0" class="field field-purple" ><blockquote style="margin:0;padding:48px;border-radius:24px;font:700 52px/1.15 Inter,sans-serif;color:#fff">"No matter how it looks at first, it's always a people problem."</blockquote><figcaption style="padding:0 48px 40px;font:600 30px/1.3 Inter,sans-serif;color:#fff">Gerald Weinberg</figcaption></figure>
     <figure style="margin:0" class="field field-navy"><blockquote style="margin:0;padding:48px;border-radius:24px;font:700 52px/1.15 Inter,sans-serif;color:#fff">"Timing is the major variable. It's the major form of entrepreneurial risk … maybe by a wide margin."</blockquote><figcaption style="padding:0 48px 40px;font:600 30px/1.3 Inter,sans-serif;color:#fff">Marc Andreessen</figcaption></figure>
   </div>
-  <footer class="prov" data-kind="Framework">Weinberg, G. M. (1985). The secrets of consulting, the second law of consulting. Marc Andreessen on Masters of Scale, "The 6 secrets of great timing" (podcast, transcript).</footer>
+  <footer class="prov" data-kind="Framework"><a class="cite" href="https://en.wikiquote.org/wiki/Gerald_Weinberg">Weinberg, G. M. (1985). The secrets of consulting, the second law of consulting.</a> <a class="cite" href="https://web.archive.org/web/20240106013640/https://mastersofscale.com/andreessen/">Marc Andreessen on Masters of Scale, "The 6 secrets of great timing" (podcast, transcript).</a></footer>
   </section>
 
-<section class="slide" data-archetype="quote" data-chapter="Expect it: a brief history of failure">
-  <div class="quote-layout">
-    <figure>
-      <blockquote><p>Mistakes aren't a necessary evil. They aren't evil at all. They are an inevitable consequence of <span class="hl">doing something new</span>.</p></blockquote>
-      <figcaption><b>Ed Catmull</b>, co-founder of Pixar</figcaption>
-    </figure>
-    <div class="book">
-      <span class="label">Book</span>
-      <h3>Creativity, Inc.</h3>
-      <p>Ed Catmull, 2014</p>
-    </div>
-  </div>
-  <footer class="prov">Catmull, E. (2014). Creativity, Inc., as two reviews of the book quote it.</footer>
-  </section>
+<section class="slide" data-shared="catmull" data-archetype="quote" data-chapter="Expect it: a brief history of failure">
+<div class="quote-layout" style="grid-template-columns:1fr 540px;gap:64px">
+<figure>
+<blockquote><p>Mistakes aren't a necessary evil. They aren't evil at all. They are an inevitable consequence of <span class="hl">doing something new</span>.</p></blockquote>
+<figcaption style="display:flex;align-items:center;gap:14px"><span><b>Ed Catmull</b>, co-founder of</span><span class="co-chip">Pixar</span></figcaption>
+</figure>
+<div style="display:grid;gap:24px">
+<figure class="photo-tile" style="height:430px"><img src="../../design/media/catmull-lamp.jpg" alt="An adjustable metal desk lamp on a wooden desk, in front of a white brick wall"></figure>
+<div class="book">
+<span class="label">Book</span>
+<h3>Creativity, Inc.</h3>
+<p>Ed Catmull with Amy Wallace, 2014</p>
+</div>
+</div>
+</div>
+<footer class="prov" data-kind="Framework">Catmull, E., &amp; Wallace, A. (2014). <i>Creativity, Inc.</i> Random House, as quoted by <a class="cite" href="https://www.themarginalian.org/2014/05/02/creativity-inc-ed-catmull-book/">Popova (2014), The Marginalian</a>. Photo: RaniRamli on Pixabay, a stock desk lamp, not a Pixar image.</footer>
+</section>
 
 <section class="slide" data-archetype="anchor" data-chapter="Expect it: a brief history of failure">
   <div class="anchor-layout"><div class="head"><span class="label">The process is known · re-shown</span><h2 class="title">Commitment is <span class="mark">risky</span></h2></div><div class="anchor" data-anchor="build-measure-learn"></div></div>
   <footer class="prov" data-kind="Framework">Ries, E. (2011). The lean startup. Crown Business. Build-Measure-Learn.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Expect it: a brief history of failure">
-  <div class="head">
-    <h2 class="title">The process is known: 24 steps, all <span class="mark">written down</span></h2>
-    <p class="sub">Disciplined entrepreneurship, one way to read the course</p>
+<section class="slide" data-shared="24-steps" data-archetype="framework" data-chapter="Expect it: a brief history of failure">
+<div class="head">
+    <span class="label">The process is known</span>
+    <h2 class="title">24 steps, all <span class="mark">written down</span></h2>
+    <p class="sub">Each step is Build-Measure-Learn. Steps 20 and 21 meet reality</p>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-content:start"><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">1</span><span style="font:600 24px/1.15 Inter,sans-serif">Market segmentation</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">2</span><span style="font:600 24px/1.15 Inter,sans-serif">Select a beachhead market</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">3</span><span style="font:600 24px/1.15 Inter,sans-serif">Build an end user profile</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">4</span><span style="font:600 24px/1.15 Inter,sans-serif">TAM for the beachhead</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">5</span><span style="font:600 24px/1.15 Inter,sans-serif">Persona for the beachhead</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">6</span><span style="font:600 24px/1.15 Inter,sans-serif">Full life cycle use case</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">7</span><span style="font:600 24px/1.15 Inter,sans-serif">High-level product spec</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">8</span><span style="font:600 24px/1.15 Inter,sans-serif">Quantify the value proposition</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">9</span><span style="font:600 24px/1.15 Inter,sans-serif">Your next 10 customers</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">10</span><span style="font:600 24px/1.15 Inter,sans-serif">Define your core</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">11</span><span style="font:600 24px/1.15 Inter,sans-serif">Chart your competitive position</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">12</span><span style="font:600 24px/1.15 Inter,sans-serif">The customer's organisation</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">13</span><span style="font:600 24px/1.15 Inter,sans-serif">Process to acquire a paying customer</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">14</span><span style="font:600 24px/1.15 Inter,sans-serif">TAM for follow-on markets</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">15</span><span style="font:600 24px/1.15 Inter,sans-serif">Design a business model</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">16</span><span style="font:600 24px/1.15 Inter,sans-serif">Set your pricing framework</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">17</span><span style="font:600 24px/1.15 Inter,sans-serif">Unit economics</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">18</span><span style="font:600 24px/1.15 Inter,sans-serif">Map the sales process</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">19</span><span style="font:600 24px/1.15 Inter,sans-serif">Customer economics</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">20</span><span style="font:600 24px/1.15 Inter,sans-serif">Identify key assumptions</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">21</span><span style="font:600 24px/1.15 Inter,sans-serif">Test key assumptions</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">22</span><span style="font:600 24px/1.15 Inter,sans-serif">Define the MVP</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">23</span><span style="font:600 24px/1.15 Inter,sans-serif">Prove your beachhead with your MVP</span></div><div style="display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--card);border:2px solid var(--border)"><span style="font:800 26px Inter,sans-serif;color:var(--primary)">24</span><span style="font:600 24px/1.15 Inter,sans-serif">Develop a product plan</span></div></div>
-  <footer class="prov" data-kind="Framework">Aulet, B. (2013). Disciplined entrepreneurship. 24 steps to a successful startup. Wiley.</footer>
-  </section>
+  <div class="content steps24">
+    <div><b>1</b>Market segmentation</div><div><b>2</b>Select a beachhead market</div><div><b>3</b>Build an end user profile</div><div><b>4</b>TAM for the beachhead</div><div><b>5</b>Persona for the beachhead</div><div><b>6</b>Full life cycle use case</div>
+    <div><b>7</b>High-level product specification</div><div><b>8</b>Quantify the value proposition</div><div><b>9</b>Identify your next 10 customers</div><div><b>10</b>Define your core</div><div><b>11</b>Chart your competitive position</div><div><b>12</b>Determine the customer organisation</div>
+    <div><b>13</b>Map how to acquire a paying customer</div><div><b>14</b>TAM for follow-on markets</div><div><b>15</b>Design a business model</div><div><b>16</b>Set your pricing framework</div><div><b>17</b>Calculate the unit economics</div><div><b>18</b>Map the sales process</div>
+    <div><b>19</b>Calculate the customer economics</div><div class="hl"><b>20</b>Identify key assumptions</div><div class="hl"><b>21</b>Test key assumptions</div><div><b>22</b>Define the MVP</div><div><b>23</b>Prove your beachhead with your MVP</div><div><b>24</b>Develop a product plan</div>
+  </div>
+  <footer class="prov" data-kind="Framework">Aulet, B. (2013). <i>Disciplined Entrepreneurship: 24 Steps to a Successful Startup</i>. Wiley. Step names, shortened.</footer>
+</section>
 
 <section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Expect it: a brief history of failure">
   <div class="head">
     <span class="label">Quick guess · hands</span>
     <h2 class="title">What share of founders show signs of <span class="mark">strain</span>?</h2>
   </div>
-  <div class="content recall" style="grid-template-columns:1fr auto 300px;align-items:center">
-    <ol><li></li></ol>
+  <div class="content bands-layout">
+    <div class="bands">
+      <div class="band is-word" data-tally="30"><b>&lt;33%</b><span>under a third</span></div>
+      <div class="band is-word" data-tally="30"><b>~50%</b><span>about half</span></div>
+      <div class="band is-word" data-tally="30"><b>&gt;67%</b><span>more than two thirds</span></div>
+    </div>
     <div class="timer" data-timer="1"></div>
-    <span class="icon icon-circle-help hero" aria-hidden="true" style="justify-self:center"></span>
   </div>
   </section>
 
 <section class="slide" data-archetype="mantra" data-chapter="Expect it: a brief history of failure">
-  <div class="mantra-line"><div class="donut" style="--v:93;--c:var(--key);--donut:500px"><b style="font-size:150px">93%</b></div><span class="mantra-word" style="font-size:88px;line-height:1.05;max-width:1060px;text-wrap:balance">of founders show signs of mental health strain</span></div>
-  <footer class="prov" data-kind="Data">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024. Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed.</footer>
+  <div class="mantra-line" style="display:grid;grid-template-columns:420px 1fr 620px;gap:48px;align-items:center"><div class="donut" style="--v:93;--c:var(--key);--donut:420px"><b style="font-size:124px">93%</b></div><span class="mantra-word" style="font-size:66px;line-height:1.08;letter-spacing:-0.025em;text-wrap:balance">of founders show signs of mental health strain</span><figure class="photo-tile" style="height:640px"><img src="media/m11-strain.jpg" alt="A man at a desk in front of a bright window, seen from behind in silhouette, a desk lamp glowing beside him"></figure></div>
+  <footer class="prov" data-kind="Data"><a class="cite" href="https://foundology.org/founder-resilience-research/">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024.</a> Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed. Photo: Pexels on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="mantra" data-chapter="Expect it: a brief history of failure">
   <span class="label">And still</span>
   <div class="mantra-line"><div class="donut" style="--v:89;--c:var(--key);--donut:500px"><b style="font-size:150px">89%</b></div><span class="mantra-word" style="font-size:88px;line-height:1.05;max-width:1060px;text-wrap:balance">of founders remain glad to be entrepreneurs</span></div>
-  <footer class="prov" data-kind="Data">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024. Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed.</footer>
+  <footer class="prov" data-kind="Data"><a class="cite" href="https://foundology.org/founder-resilience-research/">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024.</a> Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed.</footer>
   </section>
 
 <section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Expect it: a brief history of failure">
@@ -263,19 +324,10 @@
 
 <section class="slide" data-archetype="claim" data-chapter="Expect it: a brief history of failure">
   <div class="head">
-    <span class="label">A brief history of failure</span>
-    <h2 class="title">All just theory, until it is <span class="mark">your startup</span></h2>
-  </div>
-  <div class="content" style="display:grid;place-items:center"></div>
-  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy.</footer>
-  </section>
-
-<section class="slide" data-archetype="claim" data-chapter="Expect it: a brief history of failure">
-  <div class="head">
     <span class="label">Input 1 of 6 · Expect it · the answers</span>
     <h2 class="title">Expect it: failure comes with <span class="mark">trying</span></h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why do startups fail?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Rarely of one thing, and in the end it's always a people problem</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Can you avoid mistakes?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">No. They are the inevitable consequence of doing something new</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><div class="donut" style="--v:93;--c:var(--primary-strong);--donut:230px"><b>93%</b></div></div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Does knowing the process protect you?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">No. It's all just theory: 93% of founders still show strain</p></div></div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why do startups fail?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Rarely of one thing, and in the end it's always a people problem</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Can you avoid mistakes?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">No. They are the inevitable consequence of doing something new</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><div class="donut" style="--v:93;--c:var(--primary-strong);--donut:230px"><b>93%</b></div></div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Does knowing the process protect you?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">No. It's all just theory, 93% of founders still show strain</p></div></div>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="See it: my story">
@@ -294,6 +346,14 @@
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">What did we set out to do?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">What happened instead?</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--muted);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:38px;line-height:1.25;font-weight:700;margin:18px 0 0">What kept us going?</p></div></div>
   </section>
 
+<section class="slide" data-archetype="mantra" data-chapter="See it: my story">
+  <span class="label">My story</span>
+  <div style="display:grid;grid-template-columns:1fr auto;gap:64px;align-items:center;margin-top:24px">
+    <p style="font-size:150px;font-weight:500;letter-spacing:-0.02em;line-height:1.05">All just <b>theory</b></p>
+    <p style="font-size:52px;font-weight:600;line-height:1.15;margin-top:18px">until it is your startup</p>
+      </div>
+  </section>
+
 <section class="slide" data-archetype="claim" data-chapter="See it: my story">
   <div class="head">
     <span class="label">My story</span>
@@ -306,6 +366,9 @@
   <footer class="prov" data-kind="Bastian">My story, blik.</footer>
   </section>
 
+<section class="slide" data-archetype="claim" data-m11="photo" data-chapter="See it: my story">
+  <img class="m11-bleed" src="media/story-yard.jpg" alt="A yard of stacked coloured metal crates and a forklift in evening light">
+  </section>
 
 
 <section class="slide" data-archetype="mantra" data-chapter="See it: my story">
@@ -329,13 +392,23 @@
 <section class="slide" data-archetype="mantra" data-chapter="See it: my story">
   <span class="label">My story · blik</span>
   <p style="font-size:88px;font-weight:500;letter-spacing:-0.02em;line-height:1.12;max-width:1450px;margin-top:24px">"One of the <b>most promising</b> startups of the year!"</p>
-  <footer class="prov" data-kind="Bastian">My story, blik.</footer>
+  <p style="display:flex;align-items:center;gap:22px;margin-top:44px;font-size:36px;font-weight:600;color:var(--muted-foreground)"><span class="co" style="color:var(--foreground)"><img src="../../design/logos/techcrunch.svg" alt="">TechCrunch</span>Runner-up, Startup Battlefield, Disrupt Berlin 2017</p>
+  <footer class="prov">The quote is TechCrunch's as I remember it. The event is in <a class="cite" href="https://techcrunch.com/2017/12/05/lia-diagnostics-wins-startup-battlefield-at-disrupt-berlin-2017/">Dillet, R. (2017), And the winner of Startup Battlefield at Disrupt Berlin 2017 is… Lia Diagnostics</a>, TechCrunch. Logos are trademarks of their owners.</footer>
   </section>
 
 
 
+<section class="slide" data-archetype="claim" data-m11="photo" data-chapter="See it: my story">
+  <img class="m11-bleed" src="media/story-wall.jpg" alt="A wall covered in rows of coloured sticky notes">
+  </section>
 
+<section class="slide" data-archetype="claim" data-m11="photo" data-chapter="See it: my story">
+  <img class="m11-bleed" src="media/story-prototypes.jpg" alt="Dozens of small black devices laid out on cardboard on the floor">
+  </section>
 
+<section class="slide" data-archetype="claim" data-m11="photo" data-chapter="See it: my story">
+  <img class="m11-bleed" src="media/story-device.jpg" alt="A small black blik device strapped to a wooden post">
+  </section>
 
 <section class="slide" data-archetype="mantra" data-chapter="See it: my story">
   <span class="label">My story · blik</span>
@@ -353,12 +426,17 @@
   </section>
 
 
+<section class="slide" data-archetype="claim" data-m11="photo" data-chapter="See it: my story">
+  <img class="m11-bleed" src="media/story-devices.jpg" alt="Rows of black devices with white labels on a table">
+  </section>
 
 <section class="slide" data-archetype="closing" data-chapter="See it: my story" style="background:hsl(220 16% 22%);padding-right:var(--pad-x)">
   <p class="statement" style="font-size:80px;font-weight:500;max-width:1400px"><b>When</b> will we build something our customers will love?<br>The next big deal is <b>still</b> around the corner.</p>
-  <footer class="prov">My story, blik.</footer>
   </section>
 
+<section class="slide" data-archetype="claim" data-m11="photo" data-chapter="See it: my story">
+  <img class="m11-bleed" src="media/story-corridor.jpg" alt="An empty white corridor with closed doors">
+  </section>
 
 <section class="slide" data-archetype="closing" data-chapter="See it: my story" style="background:hsl(220 16% 22%);padding-right:var(--pad-x);justify-content:center">
   <div class="anchor" data-anchor="two-curves" style="width:100%"></div>
@@ -390,8 +468,8 @@
 
 <section class="slide" data-archetype="mantra" data-chapter="Feel it: prepare to be alone">
   <span class="label">Prepare to be alone</span>
-  <div class="mantra-line"><div class="donut" style="--v:76;--c:var(--key);--donut:500px"><b style="font-size:150px">76%</b></div><span class="mantra-word" style="font-size:88px;line-height:1.05;max-width:1060px;text-wrap:balance">of founders feel lonely</span></div>
-  <footer class="prov" data-kind="Data">Richardson, C. (2024). Fuelling founder resilience. Foundology with UCL School of Management. The report compares it with CEOs generally, 50% more.</footer>
+  <div class="mantra-line" style="display:grid;grid-template-columns:420px 1fr 620px;gap:48px;align-items:center"><div class="donut" style="--v:76;--c:var(--key);--donut:420px"><b style="font-size:124px">76%</b></div><span class="mantra-word" style="font-size:66px;line-height:1.08;letter-spacing:-0.025em;text-wrap:balance">of founders feel lonely</span><figure class="photo-tile" style="height:640px"><img src="media/m11-lonely.jpg" alt="One small figure alone on an empty parking lot at night"></figure></div>
+  <footer class="prov" data-kind="Data"><a class="cite" href="https://foundology.org/founder-resilience-research/">Richardson, C. (2024). Fuelling founder resilience.</a> Foundology with UCL School of Management. The report compares it with CEOs generally, 50% more. Photo: harutmovsisyan on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="Feel it: prepare to be alone">
@@ -400,11 +478,11 @@
     <h2 class="title">Some decisions you make <span class="mark">alone</span></h2>
     <p class="sub">Sooner or later, every founder makes these</p>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:1fr 640px;gap:64px;align-items:center">
+  <div class="content" style="display:grid;grid-template-columns:560px 1fr;gap:56px;align-items:center">
     <ul style="list-style:none;padding:0;margin:0"><li style="font:700 48px/1.25 Inter,sans-serif;padding:6px 0">Tell it like it is</li><li style="font:700 48px/1.25 Inter,sans-serif;padding:6px 0">Lay people off</li><li style="font:700 48px/1.25 Inter,sans-serif;padding:6px 0">Demote loyal friends</li><li style="font:700 48px/1.25 Inter,sans-serif;padding:6px 0">Bet the company</li><li style="font:700 48px/1.25 Inter,sans-serif;padding:6px 0">Step back, step down</li><li style="font:700 48px/1.25 Inter,sans-serif;padding:6px 0">…</li></ul>
-    <div class="sticky" style="--tilt:2deg"><p>"It's better to have no cofounder than to have a bad cofounder, but it's still bad to be a solo founder."</p><p class="why">Sam Altman</p></div>
+    <div style="position:relative;height:520px"><figure class="photo-tile" style="height:100%"><img src="media/m11-boardroom.jpg" alt="An empty conference table with black chairs in a bright room"></figure><div class="sticky" style="--tilt:2deg;position:absolute;right:24px;bottom:24px;width:520px"><p>"It's better to have no cofounder than to have a bad cofounder, but it's still bad to be a solo founder."</p><p class="why">Sam Altman</p></div></div>
   </div>
-  <footer class="prov" data-kind="Framework">Horowitz, B. (2014). The hard thing about hard things. HarperCollins. Altman, S. (2014). Lecture 2, Team and execution. How to Start a Startup, Y Combinator.</footer>
+  <footer class="prov" data-kind="Framework">Horowitz, B. (2014). The hard thing about hard things. HarperCollins. <a class="cite" href="https://www.youtube.com/watch?v=CVfnkM44Urs">Altman, S. (2014). Lecture 2, Team and execution. How to Start a Startup, Y Combinator.</a> Photo: Pexels on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="Feel it: prepare to be alone">
@@ -426,10 +504,13 @@
   <div style="width:100%"><svg viewBox="0 0 1640 640" role="img" aria-label="A white line runs flat, then drops steeply and flattens at the bottom" style="display:block;width:100%;height:auto"><path data-step="1" d="M0 260 L1000 260" style="stroke:#fff;stroke-width:8;fill:none"/><path data-step="2" d="M1000 260 C 1120 260, 1150 300, 1220 460 S 1360 640, 1480 600" style="stroke:#fff;stroke-width:8;fill:none"/></svg></div>
   </section>
 
-<section class="slide" data-archetype="closing" data-chapter="Feel it: prepare to be alone" style="background:hsl(220 16% 22%);padding-right:var(--pad-x);justify-content:center;justify-content:flex-start;padding-top:80px">
-  <p style="font:800 34px/1.35 Inter,sans-serif;color:#fff;max-height:860px;overflow:hidden;margin:0">Where can we go from here? What can we do now? How can we be successful? What do we need to do? How did we end up here? What did we do wrong? Why is this not working? Are we doing good work? What are we missing? Where can we go from here? What can we do now? How can we be successful? What do we need to do? How did we end up here? What did we do wrong? Why is this not working? Are we doing good work? What are we missing? Where can we go from here? What can we do now? How can we be successful? What do we need to do? How did we end up here? What did we do wrong? Why is this not working? Are we doing good work? What are we missing? Where can we go from here? What can we do now? How can we be successful? What do we need to do? How did we end up here? What did we do wrong? Why is this not working? Are we doing good work? What are we missing? Where can we go from here? What can we do now? How can we be successful? What do we need to do? How did we end up here? What did we do wrong? Why is this not working? Are we doing good work? What are we missing?</p>
+<section class="slide" data-archetype="closing" data-m11="wall" data-chapter="Feel it: prepare to be alone">
+  <p class="m11-wall" data-bleed><span data-step="3">Where can we go from here?</span> <span data-step="1">What can we do now?</span> <span data-step="1">How can we be successful?</span> <span data-step="1">What do we need to do?</span> <span data-step="2">How did we end up here?</span> <span data-step="2">What did we do wrong?</span> <span data-step="3">Why is this not working?</span> <span data-step="2">Are we doing good work?</span> <span data-step="1">What are we missing?</span> <span data-step="3">Where can we go from here?</span> <span data-step="1">What can we do now?</span> <span data-step="1">How can we be successful?</span> <span>What do we need to do?</span> <span data-step="2">How did we end up here?</span> <span data-step="3">What did we do wrong?</span> <span data-step="1">Why is this not working?</span> <span data-step="1">Are we doing good work?</span> <span>What are we missing?</span> <span data-step="2">Where can we go from here?</span> <span data-step="2">What can we do now?</span> <span data-step="3">How can we be successful?</span> <span>What do we need to do?</span> <span data-step="2">How did we end up here?</span> <span data-step="3">What did we do wrong?</span> <span data-step="3">Why is this not working?</span> <span data-step="1">Are we doing good work?</span> <span data-step="3">What are we missing?</span> <span data-step="1">Where can we go from here?</span> <span data-step="3">What can we do now?</span> <span data-step="1">How can we be successful?</span> <span data-step="2">What do we need to do?</span> <span data-step="3">How did we end up here?</span> <span data-step="2">What did we do wrong?</span> <span data-step="3">Why is this not working?</span> <span>Are we doing good work?</span> <span data-step="3">What are we missing?</span> <span data-step="2">Where can we go from here?</span> <span data-step="2">What can we do now?</span> <span data-step="2">How can we be successful?</span> <span data-step="2">What do we need to do?</span> <span data-step="2">How did we end up here?</span> <span>What did we do wrong?</span> <span data-step="2">Why is this not working?</span> <span data-step="2">Are we doing good work?</span> <span data-step="3">What are we missing?</span> <span data-step="2">Where can we go from here?</span> <span data-step="1">What can we do now?</span> <span data-step="3">How can we be successful?</span> <span data-step="3">What do we need to do?</span> <span data-step="2">How did we end up here?</span> <span data-step="1">What did we do wrong?</span> <span data-step="1">Why is this not working?</span> <span data-step="3">Are we doing good work?</span> <span data-step="3">What are we missing?</span> <span>Where can we go from here?</span> <span data-step="3">What can we do now?</span> <span data-step="3">How can we be successful?</span> <span data-step="3">What do we need to do?</span> <span data-step="1">How did we end up here?</span> <span>What did we do wrong?</span> <span data-step="1">Why is this not working?</span> <span data-step="1">Are we doing good work?</span> <span data-step="1">What are we missing?</span> <span data-step="1">Where can we go from here?</span> <span data-step="3">What can we do now?</span> <span data-step="2">How can we be successful?</span> <span data-step="2">What do we need to do?</span> <span data-step="2">How did we end up here?</span> <span data-step="2">What did we do wrong?</span> <span data-step="1">Why is this not working?</span> <span data-step="2">Are we doing good work?</span> <span data-step="3">What are we missing?</span> <span data-step="1">Where can we go from here?</span> <span data-step="2">What can we do now?</span> <span data-step="1">How can we be successful?</span> <span data-step="2">What do we need to do?</span> <span data-step="3">How did we end up here?</span> <span data-step="3">What did we do wrong?</span> <span data-step="2">Why is this not working?</span> <span data-step="2">Are we doing good work?</span> <span data-step="2">What are we missing?</span></p>
   </section>
 
+<section class="slide" data-archetype="claim" data-m11="photo" data-chapter="Feel it: prepare to be alone">
+  <img class="m11-whole" src="media/story-lake.jpg" alt="A mountain lake with turquoise water, trees in front">
+  </section>
 
 
 <section class="slide" data-archetype="claim" data-chapter="Feel it: prepare to be alone">
@@ -438,8 +519,24 @@
     <h2 class="title">Founding is stressful, and often <span class="mark">satisfying</span></h2>
     <p class="sub">One study finds more strain. A meta-analysis of 94 studies finds a little more satisfaction</p>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-content:center"><div style="display:grid;gap:18px;align-content:start"><p style="font:800 40px/1.15 Inter,sans-serif;margin:0">More strain <span style="font:600 30px var(--font-mono);color:var(--muted-foreground)">· one US study</span></p><div style="display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:center"><div class="donut" style="--v:72;--c:var(--context-foreground);--donut:180px"><b>72%</b></div><span style="font:500 30px/1.25 Inter,sans-serif">of 242 founders were affected by a mental health condition, their own or their family's</span></div><div style="display:grid;gap:10px"><span style="font:500 30px/1.25 Inter,sans-serif"><b>49% · 32%</b> reported a lifetime condition, founders against a comparison group</span><div style="display:grid;grid-template-columns:250px 1fr;gap:16px;align-items:center"><span style="font:700 26px/1.2 Inter,sans-serif">Founders</span><div style="display:flex;align-items:center;gap:14px"><div class="bar" style="width:78.0%;height:44px;border-radius:10px;background:var(--diagram-purple)"></div><b style="font:800 36px Inter,sans-serif;color:var(--diagram-purple)">49%</b></div></div><div style="display:grid;grid-template-columns:250px 1fr;gap:16px;align-items:center"><span style="font:700 26px/1.2 Inter,sans-serif">Comparison group</span><div style="display:flex;align-items:center;gap:14px"><div class="bar" style="width:50.9%;height:44px;border-radius:10px;background:var(--diagram-navy)"></div><b style="font:800 36px Inter,sans-serif;color:var(--diagram-navy)">32%</b></div></div></div></div><div style="display:grid;gap:18px;align-content:start"><p style="font:800 40px/1.15 Inter,sans-serif;margin:0">A little more satisfaction <span style="font:600 30px var(--font-mono);color:var(--muted-foreground)">· 94 studies</span></p><div class="field field-blue" style="border-radius:20px;padding:26px 32px;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center"><b style="font:800 56px Inter,sans-serif;white-space:nowrap">More</b><span style="font:500 32px/1.25 Inter,sans-serif">positive wellbeing than employees, life satisfaction included</span></div><div class="field field-navy" style="border-radius:20px;padding:26px 32px;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center"><b style="font:800 56px Inter,sans-serif;white-space:nowrap">Same</b><span style="font:500 32px/1.25 Inter,sans-serif">ill-being. Where the rule of law is weak, founders fare worse</span></div></div></div>
-  <footer class="prov" data-kind="Research">Freeman, Staudenmaier, Zisser and Andresen (2019), Small Business Economics, 242 founders, self-report. Stephan, Rauch and Hatak (2023), Entrepreneurship Theory and Practice, 94 studies in 82 countries.</footer>
+  <div class="content" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-content:center">
+    <div style="display:grid;gap:18px;align-content:start">
+      <p style="font:800 28px var(--font-mono);letter-spacing:0.06em;color:var(--muted-foreground)">ONE US STUDY, 242 FOUNDERS, 93 OTHERS</p>
+      <div style="display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:center"><div class="donut" style="--v:72;--c:var(--diagram-magenta);--donut:180px"><b>72%</b></div><span style="font:500 30px/1.25 var(--font-sans)">of the founders were affected by a mental health condition, their own or their family's</span></div>
+      <div style="display:grid;gap:10px">
+        <b style="font-size:28px;line-height:1.2">Reported a lifetime condition, % of each group</b>
+        <div style="display:grid;grid-template-columns:270px 1fr;gap:16px;align-items:center"><span style="font:700 26px/1.2 var(--font-sans)">Founders</span><div class="m11-track"><div style="width:49%;background:var(--diagram-purple)"></div><b style="left:calc(49% + 14px);color:var(--diagram-purple)">49%</b></div></div>
+        <div style="display:grid;grid-template-columns:270px 1fr;gap:16px;align-items:center"><span style="font:700 26px/1.2 var(--font-sans)">Comparison group</span><div class="m11-track"><div style="width:32%;background:var(--diagram-navy)"></div><b style="left:calc(32% + 14px);color:var(--diagram-navy)">32%</b></div></div>
+        <div style="display:grid;grid-template-columns:270px 1fr;gap:16px"><span></span><div style="display:flex;justify-content:space-between;font:600 24px var(--font-mono);color:var(--muted-foreground)"><span>0%</span><span>100%</span></div></div>
+      </div>
+    </div>
+    <div style="display:grid;gap:18px;align-content:start">
+      <p style="font:800 28px var(--font-mono);letter-spacing:0.06em;color:var(--muted-foreground)">94 STUDIES, 82 COUNTRIES</p>
+      <div class="field field-blue" style="border-radius:20px;padding:26px 32px;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center"><b style="font:800 56px var(--font-sans);white-space:nowrap">More</b><span style="font:500 32px/1.25 var(--font-sans)">positive wellbeing than employees. Effect size 0.12, small, about 790,000 people</span></div>
+      <div class="field field-navy" style="border-radius:20px;padding:26px 32px;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center"><b style="font:800 56px var(--font-sans);white-space:nowrap">Same</b><span style="font:500 32px/1.25 var(--font-sans)">ill-being. Where the rule of law is weak, founders fare worse</span></div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Research"><a class="cite" href="https://doi.org/10.1007/s11187-018-0059-8">Freeman, Staudenmaier, Zisser and Andresen (2019)</a>, Small Business Economics, self-report, the comparison group was younger. <a class="cite" href="https://doi.org/10.1177/10422587211072799">Stephan, Rauch and Hatak (2023)</a>, Entrepreneurship Theory and Practice. Effect size is Cohen's d.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="Feel it: prepare to be alone">
@@ -447,8 +544,8 @@
     <span class="label">Why failure hurts</span>
     <h2 class="title">This is <span class="mark">real</span>, not weakness</h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:1fr 1fr;gap:24px 28px;align-content:center"><div style="display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start;padding:28px 32px;border-radius:20px;background:var(--card);border:2px solid var(--border)"><span style="font-size:72px;line-height:1">🧠</span><div><p style="font:600 40px/1.15 Inter,sans-serif;margin:0">Rejection activates a region <b>physical pain</b> does</p><p style="font:500 28px/1.3 Inter,sans-serif;color:var(--muted-foreground);margin-top:10px">The same region, not the same pain</p></div></div><div style="display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start;padding:28px 32px;border-radius:20px;background:var(--card);border:2px solid var(--border)"><span style="font-size:72px;line-height:1">🧺</span><div><p style="font:600 40px/1.15 Inter,sans-serif;margin:0">All your worth in <b>one basket</b></p><p style="font:500 28px/1.3 Inter,sans-serif;color:var(--muted-foreground);margin-top:10px">When "I am my startup", its failure feels like yours</p></div></div><div style="display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start;padding:28px 32px;border-radius:20px;background:var(--card);border:2px solid var(--border)"><span style="font-size:72px;line-height:1">🔁</span><div><p style="font:600 40px/1.15 Inter,sans-serif;margin:0">Replaying it makes it <b>last longer</b></p><p style="font:500 28px/1.3 Inter,sans-serif;color:var(--muted-foreground);margin-top:10px">Rumination keeps a low mood going</p></div></div><div style="display:grid;grid-template-columns:96px 1fr;gap:24px;align-items:start;padding:28px 32px;border-radius:20px;background:var(--card);border:2px solid var(--border)"><span style="font-size:72px;line-height:1">🪜</span><div><p style="font:600 40px/1.15 Inter,sans-serif;margin:0">Grief keeps <b>no timetable</b></p><p style="font:500 28px/1.3 Inter,sans-serif;color:var(--muted-foreground);margin-top:10px">After a loss, expecting fixed stages can hurt those who don't follow them</p></div></div></div>
-  <footer class="prov" data-kind="Research">Eisenberger, Lieberman and Williams (2003), Science. Crocker and Wolfe (2001), Psychological Review. Nolen-Hoeksema (1991), Journal of Abnormal Psychology. Stroebe, Schut and Boerner (2017), OMEGA.</footer>
+  <div class="content"><div class="photo-grid" style="--cols:2;grid-template-rows:1fr 1fr;gap:24px"><figure class="photo-tile"><img src="media/m11-brain.jpg" alt="Rows of brain scans on a lit viewing wall"><div class="cap"><b style="font-size:38px">Rejection lights up the pain network</b><span style="font-size:28px">Exclusion activates a region that physical pain does</span></div></figure><figure class="photo-tile"><img src="media/m11-eggs.jpg" alt="Brown eggs in one wicker basket"><div class="cap"><b style="font-size:38px">All your worth in one basket</b><span style="font-size:28px">When "I am my startup", its failure feels like yours</span></div></figure><figure class="photo-tile"><img src="media/m11-window.jpg" alt="A person in silhouette on a window sill at night, a guitar beside them"><div class="cap"><b style="font-size:38px">Replaying it makes it last longer</b><span style="font-size:28px">Rumination keeps a low mood going</span></div></figure><figure class="photo-tile"><img src="media/m11-bench.jpg" alt="A weathered wooden bench covered in fallen autumn leaves"><div class="cap"><b style="font-size:38px">Grief keeps no timetable</b><span style="font-size:28px">Expecting fixed stages can hurt those who don't follow them</span></div></figure></div></div>
+  <footer class="prov" data-kind="Research"><a class="cite" href="https://doi.org/10.1126/science.1089134">Eisenberger, Lieberman and Williams (2003)</a>, Science, 13 people in a scanner. <a class="cite" href="https://doi.org/10.1037/0033-295X.108.3.593">Crocker and Wolfe (2001)</a>, Psychological Review, a theory paper. <a class="cite" href="https://doi.org/10.1037/0021-843x.100.4.569">Nolen-Hoeksema (1991)</a>, Journal of Abnormal Psychology, a review. <a class="cite" href="https://doi.org/10.1177/0030222817691870">Stroebe, Schut and Boerner (2017)</a>, OMEGA, a review. Photos on Pixabay: Mitrey, varintorn, RuslanSikunov, AnnieSpratt.</footer>
   </section>
 
 <section class="slide" data-archetype="framework" data-chapter="Feel it: prepare to be alone">
@@ -458,7 +555,7 @@
     <p class="sub">Stressor, stress, reaction. For founders, six sources</p>
   </div>
   <div class="content"><div class="anchor" data-anchor="stressor-map" style="max-width:1500px;margin:0 auto"></div></div>
-  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy, five sources. Loneliness added by the course from the 76%. Related research: Wach et al. (2021), Journal of Business Venturing, a diary study of 55 founders. Fernet et al. (2016), loneliness links founder stress to burnout.</footer>
+  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy, five sources. Loneliness added by the course from the 76%. Related research: <a class="cite" href="https://doi.org/10.1016/j.jbusvent.2020.106016">Wach et al. (2021)</a>, Journal of Business Venturing, a diary study of 55 founders. Fernet et al. (2016), loneliness links founder stress to burnout.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="Feel it: prepare to be alone">
@@ -466,7 +563,7 @@
     <span class="label">Input 3 of 6 · Feel it · the answers</span>
     <h2 class="title">Feel it: lonely, painful and <span class="mark">real</span></h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><div class="donut" style="--v:76;--c:var(--primary-strong);--donut:230px"><b>76%</b></div></div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why is founding so lonely?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">76% of founders feel lonely, and some decisions you make alone</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why does failure hurt so much?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Rejection activates a region physical pain does. It is real, not weakness</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Where does your stress come from?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Six sources: uncertainty, money, social pressure, workload, expectations, loneliness</p></div></div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><div class="donut" style="--v:76;--c:var(--primary-strong);--donut:230px"><b>76%</b></div></div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why is founding so lonely?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">76% of founders feel lonely, and some decisions you make alone</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why does failure hurt so much?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Rejection activates a region physical pain does. It is real, not weakness</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Where does your stress come from?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Six sources. Uncertainty, money, social pressure, workload, expectations, loneliness</p></div></div>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Your turn">
@@ -520,6 +617,7 @@
   <div class="head">
     <span class="label">Taking care of yourself</span>
     <h2 class="title">"I am CEO and Co-Founder of my startup."</h2>
+    <p class="sub">The big box is the identity you give yourself. Nothing else counts</p>
   </div>
   <div class="content"><div class="anchor" data-anchor="identity-map"></div></div>
   <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy. The tiles are an example.</footer>
@@ -529,19 +627,30 @@
   <div class="head">
     <span class="label">Taking care of yourself</span>
     <h2 class="title">"Who am I?"</h2>
-    <p class="sub">Take the startup away. What is left?</p>
+    <p class="sub">The startup is gone, and the 90% with it. Only the small rest is left</p>
   </div>
   <div class="content"><div class="anchor" data-anchor="identity-map" data-active="without-founder"></div></div>
   <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy. The tiles are an example.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-anchor="in-that-order" data-anchor-part="you" data-chapter="Carry it: lessons from 20+ founders">
+<section class="slide" data-archetype="build" data-anchor="in-that-order" data-anchor-part="you" data-chapter="Carry it: lessons from 20+ founders">
   <div class="head">
     <span class="label">From external to internal self</span>
-    <h2 class="title">From the labels to what you <span class="mark">really need</span></h2>
+    <h2 class="title">Relabel it to what <span class="mark">survives failure</span></h2>
+    <p class="sub">An entrepreneur sometimes fails, and stays an entrepreneur</p>
   </div>
-  <div class="content diagram"><svg viewBox="0 0 1640 360" role="img" aria-label="From the labels others give you to what you really need" style="display:block;width:100%;height:auto"><rect x="0" y="40" width="640" height="280" rx="28" style="fill:var(--context)"/><text x="320" y="195" text-anchor="middle" style="fill:var(--context-foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">The labels you give me</text><defs><marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--primary)"/></marker></defs><path d="M680 180 L940 180" style="stroke:var(--primary);stroke-width:10;fill:none" marker-end="url(#ar2)"/><rect x="1000" y="40" width="640" height="280" rx="28" style="fill:var(--primary)"/><text x="1320" y="195" text-anchor="middle" style="fill:var(--primary-foreground);font-size:44px;font-weight:800;font-family:Inter,sans-serif">What you really need</text></svg></div>
-  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy.</footer>
+  <div class="content m11-relabel">
+    <div class="row">
+      <div class="m11-tag is-old"><small>HELLO, I AM</small><div><b>the founder<br>of Startup XY</b></div></div>
+      <div class="m11-fail"><span class="icon icon-trending-down" aria-hidden="true"></span>The startup fails</div>
+      <div class="m11-tag is-gone" data-step="1"><b>Who am I?</b></div>
+    </div>
+    <div class="row" data-step="2">
+      <div class="m11-tag"><small>HELLO, I AM</small><div><b>an entrepreneur</b></div></div>
+      <div class="m11-fail"><span class="icon icon-trending-down" aria-hidden="true"></span>The startup fails</div>
+      <div class="m11-tag" data-step="3"><small>HELLO, I AM</small><div><b>an entrepreneur</b><span>"The startup failed", not "I am a failure"</span></div></div>
+    </div>
+  </div>
   </section>
 
 <section class="slide" data-archetype="retrieval" data-variant="question" data-anchor="in-that-order" data-anchor-part="you" data-chapter="Carry it: lessons from 20+ founders">
@@ -549,17 +658,8 @@
     <span class="label">From external to internal self · think, alone</span>
     <h2 class="title">Who would you be without the labels?</h2>
   </div>
-  <div class="content" style="display:grid;gap:24px;align-content:center"><p style="font:500 44px/1.25 Inter,sans-serif;margin:0;padding:28px 36px;border-left:10px solid var(--primary);background:var(--primary-tint);border-radius:0 18px 18px 0">If there were <b>no Instagram and no LinkedIn</b>, who would you like to be?</p><p style="font:500 44px/1.25 Inter,sans-serif;margin:0;padding:28px 36px;border-left:10px solid var(--primary);background:var(--primary-tint);border-radius:0 18px 18px 0">If there were <b>no one to impress</b>, no one to judge you, what would you do?</p><p style="font:500 44px/1.25 Inter,sans-serif;margin:0;padding:28px 36px;border-left:10px solid var(--primary);background:var(--primary-tint);border-radius:0 18px 18px 0">If you had <b>none of your achievements</b> to show, how would you describe yourself?</p></div>
-  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy.</footer>
-  </section>
-
-<section class="slide" data-archetype="claim" data-anchor="in-that-order" data-anchor-part="you" data-chapter="Carry it: lessons from 20+ founders">
-  <div class="head">
-    <span class="label">Taking care of yourself</span>
-    <h2 class="title">Six practices, grouped as doing, planning and <span class="mark">living</span></h2>
-  </div>
-  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="display:grid;gap:14px;align-content:start"><div class="field field-blue" style="border-radius:16px;padding:18px 26px;color:#fff;font:800 36px Inter,sans-serif">Doing</div><div style="padding:22px 26px;border-radius:16px;background:var(--card);border:2px solid var(--border);font:700 40px Inter,sans-serif">Gratitude</div><div style="padding:22px 26px;border-radius:16px;background:var(--card);border:2px solid var(--border);font:700 40px Inter,sans-serif">Appreciation</div></div><div style="display:grid;gap:14px;align-content:start"><div class="field field-purple" style="border-radius:16px;padding:18px 26px;color:#fff;font:800 36px Inter,sans-serif">Planning</div><div style="padding:22px 26px;border-radius:16px;background:var(--card);border:2px solid var(--border);font:700 40px Inter,sans-serif">Reflection</div></div><div style="display:grid;gap:14px;align-content:start"><div class="field field-navy" style="border-radius:16px;padding:18px 26px;color:#fff;font:800 36px Inter,sans-serif">Living</div><div style="padding:22px 26px;border-radius:16px;background:var(--card);border:2px solid var(--border);font:700 40px Inter,sans-serif">Exercise</div><div style="padding:22px 26px;border-radius:16px;background:var(--card);border:2px solid var(--border);font:700 40px Inter,sans-serif">Meditation</div><div style="padding:22px 26px;border-radius:16px;background:var(--card);border:2px solid var(--border);font:700 40px Inter,sans-serif">Sleep</div></div></div>
-  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy. Evidence for five of them on the next slide.</footer>
+  <div class="content" style="display:grid;gap:24px;align-content:center"><p style="font:500 44px/1.25 Inter,sans-serif;margin:0;padding:28px 36px;border-left:10px solid var(--primary);background:var(--primary-tint);border-radius:0 18px 18px 0">If there were <b>no <span class="co" style="font-weight:inherit"><img src="../../design/logos/instagram.svg" alt="">Instagram</span> and no <span class="co-chip" style="font-size:inherit;padding:0 14px;vertical-align:baseline;margin-right:-4px">LinkedIn</span></b>, who would you like to be?</p><p style="font:500 44px/1.25 Inter,sans-serif;margin:0;padding:28px 36px;border-left:10px solid var(--primary);background:var(--primary-tint);border-radius:0 18px 18px 0">If there were <b>no one to impress</b>, no one to judge you, what would you do?</p><p style="font:500 44px/1.25 Inter,sans-serif;margin:0;padding:28px 36px;border-left:10px solid var(--primary);background:var(--primary-tint);border-radius:0 18px 18px 0">If you had <b>none of your achievements</b> to show, how would you describe yourself?</p></div>
+  <footer class="prov">Logos are trademarks of their owners.</footer>
   </section>
 
 <section class="slide" data-archetype="table" data-anchor="in-that-order" data-anchor-part="you" data-chapter="Carry it: lessons from 20+ founders">
@@ -567,17 +667,8 @@
     <span class="label">What the evidence says, per practice</span>
     <h2 class="title">Real effects, mostly <span class="mark">small</span>. Keep one</h2>
   </div>
-  <div class="content" style="display:grid;gap:12px;align-content:center"><div style="display:grid;grid-template-columns:72px 300px 1fr 400px;gap:20px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span style="font-size:48px;line-height:1">🏃</span><b style="font:800 34px Inter,sans-serif;color:var(--primary)">Exercise</b><span style="font:500 28px/1.2 Inter,sans-serif">In people with depression, walking or jogging beat usual care or a placebo</span><span style="font:600 26px/1.25 var(--font-mono);color:var(--muted-foreground)">g = −0.62, moderate, low certainty</span></div><div style="display:grid;grid-template-columns:72px 300px 1fr 400px;gap:20px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span style="font-size:48px;line-height:1">😴</span><b style="font:800 34px Inter,sans-serif;color:var(--primary)">Sleep</b><span style="font:500 28px/1.2 Inter,sans-serif">After a good night, founders judged new venture ideas better</span><span style="font:600 26px/1.25 var(--font-mono);color:var(--muted-foreground)">3 studies with founders</span></div><div style="display:grid;grid-template-columns:72px 300px 1fr 400px;gap:20px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span style="font-size:48px;line-height:1">✍️</span><b style="font:800 34px Inter,sans-serif;color:var(--primary)">Reflection</b><span style="font:500 28px/1.2 Inter,sans-serif">An evening note on what weighs on you helps, a little</span><span style="font:600 26px/1.25 var(--font-mono);color:var(--muted-foreground)">r = .075, 146 trials</span></div><div style="display:grid;grid-template-columns:72px 300px 1fr 400px;gap:20px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span style="font-size:48px;line-height:1">🙏</span><b style="font:800 34px Inter,sans-serif;color:var(--primary)">Gratitude</b><span style="font:500 28px/1.2 Inter,sans-serif">Lifts well-being a little, no more than other good exercises</span><span style="font:600 26px/1.25 var(--font-mono);color:var(--muted-foreground)">d = .17, small</span></div><div style="display:grid;grid-template-columns:72px 300px 1fr 400px;gap:20px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span style="font-size:48px;line-height:1">🧘</span><b style="font:800 34px Inter,sans-serif;color:var(--primary)">Meditation</b><span style="font:500 28px/1.2 Inter,sans-serif">Eases anxiety and depression a little</span><span style="font:600 26px/1.25 var(--font-mono);color:var(--muted-foreground)">0.38 and 0.30 at 8 weeks, 47 trials</span></div></div>
-  <footer class="prov" data-kind="Research">Noetel et al. (2024), BMJ, 218 trials. Gish et al. (2019), Journal of Business Venturing. Frattaroli (2006), Psychological Bulletin, 146 trials. Davis et al. (2016), Journal of Counseling Psychology. Goyal et al. (2014), JAMA Internal Medicine, 47 trials.</footer>
-  </section>
-
-<section class="slide" data-archetype="claim" data-anchor="in-that-order" data-anchor-part="you" data-chapter="Carry it: lessons from 20+ founders">
-  <div class="head">
-    <span class="label">What actually helps · the evidence</span>
-    <h2 class="title">Five things research <span class="mark">backs</span></h2>
-  </div>
-  <div class="content" style="display:grid;grid-template-columns:1fr 400px;gap:40px;align-items:end;align-content:center"><div style="display:grid;gap:12px"><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:center;padding:14px 24px;border-radius:18px;background:var(--card);border:2px solid var(--border)"><span style="font-size:52px;line-height:1">⏳</span><p style="font:500 34px/1.2 Inter,sans-serif;margin:0">You recover <b>faster</b> than you predict</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:center;padding:14px 24px;border-radius:18px;background:var(--card);border:2px solid var(--border)"><span style="font-size:52px;line-height:1">🤲</span><p style="font:500 34px/1.2 Inter,sans-serif;margin:0"><b>Self-compassion</b> goes with less anxiety and depression</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:center;padding:14px 24px;border-radius:18px;background:var(--card);border:2px solid var(--border)"><span style="font-size:52px;line-height:1">🗣️</span><p style="font:500 34px/1.2 Inter,sans-serif;margin:0">Change the sentence. <b>"The startup failed"</b>, not "I am a failure"</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:center;padding:14px 24px;border-radius:18px;background:var(--card);border:2px solid var(--border)"><span style="font-size:52px;line-height:1">🪞</span><p style="font:500 34px/1.2 Inter,sans-serif;margin:0">Get <b>distance</b>. Talk to yourself by name, read the racing heart as fuel</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:center;padding:14px 24px;border-radius:18px;background:var(--card);border:2px solid var(--border)"><span style="font-size:52px;line-height:1">🌱</span><p style="font:500 34px/1.2 Inter,sans-serif;margin:0">After hard events, resilience is the <b>norm</b>, about two in three</p></div></div><div class="donut" style="--v:66;--c:var(--primary);--donut:400px"><b style="font-size:56px"><small style="display:block;font-size:30px;letter-spacing:0">about</small>2 in 3<br>resilient</b><span>after hard events</span></div></div>
-  <footer class="prov" data-kind="Research">Gilbert et al. (1998), JPSP. MacBeth and Gumley (2012), 14 studies. Abramson, Seligman and Teasdale (1978). Kross et al. (2014). Jamieson, Nock and Mendes (2012). Galatzer-Levy, Huang and Bonanno (2018), 54 studies.</footer>
+  <div class="content" style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px"><div class="m11-practice"><figure class="photo-tile"><img src="media/m11-exercise.jpg" alt="A jogger in silhouette runs through a park in golden morning light"><div class="cap"><b>Exercise</b></div></figure><p>Walking or jogging, in people with depression</p><p class="stat">Effect size 0.62, moderate, low certainty. 218 trials</p></div><div class="m11-practice"><figure class="photo-tile"><img src="media/m11-sleep.jpg" alt="Two bare feet stick out of a white duvet in a bed"><div class="cap"><b>Sleep</b></div></figure><p>After a good night, founders judged new ideas better</p><p class="stat">3 studies with founders</p></div><div class="m11-practice"><figure class="photo-tile"><img src="media/m11-note.jpg" alt="An open notebook and a pen under a desk lamp in a dark room"><div class="cap"><b>Reflection</b></div></figure><p>An evening note on what weighs on you helps, a little</p><p class="stat">Effect size 0.075, small. 146 trials</p></div><div class="m11-practice"><figure class="photo-tile"><img src="media/m11-thanks.jpg" alt="A handwritten thank-you card on an envelope, a hand with a pencil beside it"><div class="cap"><b>Gratitude</b></div></figure><p>Lifts well-being a little, no more than other good exercises</p><p class="stat">Effect size 0.17, small</p></div><div class="m11-practice"><figure class="photo-tile"><img src="media/m11-meditate.jpg" alt="A woman meditates cross-legged on a rock by the sea, seen from behind"><div class="cap"><b>Meditation</b></div></figure><p>Eases anxiety and depression a little</p><p class="stat">Effect sizes 0.38 and 0.30 at 8 weeks. 47 trials</p></div></div>
+  <footer class="prov" data-kind="Research"><a class="cite" href="https://doi.org/10.1136/bmj-2023-075847">Noetel et al. (2024)</a>, 14,170 people with major depression. <a class="cite" href="https://doi.org/10.1016/j.jbusvent.2019.06.004">Gish et al. (2019)</a>. <a class="cite" href="https://doi.org/10.1037/0033-2909.132.6.823">Frattaroli (2006)</a>. <a class="cite" href="https://doi.org/10.1037/cou0000107">Davis et al. (2016)</a>. <a class="cite" href="https://doi.org/10.1001/jamainternmed.2013.13018">Goyal et al. (2014)</a>. Effect sizes as reported (Hedges' g, r, Cohen's d), not comparable one to one. Photos on Pixabay: Michael_Pointner, WOKANDAPIX, AV_Photographer, GingerQuip, dimitrisvetsikas1969.</footer>
   </section>
 
 <section class="slide" data-archetype="mantra" data-anchor="in-that-order" data-anchor-part="you" data-chapter="Carry it: lessons from 20+ founders">
@@ -588,8 +679,23 @@
 
 <section class="slide" data-archetype="mantra" data-anchor="in-that-order" data-anchor-part="people" data-chapter="Carry it: lessons from 20+ founders">
   <span class="label">Lessons from 20+ founders · 2 of 2</span>
-  <div style="display:grid;grid-template-columns:240px 1fr;gap:56px;align-items:center;margin-top:24px"><span class="icon icon-users hero" aria-hidden="true" style="justify-self:center"></span><p style="font-size:96px;font-weight:500;letter-spacing:-0.02em;line-height:1.12;max-width:1450px;margin:0">Taking care of your <b style="white-space:nowrap">co-founder</b><br><span style="font-size:48px;color:var(--muted-foreground)">as a relationship</span></p></div>
-  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy.</footer>
+  <div style="display:grid;grid-template-columns:1fr 860px;gap:64px;align-items:center;margin-top:24px"><div style="display:grid;gap:28px"><span class="icon icon-users hero" aria-hidden="true"></span><p style="font-size:84px;font-weight:500;letter-spacing:-0.02em;line-height:1.12;margin:0">Taking care of your <b style="white-space:nowrap">co-founder</b><br><span style="font-size:44px;color:var(--muted-foreground)">as a relationship</span></p></div><figure class="photo-tile" style="height:600px"><img src="media/m11-cofounders.jpg" alt="Two people talk over coffee at a cafe table"></figure></div>
+  <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy. Photo: RachelScottYoga on Pixabay.</footer>
+  </section>
+
+<section class="slide" data-archetype="build" data-anchor="in-that-order" data-anchor-part="people" data-chapter="Carry it: lessons from 20+ founders">
+  <div class="head">
+    <span class="label">Taking care of your co-founder</span>
+    <h2 class="title">Talk about these five <span class="mark">early</span></h2>
+    <p class="sub">It's always tough with your co-founders, so talk before it gets tough</p>
+  </div>
+  <div class="content" style="display:grid;gap:14px;align-content:center">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px"><div class="field field-blue" style="border-radius:22px;padding:30px 22px;color:#fff;display:grid;justify-items:center;align-content:center;gap:18px;text-align:center;min-height:250px"><span class="icon icon-heart" aria-hidden="true" style="width:76px;height:76px"></span><b style="font-size:36px;font-weight:800;line-height:1.12;letter-spacing:-0.01em">Needs</b></div><div class="field field-blue" style="border-radius:22px;padding:30px 22px;color:#fff;display:grid;justify-items:center;align-content:center;gap:18px;text-align:center;min-height:250px"><span class="icon icon-puzzle" aria-hidden="true" style="width:76px;height:76px"></span><b style="font-size:36px;font-weight:800;line-height:1.12;letter-spacing:-0.01em">Values</b></div><div class="field field-blue" style="border-radius:22px;padding:30px 22px;color:#fff;display:grid;justify-items:center;align-content:center;gap:18px;text-align:center;min-height:250px"><span class="icon icon-target" aria-hidden="true" style="width:76px;height:76px"></span><b style="font-size:36px;font-weight:800;line-height:1.12;letter-spacing:-0.01em">Expectations</b></div><div class="field field-blue" style="border-radius:22px;padding:30px 22px;color:#fff;display:grid;justify-items:center;align-content:center;gap:18px;text-align:center;min-height:250px"><span class="icon icon-message-circle" aria-hidden="true" style="width:76px;height:76px"></span><b style="font-size:36px;font-weight:800;line-height:1.12;letter-spacing:-0.01em">Communication style</b></div><div class="field field-purple" style="border-radius:22px;padding:30px 22px;color:#fff;display:grid;justify-items:center;align-content:center;gap:18px;text-align:center;min-height:250px"><span class="icon icon-battery-full" aria-hidden="true" style="width:76px;height:76px"></span><b style="font-size:36px;font-weight:800;line-height:1.12;letter-spacing:-0.01em">Energy</b></div></div>
+    <div data-step="1" style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px">
+      <div style="grid-column:1 / span 4;display:grid;justify-items:center;gap:12px"><div style="justify-self:stretch;height:28px;border:5px solid var(--primary);border-top:0;border-radius:0 0 18px 18px"></div><b style="font-size:38px;font-weight:800;letter-spacing:-0.01em">Four of them come down to <span class="mark">communication</span></b></div>
+    </div>
+  </div>
+  <div class="takeaway"><p>"All good?" "All good." is not that talk. Both say how they really are.</p></div>
   </section>
 
 
@@ -610,10 +716,9 @@
     <span class="label">Quick ask · hands</span>
     <h2 class="title">What is your team's biggest <span class="mark">rock</span> before Demo Day?</h2>
   </div>
-  <div class="content recall" style="grid-template-columns:1fr auto 300px;align-items:center">
+  <div class="content recall">
     <ol><li></li><li></li></ol>
     <div class="timer" data-timer="1"></div>
-    <span class="icon icon-flag hero" aria-hidden="true" style="justify-self:center"></span>
   </div>
   </section>
 
@@ -622,7 +727,7 @@
     <span class="label">Input 4 of 6 · Carry it · the answers</span>
     <h2 class="title">Carry it: you are not your <span class="mark">work</span></h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Who are you without your startup?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">More than your labels. You are not your work</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What helps you recover?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">One practice you keep. The effects are real, mostly small</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you look after your co-founder?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Talk early and honestly, and pack the scary bits first</p></div></div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Who are you without your startup?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">An entrepreneur, whatever this startup does. You are not your work</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What helps you recover?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">One practice you keep. The effects are real, mostly small</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you look after your co-founder?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Talk early and honestly, and pack the scary bits first</p></div></div>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Close it: when it's over">
@@ -647,8 +752,20 @@
     <h2 class="title"><span class="mark">Investors</span> first, on day one</h2>
     <p class="sub">A wind-down checklist</p>
   </div>
-  <div class="content" style="align-content:center"><img src="media/m11-wind-down-board.png" alt="A wind-down checklist as a task board in a task tool, 2 of 12 done, two founders, J and S. On the day you decide: Tell your investors, Make a plan, Call your lawyer, Tell your team the plan. The following days: Book the notary, Brief your tax advisor, 1:1 with every employee, Plan the wind-down, you'll need your team for it. Then terminate everything: Infrastructure and tools, Supplier and customer contracts, Memberships and subscriptions (those are nasty), All assets, big to small. On the day you decide, Monday: tell your investors, ringed, done Monday 9:40, make a plan done 11:30, call your lawyer at 14:00, tell your team the plan at 17:00. The following days on Tuesday to Friday, then terminate everything from week 2" style="display:block;width:1640px;height:auto;border-radius:20px;box-shadow:var(--shadow-card)"></div>
-  <footer class="prov" data-kind="Illustrative">A wind-down checklist, condensed, on a made-up team's task board. Screen prototyped for this course.</footer>
+  <div class="content" style="align-content:center">
+    <div class="flipcard" data-flip data-back-label="With your agent"><div class="flip-inner">
+      <div class="flip-front"><img src="media/m11-wind-down-board.png" alt="A wind-down checklist as a task board in a task tool, 2 of 12 done, two founders, J and S. On the day you decide: Tell your investors, Make a plan, Call your lawyer, Tell your team the plan. The following days: Book the notary, Brief your tax advisor, 1:1 with every employee, Plan the wind-down, you'll need your team for it. Then terminate everything: Infrastructure and tools, Supplier and customer contracts, Memberships and subscriptions (those are nasty), All assets, big to small. On the day you decide, Monday: tell your investors, ringed, done Monday 9:40, make a plan done 11:30, call your lawyer at 14:00, tell your team the plan at 17:00. The following days on Tuesday to Friday, then terminate everything from week 2" style="display:block;width:1640px;height:auto;border-radius:20px;box-shadow:var(--shadow-card)"></div>
+      <div class="flip-back"><div class="chat">
+        <div class="chat-bar"><span class="icon icon-bot" aria-hidden="true"></span>Your agent<span class="skill">wind-down-plan</span></div>
+        <div class="chat-log">
+          <div class="msg you">We decided to close. Turn our wind-down checklist into a task board. Investors first, an owner and a date on every card.<br><span class="attach"><span class="icon icon-file-text" aria-hidden="true"></span>contracts-and-invoices.zip</span></div>
+          <div class="msg ai"><b>Done, 12 cards.</b> The memberships and subscriptions from your invoices are flagged, those are the nasty ones. I send nothing. Telling your investors and your team stays with you.</div>
+        </div>
+        <div class="chat-input">Reply…</div>
+      </div></div>
+    </div></div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">A wind-down checklist, condensed, on a made-up team's task board. Screen and chat prototyped for this course.</footer>
   </section>
 
 <section class="slide" data-archetype="table" data-chapter="Close it: when it's over">
@@ -657,8 +774,8 @@
     <h2 class="title">Four rules to know before you <span class="mark">close</span></h2>
     <p class="sub">Orientation only, as of 2026. Not legal advice</p>
   </div>
-  <div class="content" style="display:grid;gap:14px;align-content:start"><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-blue" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif">Insolvent?</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">File without delay, at the latest 3 weeks after illiquidity, 6 weeks after over-indebtedness. Waiting longer is a crime.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§15a InsO</span></div><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-purple" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif">Solvent?</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">Liquidation takes a year at least. After the public call to creditors, the blocking year runs before anything goes back to shareholders.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§73 GmbHG</span></div><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-navy" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif">Afterwards</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">Someone keeps the books for 10 years, often a founder.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§74 GmbHG</span></div><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-magenta" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif">Job ends?</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">Register as job-seeking at least 3 months before the job ends, or within 3 days of knowing. Your team too.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§38 SGB III</span></div></div>
-  <footer class="prov" data-kind="Data">German law as of 20 October 2026, gesetze-im-internet.de: §15a InsO, §73, §65 and §74 GmbHG, §38 and §159 SGB III. Orientation only, not legal advice.</footer>
+  <div class="content" style="display:grid;gap:14px;align-content:start"><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-blue" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif;display:flex;align-items:center;gap:12px"><span class="icon icon-triangle-alert" aria-hidden="true"></span>Insolvent?</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">File without delay, at the latest 3 weeks after illiquidity, 6 weeks after over-indebtedness. Waiting longer is a crime.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§15a InsO</span></div><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-purple" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif;display:flex;align-items:center;gap:12px"><span class="icon icon-scale" aria-hidden="true"></span>Solvent?</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">Liquidation takes a year at least. After the public call to creditors, the blocking year runs before anything goes back to shareholders.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§73 GmbHG</span></div><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-navy" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif;display:flex;align-items:center;gap:12px"><span class="icon icon-file-text" aria-hidden="true"></span>Afterwards</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">Someone keeps the books for 10 years, often a founder.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§74 GmbHG</span></div><div style="display:grid;grid-template-columns:300px 1fr 220px;gap:24px;align-items:center;padding:18px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><span class="field field-magenta" style="border-radius:12px;padding:16px 20px;color:#fff;font:800 32px Inter,sans-serif;display:flex;align-items:center;gap:12px"><span class="icon icon-calendar" aria-hidden="true"></span>Job ends?</span><p style="font:500 30px/1.25 Inter,sans-serif;margin:0">Register as job-seeking at least 3 months before the job ends, or within 3 days of knowing. Your team too.</p><span style="font:700 26px var(--font-mono);color:var(--muted-foreground)">§38 SGB III</span></div></div>
+  <footer class="prov" data-kind="Data">German law as of 20 October 2026, gesetze-im-internet.de, <a class="cite" href="https://www.gesetze-im-internet.de/inso/__15a.html">§15a InsO</a>, <a class="cite" href="https://www.gesetze-im-internet.de/gmbhg/__73.html">§73</a>, <a class="cite" href="https://www.gesetze-im-internet.de/gmbhg/__65.html">§65</a> and <a class="cite" href="https://www.gesetze-im-internet.de/gmbhg/__74.html">§74 GmbHG</a>, <a class="cite" href="https://www.gesetze-im-internet.de/sgb_3/__38.html">§38</a> and <a class="cite" href="https://www.gesetze-im-internet.de/sgb_3/__159.html">§159 SGB III</a>. Orientation only, not legal advice.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="Close it: when it's over">
@@ -666,19 +783,29 @@
     <span class="label">When it's over</span>
     <h2 class="title">Facing disappointed investors, <span class="mark">no surprises</span></h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:1fr 600px;gap:40px;align-items:center;align-content:center"><div style="display:grid;gap:16px"><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">1</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>No surprises.</b> Share bad news early, in writing, with numbers. Keep the updates coming when it gets bad.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">2</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Bring options,</b> not just the problem. Bridge, pivot, sale or acqui-hire, orderly wind-down, plus your recommendation.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">3</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Own it.</b> No blame, no spin. Say what you would do differently.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">4</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Close the loop.</b> A final update. What happened, what's left and who gets it, where the team landed. Then say thank you.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">5</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Know their math.</b> About 3 in 4 US venture-backed startups don't return investors' capital, by Ghosh's count. Pros expect losses, not surprises. Angels, friends and family, call them personally.</p></div></div><img src="media/m11-investor-update.png" alt="A made-up investor update in a mail draft to four investors, subject: Update: 4 months of cash, three options. Bad news first, so you hear it from me now, not in June. Sales did not take off. Marked 1, the numbers: cash 180k euros, burn 45k a month, runway 4 months, revenue 6k flat. Marked 2, the options: A, a 150k bridge, only with a buyer in sight. B, a sale of the team, one buyer is talking to us. C, wind down by June, every bill paid, our pick. Marked 3: My mistake: we hired two engineers before a single customer paid. Next time, the first payment comes first. Then: I will call each of you before we decide" style="display:block;width:600px;height:auto;border-radius:20px;box-shadow:var(--shadow-card)"></div>
-  <footer class="prov" data-kind="Illustrative">Rule 5, Gage, D. (2012, 20 September). The venture capital secret. 3 out of 4 start-ups fail. The Wall Street Journal, on Shikhar Ghosh's research. Email made up, screen prototyped for this course.</footer>
+  <div class="content" style="display:grid;grid-template-columns:1fr 600px;gap:40px;align-items:center;align-content:center"><div style="display:grid;gap:16px"><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">1</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>No surprises.</b> Share bad news early, in writing, with numbers. Keep the updates coming when it gets bad.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">2</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Bring options,</b> not just the problem. Bridge, pivot, sale or acqui-hire, orderly wind-down, plus your recommendation.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">3</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Own it.</b> No blame, no spin. Say what you would do differently.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">4</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Close the loop.</b> A final update. What happened, what's left and who gets it, where the team landed. Then say thank you.</p></div><div style="display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start"><span style="display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--primary);color:#fff;font:800 34px Inter,sans-serif">5</span><p style="font:500 27px/1.25 Inter,sans-serif;margin:0"><b>Know their math.</b> About 3 in 4 US venture-backed startups don't return investors' capital, by Ghosh's count. Pros expect losses, not surprises. Angels, friends and family, call them personally.</p></div></div><div class="flipcard" data-flip data-back-label="With your agent"><div class="flip-inner">
+      <div class="flip-front"><img src="media/m11-investor-update.png" alt="A made-up investor update in a mail draft to four investors, subject: Update: 4 months of cash, three options. Bad news first, so you hear it from me now, not in June. Sales did not take off. Marked 1, the numbers: cash 180k euros, burn 45k a month, runway 4 months, revenue 6k flat. Marked 2, the options: A, a 150k bridge, only with a buyer in sight. B, a sale of the team, one buyer is talking to us. C, wind down by June, every bill paid, our pick. Marked 3: My mistake: we hired two engineers before a single customer paid. Next time, the first payment comes first. Then: I will call each of you before we decide" style="display:block;width:600px;height:auto;border-radius:20px;box-shadow:var(--shadow-card)"></div>
+      <div class="flip-back"><div class="chat">
+        <div class="chat-bar"><span class="icon icon-bot" aria-hidden="true"></span>Your agent<span class="skill">investor-update</span></div>
+        <div class="chat-log">
+          <div class="msg you">Draft this month's update from the tracker and our notes. Bad news first, three options, our pick.<br><span class="attach"><span class="icon icon-sheet" aria-hidden="true"></span>kpi-tracker.xlsx</span></div>
+          <div class="msg ai"><b>Draft ready.</b> "My mistake" stays empty, that line is yours.</div>
+        </div>
+        <div class="chat-input">Reply…</div>
+      </div></div>
+    </div></div></div>
+  <footer class="prov" data-kind="Illustrative">Rule 5, <a class="cite" href="https://www.wsj.com/articles/SB10000872396390443720204578004980476429190">Gage, D. (2012, 20 September). The venture capital secret. 3 out of 4 start-ups fail. The Wall Street Journal, on Shikhar Ghosh's research.</a> Email and chat made up, prototyped for this course.</footer>
   </section>
 
 <section class="slide" data-archetype="mantra" data-chapter="Close it: when it's over">
-  <div class="mantra-line"><div class="donut" style="--v:93;--c:var(--key);--donut:500px"><b style="font-size:150px">93%</b></div><span class="mantra-word" style="font-size:88px;line-height:1.05;max-width:1060px;text-wrap:balance">of founders show signs of mental health strain</span></div>
-  <footer class="prov" data-kind="Data">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024. Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed.</footer>
+  <div class="mantra-line" style="display:grid;grid-template-columns:420px 1fr 620px;gap:48px;align-items:center"><div class="donut" style="--v:93;--c:var(--key);--donut:420px"><b style="font-size:124px">93%</b></div><span class="mantra-word" style="font-size:66px;line-height:1.08;letter-spacing:-0.025em;text-wrap:balance">of founders show signs of mental health strain</span><figure class="photo-tile" style="height:640px"><img src="media/m11-strain.jpg" alt="A man at a desk in front of a bright window, seen from behind in silhouette, a desk lamp glowing beside him"></figure></div>
+  <footer class="prov" data-kind="Data"><a class="cite" href="https://foundology.org/founder-resilience-research/">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024.</a> Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed. Photo: Pexels on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="mantra" data-chapter="Close it: when it's over">
   <span class="label">And still</span>
   <div class="mantra-line"><div class="donut" style="--v:89;--c:var(--key);--donut:500px"><b style="font-size:150px">89%</b></div><span class="mantra-word" style="font-size:88px;line-height:1.05;max-width:1060px;text-wrap:balance">of founders remain glad to be entrepreneurs</span></div>
-  <footer class="prov" data-kind="Data">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024. Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed.</footer>
+  <footer class="prov" data-kind="Data"><a class="cite" href="https://foundology.org/founder-resilience-research/">Richardson, C. (2024). Fuelling founder resilience. Founder Resilience Research Report 2024.</a> Foundology with UCL School of Management. Nearly 400 founders, self-selected, not peer reviewed.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="Close it: when it's over">
@@ -686,7 +813,7 @@
     <span class="label">Input 5 of 6 · Close it · the answers</span>
     <h2 class="title">Close it: investors first, <span class="mark">no surprises</span></h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What do you do on the day you decide?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Tell your investors first, make a plan, call your lawyer, tell your team</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What must you know in Germany?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Insolvent: file without delay. Solvent: liquidation takes at least a year</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you face disappointed investors?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">No surprises: bad news early, in writing, with numbers and options</p></div></div>
+  <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What do you do on the day you decide?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Tell your investors first, make a plan, call your lawyer, tell your team</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What must you know in Germany?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Insolvent? File without delay. Solvent? Liquidation takes at least a year</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you face disappointed investors?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">No surprises. Bad news early, in writing, with numbers and options</p></div></div>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Own it: not one single regret">
@@ -760,34 +887,36 @@
   <div class="head">
     <span class="label">Recap · picture 1 of 2</span>
     <h2 class="title">Who are you, <span class="mark">besides</span> the startup?</h2>
+    <p class="sub">Without it, this is what is left. The white is yours to fill</p>
   </div>
   <div class="content"><div class="anchor" data-anchor="identity-map" data-active="without-founder"></div></div>
   <footer class="prov" data-kind="Bastian">My lecture on failure and staying happy. The tiles are an example.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Wrap-up and fireside">
-  <div class="head">
+<section class="slide" data-shared="you-first" data-archetype="claim" data-chapter="Wrap-up and fireside">
+<div class="head">
     <span class="label">Recap · picture 2 of 2</span>
     <h2 class="title"><span class="mark">YOU</span> first, then the people, the product, the profits</h2>
   </div>
   <div class="content"><div class="anchor" data-anchor="in-that-order"></div></div>
+
   <footer class="prov" data-kind="Framework">Adapted from Horowitz, B. (2014). <i>The hard thing about hard things</i>. HarperCollins.</footer>
-  </section>
+</section>
 
-<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and fireside">
-  <div class="head"><span class="label">Reflection 1 of 3 · the content</span><h2 class="title">What could you apply?</h2></div>
+<section class="slide" data-shared="reflect-apply" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and fireside">
+<div class="head"><span class="label">Reflection 1 of 3 · the content</span><h2 class="title">What could you apply?</h2></div>
   <div class="content refl" style="--cols: 2"><div class="card"><span class="emo">🛠️</span><p>What could you <span class="hl">apply</span>?</p></div><div class="card"><span class="emo">🤕</span><p>What gave you a <span class="hl">hard time</span>?</p></div></div>
-  </section>
+</section>
 
-<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and fireside">
-  <div class="head"><span class="label">Reflection 2 of 3 · the process</span><h2 class="title">Man vs. machine</h2></div>
+<section class="slide" data-shared="reflect-machine" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and fireside">
+<div class="head"><span class="label">Reflection 2 of 3 · the process</span><h2 class="title">Man vs. machine</h2></div>
   <div class="content refl"><div class="card"><span class="emo">🤖</span><p>Where did <span class="hl">AI</span> actually help you?</p></div><div class="card"><span class="emo">🧠</span><p>Where was <span class="hl">your genius</span> needed?</p></div><div class="card"><span class="emo">🕴️</span><p>What are your best <span class="hl">hacks</span> to share?</p></div></div>
-  </section>
+</section>
 
-<section class="slide" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and fireside">
-  <div class="head"><span class="label">Reflection 3 of 3 · the results</span><h2 class="title">Rose, thorn, bud</h2></div>
+<section class="slide" data-shared="reflect-rose" data-archetype="reflection" data-variant="fields" data-chapter="Wrap-up and fireside">
+<div class="head"><span class="label">Reflection 3 of 3 · the results</span><h2 class="title">Rose, thorn, bud</h2></div>
   <div class="content refl"><div class="card"><span class="emo">🌹</span><p>What was the <span class="hl">breakthrough</span> today?</p></div><div class="card"><span class="emo">🌵</span><p>What was the <span class="hl">hardest part</span> today?</p></div><div class="card"><span class="emo">🌱</span><p>What is an <span class="hl">idea/feature</span> you didn't have time to finish, but want to explore later?</p></div></div>
-  </section>
+</section>
 
 <section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Wrap-up and fireside">
   <span class="label">Homework until next time</span>
@@ -825,25 +954,26 @@
     <h2 class="title">More than a bad week? <span class="mark">Talk to someone</span></h2>
     <p class="sub">A bad week is normal. More? Talk to someone outside the team</p>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center"><span class="icon icon-smartphone hero" aria-hidden="true" style="justify-self:center"></span><div style="display:grid;gap:14px"><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Talk to someone</b><span style="font:600 32px/1.2 Inter,sans-serif">Your doctor, university counselling or a founder you trust</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Germany, now</b><span style="font:600 32px/1.2 Inter,sans-serif">TelefonSeelsorge 0800 111 0 111 or 0800 111 0 222, free, day and night</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Austria · Switzerland</b><span style="font:600 32px/1.2 Inter,sans-serif">142 · 143</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Emergency</b><span style="font:600 32px/1.2 Inter,sans-serif">112</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Elsewhere</b><span style="font:600 32px/1.2 Inter,sans-serif">findahelpline.com</span></div></div></div>
-  <footer class="prov" data-kind="Data">Official sites as of 20 October 2026: telefonseelsorge.de, telefonseelsorge.at, 143.ch, digital-strategy.ec.europa.eu (112), findahelpline.com. In Switzerland your phone provider may charge a fee. More in the course resource <a href="../../resources/GETTING_HELP.md">Getting help</a>.</footer>
+  <div class="content" style="display:grid;grid-template-columns:380px 1fr;gap:36px;align-items:stretch"><figure class="photo-tile" style="height:100%"><img src="media/m11-talk.jpg" alt="Two people sit close on a park bench and talk, seen from behind"></figure><div style="display:grid;gap:10px;align-content:center"><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Talk to someone</b><span style="font:600 30px/1.2 Inter,sans-serif">Your doctor, university counselling or a founder you trust</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Germany, now</b><span style="font:600 30px/1.2 Inter,sans-serif">TelefonSeelsorge 0800 111 0 111 or 0800 111 0 222, free, day and night</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Austria · Switzerland</b><span style="font:600 30px/1.2 Inter,sans-serif">142 · 143</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Emergency</b><span style="font:600 30px/1.2 Inter,sans-serif">112</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Elsewhere</b><span style="font:600 30px/1.2 Inter,sans-serif"><a class="cite" href="https://findahelpline.com/">findahelpline.com</a></span></div></div></div>
+  <footer class="prov" data-kind="Data">Official sites as of 20 October 2026, <a class="cite" href="https://www.telefonseelsorge.de/">telefonseelsorge.de</a>, <a class="cite" href="https://www.telefonseelsorge.at/">telefonseelsorge.at</a>, <a class="cite" href="https://www.143.ch/hilfesuchende/hilfesuchende-kontakt">143.ch</a>, <a class="cite" href="https://digital-strategy.ec.europa.eu/en/policies/112">digital-strategy.ec.europa.eu</a> (112), <a class="cite" href="https://findahelpline.com/">findahelpline.com</a>. In Switzerland your phone provider may charge a fee. More in the course resource <a href="../../resources/GETTING_HELP.md">Getting help</a>. Photo: MabelAmber on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="closing" data-chapter="Wrap-up and fireside">
+<section class="slide" data-archetype="closing" data-m11="over" data-chapter="Wrap-up and fireside">
+  <img class="m11-bleed" src="media/m11-fireside.jpg" alt="A group of friends around a campfire at night in a dark forest">
   <p class="statement">Fireside Q&amp;A</p>
   <p class="signoff">Pull your chairs closer. Ask me anything, blik's numbers, investors, what I'd do differently.</p>
+  <footer class="prov">Photo: Pexels on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="closing" data-variant="references" data-chapter="Wrap-up and fireside">
   <div class="head"><span class="label">References · 1 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
-      <li>Abramson, L. Y., Seligman, M. E. P., &amp; Teasdale, J. D. (1978). Learned helplessness in humans. <i>Journal of Abnormal Psychology</i>, 87(1), 49–74.</li>
-      <li>Altman, S. (2014). <i>Lecture 2, Team and execution</i>. How to Start a Startup. Y Combinator.</li>
+      <li><a class="cite" href="https://www.youtube.com/watch?v=CVfnkM44Urs">Altman, S. (2014). <i>Lecture 2, Team and execution</i>. How to Start a Startup. Y Combinator.</a></li>
       <li>Aulet, B. (2013). <i>Disciplined entrepreneurship</i>. Wiley.</li>
-            <li>Catmull, E. (2014). <i>Creativity, Inc.</i> Publisher not checked, quoted as two reviews of the book quote it.</li>
-      <li>CB Insights (2021, August 3). <i>The top 12 reasons startups fail</i>.</li>
-      <li>Crocker, J., &amp; Wolfe, C. T. (2001). Contingencies of self-worth. <i>Psychological Review</i>, 108(3), 593–623.</li>
+            <li><a class="cite" href="https://www.themarginalian.org/2014/05/02/creativity-inc-ed-catmull-book/">Catmull, E., &amp; Wallace, A. (2014). <i>Creativity, Inc.</i> Random House, as quoted by Popova (2014), The Marginalian.</a></li>
+      <li><a class="cite" href="https://web.archive.org/web/20221203033217/https://www.cbinsights.com/research/report/startup-failure-reasons-top/">CB Insights (2021, August 3). <i>The top 12 reasons startups fail</i>.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1037/0033-295X.108.3.593">Crocker, J., &amp; Wolfe, C. T. (2001). Contingencies of self-worth. <i>Psychological Review</i>, 108(3), 593–623.</a></li>
     </ol>
   </div>
   </section>
@@ -852,13 +982,12 @@
   <div class="head"><span class="label">References · 2 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
-      <li>Davis, D. E., et al. (2016). Thankful for the little things. <i>Journal of Counseling Psychology</i>, 63(1), 20–31.</li>
-      <li>Eisenberger, N. I., Lieberman, M. D., &amp; Williams, K. D. (2003). Does rejection hurt? <i>Science</i>, 302(5643), 290–292.</li>
-      <li>Fernet, C., Torrès, O., Austin, S., &amp; St-Pierre, J. (2016). The psychological costs of owning and managing an SME. <i>Burnout Research</i>, 3(2), 45–53.</li>
-      <li>Frattaroli, J. (2006). Experimental disclosure and its moderators. <i>Psychological Bulletin</i>, 132(6), 823–865.</li>
-      <li>Freeman, M. A., Staudenmaier, P. J., Zisser, M. R., &amp; Andresen, L. A. (2019). The prevalence and co-occurrence of psychiatric conditions among entrepreneurs and their families. <i>Small Business Economics</i>, 53(2), 323–342.</li>
-      <li>Gage, D. (2012, September 20). The venture capital secret. 3 out of 4 start-ups fail. <i>The Wall Street Journal</i>.</li>
-      <li>Galatzer-Levy, I. R., Huang, S. H., &amp; Bonanno, G. A. (2018). Trajectories of resilience and dysfunction following potential trauma. <i>Clinical Psychology Review</i>, 63, 41–55.</li>
+      <li><a class="cite" href="https://doi.org/10.1037/cou0000107">Davis, D. E., et al. (2016). Thankful for the little things. <i>Journal of Counseling Psychology</i>, 63(1), 20–31.</a></li>
+      <li><a class="cite" href="https://techcrunch.com/2017/12/05/lia-diagnostics-wins-startup-battlefield-at-disrupt-berlin-2017/">Dillet, R. (2017, December 5). <i>And the winner of Startup Battlefield at Disrupt Berlin 2017 is… Lia Diagnostics</i>. TechCrunch.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1126/science.1089134">Eisenberger, N. I., Lieberman, M. D., &amp; Williams, K. D. (2003). Does rejection hurt? <i>Science</i>, 302(5643), 290–292.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1016/j.burn.2016.03.002">Fernet, C., Torrès, O., Austin, S., &amp; St-Pierre, J. (2016). The psychological costs of owning and managing an SME. <i>Burnout Research</i>, 3(2), 45–53.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1037/0033-2909.132.6.823">Frattaroli, J. (2006). Experimental disclosure and its moderators. <i>Psychological Bulletin</i>, 132(6), 823–865.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1007/s11187-018-0059-8">Freeman, M. A., Staudenmaier, P. J., Zisser, M. R., &amp; Andresen, L. A. (2019). The prevalence and co-occurrence of psychiatric conditions among entrepreneurs and their families. <i>Small Business Economics</i>, 53(2), 323–342.</a></li>
     </ol>
   </div>
   </section>
@@ -867,13 +996,12 @@
   <div class="head"><span class="label">References · 3 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
-      <li>Gesetze im Internet: §15a InsO, §§65, 73 and 74 GmbHG, §§38 and 159 SGB III, as of 20 October 2026. gesetze-im-internet.de.</li>
-      <li>Gilbert, D. T., Pinel, E. C., Wilson, T. D., Blumberg, S. J., &amp; Wheatley, T. P. (1998). Immune neglect. <i>Journal of Personality and Social Psychology</i>, 75(3), 617–638.</li>
-      <li>Gish, J. J., Wagner, D. T., Grégoire, D. A., &amp; Barnes, C. M. (2019). Sleep and entrepreneurs' abilities to imagine and form initial beliefs about new venture ideas. <i>Journal of Business Venturing</i>, 34(6), 105943.</li>
-      <li>Goyal, M., et al. (2014). Meditation programs for psychological stress and well-being. <i>JAMA Internal Medicine</i>, 174(3), 357–368.</li>
-      <li>Help lines, official sites as of 20 October 2026: telefonseelsorge.de, telefonseelsorge.at, 143.ch, digital-strategy.ec.europa.eu (112), findahelpline.com.</li>
-      <li>Hoffman, R. (host). <i>The 6 secrets of great timing</i>, with Marc Andreessen. Masters of Scale (podcast, transcript, n.d., page dated 4 January 2022).</li>
-      <li>Horowitz, B. (2014). <i>The hard thing about hard things</i>. HarperCollins.</li>
+      <li><a class="cite" href="https://www.wsj.com/articles/SB10000872396390443720204578004980476429190">Gage, D. (2012, September 20). The venture capital secret. 3 out of 4 start-ups fail. <i>The Wall Street Journal</i>.</a></li>
+      <li>Gesetze im Internet, <a class="cite" href="https://www.gesetze-im-internet.de/inso/__15a.html">§15a InsO</a>, <a class="cite" href="https://www.gesetze-im-internet.de/gmbhg/__65.html">§65</a>, <a class="cite" href="https://www.gesetze-im-internet.de/gmbhg/__73.html">§73</a> and <a class="cite" href="https://www.gesetze-im-internet.de/gmbhg/__74.html">§74 GmbHG</a>, <a class="cite" href="https://www.gesetze-im-internet.de/sgb_3/__38.html">§38</a> and <a class="cite" href="https://www.gesetze-im-internet.de/sgb_3/__159.html">§159 SGB III</a>, as of 20 October 2026. gesetze-im-internet.de.</li>
+      <li><a class="cite" href="https://doi.org/10.1016/j.jbusvent.2019.06.004">Gish, J. J., Wagner, D. T., Grégoire, D. A., &amp; Barnes, C. M. (2019). Sleep and entrepreneurs' abilities to imagine and form initial beliefs about new venture ideas. <i>Journal of Business Venturing</i>, 34(6), 105943.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1001/jamainternmed.2013.13018">Goyal, M., et al. (2014). Meditation programs for psychological stress and well-being. <i>JAMA Internal Medicine</i>, 174(3), 357–368.</a></li>
+      <li>Help lines, official sites as of 20 October 2026, <a class="cite" href="https://www.telefonseelsorge.de/">telefonseelsorge.de</a>, <a class="cite" href="https://www.telefonseelsorge.at/">telefonseelsorge.at</a>, <a class="cite" href="https://www.143.ch/hilfesuchende/hilfesuchende-kontakt">143.ch</a>, <a class="cite" href="https://digital-strategy.ec.europa.eu/en/policies/112">digital-strategy.ec.europa.eu</a> (112), <a class="cite" href="https://findahelpline.com/">findahelpline.com</a>.</li>
+      <li><a class="cite" href="https://web.archive.org/web/20240106013640/https://mastersofscale.com/andreessen/">Hoffman, R. (host). <i>The 6 secrets of great timing</i>, with Marc Andreessen. Masters of Scale (podcast, transcript, n.d., page dated 4 January 2022).</a></li>
     </ol>
   </div>
   </section>
@@ -882,13 +1010,12 @@
   <div class="head"><span class="label">References · 4 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
-      <li>Jamieson, J. P., Nock, M. K., &amp; Mendes, W. B. (2012). Mind over matter. <i>Journal of Experimental Psychology: General</i>, 141(3), 417–422.</li>
-      <li>Jordan, M. (1994). <i>I can't accept not trying</i>. HarperSanFrancisco.</li>
-      <li>Kross, E., et al. (2014). Self-talk as a regulatory mechanism. <i>Journal of Personality and Social Psychology</i>, 106(2), 304–324.</li>
-      <li>MacBeth, A., &amp; Gumley, A. (2012). Exploring compassion. <i>Clinical Psychology Review</i>, 32(6), 545–552.</li>
-      <li>Nobel, C. (2011, March 7). Why companies fail, and how their founders can bounce back. <i>HBS Working Knowledge</i>.</li>
-      <li>Noetel, M., et al. (2024). Effect of exercise for depression. <i>BMJ</i>, 384, e075847.</li>
-      <li>Nolen-Hoeksema, S. (1991). Responses to depression and their effects on the duration of depressive episodes. <i>Journal of Abnormal Psychology</i>, 100(4), 569–582.</li>
+      <li>Horowitz, B. (2014). <i>The hard thing about hard things</i>. HarperCollins.</li>
+      <li><a class="cite" href="https://en.wikiquote.org/wiki/Michael_Jordan">Jordan, M. (1994). <i>I can't accept not trying</i>. HarperSanFrancisco, as Wikiquote gives it.</a></li>
+      <li><a class="cite" href="https://www.library.hbs.edu/working-knowledge/why-companies-failand-how-their-founders-can-bounce-back">Nobel, C. (2011, March 7). Why companies fail, and how their founders can bounce back. <i>HBS Working Knowledge</i>.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1136/bmj-2023-075847">Noetel, M., et al. (2024). Effect of exercise for depression. <i>BMJ</i>, 384, e075847.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1037/0021-843x.100.4.569">Nolen-Hoeksema, S. (1991). Responses to depression and their effects on the duration of depressive episodes. <i>Journal of Abnormal Psychology</i>, 100(4), 569–582.</a></li>
+      <li><a class="cite" href="https://foundology.org/founder-resilience-research/">Richardson, C. (2024). <i>Fuelling founder resilience</i>. Founder Resilience Research Report 2024. Foundology with UCL School of Management.</a></li>
     </ol>
   </div>
   </section>
@@ -897,19 +1024,20 @@
   <div class="head"><span class="label">References · 5 of 5</span><h2 class="title">Sources in this deck</h2></div>
   <div class="content">
     <ol class="refs">
-      <li>Richardson, C. (2024). <i>Fuelling founder resilience</i>. Founder Resilience Research Report 2024. Foundology with UCL School of Management.</li>
       <li>Ries, E. (2011). <i>The lean startup</i>. Crown Business.</li>
-      <li>Stephan, U., Rauch, A., &amp; Hatak, I. (2023). Happy entrepreneurs? Everywhere? <i>Entrepreneurship Theory and Practice</i>, 47(2), 553–593.</li>
-      <li>Stroebe, M., Schut, H., &amp; Boerner, K. (2017). Cautioning health-care professionals. <i>OMEGA</i>, 74(4), 455–473.</li>
-      <li>Wach, D., Stephan, U., Weinberger, E., &amp; Wegge, J. (2021). Entrepreneurs' stressors and well-being. <i>Journal of Business Venturing</i>, 36(5), 106016.</li>
-      <li>Weinberg, G. M. (1985). <i>The secrets of consulting</i>. Original publisher not checked.</li>
+      <li><a class="cite" href="https://doi.org/10.1177/10422587211072799">Stephan, U., Rauch, A., &amp; Hatak, I. (2023). Happy entrepreneurs? Everywhere? <i>Entrepreneurship Theory and Practice</i>, 47(2), 553–593.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1177/0030222817691870">Stroebe, M., Schut, H., &amp; Boerner, K. (2017). Cautioning health-care professionals. <i>OMEGA</i>, 74(4), 455–473.</a></li>
+      <li><a class="cite" href="https://doi.org/10.1016/j.jbusvent.2020.106016">Wach, D., Stephan, U., Weinberger, E., &amp; Wegge, J. (2021). Entrepreneurs' stressors and well-being. <i>Journal of Business Venturing</i>, 36(5), 106016.</a></li>
+      <li><a class="cite" href="https://en.wikiquote.org/wiki/Gerald_Weinberg">Weinberg, G. M. (1985). <i>The secrets of consulting</i>, the second law of consulting, as Wikiquote gives it.</a></li>
     </ol>
   </div>
   </section>
 
-<section class="slide" data-archetype="closing" data-chapter="Wrap-up and fireside">
+<section class="slide" data-archetype="closing" data-m11="over" data-chapter="Wrap-up and fireside">
+  <img class="m11-bleed" src="media/m11-cologne.jpg" alt="Cologne cathedral and the Hohenzollern bridge over the Rhine at dusk">
   <p class="statement">„Et hätt noch immer jot jejange."</p>
   <p class="signoff">"It always turned out fine." · §3 Rheinisches Grundgesetz</p>
+  <footer class="prov">Photo: TB-Photography on Pixabay.</footer>
   </section>
 
 
@@ -928,9 +1056,9 @@
     <p class="sub">Nothing you write is collected or read out</p>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-content:center">
-    <div class="field field-blue" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif">🫶<br>Share what you choose</div>
-    <div class="field field-purple" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif">🚪<br>Sit out any step</div>
-    <div class="field field-navy" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif">☎️<br>Where to get help is in the homework</div>
+    <div class="field field-blue" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif"><span class="icon icon-heart" aria-hidden="true" style="display:block;width:76px;height:76px;margin-bottom:22px"></span>Share what you choose</div>
+    <div class="field field-purple" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif"><span class="icon icon-log-out" aria-hidden="true" style="display:block;width:76px;height:76px;margin-bottom:22px"></span>Sit out any step</div>
+    <div class="field field-navy" style="border-radius:24px;padding:44px 40px;color:#fff;font:700 44px/1.2 Inter,sans-serif"><span class="icon icon-smartphone" aria-hidden="true" style="display:block;width:76px;height:76px;margin-bottom:22px"></span>Where to get help is in the homework</div>
   </div>
   <footer class="prov" data-kind="Bastian">Founder health (M11) workshop, approved 2026-10-26.</footer>
   </section>
@@ -960,7 +1088,7 @@
         <li><i class="icon icon-arrow"></i><span>Map the last two weeks: each stressful moment and its source</span></li>
         <li><i class="icon icon-arrow"></i><span>Map what gave you energy</span></li>
         <li><i class="icon icon-arrow"></i><span>Stop line: a sign others see, how often, what then</span></li>
-        <li><i class="icon icon-arrow"></i><span>Pick one practice you keep this week</span></li>
+        <li><i class="icon icon-arrow"></i><span>Pick one practice you keep from today</span></li>
       </ul>
       <p class="out"><span><b>Output</b> Map, stop line and practice, kept by you</span><span><b>Minutes</b> 25</span></p>
     </div>
@@ -975,7 +1103,7 @@
     <span class="label">Workshop · step 2 of 3</span>
     <h2 class="title">Say how you really are</h2>
   </div>
-  <div class="content wcards" style="--cols: 1">
+  <div class="content wcards" style="--cols: 1; grid-template-columns: 1fr 560px">
     <div class="wcard">
       <span class="step"><span class="badge">2</span>STEP 2 · 40 MIN</span>
       <h3>SAY HOW YOU REALLY ARE</h3>
@@ -989,12 +1117,13 @@
       </ul>
       <p class="out"><span><b>Output</b> One change in your Team sheet, every founder's yes</span><span><b>Minutes</b> 40</span></p>
     </div>
+    <figure class="photo-tile"><img src="media/m11-cups.jpg" alt="Two people talk across a wooden table, their hands around coffee cups"></figure>
   </div>
   <div class="timer" data-timer="40"></div>
-  <footer class="prov" data-kind="Bastian">Founder health (M11) workshop, approved 2026-10-26.</footer>
+  <footer class="prov" data-kind="Bastian">Founder health (M11) workshop, approved 2026-10-26. Photo: StockSnap on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="workshop" data-chapter="Workshop: the energy audit">
+<section class="slide" data-archetype="workshop" data-anchor="scary-bits" data-anchor-part="rocks-first" data-chapter="Workshop: the energy audit">
   <div class="head">
     <span class="label">Workshop · step 3 of 3</span>
     <h2 class="title">Pack the scary bits first</h2>
@@ -1033,8 +1162,8 @@
     <h2 class="title">More than a bad week? <span class="mark">Talk to someone</span></h2>
     <p class="sub">A bad week is normal. More? Talk to someone outside the team</p>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center"><span class="icon icon-smartphone hero" aria-hidden="true" style="justify-self:center"></span><div style="display:grid;gap:14px"><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Talk to someone</b><span style="font:600 32px/1.2 Inter,sans-serif">Your doctor, university counselling or a founder you trust</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Germany, now</b><span style="font:600 32px/1.2 Inter,sans-serif">TelefonSeelsorge 0800 111 0 111 or 0800 111 0 222, free, day and night</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Austria · Switzerland</b><span style="font:600 32px/1.2 Inter,sans-serif">142 · 143</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Emergency</b><span style="font:600 32px/1.2 Inter,sans-serif">112</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Elsewhere</b><span style="font:600 32px/1.2 Inter,sans-serif">findahelpline.com</span></div></div></div>
-  <footer class="prov" data-kind="Data">Official sites as of 20 October 2026: telefonseelsorge.de, telefonseelsorge.at, 143.ch, digital-strategy.ec.europa.eu (112), findahelpline.com. In Switzerland your phone provider may charge a fee. More in the course resource <a href="../../resources/GETTING_HELP.md">Getting help</a>.</footer>
+  <div class="content" style="display:grid;grid-template-columns:380px 1fr;gap:36px;align-items:stretch"><figure class="photo-tile" style="height:100%"><img src="media/m11-talk.jpg" alt="Two people sit close on a park bench and talk, seen from behind"></figure><div style="display:grid;gap:10px;align-content:center"><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Talk to someone</b><span style="font:600 30px/1.2 Inter,sans-serif">Your doctor, university counselling or a founder you trust</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Germany, now</b><span style="font:600 30px/1.2 Inter,sans-serif">TelefonSeelsorge 0800 111 0 111 or 0800 111 0 222, free, day and night</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Austria · Switzerland</b><span style="font:600 30px/1.2 Inter,sans-serif">142 · 143</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Emergency</b><span style="font:600 30px/1.2 Inter,sans-serif">112</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Elsewhere</b><span style="font:600 30px/1.2 Inter,sans-serif"><a class="cite" href="https://findahelpline.com/">findahelpline.com</a></span></div></div></div>
+  <footer class="prov" data-kind="Data">Official sites as of 20 October 2026, <a class="cite" href="https://www.telefonseelsorge.de/">telefonseelsorge.de</a>, <a class="cite" href="https://www.telefonseelsorge.at/">telefonseelsorge.at</a>, <a class="cite" href="https://www.143.ch/hilfesuchende/hilfesuchende-kontakt">143.ch</a>, <a class="cite" href="https://digital-strategy.ec.europa.eu/en/policies/112">digital-strategy.ec.europa.eu</a> (112), <a class="cite" href="https://findahelpline.com/">findahelpline.com</a>. In Switzerland your phone provider may charge a fee. More in the course resource <a href="../../resources/GETTING_HELP.md">Getting help</a>. Photo: MabelAmber on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="mantra" data-variant="assignment" data-chapter="Workshop: the energy audit">
@@ -1065,8 +1194,14 @@
   <div class="head">
     <span class="label">Case · Pitch, Berlin, the end of 2023 · vote 1 of 2</span>
     <h2 class="title">Should he stay as Pitch's chief executive, or <span class="mark">step back</span>?</h2>
+    <p class="sub" style="display:flex;align-items:center;gap:16px"><span class="co-chip">Pitch</span>Berlin, the end of 2023</p>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:260px repeat(2,1fr);gap:36px;align-items:center"><span class="icon icon-signpost hero" aria-hidden="true" style="justify-self:center"></span><div class="field field-navy" style="border-radius:24px;padding:48px 44px;color:var(--primary-foreground);display:grid;gap:18px;align-content:start"><span class="label" style="color:var(--primary-foreground)">Option 1</span><p style="font-size:60px;font-weight:800;line-height:1.1">Stay as <span style="color:var(--marker)">chief executive</span></p></div><div class="field field-purple" style="border-radius:24px;padding:48px 44px;color:var(--primary-foreground);display:grid;gap:18px;align-content:start"><span class="label" style="color:var(--primary-foreground)">Option 2</span><p style="font-size:60px;font-weight:800;line-height:1.1"><span style="color:var(--marker)">Step back</span> from the role</p></div></div>
+  <div class="content bands-layout" style="grid-template-columns:1fr">
+    <div class="bands">
+      <div class="band is-word" data-tally="30"><span class="icon icon-building-2" aria-hidden="true"></span><b>Stay</b><span>as chief executive</span></div>
+      <div class="band is-word" data-tally="30"><span class="icon icon-signpost" aria-hidden="true"></span><b>Step back</b><span>from the role</span></div>
+    </div>
+  </div>
   <footer class="prov" data-kind="Data">Founder health (M11) case: Pitch, "Stay as CEO or Step Back?". The two options as the case's closing states them.</footer>
   </section>
 
@@ -1115,8 +1250,8 @@
     <span class="label">Case · Reber's chair · 15 minutes</span>
     <h2 class="title">What would still be his <span class="mark">without the title</span>?</h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center"><span class="icon icon-quote hero" aria-hidden="true" style="justify-self:center"></span><figure class="field field-navy" style="margin:0;border-radius:24px;max-width:1500px"><blockquote style="margin:0;padding:56px 60px 24px;font:700 52px/1.18 Inter,sans-serif;color:#fff">"When you're used to being in a leadership position and you realise it doesn't work any more, everything collapses at once. Like a house of cards."</blockquote><figcaption style="padding:0 60px 44px;font:600 30px/1.3 Inter,sans-serif;color:#fff">Christian Reber, recalling 2022, told in 2024</figcaption></figure></div>
-  <footer class="prov" data-kind="Data">Capital, 3 March 2024, translated from German by the case writer (M11 case, "The Turn").</footer>
+  <div class="content" style="display:grid;grid-template-columns:480px 1fr;gap:40px;align-items:center"><figure class="photo-tile" style="height:560px"><img src="media/m11-house-of-cards.jpg" alt="A house of playing cards on a table, warm lights behind it"></figure><figure class="field field-navy" style="margin:0;border-radius:24px;max-width:1500px"><blockquote style="margin:0;padding:56px 60px 24px;font:700 52px/1.18 Inter,sans-serif;color:#fff">"When you're used to being in a leadership position and you realise it doesn't work any more, everything collapses at once. Like a house of cards."</blockquote><figcaption style="padding:0 60px 44px;font:600 30px/1.3 Inter,sans-serif;color:#fff">Christian Reber, recalling 2022, told in 2024</figcaption></figure></div>
+  <footer class="prov" data-kind="Data">Capital, 3 March 2024, translated from German by the case writer (M11 case, "The Turn"). Photo: ptra on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="claim" data-chapter="Case discussion">
@@ -1133,7 +1268,12 @@
     <span class="label">Case · vote 2 of 2</span>
     <h2 class="title">Same question. Who <span class="mark">moved</span>, and why?</h2>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:260px repeat(2,1fr);gap:36px;align-items:center"><span class="icon icon-signpost hero" aria-hidden="true" style="justify-self:center"></span><div class="field field-navy" style="border-radius:24px;padding:48px 44px;color:var(--primary-foreground);display:grid;gap:18px;align-content:start"><span class="label" style="color:var(--primary-foreground)">Option 1</span><p style="font-size:60px;font-weight:800;line-height:1.1">Stay as <span style="color:var(--marker)">chief executive</span></p></div><div class="field field-purple" style="border-radius:24px;padding:48px 44px;color:var(--primary-foreground);display:grid;gap:18px;align-content:start"><span class="label" style="color:var(--primary-foreground)">Option 2</span><p style="font-size:60px;font-weight:800;line-height:1.1"><span style="color:var(--marker)">Step back</span> from the role</p></div></div>
+  <div class="content bands-layout" style="grid-template-columns:1fr">
+    <div class="bands">
+      <div class="band is-word" data-tally="30"><span class="icon icon-building-2" aria-hidden="true"></span><b>Stay</b><span>as chief executive</span></div>
+      <div class="band is-word" data-tally="30"><span class="icon icon-signpost" aria-hidden="true"></span><b>Step back</b><span>from the role</span></div>
+    </div>
+  </div>
   <footer class="prov" data-kind="Data">Founder health (M11) case: Pitch, "Stay as CEO or Step Back?". The two options as the case's closing states them.</footer>
   </section>
 
@@ -1155,8 +1295,8 @@
     <h2 class="title">More than a bad week? <span class="mark">Talk to someone</span></h2>
     <p class="sub">A bad week is normal. More? Talk to someone outside the team</p>
   </div>
-  <div class="content" style="display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:center"><span class="icon icon-smartphone hero" aria-hidden="true" style="justify-self:center"></span><div style="display:grid;gap:14px"><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Talk to someone</b><span style="font:600 32px/1.2 Inter,sans-serif">Your doctor, university counselling or a founder you trust</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Germany, now</b><span style="font:600 32px/1.2 Inter,sans-serif">TelefonSeelsorge 0800 111 0 111 or 0800 111 0 222, free, day and night</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Austria · Switzerland</b><span style="font:600 32px/1.2 Inter,sans-serif">142 · 143</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Emergency</b><span style="font:600 32px/1.2 Inter,sans-serif">112</span></div><div style="display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:center;padding:14px 28px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Elsewhere</b><span style="font:600 32px/1.2 Inter,sans-serif">findahelpline.com</span></div></div></div>
-  <footer class="prov" data-kind="Data">Official sites as of 20 October 2026: telefonseelsorge.de, telefonseelsorge.at, 143.ch, digital-strategy.ec.europa.eu (112), findahelpline.com. In Switzerland your phone provider may charge a fee. More in the course resource <a href="../../resources/GETTING_HELP.md">Getting help</a>.</footer>
+  <div class="content" style="display:grid;grid-template-columns:380px 1fr;gap:36px;align-items:stretch"><figure class="photo-tile" style="height:100%"><img src="media/m11-talk.jpg" alt="Two people sit close on a park bench and talk, seen from behind"></figure><div style="display:grid;gap:10px;align-content:center"><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--primary-tint);border:2px solid var(--primary-line)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Talk to someone</b><span style="font:600 30px/1.2 Inter,sans-serif">Your doctor, university counselling or a founder you trust</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Germany, now</b><span style="font:600 30px/1.2 Inter,sans-serif">TelefonSeelsorge 0800 111 0 111 or 0800 111 0 222, free, day and night</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Austria · Switzerland</b><span style="font:600 30px/1.2 Inter,sans-serif">142 · 143</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Emergency</b><span style="font:600 30px/1.2 Inter,sans-serif">112</span></div><div style="display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:center;padding:10px 24px;border-radius:16px;background:var(--card);border:2px solid var(--border)"><b style="font:800 32px Inter,sans-serif;color:var(--primary)">Elsewhere</b><span style="font:600 30px/1.2 Inter,sans-serif"><a class="cite" href="https://findahelpline.com/">findahelpline.com</a></span></div></div></div>
+  <footer class="prov" data-kind="Data">Official sites as of 20 October 2026, <a class="cite" href="https://www.telefonseelsorge.de/">telefonseelsorge.de</a>, <a class="cite" href="https://www.telefonseelsorge.at/">telefonseelsorge.at</a>, <a class="cite" href="https://www.143.ch/hilfesuchende/hilfesuchende-kontakt">143.ch</a>, <a class="cite" href="https://digital-strategy.ec.europa.eu/en/policies/112">digital-strategy.ec.europa.eu</a> (112), <a class="cite" href="https://findahelpline.com/">findahelpline.com</a>. In Switzerland your phone provider may charge a fee. More in the course resource <a href="../../resources/GETTING_HELP.md">Getting help</a>. Photo: MabelAmber on Pixabay.</footer>
   </section>
 
 <section class="slide" data-archetype="closing" data-chapter="Case discussion">

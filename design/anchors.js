@@ -1,4 +1,4 @@
-/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-10-31.
+/* Course anchor diagrams, the cornerstone graphics. Updated: 2026-11-02.
    Owned by the course-design skill. Each is drawn once here, from Bastian's
    legacy slide, and placed in any deck as
      <div class="anchor" data-anchor="NAME" data-active="PART">   full size
@@ -17,7 +17,7 @@
    kpi-tree-profit, stage-arrow, and from M11 identity-map, two-curves,
    in-that-order, stressor-map and scary-bits, for every opening
    course-path and pivot-fork, and on AI at work freeze-rule, task-compass,
-   autonomy-levels and build-ladder. Others are added when a module needs
+   autonomy-levels and build-ladder, and think-big from M02. Others are added when a module needs
    them. */
 window.AEAnchors = window.AEAnchors || {};
 
@@ -140,43 +140,78 @@ window.AEAnchors["build-measure-learn"] = {
      space starts with a segment and its obstacle, the solution space starts
      with a thing and finds customers last. The problem side says "Segment"
      where legacy 119 says "Customers" (Bastian, M03 brief D6, 2026-10-19).
-     The part name stays "customers". Groups: problem, solution. */
-  A["problem-solution"] = {
-    title: "Problem space vs. solution space",
-    source: "Bastian Burger, course framework, legacy slides 119 and 120.",
-    steps: ["problem", "solution", "customers", "obstacle", "goal", "boundary", "shiny", "feature", "s-goal", "s-customers"],
-    svg: '<svg viewBox="0 0 1640 600" role="img" aria-label="Problem space versus solution space">' + DEFS +
-      '<g class="part" data-node="problem-head" data-group="problem">' + text("cap-t t-blue", 410, 30, "Problem space", "middle") + "</g>" +
-      '<g class="part" data-node="solution-head" data-group="solution">' + text("cap-t t-purple", 1230, 30, "Solution space", "middle") + "</g>" +
-      '<path class="divider" d="M820 10 L820 592"/>' +
-      box("customers", "problem", "c-blue", 190, 70, 440, 90, "Segment") +
-      box("obstacle", "problem", "c-purple", 80, 210, 660, 82, "Obstacle") +
-      box("goal", "problem", "c-blue", 190, 342, 440, 90, "Goal") +
-      box("boundary", "problem", "c-purple", 190, 490, 440, 90, "Boundary condition") +
-      arrow(410, 162, 410, 202) + arrow(410, 294, 410, 334) + arrow(410, 488, 410, 440) +
-      box("shiny", "solution", "c-purple", 1010, 70, 440, 90, "Shiny new thing") +
-      box("feature", "solution", "c-purple", 1010, 206, 440, 90, "Feature") +
-      box("s-goal", "solution", "c-blue", 1010, 342, 440, 90, "Goal") +
-      box("s-customers", "solution", "c-blue", 1010, 490, 440, 90, "Customers") +
-      arrow(1230, 162, 1230, 198) + arrow(1230, 298, 1230, 334) + arrow(1230, 434, 1230, 482) +
-      "</svg>"
-  };
+     The part name stays "customers". Groups: problem, solution.
+     Restyled on 2026-11-02 (Bastian, M03 feedback): two panels, a question and
+     a course icon in each box, block arrows as on the legacy slide, the obstacle
+     still the wide bar across the way. Parts and their names are unchanged. */
+  (function () {
+    var ICON = {
+      segment: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/>',
+      obstacle: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+      goal: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+      boundary: '<path d="M12 3v18"/><path d="m19 8 3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"/><path d="m5 8 3 8a5 5 0 0 1-6 0zV7"/><path d="M7 21h10"/>',
+      shiny: '<path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/>',
+      feature: '<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/>'
+    };
+    function pbox(node, group, color, x, y, w, h, icon, label, sub) {
+      var cy = y + h / 2;
+      return '<g class="part" data-node="' + node + '" data-group="' + group + '">' +
+        '<rect class="shape ' + color + '" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="20"/>' +
+        '<g transform="translate(' + (x + 30) + "," + (cy - 27) + ') scale(2.25)" style="fill:none;stroke:#fff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round">' + ICON[icon] + "</g>" +
+        '<text class="lbl md" x="' + (x + 108) + '" y="' + (cy - 18) + '" style="text-anchor:start">' + esc(label) + "</text>" +
+        '<text class="lbl xs" x="' + (x + 108) + '" y="' + (cy + 22) + '" style="text-anchor:start;font-size:26px">' + esc(sub) + "</text></g>";
+    }
+    function block(x, y, dir) { // a block arrow, as on the legacy slide, y is its tail
+      var s = dir === "up" ? -1 : 1;
+      return '<path d="M' + (x - 22) + " " + y + " H" + (x + 22) + " V" + (y + s * 10) + " H" + (x + 40) + " L" + x + " " + (y + s * 32) + " L" + (x - 40) + " " + (y + s * 10) + " H" + (x - 22) + ' Z" style="fill:hsl(220 13% 74%)"/>';
+    }
+    A["problem-solution"] = {
+      title: "Problem space vs. solution space",
+      source: "Bastian Burger, course framework, legacy slides 119 and 120.",
+      steps: ["problem", "solution", "customers", "obstacle", "goal", "boundary", "shiny", "feature", "s-goal", "s-customers"],
+      svg: '<svg viewBox="0 0 1640 600" role="img" aria-label="Problem space versus solution space">' +
+        '<rect x="0" y="0" width="800" height="600" rx="30" style="fill:var(--primary-tint)"/>' +
+        '<rect x="840" y="0" width="800" height="600" rx="30" style="fill:var(--muted)"/>' +
+        '<g class="part" data-node="problem-head" data-group="problem">' + text("cap-t lg t-blue", 400, 50, "Problem space", "middle") + "</g>" +
+        '<g class="part" data-node="solution-head" data-group="solution">' + text("cap-t lg t-purple", 1240, 50, "Solution space", "middle") + "</g>" +
+        block(400, 176) + block(400, 306) + block(400, 468, "up") +
+        pbox("customers", "problem", "c-blue", 130, 76, 540, 100, "segment", "Segment", "Who has it?") +
+        pbox("obstacle", "problem", "c-purple", 34, 206, 732, 100, "obstacle", "Obstacle", "What blocks them?") +
+        pbox("goal", "problem", "c-blue", 130, 336, 540, 100, "goal", "Goal", "What do they want?") +
+        pbox("boundary", "problem", "c-purple", 130, 468, 540, 100, "boundary", "Boundary condition", "What must any answer respect?") +
+        block(1240, 176) + block(1240, 306) + block(1240, 436) +
+        pbox("shiny", "solution", "c-purple", 970, 76, 540, 100, "shiny", "Shiny new thing", "What we fell in love with") +
+        pbox("feature", "solution", "c-purple", 970, 206, 540, 100, "feature", "Feature", "What we build") +
+        pbox("s-goal", "solution", "c-blue", 970, 336, 540, 100, "goal", "Goal", "What we hope it does") +
+        pbox("s-customers", "solution", "c-blue", 970, 468, 540, 100, "segment", "Customers", "Who might want it?") +
+        "</svg>"
+    };
+  })();
 
   /* Finding root causes, legacy slide 121. Ask why the goal matters, and why
-     not, for the boundary condition, four times each. Groups: why, why-not. */
+     not, for the boundary condition, four times each. Groups: why, why-not.
+     Restyled on 2026-11-02 (Bastian, M03 feedback): both questions dig down
+     the same pit and meet at the root. The boxes and their names are unchanged,
+     the arrow from the boundary to the goal now runs across the top, and
+     "root" is a new part. */
   (function () {
-    var out = DEFS + box("goal", "why", "c-blue", 0, 40, 360, 100, "Goal") + box("boundary", "why-not", "c-purple", 0, 260, 360, 100, "Boundary condition") +
-      arrow(180, 256, 180, 148);
+    var out = DEFS +
+      '<path d="M30 96 H1610 L1056 556 H584 Z" style="fill:var(--muted)"/>' +
+      '<path class="line dash" d="M1224 46 L420 46" marker-end="url(#ae-arrow)"/>' +
+      text("note strong", 820, 26, "limits every answer", "middle") +
+      box("goal", "why", "c-blue", 0, 0, 410, 92, "Goal") + box("boundary", "why-not", "c-purple", 1230, 0, 410, 92, "Boundary condition");
     for (var i = 0; i < 4; i++) {
-      var x = 410 + i * 300;
-      out += arrow(x - 46, 90, x - 8, 90) + box("why-" + (i + 1), "why", "c-blue", x, 40, 250, 100, "Why?");
-      out += arrow(x - 46, 310, x - 8, 310) + box("why-not-" + (i + 1), "why-not", "c-purple", x, 260, 250, 100, "Why not?");
+      var y = 112 + i * 90, x = 70 + i * 150, xr = 1640 - x - 260, tone = i < 2 ? "c-blue" : "c-strong";
+      out += box("why-" + (i + 1), "why", tone, x, y, 260, 68, "Why?") + box("why-not-" + (i + 1), "why-not", "c-purple", xr, y, 260, 68, "Why not?");
+      out += arrow(x + 205, y + (i ? -22 : -20), x + 205, y - 4) + arrow(xr + 55, y + (i ? -22 : -20), xr + 55, y - 4);
     }
+    out += '<g class="part" data-node="root" data-group="why why-not"><rect class="shape c-magenta" x="600" y="472" width="440" height="84" rx="16"/>' + text("lbl lg", 820, 514, "Root cause") + "</g>" +
+      arrow(735, 452, 760, 468) + arrow(905, 452, 880, 468);
     A["root-cause"] = {
       title: "Finding root causes",
       source: "Bastian Burger, course framework, legacy slide 121.",
-      steps: ["why", "why-not", "goal", "boundary"],
-      svg: '<svg viewBox="0 0 1640 400" role="img" aria-label="Finding root causes, four times why for the goal and why not for the boundary condition">' + out + "</svg>"
+      steps: ["why", "why-not", "goal", "boundary", "root"],
+      svg: '<svg viewBox="0 0 1640 560" role="img" aria-label="Finding root causes, four times why from the goal and four times why not from the boundary condition, meeting at the root cause">' + out + "</svg>"
     };
   })();
 
@@ -594,41 +629,40 @@ window.AEAnchors["build-measure-learn"] = {
      failure and staying happy (WS27 deck), drawn as the approved M11 deck
      draws them, wording kept. */
 
-  /* The identity map, WS27 slides 70 and 71. A treemap of who you are: the
-     founder tile takes most of the space, the other tiles share the rest.
-     The tiles are an example. Two states: lit "without-founder" redraws the
-     map without the founder tile, the other tiles across the full width
-     ("Who am I?", slide 71). That part is a state (class "opt state"), drawn
-     only when lit, and while lit it hides the parts of class "base".
+  /* The identity map, WS27 slides 70 and 71. One big box, who you think you are:
+     the founder tile takes about 90%, the other tiles share the rest. The tiles
+     are an example. Lit "without-founder" takes the founder tile away and leaves
+     its space empty, the other tiles keep their place and size ("Who am I?",
+     slide 71). That part is a state (class "opt state"), drawn only when lit,
+     and while lit it hides the parts of class "base".
      Parts: founder, others, without-founder. */
   (function () {
     // [label, colour, x0, y0, x1, y1 as fractions of the area, lines when the tile is narrow]
+    // Bastian, 2026-11-02: the big box is the identity you give yourself. Founding, the
+    // founder is about 90% of it (WS27 70). When the startup ends that part is simply gone
+    // (WS27 71), and the white space stays white: only the small rest is left, and most of
+    // you is empty until you fill it again. So the tiles never move and never grow.
     var cells = [
-      ["Bass Player", "c-purple", 0, 0, 1, 0.32],
-      ["Reliable Friend", "c-blue", 0, 0.32, 0.52, 0.83, ["Reliable", "Friend"]],
-      ["Hard Worker", "c-purple", 0.52, 0.32, 1, 0.65],
-      ["A-Grade Student", "c-navy", 0.52, 0.65, 1, 0.83, ["A-Grade", "Student"]],
-      ["Tennis Novice", "c-blue", 0, 0.83, 0.7, 1],
-      ["Good Driver", "c-navy", 0.7, 0.83, 1, 1, ["Good", "Driver"]]
+      ["Bass", "Player", "c-purple"], ["Reliable", "Friend", "c-blue"], ["Hard", "Worker", "c-purple"],
+      ["A-Grade", "Student", "c-navy"], ["Tennis", "Novice", "c-blue"], ["Good", "Driver", "c-navy"]
     ];
-    var H = 570, g = 8;
-    function tiles(x0, w, narrow) {
-      return cells.map(function (c) {
-        var x = x0 + c[2] * (w + g), y = c[3] * (H + g), cw = (c[4] - c[2]) * (w + g) - g, ch = (c[5] - c[3]) * (H + g) - g;
-        var cx = (x + cw / 2).toFixed(1), cy = y + ch / 2, rect = '<rect class="shape ' + c[1] + '" x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + ch.toFixed(1) + '" rx="8"/>';
-        if (!narrow) return rect + text("lbl md", cx, cy.toFixed(1), c[0]);
-        if (!c[6]) return rect + text("lbl", cx, cy.toFixed(1), c[0]);
-        return rect + text("lbl sm", cx, (cy - 17).toFixed(1), c[6][0]) + text("lbl sm", cx, (cy + 17).toFixed(1), c[6][1]);
+    var H = 570, g = 8, W = 164, F = 1640 - W - g;
+    function tiles() {
+      var ch = (H - g * (cells.length - 1)) / cells.length;
+      return cells.map(function (c, i) {
+        var y = i * (ch + g), cx = F + g + W / 2, cy = y + ch / 2;
+        return '<rect class="shape ' + c[2] + '" x="' + (F + g) + '" y="' + y.toFixed(1) + '" width="' + W + '" height="' + ch.toFixed(1) + '" rx="8"/>' +
+          text("lbl sm", cx, (cy - 15).toFixed(1), c[0]) + text("lbl sm", cx, (cy + 17).toFixed(1), c[1]);
       }).join("");
     }
     A["identity-map"] = {
       title: "Who am I?",
-      source: "Bastian Burger, lecture on failure and staying happy (WS27 deck, slides 70 and 71), as the M11 deck draws it. The tiles are an example.",
+      source: "Bastian Burger, lecture on failure and staying happy (WS27 deck, slides 70 and 71). The tiles are an example.",
       steps: ["founder", "others", "without-founder"],
-      svg: '<svg viewBox="0 0 1640 570" role="img" aria-label="Identity as a treemap: Startup Founder takes most of the space, small tiles for Bass Player, Reliable Friend, Hard Worker, A-Grade Student, Tennis Novice and Good Driver. Without the founder tile, the small tiles fill the map">' +
-        '<g class="part opt state" data-node="without-founder">' + tiles(0, 1640, false) + "</g>" +
-        '<g class="part base" data-node="founder"><rect class="shape c-blue" x="0" y="0" width="1100" height="' + H + '" rx="8"/>' + text("lbl xl", 550, H / 2, "Startup Founder") + "</g>" +
-        '<g class="part base" data-node="others">' + tiles(1108, 532, true) + "</g></svg>"
+      svg: '<svg viewBox="0 0 1640 570" role="img" aria-label="Identity as one big box. Startup Founder fills about 90 percent of it, six small tiles share the rest: Bass Player, Reliable Friend, Hard Worker, A-Grade Student, Tennis Novice, Good Driver. Without the founder tile the small tiles stay where they are and the rest of the box is empty">' +
+        '<g class="part opt state" data-node="without-founder"><rect class="void" x="2" y="2" width="' + (F - 4) + '" height="' + (H - 4) + '" rx="8"/>' + tiles() + "</g>" +
+        '<g class="part base" data-node="founder"><rect class="shape c-blue" x="0" y="0" width="' + F + '" height="' + H + '" rx="8"/>' + text("lbl xl", F / 2, H / 2 - 20, "Startup Founder") + text("lbl md", F / 2, H / 2 + 44, "about 90% of who you think you are") + "</g>" +
+        '<g class="part base" data-node="others">' + tiles() + "</g></svg>"
     };
   })();
 
@@ -925,4 +959,47 @@ window.AEAnchors["build-measure-learn"] = {
         out + lines("note strong", 0, 40, ["Effort, risk and the", "mandate it needs rise"], 36, "start") + "</svg>"
     };
   })();
+})();
+
+/* Think big, test small, course graphic of Finding ideas (M02), 2026-10-30, moved here
+   on 2026-11-02 when Solution space (M05) replaced the double diamond with it. Many ideas
+   fan out (part wide), a small test lets one through (part small), the survivor grows
+   (part big). After Campbell (1960). */
+(function () {
+  var A = window.AEAnchors = window.AEAnchors || {};
+  function t(cls, x, y, s, a) { return '<text class="' + cls + '" x="' + x + '" y="' + y + '"' + (a ? ' text-anchor="' + a + '"' : '') + '>' + s + '</text>'; }
+  var ys = [90, 147, 204, 261, 319, 376, 433, 490], xs = [640, 690, 610, 700, 650, 690, 620, 680], win = 3;
+  /* Optional words for Solution space (M05), 2026-11-02. Lit, sol-wide and sol-small are state
+     parts: they replace the words about ideas with the words about solutions and hide every
+     .base word that follows, so M02's plain drawing stays exactly as it was. M05 lights
+     "sol-wide sol-small wide small big" (all), "sol-wide wide" or "sol-small small". */
+  var solWide = '<g class="part opt state" data-node="sol-wide">' + t("note", 0, 100, "many solutions,") + t("note", 0, 134, "one without software") +
+    t("note muted", 0, 352, "your tested") + t("note muted", 0, 384, "problem") + "</g>";
+  var solSmall = '<g class="part opt state" data-node="sol-small">' + t("note", 880, 90, "one click dummy, 7 demos", "middle") +
+    t("note strong", 880, 516, "real people pick", "middle") + "</g>";
+  var wideWords = '<g class="part base" data-node="wide-words" data-group="wide">' + t("note", 0, 100, "many ideas, alone,") + t("note", 0, 134, "big ones welcome") +
+    t("note muted", 0, 352, "your problem") + t("note muted", 0, 384, "space") + "</g>";
+  var smallWords = '<g class="part base" data-node="small-words" data-group="small">' + t("note", 880, 90, "one person, the last time", "middle") +
+    t("note strong", 880, 516, "real people pick", "middle") + "</g>";
+  var wide = '<g class="part" data-node="wide">' + t("cap-t lg t-magenta", 0, 56, "Think big");
+  ys.forEach(function (y, i) {
+    wide += '<path class="line k-magenta" style="stroke-width:9" d="M40 290 C 300 290, 380 ' + y + ', ' + (xs[i] - 20) + ' ' + y + '"/>';
+  });
+  ys.forEach(function (y, i) {
+    if (i !== win) wide += '<circle class="shape c-magenta-soft" cx="' + xs[i] + '" cy="' + y + '" r="22"/>';
+  });
+  wide += '<circle class="dot" cx="40" cy="290" r="18"/></g>';
+  var survivor = '<g class="part" data-node="survivor" data-group="wide small"><circle class="shape c-magenta" cx="' + xs[win] + '" cy="' + ys[win] + '" r="24"/></g>';
+  var small = '<g class="part" data-node="small">' + t("cap-t lg t-navy", 880, 50, "Test small", "middle") +
+    '<path class="line k-navy" style="stroke-width:10" d="M724 261 C 800 261, 810 290, 866 290 L 914 290"/>' +
+    '<rect class="shape c-navy" x="866" y="112" width="30" height="153" rx="6"/>' +
+    '<rect class="shape c-navy" x="866" y="315" width="30" height="153" rx="6"/>' + "</g>";
+  var big = '<g class="part" data-node="big"><polygon class="shape c-blue" points="912,276 1640,40 1640,540 912,304"/>' +
+    t("lbl lg", 1395, 262, "Grow big") + t("lbl sm", 1395, 318, "build what survives") + "</g>";
+  A["think-big"] = {
+    title: "Think big, test small",
+    source: "Course graphic of Finding ideas (M02), after Campbell, D. T. (1960), Psychological Review, 67(6).",
+    steps: ["wide", "small", "big"],
+    svg: '<svg viewBox="0 0 1640 540" role="img" aria-label="Think big, test small. On the left many ideas fan out from your problem space, big ones welcome. In the middle a narrow gate, a small test with one person and the last time: real people pick, and one idea gets through. On the right the survivor grows big, you build what survives">' + solWide + solSmall + wide + wideWords + survivor + small + smallWords + big + "</svg>"
+  };
 })();

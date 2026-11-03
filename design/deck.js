@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime. Updated: 2026-10-30. Status: ready.
+/* Ambitious Entrepreneurship deck runtime. Updated: 2026-11-02. Status: ready.
    Owned by the course-design skill. One classic script, no modules and no
    fetch, so a deck also runs from file://. Load it at the end of <body>.
 
@@ -13,8 +13,8 @@
    the footer (source line, signature, page) and runs builds (data-step),
    motion (data-anim), timers (data-timer, minutes), videos (data-autoplay),
    click details (data-pop, anchors.js details, data-details-page), tally
-   cells (data-tally), confetti (data-confetti), read-out symbols, the
-   presenter view and print mode. Source lines of kind "Bastian" show only
+   cells (data-tally), confetti (data-confetti), flip cards (data-flip), click
+   boxes (data-pick), read-out symbols, the presenter view and print mode. Source lines of kind "Bastian" show only
    their citations.
 
    URL: ?print (every slide, final state, held-back slides left out),
@@ -84,6 +84,37 @@
       var src = s.querySelector(":scope > footer.prov");
       if (src) page.appendChild(src.cloneNode(true));
       s.after(page);
+    });
+    slides = Array.prototype.slice.call(deck.querySelectorAll(":scope > section.slide"));
+  }
+
+  /* ---------- Flip cards, the back in print ---------- */
+  // <div class="flipcard" data-flip data-back-label="With your agent"><div class="flip-inner">
+  //   <div class="flip-front">…</div><div class="flip-back">…</div></div></div>
+  // Presenting, a click turns the card over (Bastian, 2026-11-02, M02: the sheet on
+  // the front, on the back the chat that fills it). The student PDF has no click,
+  // so it prints the back on a page of its own after the slide, under the same
+  // page number, as a details page does.
+  if (params.has("print")) {
+    slides.slice().forEach(function (s) {
+      var flips = Array.prototype.slice.call(s.querySelectorAll("[data-flip]"));
+      if (!flips.length) return;
+      var t = s.querySelector(".title"), after = s;
+      flips.forEach(function (f) {
+        var back = f.querySelector(".flip-back");
+        if (!back) return;
+        var page = make("section", "slide");
+        page.dataset.archetype = "details";
+        page.dataset.variant = "flip-back";
+        page.setAttribute("data-details-of", "");
+        if (s.hasAttribute("data-hold") || f.closest("[data-hold]")) page.setAttribute("data-hold", "");
+        page.innerHTML = '<div class="head"><span class="label">' + esc(f.dataset.backLabel || "On the back") + '</span><h2 class="title">' +
+          (t ? t.innerHTML : "") + '</h2></div><div class="content"><div class="flip-back-page">' + back.innerHTML + "</div></div>";
+        var src = s.querySelector(":scope > footer.prov");
+        if (src) page.appendChild(src.cloneNode(true));
+        after.after(page);
+        after = page;
+      });
     });
     slides = Array.prototype.slice.call(deck.querySelectorAll(":scope > section.slide"));
   }
@@ -493,6 +524,37 @@
     t.addEventListener("contextmenu", function (ev) { ev.preventDefault(); ev.stopPropagation(); set(+t.dataset.count - 1); });
   });
 
+  // Flip cards and click boxes keep their state only while the deck is open, and
+  // both windows follow each other, so a click in the presenter view reaches the
+  // room (Bastian, 2026-11-02: no saved state needed, a closed deck may forget).
+  function pathOf(el) {
+    var s = el.closest("section.slide");
+    return { i: slides.indexOf(s), k: Array.prototype.indexOf.call(s.querySelectorAll("[data-flip], [data-pick]"), el) };
+  }
+  function byPath(i, k) { return slides[i] && slides[i].querySelectorAll("[data-flip], [data-pick]")[k]; }
+  function applyToggle(el, cls, on) {
+    if (cls === "is-on" && on && el.dataset.pick) {
+      el.closest("section.slide").querySelectorAll('[data-pick="' + el.dataset.pick + '"].is-on').forEach(function (o) { o.classList.remove("is-on"); });
+    }
+    el.classList.toggle(cls, on);
+  }
+  function toggle(el, cls) {
+    var on = !el.classList.contains(cls), at = pathOf(el);
+    applyToggle(el, cls, on);
+    post({ aeToggle: true, i: at.i, k: at.k, cls: cls, on: on });
+  }
+  deck.querySelectorAll("[data-flip]").forEach(function (f) {
+    f.appendChild(make("span", "flip-hint")).setAttribute("aria-hidden", "true");
+    f.addEventListener("click", function (ev) {
+      if (ev.target.closest("a, [data-pick], [data-tally], .timer")) return;
+      ev.stopPropagation();
+      toggle(f, "is-flipped");
+    });
+  });
+  deck.querySelectorAll("[data-pick]").forEach(function (p) {
+    p.addEventListener("click", function (ev) { ev.stopPropagation(); toggle(p, "is-on"); });
+  });
+
   // An element with data-confetti bursts confetti when its build step shows it,
   // or when its slide is entered if it has no step (Bastian, 2026-10-30, M00).
   var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -530,7 +592,7 @@
   });
   if (!presenter) {
     deck.addEventListener("click", function (e) {
-      if (e.target.closest("a, button, video, .timer, input, textarea, select, [data-pop], [data-tally], .pop")) return;
+      if (e.target.closest("a, button, video, .timer, input, textarea, select, [data-pop], [data-tally], [data-flip], [data-pick], .pop")) return;
       if (e.clientX < innerWidth / 3) prev(); else next();
     });
   }
@@ -540,6 +602,7 @@
     if (!d) return;
     if (d.aeHello) { presenterWin = e.source; sync(); }
     if (d.aeDeck) show(d.i, d.n, true);
+    if (d.aeToggle) { var el = byPath(d.i, d.k); if (el) applyToggle(el, d.cls, d.on); }
     if (d.aeTimer && slides[d.i]) {
       var t = slides[d.i].querySelector(".timer[data-timer]");
       if (t) setTimer(t, d.run, d.left);

@@ -1,10 +1,10 @@
 # Workshop 02: Idea Stress Test
 
-Updated: 2026-10-20.
+Updated: 2026-11-02.
 
 > Module 02 · Finding Ideas · Workshop · [Goals M02-LG1 to LG4](README.md)
 
-![The double diamond](media/fig-double-diamond-problem.png "Steps 1 and 2 run the first diamond.")
+![Think big, test small](media/think-big.png "Steps 1 and 2 go wide, then the small test picks.")
 
 ![A problem you want to have](media/fig-problem-you-want.png "Your pitch is the star.")
 
