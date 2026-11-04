@@ -1,18 +1,111 @@
-<!-- Updated: 2026-10-26 -->
+<!-- Updated: 2026-11-04 -->
+
+![Ambitious Entrepreneurship — Big ambition. Real evidence. An open course for building a startup in the age of AI.](media/front-page/header.png)
 
 # Ambitious Entrepreneurship
 
-> **The open course for ambitious founders who want to build a big company in the age of AI.**
->
-> AI made building cheap. Finding out what to build, and who will pay for it, is still the hard part. This course takes you from an idea to real users, real evidence and first revenue, or to a deliberate, well-argued kill, before you burn a year on code nobody needs.
+**The free, open course for founders who want to build a big company in the age of AI.**
 
-**Free and open.** Every lecture, workshop, case study, homework, framework and template is in this repo, free under [CC BY-NC-SA 4.0](#license).
+AI made building cheap. Finding out what to build, and who will pay for it, is still the hard part. Go from an idea to real users, real evidence and first revenue — or a well-argued decision to stop.
 
-**What you walk out with.** A startup idea that is validated, or deliberately killed, a repeatable way to test any idea, and the judgment to tell traction from noise.
+**[Start the course →](modules/00-kickoff/)** &nbsp; · &nbsp; **[Download everything ↓](https://github.com/BaNburger/AmbitiousEntrepreneurship/archive/refs/heads/main.zip)** &nbsp; · &nbsp; **[⭐ Star on GitHub](https://github.com/BaNburger/AmbitiousEntrepreneurship)**
 
-**Trusted by universities and founder programs.** The course has run at TUM, LMU, HHL, YETI, CDTM, WHU, ETH Zurich, START Global, TUM.ai and many more.
+12 modules + kickoff · 7 decision tools · Editable templates · [CC BY-NC-SA 4.0](LICENSE.md)
 
-**Made by** [Dr. Bastian Burger](#about-the-author), founder, researcher and coach of founders.
+**Useful for your next venture?** Click **Star** at the top of this GitHub page to save the course and help other founders discover it. You need a free GitHub account to star; you can read and download without one.
+
+[What you will learn](#what-you-will-learn) · [Look inside](#look-inside) · [Get the materials](#get-the-materials) · [Alumni ventures](#founders-who-have-taken-the-course) · [All modules](#the-12-modules--kickoff) · [Teach with it](#teach-with-it)
+
+## Taught at Universities and Founder Programs
+
+<p>
+<a href="https://www.tum.de/en/"><img src="media/front-page/tum.png" width="150" alt="Technical University of Munich (TUM)"></a>
+<a href="https://www.lmu.de/en/"><img src="media/front-page/lmu.png" width="150" alt="Ludwig Maximilian University of Munich (LMU)"></a>
+<a href="https://www.hhl.de/"><img src="media/front-page/hhl.png" width="150" alt="HHL Leipzig Graduate School of Management"></a>
+<a href="https://ethz.ch/en.html"><img src="media/front-page/eth.png" width="150" alt="ETH Zurich"></a>
+<a href="https://www.whu.edu/en/"><img src="media/front-page/whu.png" width="150" alt="WHU — Otto Beisheim School of Management"></a>
+<a href="https://www.cdtm.com/"><img src="media/front-page/cdtm.png" width="150" alt="CDTM"></a>
+<a href="https://www.startglobal.org/"><img src="media/front-page/start.png" width="150" alt="START Global"></a>
+<a href="https://yeti-leipzig.org/"><img src="media/front-page/yeti.png" width="150" alt="YETI"></a>
+<a href="https://www.tum-ai.com/"><img src="media/front-page/tumai.png" width="150" alt="TUM.ai"></a>
+</p>
+
+Created and taught by [Dr. Bastian Burger](https://burgerconsult.com).
+
+## What You Will Learn
+
+| | You will learn to… | You leave with… |
+|---|---|---|
+| <img src="media/front-page/users.svg" width="26" alt="Team"> | **Build a team that can commit.** Find co-founders and make expectations explicit. | A team agreement and a way to hold each other accountable. |
+| <img src="media/front-page/ear.svg" width="26" alt="Discovery"> | **Find a problem worth solving.** Ask about real behaviour, hear the cost and choose a customer segment. | An interview log and a problem backed by evidence. |
+| <img src="media/front-page/flask-conical.svg" width="26" alt="Experiments"> | **Test demand before you build.** Turn assumptions into experiments that can prove you wrong. | Evidence from tests with real people. |
+| <img src="media/front-page/bot.svg" width="26" alt="Prototyping"> | **Build the smallest useful prototype with AI.** Brief an agent, work in small steps and test the result. | A working slice that users can try. |
+| <img src="media/front-page/banknote.svg" width="26" alt="Revenue"> | **Win your first customers.** Sell by hand, learn from use and decide what to build next. | First-user outreach and a path to revenue. |
+| <img src="media/front-page/flag.svg" width="26" alt="Decisions"> | **Make the hard calls.** Go, pivot or kill; protect your health; tell a credible funding story. | A decision you can defend with evidence. |
+
+**The outcome:** a venture you have tested, a repeatable way to test the next idea, and the judgment to tell traction from noise.
+
+## Look Inside
+
+Real slides from the course. Click a preview to open its module and get the lecture PDF, workshop, case and homework.
+
+On a phone? Open the slides at full size: [Problem space](media/front-page/preview-problem.png) · [Prototyping](media/front-page/preview-prototype.png).
+
+| Discover the problem | Build with AI |
+|---|---|
+| [![Course slide: start with the problem space and move to solutions after understanding the problem.](media/front-page/preview-problem.png)](modules/03-problem-space/) | [![Course slide: every application has the same five parts.](media/front-page/preview-prototype.png)](modules/06-prototyping/) |
+| **Start with the problem.** [The Problem Space →](modules/03-problem-space/) | **Understand what you are building.** [Prototyping with AI →](modules/06-prototyping/) |
+
+<details>
+<summary>Two more examples: better interviews and working with a coding agent</summary>
+
+![Course slide: ask about the last time, rather than in general.](media/front-page/preview-interviews.png)
+
+![Course slide: brief, one step, test, review, save.](media/front-page/preview-agent.png)
+
+</details>
+
+## Get the Materials
+
+**New to GitHub?** Think of this page as a shared folder. You can read it online or download the course. No coding, terminal or installation needed.
+
+| What you want | What to do |
+|---|---|
+| **Read online** | Open [Module 00](modules/00-kickoff/). Its guide links to the lecture, workshop, case and homework. Click a `.md` file to read it on GitHub or a `.pdf` to preview it. |
+| **Download the whole course** | Click **[Download everything (.zip)](https://github.com/BaNburger/AmbitiousEntrepreneurship/archive/refs/heads/main.zip)**. Open your Downloads folder, then unzip the file: double-click on Mac, or right-click → **Extract All…** on Windows. Open the `modules` folder and begin with `00-kickoff`. |
+| **Save one PDF or spreadsheet** | Open the file from a module guide, then click **Download raw file** (the downward arrow near the top right of the file view). PDFs open in your usual reader; `.xlsx` templates open in Excel or can be imported into Google Sheets. |
+| **Present the slides** | Download and unzip the whole course, then open a lecture’s `.html` file in your browser. Keep the downloaded folders together. For reading, use the lecture PDF. |
+
+You can also download the ZIP from the green **Code** button near the top of the repository → **Download ZIP**. Re-download when you want the latest materials; saved copies do not update automatically.
+
+## Founders Who Have Taken the Course
+
+Founders from Bastian’s teaching have gone on to build these companies. Explore their work:
+
+<table>
+<tr>
+<td align="center" width="33%"><a href="https://interaction.co/"><img src="media/front-page/interaction.png" width="240" alt="The Interaction Company"><br><strong>The Interaction Company</strong></a></td>
+<td align="center" width="33%"><a href="https://www.trail-ml.com/"><img src="media/front-page/trail.png" width="240" alt="trail ML"><br><strong>trail ML</strong></a></td>
+<td align="center" width="33%"><a href="https://leapingai.com/"><img src="media/front-page/leaping.png" width="240" alt="Leaping AI"><br><strong>Leaping AI</strong></a></td>
+</tr>
+<tr>
+<td align="center" width="33%"><a href="https://www.manex.ai/"><img src="media/front-page/manex.png" width="240" alt="Manex AI"><br><strong>Manex AI</strong></a></td>
+<td align="center" width="33%"><a href="https://dryft.ai/"><img src="media/front-page/dryft.png" width="240" alt="Dryft"><br><strong>Dryft</strong></a></td>
+<td align="center" width="33%"><a href="https://www.cocrafter.com/"><img src="media/front-page/cocrafter.png" width="240" alt="CoCrafter"><br><strong>CoCrafter</strong></a></td>
+</tr>
+<tr>
+<td align="center" width="33%"><a href="https://www.spherecast.ai/"><img src="media/front-page/spherecast.png" width="240" alt="Spherecast"><br><strong>Spherecast</strong></a></td>
+<td align="center" width="33%"><a href="https://heytenor.com/"><img src="media/front-page/tenor.png" width="240" alt="Tenor"><br><strong>Tenor</strong></a></td>
+<td align="center" width="33%"><a href="https://nemox.ai/"><img src="media/front-page/nemox.png" width="240" alt="nemox"><br><strong>nemox</strong></a></td>
+</tr>
+<tr>
+<td align="center" width="33%"><a href="https://erntezait.de/"><img src="media/front-page/erntezait.png" width="240" alt="ERNTEZAIT"><br><strong>ERNTEZAIT</strong></a></td>
+<td align="center" width="33%"><a href="https://www.linkedin.com/posts/hhl-leipzig-graduate-school-of-management_hhl-startup-entrepreneurship-activity-7404474973618405376-xmU7"><img src="media/front-page/refuelu.png" width="240" alt="RefuelU"><br><strong>RefuelU</strong></a></td>
+<td align="center" width="33%"><a href="https://everwise.ai/"><img src="media/front-page/everwise.png" width="240" alt="Everwise"><br><strong>Everwise</strong></a></td>
+</tr>
+</table>
+
+<sub>Logos are trademarks of their owners. Institutional logos identify where the course has been taught; company logos identify alumni ventures. Names are used where an official logo was unavailable. [Image credits](media/front-page/CREDITS.md).</sub>
 
 ---
 
@@ -101,7 +194,7 @@ Before week 1, read three short pieces in [`resources/`](resources/). The [Exemp
 5. **Learn the vocabulary** in the [Glossary](resources/GLOSSARY.md). Validation means a wallet opened, and a prototype is something people pay for. You'll be corrected in check-ins, kindly, every time.
 6. **Know how you're graded** with [Grading & the Revenue Ladder](resources/GRADING_RUBRIC.md). Evidence quality and decision discipline weigh as much as revenue. A rigorously argued kill can be an A. A zombie project cannot.
 
-## Repository Map
+## Find Your Files
 
 ```
 modules/        One folder per module: README, lecture, workshop, case, homework
@@ -109,7 +202,7 @@ frameworks/     7 one-page decision tools you'll use all semester
 resources/      Reading list, tools & links, Student Toolkit, bonus cases
 ```
 
-Every part is plain text an AI agent can read. Workshops, homework, cases and frameworks are Markdown, and rebuilt modules also ship their lecture as HTML next to the PDF. Point your agent at this repo to turn a module into a skill. An HTML lecture opens in any browser and loads its fonts and styles from `design/`.
+Every part is plain text an AI agent can read. Workshops, homework, cases and frameworks are Markdown, and rebuilt modules also ship their lecture as HTML next to the PDF. Point your agent at this repo to turn a module into a skill. To present an HTML lecture, download and unzip the whole course first, then open the lecture in your browser. Keep the `design/` folder in place so the slides load their fonts and styles.
 
 ---
 
@@ -130,7 +223,7 @@ I'm Bastian Burger. I founded the industrial-logistics startup blik and led it a
 Course materials © Bastian Burger, licensed under [CC BY-NC-SA 4.0](LICENSE.md). You may share and adapt them for non-commercial use with attribution, under the same license. Third-party logos, trademarks, screenshots and quoted material remain with their owners.
 
 <p align="center">
-  <strong>Ambitious Entrepreneurship</strong> · Dr. Bastian Burger<br>
-  <em>Building founders who validate before they build.</em><br>
-  If the course helps you, star the repo so other founders find it.
+  <strong>Build something people want. Help another founder do the same.</strong><br>
+  If this course is useful to you, <a href="https://github.com/BaNburger/AmbitiousEntrepreneurship"><strong>give it a Star on GitHub ⭐</strong></a> and share it with your team.<br>
+  <sub>Ambitious Entrepreneurship · Dr. Bastian Burger</sub>
 </p>
