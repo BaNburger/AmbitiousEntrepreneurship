@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-10-31. Status: ready.
+/* Ambitious Entrepreneurship deck runtime styles. Updated: 2026-11-08. Status: ready.
    Owned by the course-design skill. Link after fonts.css and tokens.css and
    before archetypes.css. Decks link this file and never copy it.
    Sections: 1 stage, 2 slide frame, 3 generated chrome, 4 type roles,
@@ -495,3 +495,19 @@ html.is-presenter .slide.is-next { display: flex; left: auto; right: 32px; trans
 .presenter-bar b { font-family: var(--font-mono); font-weight: 600; }
 .presenter-notes { position: fixed; right: 32px; bottom: 32px; top: var(--p-notes-top, 400px); width: var(--p-notes-w, 600px); overflow: auto; font-size: 26px; line-height: 1.45; padding: 24px 28px; border-radius: 12px; background: hsl(220 16% 14%); }
 .presenter-notes:empty::before { content: "No notes on this slide."; color: hsl(220 10% 60%); }
+
+/* Break clock (2026-11-08). A break slide's countdown with minus and plus
+   buttons and the time the room is back, built by deck.js from
+   <div class="break-clock" data-break="15" data-back="Back at #">. Buttons and
+   the end time are room-only, a break slide is held back from the PDF anyway. */
+.break-clock { display: grid; justify-items: start; gap: 28px; margin-top: 48px; }
+.break-clock .brk-row { display: flex; align-items: center; gap: 28px; }
+.break-clock .timer { font-size: 168px; padding: 20px 64px; border-width: 5px; gap: 28px; }
+.brk-step { width: 88px; height: 88px; border-radius: 50%; border: 3px solid currentColor; background: transparent; color: inherit; cursor: pointer; position: relative; opacity: 0.55; transition: opacity 0.15s; }
+.brk-step:hover, .brk-step:focus-visible { opacity: 1; }
+.brk-step::before, .brk-plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 36px; height: 5px; margin: -2.5px 0 0 -18px; border-radius: 3px; background: currentColor; }
+.brk-plus::after { transform: rotate(90deg); }
+.break-clock .brk-back { margin: 0; font-size: 56px; font-weight: 700; letter-spacing: -0.01em; }
+[data-archetype="closing"] .break-clock .timer { border-color: var(--primary-foreground); color: var(--primary-foreground); }
+[data-archetype="closing"] .break-clock .timer.is-running { background: var(--primary-foreground); color: var(--primary); }
+[data-archetype="closing"][data-variant="break"] .statement { font-size: 120px; }

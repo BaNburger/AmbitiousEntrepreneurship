@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime. Updated: 2026-11-02. Status: ready.
+/* Ambitious Entrepreneurship deck runtime. Updated: 2026-11-08. Status: ready.
    Owned by the course-design skill. One classic script, no modules and no
    fetch, so a deck also runs from file://. Load it at the end of <body>.
 
@@ -11,7 +11,7 @@
    The runtime adds the top bar with the progress tracker, the divider agenda
    (each item links to its chapter),
    the footer (source line, signature, page) and runs builds (data-step),
-   motion (data-anim), timers (data-timer, minutes), videos (data-autoplay),
+   motion (data-anim), timers (data-timer, minutes), break clocks (break-clock), videos (data-autoplay),
    click details (data-pop, anchors.js details, data-details-page), tally
    cells (data-tally), confetti (data-confetti), flip cards (data-flip), click
    boxes (data-pick), read-out symbols, the presenter view and print mode. Source lines of kind "Bastian" show only
@@ -20,7 +20,7 @@
    URL: ?print (every slide, final state, held-back slides left out),
    ?print&all (held-back slides kept), ?presenter, #n (slide number).
    Keys: arrows, space, PageUp/PageDown, Home/End, P presenter, T timer,
-   F full screen. */
+   - and + a break's minutes (break-clock), F full screen. */
 (function () {
   "use strict";
   var deck = document.querySelector("main.deck");
@@ -366,6 +366,43 @@
     setTimer(t, run, run && t._left === 0 ? t._total : t._left);
     timerSync(t);
   }
+  // A break's length changes in the room: the time left and the full length
+  // move together, a running clock keeps running (Bastian, 2026-11-05).
+  function adjustTimer(t, min) {
+    t._total = Math.max(60, Math.min(180 * 60, t._total + min * 60));
+    setTimer(t, !!t._run, Math.max(0, Math.min(180 * 60, t._left + min * 60)));
+    timerSync(t);
+  }
+
+  /* ---------- Break clock ---------- */
+  // <div class="break-clock" data-break="15" data-back="Back at #"> becomes a
+  // countdown with minus and plus buttons (one minute, Shift five) and a line
+  // that reads now plus the time left, so "back at" is right even when the
+  // session runs late. The - and + keys do the same on the current slide
+  // (Bastian, Things, 2026-11-05: break slides with an editable duration).
+  function clock(sec) {
+    var d = new Date(Date.now() + sec * 1000);
+    return pad(d.getHours()) + ":" + pad(d.getMinutes());
+  }
+  deck.querySelectorAll(".break-clock[data-break]").forEach(function (b) {
+    var t = make("div", "timer"), row = make("div", "brk-row");
+    var back = make("p", "brk-back room-only"), tpl = b.dataset.back || "Back at #";
+    t.dataset.timer = b.dataset.break;
+    [["brk-minus", "One minute less (Shift: five)", -1], ["brk-plus", "One minute more (Shift: five)", 1]].forEach(function (d, k) {
+      var btn = make("button", "brk-step room-only " + d[0]);
+      btn.type = "button";
+      btn.setAttribute("aria-label", d[1]);
+      btn.title = d[1];
+      btn.addEventListener("click", function (ev) { ev.stopPropagation(); adjustTimer(t, d[2] * (ev.shiftKey ? 5 : 1)); });
+      if (k === 0) row.appendChild(btn);
+      else { row.appendChild(t); row.appendChild(btn); }
+    });
+    b.appendChild(row);
+    b.appendChild(back);
+    function tick() { back.textContent = tpl.replace("#", clock(t._left || 0)); }
+    b._tick = tick;
+    setInterval(tick, 1000);
+  });
   deck.querySelectorAll(".timer[data-timer]").forEach(function (t) {
     t._total = Math.round(parseFloat(t.dataset.timer) * 60) || 0;
     t._left = t._total;
@@ -375,6 +412,7 @@
     t.addEventListener("click", function (ev) { ev.stopPropagation(); toggleTimer(t); });
     renderTimer(t);
   });
+  deck.querySelectorAll(".break-clock[data-break]").forEach(function (b) { b._tick(); });
 
   /* ---------- Print mode ---------- */
   if (params.has("all")) root.classList.add("show-all");
@@ -392,7 +430,7 @@
 
   var bar, notes, started = Date.now();
   if (presenter) {
-    bar = make("div", "presenter-bar", '<b class="p-count"></b><span class="p-time">0:00</span><span>Arrows navigate · T timer · both windows follow each other</span>');
+    bar = make("div", "presenter-bar", '<b class="p-count"></b><span class="p-time">0:00</span><span>Arrows navigate · T timer · - + break minutes · both windows follow each other</span>');
     notes = make("div", "presenter-notes");
     document.body.appendChild(bar);
     document.body.appendChild(notes);
@@ -419,7 +457,7 @@
   function sync() { post({ aeDeck: true, i: cur, n: step }); }
   timerSync = function (t) {
     var at = slides.indexOf(t.closest("section.slide"));
-    post({ aeTimer: true, i: at, run: !!t._run, left: t._left });
+    post({ aeTimer: true, i: at, run: !!t._run, left: t._left, total: t._total });
   };
 
   function show(i, n, remote) {
@@ -480,6 +518,10 @@
       case "End": e.preventDefault(); show(slides.length - 1, maxStep(slides[slides.length - 1])); break;
       case "p": case "P": if (!presenter) openPresenter(); break;
       case "t": case "T": var t = slides[cur].querySelector(".timer[data-timer]"); if (t) toggleTimer(t); break;
+      case "+": case "=": case "-": case "_":
+        var bt = slides[cur].querySelector(".break-clock .timer[data-timer]");
+        if (bt) { e.preventDefault(); adjustTimer(bt, e.key === "+" || e.key === "=" ? 1 : -1); }
+        break;
       case "f": case "F":
         if (document.fullscreenElement) document.exitFullscreen();
         else if (root.requestFullscreen) root.requestFullscreen();
@@ -605,7 +647,7 @@
     if (d.aeToggle) { var el = byPath(d.i, d.k); if (el) applyToggle(el, d.cls, d.on); }
     if (d.aeTimer && slides[d.i]) {
       var t = slides[d.i].querySelector(".timer[data-timer]");
-      if (t) setTimer(t, d.run, d.left);
+      if (t) { if (d.total) t._total = d.total; setTimer(t, d.run, d.left); }
     }
   });
 
