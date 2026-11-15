@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="updated" content="2026-11-12">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>M07 Lecture · The Kill Decision</title>
 <link rel="stylesheet" href="../../design/fonts.css">
@@ -268,7 +269,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Data"><a class="cite" href="https://web.archive.org/web/20221203033217/https://www.cbinsights.com/research/report/startup-failure-reasons-top/">CB Insights, "The top 12 reasons startups fail", 3 August 2021</a>, 111 post-mortems, top 9 of 12 shown.  Colours are the course's grouping.</footer>
 </section>
 
-<section class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="prototype" data-chapter="List it: every way it could die">
+<section id="m07-every-cause-of-death-is-an-assumption" class="slide" data-archetype="claim" data-anchor="evidence-pyramid" data-anchor-part="prototype" data-chapter="List it: every way it could die">
   <div class="head">
     <span class="label">Translate · made up</span>
     <h2 class="title">Every cause of death is an <span class="mark">assumption</span></h2>
@@ -278,7 +279,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Illustrative">Made-up recruiting venture. The three areas follow the learning goals of The kill decision (M07).</footer>
   </section>
 
-<section class="slide" data-archetype="table" data-anchor="evidence-pyramid" data-anchor-part="prototype" data-chapter="List it: every way it could die">
+<section id="m07-keep-only-what-your-records-have-not-ruled-out" class="slide" data-archetype="table" data-anchor="evidence-pyramid" data-anchor-part="prototype" data-chapter="List it: every way it could die">
   <div class="head">
     <span class="label">Check · made up</span>
     <h2 class="title">Keep only what your records have <span class="mark">not</span> ruled out</h2>
@@ -303,12 +304,44 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov">Photo: StartupStockPhotos on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="List it: every way it could die">
+<section id="m07-list-it-every-cause-of-death-is-an-assumption" class="slide" data-archetype="claim" data-chapter="List it: every way it could die">
   <div class="head">
     <span class="label">Input 1 of 4 · List it · the answers</span>
     <h2 class="title">List it: every cause of death is an <span class="mark">assumption</span></h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What turns an assumption into a hypothesis?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">It can fail. A hypothesis is an assumption you can prove wrong</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you find the assumptions you rely on?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Imagine your venture dead in a year and write down why</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Which of them still matter?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Only those your records have not ruled out yet</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M07-LG1" data-chapter="List it: every way it could die" id="check-m07-lg1-1">
+  <div class="head">
+    <span class="label">Transfer question · M07-LG1</span>
+    <h2 class="title">Which assumption still needs its first test?</h2>
+    <p class="sub">Partner print shops fulfilled six rush orders placed by other shops, and buyers paid the partner shops&#x27; invoices. The founder phoned both sides every time. The business plan expects shops to arrange jobs from a listing.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="C">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Partner shops can fulfil another print shop&#x27;s rush order.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Buyers will pay a partner shop for a completed rush order.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Buyers and shops will book rush jobs through an unstaffed listing.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">C. Test whether the shops can arrange a job themselves.</h3>
+        <p class="transfer-principle">The six jobs establish that partner shops can fulfil orders and receive payment with a broker. None records what happens when the founder stops making introductions.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>Six finished jobs give the team evidence that this is possible.</span></li>
+          <li><b>B</b><span>The paid invoices supply evidence for at least these buyers and terms.</span></li>
+          <li><b>C</b><span>Every completed transaction includes the founder, so the proposed sales route remains untested.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If two shops already booked directly from a listing, inspect that record before calling the assumption wholly untested.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m07-every-cause-of-death-is-an-assumption" data-slide-ref="m07-every-cause-of-death-is-an-assumption">Every cause of death is an assumption</a>
+          <a href="#m07-keep-only-what-your-records-have-not-ruled-out" data-slide-ref="m07-keep-only-what-your-records-have-not-ruled-out">Keep only what your records have not ruled out</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Rank it: the monkey first">
@@ -433,7 +466,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Illustrative">Skill and chat prototyped for this course, demo notes and numbers made up.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Rank it: the monkey first">
+<section id="m07-pick-the-cheapest-test-that-could-prove-it-wrong" class="slide" data-archetype="claim" data-chapter="Rank it: the monkey first">
   <div class="head">
     <span class="label">Test cheaply</span>
     <h2 class="title">Pick the cheapest test that could prove it <span class="mark">wrong</span></h2>
@@ -457,7 +490,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Bastian">Hierarchy of evidence in the lean startup. Glossary, "Validation".</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-anchor="critical-known" data-anchor-part="priority" data-chapter="Rank it: the monkey first">
+<section id="m07-log-the-line-before-the-first-result" class="slide" data-archetype="claim" data-anchor="critical-known" data-anchor-part="priority" data-chapter="Rank it: the monkey first">
   <div class="head">
     <span class="label">Write the line first · the homework default</span>
     <h2 class="title">Log the line <span class="mark">before</span> the first result</h2>
@@ -484,12 +517,44 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov">Photo: StartupStockPhotos on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Rank it: the monkey first">
+<section id="m07-rank-it-train-the-monkey-skip-the-pedestal" class="slide" data-archetype="claim" data-chapter="Rank it: the monkey first">
   <div class="head">
     <span class="label">Input 2 of 4 · Rank it · the answers</span>
     <h2 class="title">Rank it: train the <span class="mark">monkey</span>, skip the pedestal</h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Which assumption goes first?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">The monkey, critical and unknown. If it is false, nothing else matters</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you write it down?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">So it can fail. Specific, testable, actionable, with its line logged first</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you test it?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">With the cheapest test that could prove it wrong. Will they pay? Ask for money</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M07-LG2" data-chapter="Rank it: the monkey first" id="check-m07-lg2-1">
+  <div class="head">
+    <span class="label">Transfer question · M07-LG2</span>
+    <h2 class="title">Which test could change the expansion decision?</h2>
+    <p class="sub">Print shops bought emergency capacity during a strike. Expansion depends on ordinary repeat jobs at the same price. The booking flow works. The team has one week with buyers who have regular jobs due. Each proposed test will have a cutoff fixed before it starts.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="B">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Track visits from repeat buyers to the ordinary-price booking page.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Track paid repeat orders for ordinary jobs at the intended price.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Track buyers&#x27; stated plans to book capacity for upcoming ordinary jobs.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">B. Test a paid repeat under ordinary conditions.</h3>
+        <p class="transfer-principle">The original purchases came during a strike. Only an ordinary job at the intended price tests the repeat demand that the expansion plan requires.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>Visits can show interest even if every shop chooses to print its job in-house.</span></li>
+          <li><b>B</b><span>An actual purchase can pass or miss the line agreed before the first offer.</span></li>
+          <li><b>C</b><span>A forecast can guide scheduling, but it leaves the buying decision hypothetical.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If ordinary repeat purchases were already documented and supply were the unknown, test whether a partner accepts the job on time.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m07-pick-the-cheapest-test-that-could-prove-it-wrong" data-slide-ref="m07-pick-the-cheapest-test-that-could-prove-it-wrong">Pick the cheapest test that could prove it wrong</a>
+          <a href="#m07-log-the-line-before-the-first-result" data-slide-ref="m07-log-the-line-before-the-first-result">Log the line before the first result</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Judge it: your past self decides">
@@ -538,7 +603,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Framework"><a class="cite" href="https://x.company/blog/posts/a-peek-inside-the-moonshot-factory-operating-manual/">Teller (2016), operating manual</a>, 23 July 2016. <a class="cite" href="https://x.company/blog/posts/three-things-i-learned-from-turning-seawater-into-fuel/">Hannun (2016)</a>, X blog. Logos are trademarks of their owners.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-anchor="pivot-fork" data-anchor-part="line" data-chapter="Judge it: your past self decides">
+<section id="m07-your-kill-criteria-log-decides-first" class="slide" data-archetype="claim" data-anchor="pivot-fork" data-anchor-part="line" data-chapter="Judge it: your past self decides">
   <div class="head">
     <span class="label">Decide · step 1</span>
     <h2 class="title">Your Kill Criteria Log decides <span class="mark">first</span></h2>
@@ -606,7 +671,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Bastian">Course material, an image Bastian generated with AI.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Judge it: your past self decides">
+<section id="m07-today-s-verdict-is-provisional" class="slide" data-archetype="claim" data-chapter="Judge it: your past self decides">
   <div class="head">
     <span class="label">Decide · step 3</span>
     <h2 class="title">Today's verdict is <span class="mark">provisional</span></h2>
@@ -634,12 +699,44 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   </div>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Judge it: your past self decides">
+<section id="m07-judge-it-the-log-first-then-the-scorecard" class="slide" data-archetype="claim" data-chapter="Judge it: your past self decides">
   <div class="head">
     <span class="label">Input 3 of 4 · Judge it · the answers</span>
     <h2 class="title">Judge it: the <span class="mark">log</span> first, then the scorecard</h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What decides first?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Your Kill Criteria Log, the lines you wrote before the data</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What decides the rest?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Nine questions, scored on artifacts. No artifact scores 0</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How final is the verdict?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Provisional. Say it out loud, then let the monkey test confirm it</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M07-LG3" data-chapter="Judge it: your past self decides" id="check-m07-lg3-1">
+  <div class="head">
+    <span class="label">Transfer question · M07-LG3</span>
+    <h2 class="title">Which commitment belongs in the provisional verdict?</h2>
+    <p class="sub">The team committed to change the booking method if fewer than two shops reordered unaided. One did. Its evidence score is 15 of 18. A separate test of ordinary demand is still running.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="C">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Use the existing booking method again in the next trial.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Pause further booking trials until the demand test ends.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Replace the booking method before the next trial.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">C. Commit to a new method for the next booking trial.</h3>
+        <p class="transfer-principle">The line specified a change of method. A strong overall score cannot cancel it. Commit to a new method for the next booking trial while leaving the separate demand test interpretable. Its result could still change the venture verdict.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>Repeating the existing method would disregard the consequence committed before the result.</span></li>
+          <li><b>B</b><span>The pending test concerns demand. Waiting for it postpones the agreed booking-method change.</span></li>
+          <li><b>C</b><span>The team can commit to the agreed change for its next booking trial without changing the separate test.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If the agreed line had required closing this offer, the same one reorder would trigger that consequence.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m07-your-kill-criteria-log-decides-first" data-slide-ref="m07-your-kill-criteria-log-decides-first">Your Kill Criteria Log decides first</a>
+          <a href="#m07-today-s-verdict-is-provisional" data-slide-ref="m07-today-s-verdict-is-provisional">Today&#x27;s verdict is provisional</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Close it: kill well, then restart">
@@ -699,7 +796,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Research"><a class="cite" href="https://doi.org/10.1002/smj.3580">Camuffo et al. (2024), Strategic Management Journal 45(6)</a>, after a first trial with 116 Italian startups. Photo: DiggityMarketing on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="framework" data-chapter="Close it: kill well, then restart">
+<section id="m07-one-page-turns-a-kill-into-an-asset" class="slide" data-archetype="framework" data-chapter="Close it: kill well, then restart">
   <div class="head">
     <span class="label">The Kill Ritual</span>
     <h2 class="title">One page turns a kill into an <span class="mark">asset</span></h2>
@@ -735,7 +832,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov">Photo: congerdesign on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-anchor="pivot-fork" data-anchor-part="pivot2" data-chapter="Close it: kill well, then restart">
+<section id="m07-killed-restart-from-your-own-records" class="slide" data-archetype="claim" data-anchor="pivot-fork" data-anchor-part="pivot2" data-chapter="Close it: kill well, then restart">
   <div class="head">
     <span class="label">Restart</span>
     <h2 class="title">Killed? Restart from your <span class="mark">own records</span></h2>
@@ -776,12 +873,44 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Bastian">The week's goal of The kill decision (M07). Grading Rubric, the concierge ramp and the Revenue Ladder for First users (M08).</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Close it: kill well, then restart">
+<section id="m07-close-it-a-kill-is-an-asset" class="slide" data-archetype="claim" data-chapter="Close it: kill well, then restart">
   <div class="head">
     <span class="label">Input 4 of 4 · Close it · the answers</span>
     <h2 class="title">Close it: a kill is an <span class="mark">asset</span></h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why is a kill so hard?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">The more it is yours, the harder you hold on</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you kill well?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">With the Kill Ritual, one page on what the evidence said</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What comes after a kill?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">A restart from your own records, its problems, segments, channels</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M07-LG4" data-chapter="Close it: kill well, then restart" id="check-m07-lg4-1">
+  <div class="head">
+    <span class="label">Transfer question · M07-LG4</span>
+    <h2 class="title">Which paid service should the founder offer those four managers?</h2>
+    <p class="sub">A team dropped its linen tracker after none of ten hotel managers paid by the agreed Friday. The closure note records the missed line. Four managers showed bills for emergency pickups. A hotel association introduced all four.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="A">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Arrange emergency linen pickups for a fee per collection.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Run a weekly linen count for a flat fee.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Source replacement sheets for a fee per order.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">A. Recommend a paid emergency-pickup service for the four reachable hotels.</h3>
+        <p class="transfer-principle">The unpaid tracker crossed its line. The bills point to a different purchased outcome. The association gives the next founder a way to offer it personally.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>The managers already pay for emergency collections. The founder can offer that outcome personally.</span></li>
+          <li><b>B</b><span>Stock counts are a possible service. The bills shown here record spending on pickups.</span></li>
+          <li><b>C</b><span>Replacement orders would address damaged or missing sheets. The observed expense is transport.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If the bills showed pickup costs were already fully reimbursed, speak to whoever pays those bills before making the offer.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m07-one-page-turns-a-kill-into-an-asset" data-slide-ref="m07-one-page-turns-a-kill-into-an-asset">One page turns a kill into an asset</a>
+          <a href="#m07-killed-restart-from-your-own-records" data-slide-ref="m07-killed-restart-from-your-own-records">Killed? Restart from your own records</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Zoom out: world-size ideas, every quarter">
@@ -850,7 +979,7 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
   <footer class="prov" data-kind="Framework"><a class="cite" href="https://www.ted.com/talks/astro_teller_the_unexpected_benefit_of_celebrating_failure">Teller (2016), TED2016</a>, <a class="cite" href="https://x.company/blog/posts/a-peek-inside-the-moonshot-factory-operating-manual/">Teller (2016), operating manual</a>, <a class="cite" href="https://wing.com/news/wing-becomes-first-certified-air">Wing (2019)</a>. Photos: jayy, hakelbudel and kimhyeri on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-variant="split" data-field="navy" data-chapter="Zoom out: world-size ideas, every quarter">
+<section id="m07-in-product-work-this-decision-comes-back-every-quarter" class="slide" data-archetype="claim" data-variant="split" data-field="navy" data-chapter="Zoom out: world-size ideas, every quarter">
   <div class="head">
     <img class="head-photo" src="media/m07-product-team.jpg" alt="A product team around a table with laptops showing charts">
     <span class="label">Zoom out · product work</span>
@@ -863,6 +992,38 @@ html.is-print:not(.show-all) .media-split:has(> [data-hold]) { grid-template-col
     <p style="display:flex;gap:14px;align-items:center;font:700 28px/1.25 var(--font-sans);padding:14px 22px;border-radius:14px;background:var(--sticky)"><i class="icon icon-signpost" style="font-size:40px;flex:none"></i>Product management (M10) makes each one a bet with its expected effect, read every week</p>
   </div>
   <footer class="prov" data-kind="Research"><a class="cite" href="https://hbr.org/2017/09/the-surprising-power-of-online-experiments">Kohavi and Thomke (2017), HBR</a>. Roadmap made up. Photo: RonaldCandonga on Pixabay. Logos are trademarks of their owners.</footer>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M07-LG3" data-chapter="Zoom out: world-size ideas, every quarter" id="check-m07-lg3-2">
+  <div class="head">
+    <span class="label">Transfer question · M07-LG3</span>
+    <h2 class="title">What should the team close at the quarterly review?</h2>
+    <p class="sub">A recycler set a maximum electricity use for one sorting process. Two measured runs exceeded it. Buyers booked trials and another process is still within its own limit. The charter says to stop a process that exceeds its cap.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="B">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Stop both processes before running the buyers&#x27; booked trials.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Stop the first process before its next booked trial.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Keep both processes running through the buyers&#x27; booked trials.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">B. Apply the stop rule to the process it governs.</h3>
+        <p class="transfer-principle">The electricity limit governs one method. Buyer interest does not change its measured energy use. The other method still has its own test to pass.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>The missed line belongs to one process. It gives no verdict on the other.</span></li>
+          <li><b>B</b><span>This keeps the decision at the same scope as the original commitment.</span></li>
+          <li><b>C</b><span>Bookings answer a demand question. They do not resolve whether the process meets its operating limit.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If the cap applied to the entire venture and both processes exceeded it, reopen the venture-level verdict.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m07-your-kill-criteria-log-decides-first" data-slide-ref="m07-your-kill-criteria-log-decides-first">Your Kill Criteria Log decides first</a>
+          <a href="#m07-in-product-work-this-decision-comes-back-every-quarter" data-slide-ref="m07-in-product-work-this-decision-comes-back-every-quarter">In product work, this decision comes back every quarter</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Wrap-up and check-out">

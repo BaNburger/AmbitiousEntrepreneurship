@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="updated" content="2026-11-12">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>M06 Lecture · Prototyping with AI</title>
 <link rel="stylesheet" href="../../design/fonts.css">
@@ -392,7 +393,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov" data-kind="Illustrative">A restaurant as the analogue of Every application ever. Photo: StockSnap on Pixabay. Logos are trademarks of their owners.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
+<section id="m06-backend-it-turns-input-into-value" class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
   <div class="head">
     <span class="label">Every application ever · 3 Backend</span>
     <h2 class="title">Backend: it turns input into <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">value</span></h2>
@@ -425,7 +426,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov" data-kind="Illustrative">A restaurant as the analogue of Every application ever, course graphic. Photo: valentin_b90 on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
+<section id="m06-database-the-one-part-you-can-t-rebuild" class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
   <div class="head">
     <span class="label">Every application ever · 4 Database</span>
     <h2 class="title">Database: the one part you <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">can't rebuild</span></h2>
@@ -466,7 +467,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov" data-kind="Illustrative">A restaurant as the analogue of Every application ever, course graphic. Photo: steven_yu on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
+<section id="m06-external-services-they-come-in-through-apis" class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
   <div class="head">
     <span class="label">Every application ever · 5 External services</span>
     <h2 class="title">External services: they come in through <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">APIs</span></h2>
@@ -513,7 +514,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <div class="content bands-layout"><div class="bands"><div class="band is-word" data-tally="10"><span class="icon icon-app-window" aria-hidden="true"></span><b style="font-size:46px">Interface</b><small>what they see</small></div><div class="band is-word" data-tally="10"><span class="icon icon-workflow" aria-hidden="true"></span><b style="font-size:46px">Logic</b><small>the steps</small></div><div class="band is-word" data-tally="10"><span class="icon icon-database" aria-hidden="true"></span><b style="font-size:46px">Database</b><small>what it keeps</small></div><div class="band is-word" data-tally="10"><span class="icon icon-plug" aria-hidden="true"></span><b style="font-size:46px">External</b><small>services</small></div></div><div class="timer" data-timer="1"></div></div>
   </section>
 
-<section class="slide" data-archetype="workshop" data-chapter="Map it: the parts of every app">
+<section id="m06-draw-your-mvp-on-the-five-parts" class="slide" data-archetype="workshop" data-chapter="Map it: the parts of every app">
   <div class="head">
     <span class="label">Now you · alone, then compare</span>
     <h2 class="title">Draw your MVP on the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">five parts</span></h2>
@@ -524,12 +525,44 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   </div>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
+<section id="m06-map-it-one-part-works-the-rest-by-hand-zero-rows-lost" class="slide" data-archetype="claim" data-chapter="Map it: the parts of every app">
   <div class="head">
     <span class="label">Input 1 of 4 · Map it · the answers</span>
     <h2 class="title">Map it: one part works, the rest by hand, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">zero</span> rows lost</h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What is every app made of?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">A user and four parts: interface, backend, database, external services</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Which part must really work in a prototype?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">The one that creates the value. A person may do the rest by hand</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What must never break?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">The data your users entered. Rebuild everything else</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M06-LG1" data-chapter="Map it: the parts of every app" id="check-m06-lg1-1">
+  <div class="head">
+    <span class="label">Transfer question · M06-LG1</span>
+    <h2 class="title">Which check belongs before switching to the rebuilt tool?</h2>
+    <p class="sub">A depot rebuilds its crate matcher. Scanner logs can recreate the original crate IDs. Clerks corrected several wrong shipment matches by hand. Those corrections exist only in the old table.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="C">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Compare the restored table&#x27;s column names and total row count.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Compare the replayed scans&#x27; match count with the old results.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Compare each restored crate&#x27;s confirmed shipment with the old table.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">C. Prove the clerks&#x27; confirmed matches survive the switch.</h3>
+        <p class="transfer-principle">An equal row count can hide a wrong shipment. Replaying scans reconstructs suggestions but loses the corrections only the users could supply.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>Column names and counts cannot tell whether a particular crate retained its corrected shipment.</span></li>
+          <li><b>B</b><span>The scanner never recorded the clerks&#x27; later decisions.</span></li>
+          <li><b>C</b><span>A comparison against the old records checks the user input the new matcher cannot recreate.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If every correction also exists in a complete, verified event log, replaying that log becomes a possible recovery method.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m06-database-the-one-part-you-can-t-rebuild" data-slide-ref="m06-database-the-one-part-you-can-t-rebuild">Database: the one part you can&#x27;t rebuild</a>
+          <a href="#m06-draw-your-mvp-on-the-five-parts" data-slide-ref="m06-draw-your-mvp-on-the-five-parts">Draw your MVP on the five parts</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Shrink it: the cheapest version">
@@ -594,7 +627,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov" data-kind="Illustrative">Both screens prototyped for this deck, the five-year picture after Finding ideas (M02). Names are trademarks of their owners.</footer>
   </section>
 
-<section class="slide" data-archetype="workshop" data-chapter="Shrink it: the cheapest version">
+<section id="m06-what-is-the-cheapest-version-that-delivers" class="slide" data-archetype="workshop" data-chapter="Shrink it: the cheapest version">
   <div class="head">
     <span class="label">Now you · in your team</span>
     <h2 class="title">What is the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">cheapest</span> version that delivers?</h2>
@@ -605,12 +638,44 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   </div>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Shrink it: the cheapest version">
+<section id="m06-shrink-it-the-smallest-build-that-delivers" class="slide" data-archetype="claim" data-chapter="Shrink it: the cheapest version">
   <div class="head">
     <span class="label">Input 2 of 4 · Shrink it · the answers</span>
     <h2 class="title">Shrink it: the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">smallest</span> build that delivers</h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What is the cheapest build that delivers the outcome?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Often a form, a sheet and you. Move right only for the part that hurts</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why not build it all, now that building is cheap?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Testing is the slow part. Every extra feature delays it and inflates your confidence</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Does the tool decide how big you think?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Only if you let it. Keep the five-year picture, build one slice of it</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M06-LG2" data-chapter="Shrink it: the cheapest version" id="check-m06-lg2-1">
+  <div class="head">
+    <span class="label">Transfer question · M06-LG2</span>
+    <h2 class="title">Which trial tests the map service&#x27;s entrance recognition?</h2>
+    <p class="sub">A dispatcher can take orders in a form and text a driver. The unknown is whether a map service recognises the depot&#x27;s loading entrance. Its street address leads to the front office.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="A">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Inspect the API&#x27;s returned route to the depot&#x27;s loading entrance.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Inspect a dispatcher-drawn route to the depot&#x27;s loading entrance.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Inspect the dashboard&#x27;s sample route to the depot&#x27;s loading entrance.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">A. Inspect the route returned for the real loading entrance.</h3>
+        <p class="transfer-principle">Only a real call tests whether this service recognises the entrance the driver needs. Inspect where the returned route ends before texting the estimate. This tests the route, not the accuracy of its arrival time.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>This supplies the actual entrance to the uncertain service and checks the returned destination.</span></li>
+          <li><b>B</b><span>A human-drawn route can help a driver while leaving the map service untested.</span></li>
+          <li><b>C</b><span>A sample route demonstrates a display without testing what the map service returns.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If the entrance and route were verified and the unknown were whether drivers read texts, a manually timed message could test it.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m06-external-services-they-come-in-through-apis" data-slide-ref="m06-external-services-they-come-in-through-apis">External services: they come in through APIs</a>
+          <a href="#m06-what-is-the-cheapest-version-that-delivers" data-slide-ref="m06-what-is-the-cheapest-version-that-delivers">What is the cheapest version that delivers?</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Build it: you steer the agent">
@@ -680,7 +745,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov" data-kind="Framework">Best Practices: Coding with AI, course resource, anti-pattern 5 "The AI Yes-Man Problem" ("You are the PM"). Photo: jarmoluk on Pixabay.</footer>
   </section>
 
-<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Build it: you steer the agent">
+<section id="m06-brief-one-step-test-review-save" class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Build it: you steer the agent">
   <div class="head">
     <span class="label">The agent loop</span>
     <h2 class="title">Brief, one step, test, review, <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">save</span></h2>
@@ -711,7 +776,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov">A real build by an AI coding agent (Claude) from this brief, 19 October 2026, records in the course workspace. QuackSync is a made-up venture.</footer>
   </section>
 
-<section class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Build it: you steer the agent">
+<section id="m06-which-step-would-you-cut-or-split" class="slide" data-archetype="retrieval" data-variant="question" data-chapter="Build it: you steer the agent">
   <div class="head">
     <span class="label">Now you · 1 minute</span>
     <h2 class="title">Which step would you <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">cut</span> or split?</h2>
@@ -745,7 +810,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov">A real security review of the build above, 19 October 2026. The chat on the back condenses its three rounds, in made-up words.</footer>
   </section>
 
-<section class="slide" data-archetype="demo" data-anchor="agent-loop" data-anchor-part="save" data-chapter="Build it: you steer the agent">
+<section id="m06-every-step-is-a-saved-version" class="slide" data-archetype="demo" data-anchor="agent-loop" data-anchor-part="save" data-chapter="Build it: you steer the agent">
   <div class="head">
     <span class="label">Micro case · QuackSync · build A, a coding agent · step 5 of 6</span>
     <h2 class="title">Every step is a <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">saved</span> version</h2>
@@ -837,12 +902,80 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   </div>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Build it: you steer the agent">
+<section id="m06-build-it-you-own-the-what-the-agent-the-how" class="slide" data-archetype="claim" data-chapter="Build it: you steer the agent">
   <div class="head">
     <span class="label">Input 3 of 4 · Build it · the answers</span>
     <h2 class="title">Build it: you own the what, the agent the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">how</span></h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Why do AI builds run away from you?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">The agent builds whatever you ask, and fast feels like progress</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you steer one without reading code?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Brief once, plan first, one step, test, review, save. Two misses: restart</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Coding agent or app builder?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Both take minutes. Pick by what you must own and check</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M06-LG3" data-chapter="Build it: you steer the agent" id="check-m06-lg3-1">
+  <div class="head">
+    <span class="label">Transfer question · M06-LG3</span>
+    <h2 class="title">Which first step belongs in the agent&#x27;s plan?</h2>
+    <p class="sub">A depot clerk needs to match a returned crate to its shipment. She can find the match by hand. The team has one shift to try the new handoff with a real crate.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="D">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Read the returned crate&#x27;s barcode with the depot&#x27;s scanner.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Import the clerk&#x27;s shipment records into the depot&#x27;s catalogue.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Show the manager a dashboard of the depot&#x27;s sample matches.</span></button>
+        <button type="button" data-choice="D"><b>D</b><span>Show the clerk the returned crate&#x27;s matching shipment.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">D. Run one real crate through to a confirmed shipment.</h3>
+        <p class="transfer-principle">The first step gives the product owner something a clerk can try. Manual matching is enough to test the handoff before automating it.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>A working scanner tests input alone. It still leaves the clerk without a shipment.</span></li>
+          <li><b>B</b><span>A complete catalogue may be useful later. Its row count does not test this handoff.</span></li>
+          <li><b>C</b><span>A manager can judge the layout, but sample matches never put the clerk&#x27;s crate through it.</span></li>
+          <li><b>D</b><span>One real ID reaches one confirmed shipment. The clerk can tell whether that outcome helps.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If wet labels cannot be read and matching already works, scan actual wet labels first to test the key uncertainty.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m06-backend-it-turns-input-into-value" data-slide-ref="m06-backend-it-turns-input-into-value">Backend: it turns input into value</a>
+          <a href="#m06-which-step-would-you-cut-or-split" data-slide-ref="m06-which-step-would-you-cut-or-split">Which step would you cut or split?</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M06-LG3" data-chapter="Build it: you steer the agent" id="check-m06-lg3-2">
+  <div class="head">
+    <span class="label">Transfer question · M06-LG3</span>
+    <h2 class="title">Which version should the clerk try in ten minutes?</h2>
+    <p class="sub">The clerk tested a saved version that matched one crate correctly. Two newer versions added bulk matching. Both lose a shipment when the clerk tries again.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="A">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Restore the saved matcher for the clerk&#x27;s next trial.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Demo the bulk matcher with the retry control disabled.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Have a second agent patch the current bulk matcher.</span></button>
+        <button type="button" data-choice="D"><b>D</b><span>Rebuild single and bulk matching in a fresh project.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">A. Return to the version the clerk tested.</h3>
+        <p class="transfer-principle">The latest save still fails on a retry. The last working version preserves the handoff. The missing shipment gives the next attempt a precise test.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>The clerk can test the reliable path while the team isolates the missing shipment.</span></li>
+          <li><b>B</b><span>Avoiding retries hides a failure in normal use and makes the demo misleading.</span></li>
+          <li><b>C</b><span>A new agent still inherits an untrusted change and a ten-minute deadline.</span></li>
+          <li><b>D</b><span>The single-crate path already works. Rebuilding it discards useful progress.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> After one failed attempt with a narrow, understood cause, a focused correction and a fresh test would still be reasonable.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m06-brief-one-step-test-review-save" data-slide-ref="m06-brief-one-step-test-review-save">Brief, one step, test, review, save</a>
+          <a href="#m06-every-step-is-a-saved-version" data-slide-ref="m06-every-step-is-a-saved-version">Every step is a saved version</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Ship it: into users' hands">
@@ -914,7 +1047,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov">Microsoft Clarity on PaperPulse, Bastian's project, German interface. Guide in Validating problems (M04). Logos are trademarks of their owners.</footer>
   </section>
 
-<section class="slide" data-archetype="framework" data-chapter="Ship it: into users' hands">
+<section id="m06-did-they-reach-the-outcome-did-they-come-back" class="slide" data-archetype="framework" data-chapter="Ship it: into users' hands">
   <div class="head">
     <span class="label">Two questions per user</span>
     <h2 class="title">Did they reach the <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">outcome</span>? Did they come back?</h2>
@@ -934,7 +1067,7 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   <footer class="prov" data-kind="Bastian">Gate questions.</footer>
   </section>
 
-<section class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Ship it: into users' hands">
+<section id="m06-a-slice-that-works-is-signal-until-someone-pays" class="slide" data-archetype="anchor" data-variant="wide" data-chapter="Ship it: into users' hands">
   <div class="head">
     <span class="label">Where you stand</span>
     <h2 class="title">A slice that works is <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">signal</span> until someone pays</h2>
@@ -966,12 +1099,44 @@ html.is-print:not(.show-all) .quote-layout:has(> [data-hold]) { grid-template-co
   </div>
   </section>
 
-<section class="slide" data-archetype="claim" data-chapter="Ship it: into users' hands">
+<section id="m06-ship-it-used-not-clicked" class="slide" data-archetype="claim" data-chapter="Ship it: into users' hands">
   <div class="head">
     <span class="label">Input 4 of 4 · Ship it · the answers</span>
     <h2 class="title">Ship it: used, not <span style="background:var(--marker);padding:0 0.12em;border-radius:6px">clicked</span></h2>
   </div>
   <div class="content" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-content:center"><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">1</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">Who counts as a user?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Everyone you test with, every day. The bar counts your segment</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">2</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">How do you know it works?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">They reach the outcome without your help, and come back</p></div><div style="padding:26px 28px;border-radius:18px;background:var(--primary-tint);align-self:stretch"><div style="font:800 150px/0.9 var(--font-sans);color:var(--primary)">3</div><p style="font-size:27px;line-height:1.3;color:var(--muted-foreground);margin:14px 0 10px">What do you do before you build again?</p><p style="font-size:33px;line-height:1.28;font-weight:700;margin:0">Fix what stopped them, cut what nobody used, ask the four questions</p></div></div>
+  </section>
+
+<section class="slide" data-archetype="transfer" data-transfer-check data-learning-goal="M06-LG4" data-chapter="Ship it: into users&#x27; hands" id="check-m06-lg4-1">
+  <div class="head">
+    <span class="label">Transfer question · M06-LG4</span>
+    <h2 class="title">What should the team do before inviting the next shift?</h2>
+    <p class="sub">Eight shift leads opened the tool. Three finished after a hint. Of five working alone, two finished and one returned. The other three stopped at the same unlabelled button. Nobody paid.</p>
+  </div>
+  <div class="content">
+    <div class="transfer" data-transfer data-correct="B">
+      <div class="transfer-front"><div class="transfer-options">
+        <button type="button" data-choice="A"><b>A</b><span>Add reminders for leads who have not returned to the tool.</span></button>
+        <button type="button" data-choice="B"><b>B</b><span>Add a label to the button where unaided users stopped.</span></button>
+        <button type="button" data-choice="C"><b>C</b><span>Add guided onboarding before a lead first uses the tool.</span></button>
+      </div></div>
+      <div class="transfer-answer">
+        <h3 class="transfer-verdict">B. Fix the observed blocker and repeat the independent test.</h3>
+        <p class="transfer-principle">Two people reached the outcome without help. One came back. The repeated stop suggests a specific fix. Watch fresh leads try the labelled button alone and track whether they return.</p>
+        <ol class="transfer-reasons">
+          <li><b>A</b><span>Reminders address return, while three observed users could not finish their first use.</span></li>
+          <li><b>B</b><span>A label addresses the repeated stop. Fresh unaided trials can establish whether it helps.</span></li>
+          <li><b>C</b><span>Guidance can mask the blocker. It would also change the test of independent use.</span></li>
+        </ol>
+        <p class="transfer-boundary"><b>What would change this?</b> If new leads finish unaided yet never return when the need recurs, investigate the value of the outcome next.</p>
+        <nav class="transfer-refs" aria-label="Revisit the reasoning">
+          <a href="#m06-did-they-reach-the-outcome-did-they-come-back" data-slide-ref="m06-did-they-reach-the-outcome-did-they-come-back">Did they reach the outcome? Did they come back?</a>
+          <a href="#m06-a-slice-that-works-is-signal-until-someone-pays" data-slide-ref="m06-a-slice-that-works-is-signal-until-someone-pays">A slice that works is signal until someone pays</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <footer class="prov" data-kind="Illustrative">Fictional scenario for this learning check.</footer>
   </section>
 
 <section class="slide" data-archetype="divider" data-chapter="Wrap-up and check-out">

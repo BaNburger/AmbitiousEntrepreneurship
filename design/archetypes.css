@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship slide archetypes. Updated: 2026-11-02. Status: ready.
+/* Ambitious Entrepreneurship slide archetypes. Updated: 2026-11-10. Status: ready.
    Owned by the course-design skill. Link after deck.css. Every rule is scoped
    to [data-archetype="name"] or is a shared exhibit component (drawn to
    scale, quadrant, from and to). Templates live in design/archetypes/ and the
@@ -249,6 +249,82 @@
 .answers .card .badge { grid-row: span 2; }
 .answers .card h3 { font-size: 36px; }
 .answers .card p { font-size: 28px; color: var(--muted-foreground); }
+
+/* ---------- 21 Transfer: decide, compare the room, explain ---------- */
+[data-archetype="transfer"] .title, [data-transfer-print] .title { max-width: 100%; font-size: 60px; }
+[data-archetype="transfer"] .sub, [data-archetype="transfer"] .subhead {
+  max-width: 1580px; margin: 16px 0 0; color: var(--muted-foreground); font: 400 34px/1.28 var(--font-sans);
+}
+[data-archetype="transfer"] > .content, [data-transfer-print] > .content { margin-top: 32px; }
+.transfer [hidden] { display: none !important; }
+.transfer { height: 100%; display: flex; flex-direction: column; justify-content: flex-start; gap: 18px; }
+.transfer-front { display: grid; grid-template-columns: minmax(0, 1.66fr) minmax(0, 1fr); gap: 34px; align-items: stretch; }
+.transfer-options { display: grid; gap: 10px; align-content: start; }
+.transfer-options button { display: flex; gap: 21px; align-items: center; width: 100%; min-height: 72px;
+  padding: 12px 20px 12px 14px; border: 2px solid var(--border); border-radius: 14px;
+  background: var(--background); color: var(--foreground); text-align: left; font: 550 31px/1.18 var(--font-sans); cursor: pointer; }
+.transfer-options button b, .transfer-reasons li > b { flex: none; display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 50%; background: var(--muted); color: var(--context-foreground); font: 650 28px/1 var(--font-mono); }
+.transfer-options button[aria-pressed="true"] { background: var(--primary-tint); border-color: var(--primary); }
+.transfer-options button[aria-pressed="true"] b { background: var(--primary); color: var(--primary-foreground); }
+.transfer button:focus-visible, .transfer a:focus-visible, .transfer input:focus-visible, .transfer-return:focus-visible {
+  outline: 4px solid var(--accent); outline-offset: 3px;
+}
+.transfer-poll { display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-width: 0;
+  border-radius: 20px; padding: 24px 26px; background: var(--diagram-navy); color: var(--primary-foreground); }
+.transfer-kicker { color: var(--primary-foreground); text-transform: uppercase; font: 550 24px/1.1 var(--font-mono); letter-spacing: .09em; }
+.transfer-wait { display: grid; align-content: center; gap: 10px; padding: 10px 0; }
+.transfer-wait strong { font-size: 56px; font-weight: 740; line-height: 1.05; letter-spacing: -.035em; color: var(--marker); }
+.transfer-wait p { max-width: 460px; font-size: 30px; line-height: 1.2; }
+.transfer-total, .transfer-entry-title { font-size: 30px; line-height: 1.18; font-weight: 650; margin: 0 0 14px; }
+.transfer-tools, .transfer-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.transfer-control { padding: 10px 16px; border: 2px solid var(--primary-line); border-radius: 10px;
+  background: var(--background); color: var(--primary); font: 650 24px/1.1 var(--font-sans); cursor: pointer; }
+.transfer-poll .transfer-control { padding: 10px 12px; color: var(--primary-foreground); background: transparent; border-color: hsl(0 0% 100% / .55); }
+.transfer-poll .transfer-control:hover { background: hsl(0 0% 100% / .12); }
+.transfer-actions [data-transfer-action="reveal"] { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+.transfer-actions { justify-content: space-between; }
+.transfer-choice-status { color: var(--muted-foreground); font-size: 26px; line-height: 1.25; }
+.transfer-inputs { display: flex; gap: 14px; flex-wrap: wrap; }
+.transfer-input-label { display: grid; gap: 5px; font: 600 24px/1.15 var(--font-mono); }
+.transfer-input-label input { width: 104px; padding: 8px; border: 2px solid var(--border); border-radius: 8px;
+  background: var(--background); color: var(--foreground); font: 550 28px/1.2 var(--font-mono); }
+.transfer-bars { display: grid; gap: 8px; }
+.transfer-bar-row { display: grid; align-items: center; grid-template-columns: 30px minmax(0, 1fr) 130px; gap: 10px; line-height: 1.1; }
+.transfer-bar-key, .transfer-value, .transfer-axis { font: 550 24px/1.1 var(--font-mono); }
+.transfer-track { position: relative; height: 22px; background: hsl(0 0% 100% / .18); }
+.transfer-track::before { content: ""; position: absolute; inset: -3px auto -3px 50%; border-left: 2px solid hsl(0 0% 100% / .45); }
+.transfer-bar-fill { display: block; height: 100%; position: relative; background: var(--marker); }
+.transfer-value { white-space: nowrap; }
+.transfer-axis { margin: 10px 140px 0 40px; display: flex; justify-content: space-between; }
+.transfer-answer { display: none; }
+.transfer.is-revealed .transfer-front, .slide.is-explaining .head :is(.sub, .subhead) { display: none; }
+.transfer.is-revealed .transfer-answer, [data-transfer-print] .transfer-answer {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr);
+  grid-template-areas: "verdict reasons" "principle reasons" "boundary reasons" "refs refs";
+  gap: 16px 52px; align-content: start; align-items: start;
+}
+.transfer-verdict { grid-area: verdict; max-width: 100%; font: 740 45px/1.08 var(--font-sans); letter-spacing: -.025em; color: var(--primary-strong); }
+.transfer-principle { grid-area: principle; font: 450 30px/1.28 var(--font-sans); }
+.transfer-reasons { grid-area: reasons; display: grid; gap: 9px; padding: 0; list-style: none; }
+.transfer-reasons li { display: flex; align-items: baseline; gap: 16px; padding: 7px 0; font-size: 27px; line-height: 1.25; }
+.transfer-reasons li > b { align-self: flex-start; width: 39px; height: 39px; font-size: 25px; }
+.transfer-reasons li.is-best > b { background: var(--primary); color: var(--primary-foreground); }
+.transfer-boundary { grid-area: boundary; padding: 16px 20px; border-left: 6px solid var(--diagram-purple);
+  background: var(--diagram-purple-tint); color: var(--foreground); font-size: 27px; line-height: 1.25; }
+.transfer-boundary > b { display: block; margin-bottom: 4px; color: var(--diagram-purple); }
+.transfer-refs { grid-area: refs; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 24px; padding-top: 10px; border-top: 2px solid var(--border); }
+.transfer-refs a { color: var(--primary-strong); font-size: 25px; font-weight: 600; line-height: 1.22; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.chrome-top > .transfer-return { order: 1; }
+.chrome-top:has(.transfer-return) > .tracker { order: 2; }
+.slide > .transfer-return { position: absolute; right: var(--pad-x); top: 36px; }
+html.is-print .transfer-front { display: block; }
+html.is-print .slide.is-explaining .head :is(.sub, .subhead) { display: block; }
+html.is-print .transfer .transfer-front { display: block; }
+html.is-print .transfer .transfer-answer, html.is-print .transfer-actions, html.is-print .transfer-poll { display: none !important; }
+html.is-print .transfer-options { gap: 14px; }
+html.is-print .transfer-options button { background: var(--background); border-color: var(--border); font-size: 34px; padding: 14px 22px; }
+html.is-print .transfer-options button b { color: var(--primary-strong); background: var(--primary-tint); }
 
 /* ---------- 13 Quote, book card, meme ---------- */
 .quote-layout { flex: 1 1 auto; display: grid; grid-template-columns: 1fr 440px; gap: 80px; align-items: center; }

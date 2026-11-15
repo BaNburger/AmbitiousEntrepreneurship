@@ -1,4 +1,4 @@
-/* Ambitious Entrepreneurship deck runtime. Updated: 2026-11-08. Status: ready.
+/* Ambitious Entrepreneurship deck runtime. Updated: 2026-11-11. Status: ready.
    Owned by the course-design skill. One classic script, no modules and no
    fetch, so a deck also runs from file://. Load it at the end of <body>.
 
@@ -45,6 +45,41 @@
     });
   }
   function pad(n) { return String(n).padStart(2, "0"); }
+
+  /* ---------- Transfer feedback in print ---------- */
+  // A question stays unanswered on its first page. Its explanation follows on
+  // a separate page, sharing the question's logical slide number. The markup
+  // remains ordinary readable HTML, including in the student build.
+  function transferPrintPages(nativePrint) {
+    deck.querySelectorAll("section.slide:has([data-transfer])").forEach(function (s) {
+      var answer = s.querySelector(".transfer-answer");
+      if (!answer || s._transferPrint) return;
+      var page = make("section", "slide");
+      page.dataset.archetype = "details";
+      page.dataset.variant = "explanation";
+      page.dataset.transferPrint = s.id || "question";
+      page.setAttribute("data-details-of", "");
+      if (s.hasAttribute("data-hold")) page.setAttribute("data-hold", "");
+      var head = s.querySelector(":scope > .head").cloneNode(true);
+      var label = head.querySelector(".label");
+      if (label) label.textContent = "Transfer check · Explanation";
+      var scenario = head.querySelector(".sub, .subhead");
+      if (scenario) scenario.remove();
+      page.appendChild(head);
+      var content = make("div", "content"), copy = answer.cloneNode(true);
+      copy.removeAttribute("hidden");
+      copy.removeAttribute("aria-hidden");
+      copy.removeAttribute("inert");
+      copy.querySelectorAll(".room-only").forEach(function (el) { el.remove(); });
+      content.appendChild(copy);
+      page.appendChild(content);
+      s.querySelectorAll(nativePrint ? ":scope > .chrome-top, :scope > .chrome-foot" : ":scope > footer.prov").forEach(function (el) { page.appendChild(el.cloneNode(true)); });
+      s.after(page);
+      s._transferPrint = page;
+    });
+    if (!nativePrint) slides = Array.prototype.slice.call(deck.querySelectorAll(":scope > section.slide"));
+  }
+  if (params.has("print")) transferPrintPages(false);
 
   /* ---------- Details (click to open) ---------- */
   // A trigger [data-pop="key"] opens the <div class="pop" data-pop-for="key">
@@ -192,6 +227,7 @@
     var extra = s.hasAttribute("data-details-of");
     if (!extra && !(studentPrint && s.hasAttribute("data-hold"))) shown++;
     if (!extra) all++;
+    s._logicalNumber = studentPrint ? shown : all;
     if (s.dataset.chapter && chapters.indexOf(s.dataset.chapter) >= 0) chapter = chapters.indexOf(s.dataset.chapter);
     if (s.hasAttribute("data-block") && chapter >= 0) blockStart = chapter;
     var state = function (k) { return k < chapter && k >= blockStart ? "done" : k === chapter ? "now" : ""; };
@@ -242,9 +278,44 @@
         foot.appendChild(prov);
       }
       var sig = make("div", "sig", SIGNATURE);
-      sig.appendChild(make("span", "pg", esc([mod, pad(studentPrint ? shown : all)].filter(Boolean).join(" · "))));
+      sig.appendChild(make("span", "pg", esc([mod, pad(s._logicalNumber)].filter(Boolean).join(" · "))));
       foot.appendChild(sig);
       s.appendChild(foot);
+    }
+  });
+
+  // Keep references attached to the taught slide across edits, held slides,
+  // student builds and extra explanation pages. PDF links retain real anchors.
+  function resolveTransferRefs(scope, nativePrint) {
+    scope.querySelectorAll("a[data-slide-ref]").forEach(function (a) {
+      var target = document.getElementById(a.dataset.slideRef), at = slides.indexOf(target);
+      if (at < 0 || ((nativePrint || studentPrint) && target.hasAttribute("data-hold"))) {
+        a.removeAttribute("href");
+        a.removeAttribute("data-goto");
+        a.textContent = "Teaching slide unavailable in this edition";
+        return;
+      }
+      var title = target.querySelector(".head .title, .title, h1, h2");
+      var targetLabel = title ? title.textContent.trim().replace(/\s+/g, " ") : target.getAttribute("aria-label");
+      if (!a.dataset.refLabel) a.dataset.refLabel = a.textContent;
+      a.textContent = "Slide " + pad(target._logicalNumber) + " · " + (targetLabel || a.dataset.refLabel);
+      a.setAttribute("href", "#" + target.id);
+      a.dataset.goto = at;
+    });
+  }
+  resolveTransferRefs(deck, false);
+  deck.querySelectorAll("[data-transfer]").forEach(function (box) {
+    var best = box.dataset.correct;
+    box.querySelectorAll(".transfer-reasons li").forEach(function (li) {
+      var key = li.querySelector("b");
+      if (key && key.textContent.trim() === best) li.classList.add("is-best");
+    });
+    var slide = box.closest("section.slide");
+    if (slide._transferPrint) {
+      slide._transferPrint.querySelectorAll(".transfer-reasons li").forEach(function (li) {
+        var key = li.querySelector("b");
+        if (key && key.textContent.trim() === best) li.classList.add("is-best");
+      });
     }
   });
 
@@ -454,7 +525,8 @@
     try { if (presenterWin && !presenterWin.closed) presenterWin.postMessage(msg, "*"); } catch (e) { /* closed */ }
     try { if (presenter && window.opener) window.opener.postMessage(msg, "*"); } catch (e) { /* closed */ }
   }
-  function sync() { post({ aeDeck: true, i: cur, n: step }); }
+  var transferReturn = null, returnButton = null;
+  function sync() { post({ aeDeck: true, i: cur, n: step, transferReturn: transferReturn }); }
   timerSync = function (t) {
     var at = slides.indexOf(t.closest("section.slide"));
     post({ aeTimer: true, i: at, run: !!t._run, left: t._left, total: t._total });
@@ -485,6 +557,7 @@
     if (entering && cur >= 0) closePops(slides[cur]);
     cur = i;
     step = n;
+    updateTransferReturn();
     if (forward) fireConfetti(slides[i], n, entering);
     if (location.hash !== "#" + (i + 1)) history.replaceState(null, "", "#" + (i + 1));
     if (presenter) {
@@ -511,6 +584,7 @@
   document.addEventListener("keydown", function (e) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.target.closest && e.target.closest("input, textarea, select, [contenteditable='true']")) return;
+    if (e.key === " " && e.target.closest && e.target.closest(".transfer button, .transfer-return")) return;
     switch (e.key) {
       case "ArrowRight": case "ArrowDown": case "PageDown": case " ": e.preventDefault(); next(); break;
       case "ArrowLeft": case "ArrowUp": case "PageUp": case "Backspace": e.preventDefault(); prev(); break;
@@ -626,15 +700,161 @@
     });
   }
 
+  /* ---------- Learning-goal transfer questions ---------- */
+  // The learner's choice and the instructor's anonymous count are separate.
+  // Counts stay in memory, and entering them in the presenter window never
+  // opens the count editor on the projector. No service or device pairing.
+  var transferBoxes = Array.prototype.slice.call(deck.querySelectorAll("[data-transfer]"));
+  function voteCount(v) {
+    var n = Number(v);
+    return Number.isSafeInteger(n) && n >= 0 && n <= 99999 ? n : 0;
+  }
+  function transferControl(action, label) {
+    var b = make("button", "transfer-control");
+    b.type = "button"; b.dataset.transferAction = action; b.textContent = label;
+    return b;
+  }
+  transferBoxes.forEach(function (box) {
+    var front = box.querySelector(".transfer-front"), answer = box.querySelector(".transfer-answer");
+    var options = Array.prototype.slice.call(box.querySelectorAll("button[data-choice]"));
+    if (!front || !answer || !options.length) return;
+    var keys = options.map(function (b) { return b.dataset.choice; });
+    var state = { counts: keys.map(function () { return 0; }), choice: "", results: false, reveal: false };
+    var editing = false;
+    var poll = make("div", "transfer-poll room-only"), plot = make("div", "transfer-chart");
+    var total = make("p", "transfer-total"), rows = make("div", "transfer-bars");
+    var axis = make("div", "transfer-axis", "<span>0%</span><span>50%</span><span>100%</span>");
+    var waiting = make("div", "transfer-wait", "<strong>Choose first.</strong><p>Which fact tipped your decision?</p>");
+    var form = make("div", "transfer-entry");
+    var entryTitle = make("p", "transfer-entry-title", "Count the hands for each answer.");
+    var inputs = make("div", "transfer-inputs");
+    var bars = [], fields = [];
+    var tools = make("div", "transfer-tools"), edit = transferControl("edit", "Enter counts");
+    var results = transferControl("results", "Show responses"), reset = transferControl("reset", "New vote");
+    var foot = make("div", "transfer-actions room-only");
+    var reveal = transferControl("reveal", "Reveal explanation"), back = transferControl("back", "Back to question");
+    var choiceStatus = make("p", "transfer-choice-status");
+    choiceStatus.setAttribute("aria-live", "polite");
+    var subtitle = make("span", "transfer-kicker", "Room vote");
+    poll.appendChild(subtitle);
+    plot.setAttribute("role", "group");
+    plot.appendChild(total);
+    keys.forEach(function (key, j) {
+      var row = make("div", "transfer-bar-row");
+      row.dataset.bar = key;
+      var badge = make("b", "transfer-bar-key", esc(key));
+      var track = make("div", "transfer-track"), fill = make("span", "transfer-bar-fill"), value = make("span", "transfer-value");
+      track.appendChild(fill); row.append(badge, track, value); rows.appendChild(row);
+      bars.push({ fill: fill, value: value });
+      var label = make("label", "transfer-input-label", "<b>" + esc(key) + "</b>");
+      var input = make("input"); input.type = "number"; input.min = "0"; input.max = "99999"; input.step = "1"; input.inputMode = "numeric"; input.value = "0";
+      input.setAttribute("aria-label", "Room count for " + key);
+      input.dataset.vote = key;
+      label.appendChild(input); inputs.appendChild(label); fields.push(input);
+      input.addEventListener("input", function () { state.counts[j] = voteCount(input.value); paint(); send(); });
+      input.addEventListener("change", function () { input.value = state.counts[j]; });
+      input.addEventListener("blur", function () { input.value = state.counts[j]; });
+      input.addEventListener("keydown", function (ev) { if (ev.key === "Enter") { ev.preventDefault(); results.focus(); } });
+      options[j].addEventListener("click", function () { state.choice = key; paint(); send(); });
+    });
+    plot.append(rows, axis);
+    form.append(entryTitle, inputs);
+    tools.append(edit, results, reset);
+    poll.append(waiting, form, plot, tools);
+    front.appendChild(poll);
+    foot.append(choiceStatus, reveal, back);
+    box.appendChild(foot);
+    edit.addEventListener("click", function () {
+      editing = !editing;
+      paint();
+      if (editing) { fields[0].focus(); fields[0].select(); }
+    });
+    results.addEventListener("click", function () {
+      state.results = editing ? true : !state.results;
+      editing = false; paint(); send();
+    });
+    reset.addEventListener("click", function () {
+      state.counts = keys.map(function () { return 0; });
+      state.choice = ""; state.results = false; state.reveal = false; editing = false;
+      paint(); send(); edit.focus();
+    });
+    reveal.addEventListener("click", function () {
+      state.reveal = true; editing = false; paint(); send(); back.focus({ preventScroll: true });
+    });
+    back.addEventListener("click", function () {
+      state.reveal = false; paint(); send(); reveal.focus({ preventScroll: true });
+    });
+    function paint() {
+      var sum = state.counts.reduce(function (n, v) { return n + v; }, 0);
+      var visible = state.results && !editing;
+      box.classList.toggle("is-revealed", state.reveal);
+      box.closest("section.slide").classList.toggle("is-explaining", state.reveal);
+      answer.setAttribute("aria-hidden", String(!state.reveal)); answer.inert = !state.reveal;
+      front.inert = state.reveal;
+      options.forEach(function (opt, j) {
+        var pressed = state.choice === keys[j], count = state.counts[j], pct = sum ? 100 * count / sum : 0;
+        opt.setAttribute("aria-pressed", String(pressed));
+        if (document.activeElement !== fields[j]) fields[j].value = count;
+        bars[j].fill.style.width = pct.toFixed(3) + "%";
+        bars[j].value.textContent = count + " · " + Math.round(pct) + "%";
+      });
+      waiting.hidden = visible || editing;
+      form.hidden = !editing; plot.hidden = !visible;
+      plot.setAttribute("aria-label", visible ? "Room votes by answer, share of responses" : "Responses hidden");
+      total.textContent = !sum ? "No responses entered" : sum + (sum === 1 ? " response" : " responses");
+      edit.textContent = editing ? "Close entry" : sum ? "Edit counts" : "Enter counts";
+      edit.setAttribute("aria-expanded", String(editing));
+      results.textContent = visible ? "Hide responses" : "Show responses";
+      results.setAttribute("aria-pressed", String(visible));
+      reset.hidden = !(sum || state.results || state.choice);
+      reveal.hidden = state.reveal; back.hidden = !state.reveal;
+      choiceStatus.textContent = state.choice ? "Your choice: " + state.choice : state.reveal ? "" : "Choose one answer.";
+    }
+    function send() { post({ aeTransfer: true, id: box.closest("section.slide").id, state: state }); }
+    box._sendTransfer = send;
+    box._receiveTransfer = function (v) {
+      if (!v || !Array.isArray(v.counts) || v.counts.length !== keys.length) return;
+      state.counts = v.counts.map(voteCount);
+      state.choice = keys.indexOf(v.choice) >= 0 ? v.choice : "";
+      state.results = v.results === true; state.reveal = v.reveal === true;
+      if (state.reveal) editing = false;
+      paint();
+    };
+    paint();
+  });
+
+  // Jump back to the same explanation after inspecting a taught slide in
+  // either window. Normal forward/back navigation dismisses the return button.
+  function updateTransferReturn() {
+    if (returnButton) { returnButton.remove(); returnButton = null; }
+    if (!transferReturn || transferReturn.to !== cur || !slides[transferReturn.from] ||
+      !slides[transferReturn.from].querySelector("[data-transfer]")) { transferReturn = null; return; }
+    returnButton = transferControl("return", "Back to question");
+    returnButton.classList.add("transfer-return", "room-only");
+    (slides[cur].querySelector(":scope > .chrome-top") || slides[cur]).appendChild(returnButton);
+    returnButton.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var from = transferReturn.from;
+      transferReturn = null; show(from, 0);
+      var back = slides[from].querySelector('[data-transfer-action="back"]');
+      if (back) back.focus({ preventScroll: true });
+    });
+  }
+
   deck.addEventListener("click", function (e) {
     var link = e.target.closest("a[data-goto]");
     if (!link) return;
     e.preventDefault();
-    show(parseInt(link.dataset.goto, 10), 0);
+    var to = parseInt(link.dataset.goto, 10);
+    if (link.hasAttribute("data-slide-ref")) {
+      transferReturn = { from: cur, to: to };
+      show(to, maxStep(slides[to]));
+      if (returnButton) returnButton.focus({ preventScroll: true });
+    } else show(to, 0);
   });
   if (!presenter) {
     deck.addEventListener("click", function (e) {
-      if (e.target.closest("a, button, video, .timer, input, textarea, select, [data-pop], [data-tally], [data-flip], [data-pick], .pop")) return;
+      if (e.target.closest("a, button, video, .timer, input, textarea, select, [data-pop], [data-tally], [data-flip], [data-pick], .pop, .transfer")) return;
       if (e.clientX < innerWidth / 3) prev(); else next();
     });
   }
@@ -642,8 +862,15 @@
   window.addEventListener("message", function (e) {
     var d = e.data;
     if (!d) return;
-    if (d.aeHello) { presenterWin = e.source; sync(); }
-    if (d.aeDeck) show(d.i, d.n, true);
+    if (d.aeHello && e.source === presenterWin) {
+      sync();
+      transferBoxes.forEach(function (b) { if (b._sendTransfer) b._sendTransfer(); });
+    }
+    if (d.aeDeck) { transferReturn = d.transferReturn || null; show(d.i, d.n, true); }
+    if (d.aeTransfer && (e.source === presenterWin || (presenter && e.source === window.opener))) {
+      var sourceSlide = document.getElementById(d.id), tb = sourceSlide && sourceSlide.querySelector("[data-transfer]");
+      if (tb && tb._receiveTransfer) tb._receiveTransfer(d.state);
+    }
     if (d.aeToggle) { var el = byPath(d.i, d.k); if (el) applyToggle(el, d.cls, d.on); }
     if (d.aeTimer && slides[d.i]) {
       var t = slides[d.i].querySelector(".timer[data-timer]");
@@ -651,26 +878,35 @@
     }
   });
 
+  function hashSlide() {
+    var h;
+    try { h = decodeURIComponent(location.hash.slice(1)); } catch (e) { return -1; }
+    return /^\d+$/.test(h) ? Number(h) - 1 : h ? slides.indexOf(document.getElementById(h)) : -1;
+  }
   window.addEventListener("hashchange", function () {
-    var h = parseInt(location.hash.slice(1), 10);
-    if (h && h - 1 !== cur) show(h - 1, 0);
+    var h = hashSlide();
+    if (h >= 0 && h !== cur) show(h, 0);
   });
 
   window.addEventListener("beforeprint", function () {
     root.classList.add("is-print");
+    transferPrintPages(true);
+    resolveTransferRefs(deck, true);
     slides.forEach(function (s) { setStep(s, Infinity); });
     fitFeet();
   });
   window.addEventListener("afterprint", function () {
     root.classList.remove("is-print");
+    slides.forEach(function (s) { if (s._transferPrint) { s._transferPrint.remove(); s._transferPrint = null; } });
+    resolveTransferRefs(deck, false);
     var keep = step;
     slides.forEach(function (s, k) { setStep(s, k === cur ? keep : k < cur ? Infinity : 0); });
   });
 
   window.addEventListener("resize", fit);
   fit();
-  var start = parseInt(location.hash.slice(1), 10);
-  show(start ? start - 1 : 0, 0, true);
+  var start = hashSlide();
+  show(start >= 0 ? start : 0, 0, true);
   if (presenter && window.opener) {
     try { window.opener.postMessage({ aeHello: true }, "*"); } catch (e) { /* no opener */ }
   }
