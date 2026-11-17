@@ -1,6 +1,6 @@
 # Workshop 11: The Energy Audit
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 > Module 11 · Founder Health · Workshop · [Goals M11-LG2 to LG4](README.md)
 
@@ -8,7 +8,7 @@ Updated: 2026-10-26.
 
 By the start of Module 12, each of you knows what drains you and what gives you energy, and your team has said how everyone is really doing, agreed on a pace it can hold and kept selling. Today starts all three, because founders who stay standing keep selling. Examples are made up.
 
-**Today is personal.** Nothing you write is collected or read out. Share what you choose, sit out any step. [Where to get help](M11_Homework.md#where-to-get-help). **Bring** your [Student Toolkit](../../resources/Student_Toolkit.xlsx) and a pen.
+**Today is personal.** Nothing you write is collected or read out. Share what you choose, sit out any step. [Where to get help](M11_Homework.md#where-to-get-help). **Bring** your [Team sheet](../../frameworks/09_Co-Founder_Fit.md#your-records) and a pen.
 
 ## The 90 minutes
 

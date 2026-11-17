@@ -1,6 +1,6 @@
 # Homework 11: Founder Health
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 **Reach €5,000 cumulative revenue from outside your social graph, keep the private maps you chose, of what drains and energises you, for seven days, and hold one honest co-founder conversation that ends in one agreed change in your Team sheet, with a revisit date.** The learning floor is €2,000 cumulative and the conversation with its written change.
 
@@ -34,7 +34,7 @@ Made up.
 | One honest talk, one change in your Team sheet, revisit date | Yes | Yes |
 | Founders who chose a map and kept it seven days | | All of them |
 
-Revenue counts by the [rubric's rules](../../resources/GRADING_RUBRIC.md#the-revenue-ladder), with proof. The map is an offer. Skip it without a reason. It never counts against your team. Kept means its founder tells the team "yes, seven days". Nobody reads it. Solo? Talk with a peer founder or a mentor.
+Revenue counts only with proof, a dashboard or a paid invoice. The map is an offer. Skip it without a reason. It never counts against your team. Kept means its founder tells the team "yes, seven days". Nobody reads it. Solo? Talk with a peer founder or a mentor.
 
 ## Your stop lines
 
@@ -58,7 +58,7 @@ A bad week is normal. More? Talk to someone outside the team. Your doctor, unive
 4. **Ask AI for a blind read of your pipeline,** raw notes without names or your hypothesis. Say where it disagrees.
     - Watch out. Your map never goes into an AI tool or a shared file.
 5. **Read your map on day seven.** Your three strongest drains, and why? Tell your team "yes, seven days" or "no".
-6. **Draft your pitch, ugly.** Ten slides in [Sequoia's order](../../resources/READING_LIST.md#fundraising--pitch).
+6. **Draft your pitch, ugly.** Ten slides in [Sequoia's order](https://sequoiacap.com/article/writing-a-business-plan/).
 
 ## Midweek check
 
@@ -66,10 +66,10 @@ Read your stop lines. Crossed one? Do what you wrote, today. Behind the pace you
 
 ## Keep your records
 
-In your [Student Toolkit](../../resources/Student_Toolkit.xlsx), except your map.
+In your records, except your map.
 
-- **Team sheet.** New Agreement row "How we look after each other". The change, your team line, the Revisit by date, each founder's dated yes.
-- **Pipeline and Revenue Ladder.** Each payment with its proof.
+- **[Team sheet](../../frameworks/09_Co-Founder_Fit.md#your-records).** New Agreement row "How we look after each other". The change, your team line, the Revisit by date, each founder's dated yes.
+- **[Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records).** Each payment with its proof.
 - **Read-out.** Your venture's Facts, Numbers, Quotes, Images. Not how you are.
 
 ## What Module 12 needs

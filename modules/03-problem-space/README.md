@@ -1,6 +1,6 @@
 # Module 03 — The Problem Space
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > **Core question:** Is this a real problem — or just an interesting one?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-19.
 
 **This week's goal.** By the start of Module 04, your team knows whether your problem is expensive enough to fix and for whom, and has named people in that segment who agreed to a next step, your first prospects.
 
-**This week's bar:** Hold 15 problem conversations per student in your hair-on-fire segment and come back with 5 named people per student who agreed to a next step. The learning floor is 5 conversations and 2 next steps per student. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Hold 15 problem conversations per student in your hair-on-fire segment and come back with 5 named people per student who agreed to a next step. The learning floor is 5 conversations and 2 next steps per student.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-19.
 
 **The case in one line:** A Munich sensor start-up with a big railway customer has to decide whether to own one problem or serve several industries
 
-**Bring these frameworks:** [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md)
+**Bring these frameworks:** [The Mom Test](../../frameworks/01_Mom_Test.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md)
 
 ---
 

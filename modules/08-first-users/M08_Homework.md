@@ -1,6 +1,6 @@
 # Homework 08: Finding First Users
 
-Updated: 2026-10-20.
+Updated: 2026-11-17.
 
 **Ask named people from your segment to pay for your offer at its price, and win 3 paying users from outside your social graph, shown in your payment dashboard or on a numbered invoice.** The learning floor is your first € from outside your social graph.
 
@@ -42,7 +42,7 @@ A kill line is a result you count, a date, and what you do if you cross it, writ
 
 ## How to do it
 
-1. **Set up a way to get paid** first, a team payment link ([Team Stack](../../resources/TEAM_STACK.md), section 2) or an invoice from 001 ([Legal Basics](../../resources/LEGAL_BASICS.md), section 4).
+1. **Set up a way to get paid** first, a team payment link ([your stack](../../frameworks/05_AI_Startup_Playbook.md#your-stack)) or an invoice from 001.
 2. **Start in your records,** Module 07's ten first. Ask every buyer and every no for names. Then your segment's groups, found by AI research.
 3. **Write in their words.** Their quote, your offer, its price, one next step, never just a link.
 4. **Get them on a call.** Listen 80% of the time. Record only with consent.
@@ -59,17 +59,17 @@ Midweek date? Read your line. Behind? Change channel or wording, not just effort
 
 ## Keep your records
 
-In your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+In your records.
 
-- **Pipeline.** A row per person asked, objections word for word as in the [exemplar](../../resources/exemplars/Exemplar_Objection_Log.md) (made up).
-- **KPI Tracker.** "Asks made", "Activated users", "Paying Customers" and "Revenue (€)" under M08.
-- **Kill Criteria Log.** Line, date, result.
+- **[Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records).** A row per person asked, objections word for word as in the [example](../../frameworks/05_AI_Startup_Playbook.md#example-an-objection-log) (made up).
+- **[KPI Tracker](../../frameworks/06_PMF_Measurement_Engine.md#your-records).** "Asks made", "Activated users", "Paying Customers" and "Revenue (€)" under M08.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** Line, date, result.
 - **Proof.** A dashboard screenshot or the paid invoice, names and bank details cropped.
 - **Read-out.** Line and result, funnel per channel, paying users with proof, two objections, price.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | A €4.99 payment counts. Ask more people. |
 | Marketplace | Match by hand. Only your cut counts. |

@@ -1,6 +1,6 @@
 # Workshop 12: Demo Day
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 > Module 12 · Fundraising & Demo Day · Workshop · [Goals M12-LG3 and LG4](README.md)
 
@@ -8,7 +8,7 @@ Updated: 2026-10-26.
 
 By Demo Day, your team pitches its venture on proof, not promises, knows how big it can get and which money fits, and leaves with a decision on the company, a plan and a group that keeps you selling. Today you pitch and start deciding. Examples are made up.
 
-**Bring** your pitch, proof and [Student Toolkit](../../resources/Student_Toolkit.xlsx). The jury looks for the [rubric's](../../resources/GRADING_RUBRIC.md) four things, evidence, decisions, verified revenue and a story that survives questions.
+**Bring** your pitch, proof and records. The jury looks for four things, evidence, decisions, verified revenue and a story that survives questions.
 
 ## The 90 minutes
 
@@ -25,7 +25,7 @@ By Demo Day, your team pitches its venture on proof, not promises, knows how big
 1. **Load your deck,** ten slides in Sequoia's order or fewer.
 2. **Open your proof** next to it, the payment dashboard or numbered invoices. Hide customer names.
 3. **Write your one number** on a card, the one that shows people want this.
-4. **Show the jury your Toolkit,** your evidence pack, on request.
+4. **Show the jury your records,** your evidence pack, on request.
 
 | Good | Weak |
 |---|---|
@@ -58,7 +58,7 @@ By Demo Day, your team pitches its venture on proof, not promises, knows how big
 2. **Draft your verdict** in the Verdict sheet. Go, Pivot or Kill, with the evidence, confirmed within seven days.
 3. **Going on? Write the plan** in your Team sheet. Who does what with how much time, the next revenue target and kill line, who owns the code, the brand and the money.
 4. **Book your next outside meeting** now.
-5. **Set your group's next date** in the [group tracker](../../resources/Accountability_Group_Tracker.xlsx). Your bar, verdict still open. "Reach €10,000 cumulative revenue from outside your social graph by Demo Day, rehearse your pitch with three outsiders who can repeat your problem and your one number, and within seven days of Demo Day write your verdict on the company with what it needs. The learning floor is the Demo Day minimum of €2,000 verified with your evidence pack, one such outsider and your written verdict."
+5. **Set your group's next date** in the [group tracker](../../frameworks/10_Accountability_Group_Tracker.xlsx). Your bar, verdict still open. "Reach €10,000 cumulative revenue from outside your social graph by Demo Day, rehearse your pitch with three outsiders who can repeat your problem and your one number, and within seven days of Demo Day write your verdict on the company with what it needs. The learning floor is the Demo Day minimum of €2,000 verified with your evidence pack, one such outsider and your written verdict."
 
 | Good | Weak |
 |---|---|
@@ -68,8 +68,8 @@ By Demo Day, your team pitches its venture on proof, not promises, knows how big
 
 ## Arrived empty-handed?
 
-No revenue? Pitch what you tested and killed. A well-argued kill can earn an A ([rubric](../../resources/GRADING_RUBRIC.md#the-a-kill-yes-really)). No company line? Write one now, then read it. No deck? Use [Sequoia's order](../../resources/READING_LIST.md#fundraising--pitch) on paper. Solo? Hold Step 3 with a mentor.
+No revenue? Pitch what you tested and killed. A well-argued kill is a result, not a failure. No company line? Write one now, then read it. No deck? Use [Sequoia's order](https://sequoiacap.com/article/writing-a-business-plan/) on paper. Solo? Hold Step 3 with a mentor.
 
 ## Bring and use
 
-The [Default Alive Calculator](../../frameworks/04_Default_Alive_Calculator.md) and the [GPK framework](../../frameworks/03_GPK_Decision_Framework.md).
+The [Default Alive Calculator](../../frameworks/04_Default_Alive_Calculator.md) and [go, pivot or kill](../../frameworks/03_Build_Measure_Learn.md#go-pivot-or-kill).

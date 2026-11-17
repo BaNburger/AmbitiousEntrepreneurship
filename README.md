@@ -1,4 +1,4 @@
-<!-- Updated: 2026-11-04 -->
+<!-- Updated: 2026-11-17 -->
 
 ![Ambitious Entrepreneurship — Big ambition. Real evidence. An open course for building a startup in the age of AI.](media/front-page/header.png)
 
@@ -10,7 +10,7 @@ AI made building cheap. Finding out what to build, and who will pay for it, is s
 
 **[Start the course →](modules/00-kickoff/)** &nbsp; · &nbsp; **[Download everything ↓](https://github.com/BaNburger/AmbitiousEntrepreneurship/archive/refs/heads/main.zip)** &nbsp; · &nbsp; **[⭐ Star on GitHub](https://github.com/BaNburger/AmbitiousEntrepreneurship)**
 
-12 modules + kickoff · 7 decision tools · Editable templates · [CC BY-NC-SA 4.0](LICENSE.md)
+12 modules + kickoff · 10 frameworks with skills for your agent · Editable templates · [CC BY-NC-SA 4.0](LICENSE.md)
 
 **Useful for your next venture?** Click **Star** at the top of this GitHub page to save the course and help other founders discover it. You need a free GitHub account to star; you can read and download without one.
 
@@ -74,7 +74,7 @@ On a phone? Open the slides at full size: [Problem space](media/front-page/previ
 | **Read online** | Open [Module 00](modules/00-kickoff/). Its guide links to the lecture, workshop, case and homework. Click a `.md` file to read it on GitHub or a `.pdf` to preview it. |
 | **Download the whole course** | Click **[Download everything (.zip)](https://github.com/BaNburger/AmbitiousEntrepreneurship/archive/refs/heads/main.zip)**. Open your Downloads folder, then unzip the file: double-click on Mac, or right-click → **Extract All…** on Windows. Open the `modules` folder and begin with `00-kickoff`. |
 | **Save one PDF or spreadsheet** | Open the file from a module guide, then click **Download raw file** (the downward arrow near the top right of the file view). PDFs open in your usual reader; `.xlsx` templates open in Excel or can be imported into Google Sheets. |
-| **Present the slides** | Download and unzip the whole course, then open a lecture’s `.html` file in your browser. Keep the downloaded folders together. For reading, use the lecture PDF. |
+| **Present the slides** | Download and unzip the whole course, then open a lecture’s `.html` file in your browser. Each lecture is one file that needs only the `media` folder next to it. For reading, use the lecture PDF. |
 
 You can also download the ZIP from the green **Code** button near the top of the repository → **Download ZIP**. Re-download when you want the latest materials; saved copies do not update automatically.
 
@@ -115,7 +115,7 @@ Founders from Bastian’s teaching have gone on to build these companies. Explor
 |---|---|---|
 | **In a course that uses it** | [Module 00](modules/00-kickoff/) | Your lecturer tells you which blocks your course runs. Hit the homework bar every week. |
 | **A founder on your own** | [Module 00](modules/00-kickoff/), its lecture and its homework | Find co-founders, then join a few other teams and take one module a week together. See [Work Self-Paced](#work-self-paced). |
-| **Stuck on one decision right now** | [The frameworks](#the-frameworks) | Each one-pager changes one decision, such as what to ask in an interview or whether to kill. |
+| **Stuck on one decision right now** | [The frameworks](#the-frameworks) | Each framework changes one decision, such as what to ask in an interview or whether to kill, and sets up your agent to run it with you. |
 | **A lecturer** | [Teach With It](#teach-with-it) | Use everything for free. Teaching instructions on request. |
 
 **Already further along?** Jump in where your venture is.
@@ -145,7 +145,7 @@ Which parts you use depends on the format. In class they run as up to three bloc
 
 On your own, the input session and the homework push you furthest toward a real company. Read the lecture, then go out and hit the bar. If you do everything, cases and workshops included, plan for at least 12 weeks of full-time work.
 
-Don't do it alone. Form an accountability group of 3 to 7 teams at your pace, the way Y Combinator groups its batches. Share your numbers every week, 3 minutes per team or a short written post. Every two weeks, meet for 45 minutes at most. Each team reports its last goal against the actual and says candidly why. Then it sets one goal for the next two weeks, and the group tests it: does it teach you something about customers, bring revenue closer, build a lasting business? Hit every goal, and your goals were too small. Run the group from the [Accountability Group Tracker](resources/Accountability_Group_Tracker.xlsx) and run the workshops together. A room of peers who see your numbers is the cheapest accountability you will ever get.
+Don't do it alone. Form an accountability group of 3 to 7 teams at your pace, the way Y Combinator groups its batches. Share your numbers every week, 3 minutes per team or a short written post. Every two weeks, meet for 45 minutes at most. Each team reports its last goal against the actual and says candidly why. Then it sets one goal for the next two weeks, and the group tests it: does it teach you something about customers, bring revenue closer, build a lasting business? Hit every goal, and your goals were too small. Run the group with [framework 10](frameworks/10_Accountability_Groups.md) and its [tracker](frameworks/10_Accountability_Group_Tracker.xlsx), and run the workshops together. A room of peers who see your numbers is the cheapest accountability you will ever get.
 
 Every module folder holds exactly what you need: `README` (start here) · lecture slides · workshop · case study · homework.
 
@@ -173,36 +173,35 @@ Every module folder holds exactly what you need: `README` (start here) · lectur
 
 ## The Frameworks
 
-Standalone one-pagers in [`frameworks/`](frameworks/) — each one exists to change a decision, not to decorate a slide:
+Ten tools in [`frameworks/`](frameworks/), each built to change one decision. Every framework teaches you the method, shows what good looks like and gives your agent the skills to run it with you, ready to copy. Each links to the lecture slides that teach it.
 
-- [**Mom Test Cheatsheet**](frameworks/01_Mom_Test_Cheatsheet.md) — interview questions that produce signal instead of polite lies
-- [**Validation Hierarchy of Evidence**](frameworks/02_Validation_Hierarchy.md) — the course pyramid, from anecdotes and interviews through quantitative evidence and prototypes to a payment
-- [**Go / Pivot / Kill Framework**](frameworks/03_GPK_Decision_Framework.md) — structured decisions when the data is ambiguous
-- [**Default Alive Calculator**](frameworks/04_Default_Alive_Calculator.md) — are you on track to survive, or burning toward zero?
-- [**AI Startup Playbook**](frameworks/05_AI_Startup_Playbook.md) — patterns and anti-patterns specific to AI ventures
-- [**PMF Measurement Engine**](frameworks/06_PMF_Measurement_Engine.md) — quantitative signals of product-market fit
-- [**10x Value Prop Test**](frameworks/07_10x_Value_Prop_Test.md) — is your solution 10x better than the status quo?
+- [**The Mom Test**](frameworks/01_Mom_Test.md) — ask about their life and the last time, not your idea, with a sample interview
+- [**The Validation Hierarchy**](frameworks/02_Validation_Hierarchy.md) — the course pyramid, from anecdotes and interviews to a payment, and how to climb it
+- [**Build, Measure, Learn**](frameworks/03_Build_Measure_Learn.md) — one hypothesis per loop, the smallest build, a line before the data, then go, pivot or kill
+- [**Default Alive or Default Dead?**](frameworks/04_Default_Alive_Calculator.md) — does the money last until revenue covers costs?
+- [**The Playbook**](frameworks/05_AI_Startup_Playbook.md) — the whole course as one path, step by step, with your time split and your agent's skills
+- [**Product-Market Fit**](frameworks/06_PMF_Measurement_Engine.md) — retention as the verdict, and what to build next
+- [**The 10x Test**](frameworks/07_10x_Test.md) — if they don't buy your crappy first version, it isn't 10x
+- [**The Innovator's Dilemma in the Age of AI**](frameworks/08_Innovators_Dilemma.md) — why big players can't simply copy you, and when they will
+- [**Co-Founder Fit**](frameworks/09_Co-Founder_Fit.md) — make expectations explicit before they break the team
+- [**Accountability Groups**](frameworks/10_Accountability_Groups.md) — a few teams who see your numbers every two weeks
 
 ## For Students
 
-Before week 1, read three short pieces in [`resources/`](resources/). The [Exemplar Pack](resources/exemplars/) shows what an A-grade artifact looks like, including the A-grade kill. [Just Enough to Keep You Out of Jail](resources/LEGAL_BASICS.md) covers the practical minimum on recording, landing pages and taking money. The [Team Stack](resources/TEAM_STACK.md) is 30 minutes of setup, then go sell. Not building B2B SaaS? The [archetype guides](resources/archetypes/) translate every weekly bar for B2C, marketplace, deep tech, and hardware.
-
-1. **Start at [Module 00](modules/00-kickoff/)** and work forward — modules build on each other
-2. **The [Student Toolkit](resources/Student_Toolkit.xlsx) is your weekly companion** — interview log, experiment tracker, KPI dashboard
-3. **Read the [reading list](resources/READING_LIST.md) early** — few pieces, each carefully chosen
-4. **Do the homework.** Every module's deliverable feeds the next one. Skip a week and you're behind — the decks won't save you, the work will.
-5. **Learn the vocabulary** in the [Glossary](resources/GLOSSARY.md). Validation means a wallet opened, and a prototype is something people pay for. You'll be corrected in check-ins, kindly, every time.
-6. **Know how you're graded** with [Grading & the Revenue Ladder](resources/GRADING_RUBRIC.md). Evidence quality and decision discipline weigh as much as revenue. A rigorously argued kill can be an A. A zombie project cannot.
+1. **Start at [Module 00](modules/00-kickoff/)** and work forward. Modules build on each other.
+2. **Keep your evidence in your own records.** The [frameworks](frameworks/README.md#your-records) define them, from the Interview Log to the Pipeline, and your agent fills them. They are what you show when you present, pitch or decide.
+3. **Set up your agent once.** Install the skills from the frameworks you use this week. The [frameworks guide](frameworks/README.md#run-the-frameworks-with-your-agent) shows how.
+4. **Do the homework.** Every module's bar feeds the next one. Skip a week and you're behind. The decks won't save you, the work will.
+5. **A well-argued kill is a result.** A zombie project is not.
 
 ## Find Your Files
 
 ```
 modules/        One folder per module: README, lecture, workshop, case, homework
-frameworks/     7 one-page decision tools you'll use all semester
-resources/      Reading list, tools & links, Student Toolkit, bonus cases
+frameworks/     10 frameworks, each with the skills for your agent and its spreadsheets
 ```
 
-Every part is plain text an AI agent can read. Workshops, homework, cases and frameworks are Markdown, and rebuilt modules also ship their lecture as HTML next to the PDF. Point your agent at this repo to turn a module into a skill. To present an HTML lecture, download and unzip the whole course first, then open the lecture in your browser. Keep the `design/` folder in place so the slides load their fonts and styles.
+Every part is plain text an AI agent can read. Workshops, homework, cases and frameworks are Markdown, and rebuilt modules also ship their lecture as HTML next to the PDF. Point your agent at this repo to turn a module into a skill. The frameworks already hold the skills the lectures show. To present an HTML lecture, download it with its module's `media` folder and open it in your browser. Fonts and styles are inside the file, so it works offline.
 
 ---
 

@@ -1,6 +1,6 @@
 # Homework 10: Product Management & Growth
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 **Reach €3,000 cumulative revenue from outside your social graph, shown in your payment dashboard or on paid numbered invoices.** The learning floor is €1,000 cumulative.
 
@@ -61,17 +61,17 @@ Behind the pace you set? Change channel or offer, not volume. Nobody back? Stop 
 
 ## Keep your records
 
-In your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+In your records.
 
-- **Pipeline.** "Back on (used or paid, date)" and "Lost, reason in their words".
-- **Bets.** One row per request, idea or fix, its expected effect written first, the result after.
-- **KPI Tracker.** "North Star" and your drivers under M10, plus "Very disappointed, of n asked".
-- **Kill Criteria Log.** Line, date, result.
+- **[Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records).** "Back on (used or paid, date)" and "Lost, reason in their words".
+- **[Bets](../../frameworks/06_PMF_Measurement_Engine.md#your-records).** One row per request, idea or fix, its expected effect written first, the result after.
+- **[KPI Tracker](../../frameworks/06_PMF_Measurement_Engine.md#your-records).** "North Star" and your drivers under M10, plus "Very disappointed, of n asked".
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** Line, date, result.
 - **Read-out.** Facts, Numbers, Quotes, Images from these.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Week-one return across two cohorts. App-store reviews are not retention. |
 | Marketplace | Both sides. Supply that leaves after one deal is churn. |

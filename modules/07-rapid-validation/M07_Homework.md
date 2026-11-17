@@ -1,6 +1,6 @@
 # Homework 07: The Kill Decision
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 **Test your monkey with 10 people per student from your segment against a line logged first, decide Go, Pivot or Kill on your Kill Criteria Log and scorecard, and bring the verdict and your next offer to the Module 08 check-in.** The learning floor is the scored verdict and the offer per team and 5 such people per student.
 
@@ -50,12 +50,12 @@ Count across the team.
 
 Workshop done? Start at 4.
 
-1. **Write the obituary.** One year from now, your venture is dead. Each founder lists why, alone, beside your Weekly Reflection's riskiest assumptions. Each becomes an assumption about customer, solution or business.
+1. **Write the obituary.** One year from now, your venture is dead. Each founder lists why, alone, beside the riskiest assumptions in your records. Each becomes an assumption about customer, solution or business.
 2. **Find the monkey.** Map them on critical and known (an artifact shows it). The monkey is the critical unknown, never a pedestal that just feels like progress.
-3. **Decide.** Crossed lines in your Kill Criteria Log decide, the [scorecard](../../frameworks/03_GPK_Decision_Framework.md) the rest. Pivot type 1 changes the solution, type 2 the problem.
+3. **Decide.** Crossed lines in your Kill Criteria Log decide, the [scorecard](../../frameworks/03_Build_Measure_Learn.md#go-pivot-or-kill) the rest. Pivot type 1 changes the solution, type 2 the problem.
 4. **Run the cheapest test that could prove the monkey wrong,** people from your records first.
     - Watch out. "Would you pay?" is not a test. A signed pre-order is.
-5. **Killing?** Write the [Kill Ritual](../../frameworks/03_GPK_Decision_Framework.md) page, like the made-up [A-grade autopsy](../../resources/exemplars/Exemplar_A_Kill_Autopsy.md). Restart from your records with a concierge offer, the outcome by hand.
+5. **Killing?** Write the [Kill Ritual](../../frameworks/03_Build_Measure_Learn.md#go-pivot-or-kill) page, like the made-up [kill page](../../frameworks/03_Build_Measure_Learn.md#example-a-kill-page). Restart from your records with a concierge offer, the outcome by hand.
 6. **Ask AI twice,** for assumptions from raw notes and a blind read of results. Remove hypothesis and names.
 
 ## Midweek check
@@ -64,19 +64,19 @@ Five each? Read the line. Behind? Look elsewhere. Crossed? Step down now. Earlie
 
 ## Keep your records
 
-In your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+In your records.
 
-- **Interview Log.** One row per person tested, tester as Interviewer, one quote.
-- **Kill Criteria Log.** The monkey line, date, result.
-- **Assumptions.** One row per assumption, the monkey marked.
-- **Verdict.** Scores with artifacts, verdict, offer, price, names, like the made-up [scorecard](../../resources/exemplars/Exemplar_GPK_Scorecard.md).
+- **[Interview Log](../../frameworks/01_Mom_Test.md#your-records).** One row per person tested, the tester under Led by, one quote.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** The monkey line, date, result.
+- **[Assumptions](../../frameworks/03_Build_Measure_Learn.md#your-records).** One row per assumption, the monkey marked.
+- **[Verdict](../../frameworks/03_Build_Measure_Learn.md#your-records).** Scores with artifacts, verdict, offer, price, names, like the made-up [scored verdict](../../frameworks/03_Build_Measure_Learn.md#example-a-scored-verdict).
 - **Read-out.** Line next to result, verdict kept or changed, two quotes, AI disagreements.
 
 Record only with consent covering the course staff.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | 20 people per student, floor 10. |
 | Marketplace | Test supply first. Does supply return after one match? |

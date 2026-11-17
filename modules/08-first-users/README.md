@@ -1,6 +1,6 @@
 # Module 08 — Finding First Users
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 > **Core question:** Who are your first ten customers — by name?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-30.
 
 **This week's goal.** By the start of Module 09, your team has asked named people from your segment to pay, holds your first customers from outside your social graph, and knows which channel and which ask bring the next ones.
 
-**This week's bar:** Ask named people from your segment to pay for your offer at its price, and win 3 paying users from outside your social graph, shown in your payment dashboard or on a numbered invoice. The learning floor is your first € from outside your social graph. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Ask named people from your segment to pay for your offer at its price, and win 3 paying users from outside your social graph, shown in your payment dashboard or on a numbered invoice. The learning floor is your first € from outside your social graph.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-30.
 
 **The case in one line:** Three Munich founders with funding and no customer on record decide whom to ask first, and for what.
 
-**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Go/Pivot/Kill Framework](../../frameworks/03_GPK_Decision_Framework.md) (Restart After a Kill) · [Student Toolkit](../../resources/Student_Toolkit.xlsx) (Pipeline, KPI Tracker, Kill Criteria Log) · [Exemplar Objection Log](../../resources/exemplars/Exemplar_Objection_Log.md) · [Team Stack](../../resources/TEAM_STACK.md) (section 2) · [Legal Basics](../../resources/LEGAL_BASICS.md) (section 4)
+**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Build, Measure, Learn](../../frameworks/03_Build_Measure_Learn.md#go-pivot-or-kill) (restart after a kill) · [Playbook](../../frameworks/05_AI_Startup_Playbook.md) (the [Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records), the [example Objection Log](../../frameworks/05_AI_Startup_Playbook.md#example-an-objection-log), [your stack](../../frameworks/05_AI_Startup_Playbook.md#your-stack)) · [KPI Tracker](../../frameworks/06_PMF_Measurement_Engine.md#your-records) · [Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records)
 
 ---
 

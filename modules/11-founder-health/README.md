@@ -1,6 +1,6 @@
 # Module 11 — Founder Health
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 > **Core question:** How do you build a company without breaking yourself?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-30.
 
 **This week's goal.** By the start of Module 12, each of you knows what drains you and what gives you energy, and your team has said how everyone is really doing, agreed on a pace it can hold and kept selling.
 
-**This week's bar:** Reach €5,000 cumulative revenue from outside your social graph, keep the private maps you chose, of what drains and energises you, for seven days, and hold one honest co-founder conversation that ends in one agreed change in your Team sheet, with a revisit date. The learning floor is €2,000 cumulative and the conversation with its written change. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Reach €5,000 cumulative revenue from outside your social graph, keep the private maps you chose, of what drains and energises you, for seven days, and hold one honest co-founder conversation that ends in one agreed change in your Team sheet, with a revisit date. The learning floor is €2,000 cumulative and the conversation with its written change.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-30.
 
 **The case in one line:** Christian Reber at the end of 2023, after a layoff, a halved funding market and a hard year. Stay as Pitch's chief executive, or step back?
 
-**Bring these frameworks:** [Student Toolkit](../../resources/Student_Toolkit.xlsx), its Team sheet with your Module 01 agreement and the Revenue Ladder · [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md#the-revenue-ladder). Your map of what drains and energises you stays with you, never in the Toolkit.
+**Bring these frameworks:** [Co-Founder Fit](../../frameworks/09_Co-Founder_Fit.md) with your [Team sheet](../../frameworks/09_Co-Founder_Fit.md#your-records) and your Module 01 agreement · your [Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records) with your cumulative revenue. Your map of what drains and energises you stays with you, never in your team's records.
 
 ---
 

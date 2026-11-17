@@ -1,6 +1,6 @@
 # Workshop 03: Pain Mining
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > Module 03 · The Problem Space · Workshop · [Goals M03-LG1 to LG4](README.md)
 
@@ -23,7 +23,7 @@ By the start of Module 04, your team knows whether your problem is expensive eno
 **Goal.** Agree who hurts most and what it costs.
 
 1. **Name the segment, trigger and fail state.** Who suffers most, when, at what cost in euros or hours? "Junior HR managers when a candidate ghosts them", not "companies".
-2. **Fill the Pain Map** in the Toolkit like the [exemplar](../../resources/exemplars/Exemplar_Pain_Map.md), each cell heard or assumed. Star the worst segment, your hair-on-fire candidate.
+2. **Fill the Pain Map** like the [example](../../frameworks/01_Mom_Test.md#your-records), each cell heard or assumed. Star the worst segment, your hair-on-fire candidate.
 3. **Write their job** below it. "When [situation], I want to [motivation], so I can [outcome]." Add the obstacle and the limits any fix must meet.
 4. **Log a [kill line](../../frameworks/02_Validation_Hierarchy.md)** in the Kill Criteria Log before any talk. A kill line is a result you count, a date, and what you do if you cross it, written down before the data comes in. The homework has a default.
 
@@ -72,4 +72,4 @@ No interviews yet? Start with guesses and hold two conversations in Step 2.
 
 ## Bring and use
 
-Bring the [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.md) and the [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M03_Lecture_Problem-Space.pdf) and [case](M03_Case_Konux.md) are background.
+Bring [The Mom Test](../../frameworks/01_Mom_Test.md) and your [Pain Map and Interview Log](../../frameworks/01_Mom_Test.md#your-records). The [lecture](M03_Lecture_Problem-Space.pdf) and [case](M03_Case_Konux.md) are background.

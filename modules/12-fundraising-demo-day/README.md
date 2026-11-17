@@ -1,6 +1,6 @@
 # Module 12 — Fundraising & Demo Day
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 > **Core question:** Can you tell the story — and show the money?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-26.
 
 **This week's goal.** By Demo Day, your team pitches its venture on proof, not promises, knows how big it can get and which money fits, and leaves with a decision on the company, a plan and a group that keeps you selling.
 
-**This week's bar:** Reach €10,000 cumulative revenue from outside your social graph by Demo Day, rehearse your pitch with three outsiders who can repeat your problem and your one number, and within seven days of Demo Day write your verdict on the company with what it needs. The learning floor is the Demo Day minimum of €2,000 verified with your evidence pack, one such outsider and your written verdict. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Reach €10,000 cumulative revenue from outside your social graph by Demo Day, rehearse your pitch with three outsiders who can repeat your problem and your one number, and within seven days of Demo Day write your verdict on the company with what it needs. The learning floor is the Demo Day minimum of €2,000 verified with your evidence pack, one such outsider and your written verdict.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-26.
 
 **The case in one line:** Four Munich founders in spring 2016, unpaid, growing on what customers pay. Take outside money now, and from whom, or another year on revenue?
 
-**Bring these frameworks:** [Default Alive Calculator](../../frameworks/04_Default_Alive_Calculator.md) · [GPK Decision Framework](../../frameworks/03_GPK_Decision_Framework.md)
+**Bring these frameworks:** [Default Alive Calculator](../../frameworks/04_Default_Alive_Calculator.md) · [Build, Measure, Learn](../../frameworks/03_Build_Measure_Learn.md) (go, pivot or kill)
 
 ---
 

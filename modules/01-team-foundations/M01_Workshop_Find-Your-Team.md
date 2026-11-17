@@ -1,6 +1,6 @@
 # Workshop 01: Find Your Team
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > Module 01 · Team & Foundations · Workshop · [Goals M01-LG1 to LG4](README.md)
 
@@ -47,7 +47,7 @@ By the start of Module 02, your team has a written agreement on roles, time, mon
 1. **Compare answers (10′).** Mark each agree, talk it through, or dealbreaker.
 2. **Lay your skill bars side by side (5′).** Who builds, who sells, which gap stops you? Learn, recruit or pay to close it.
 3. **Decide what you build (10′).** Startup or small business, how far, and why.
-4. **Draft the agreement (10′)** in the Team sheet of your [Student Toolkit](../../resources/Student_Toolkit.xlsx), one line per topic.
+4. **Draft the agreement (10′)** in your [Team sheet](../../frameworks/09_Co-Founder_Fit.md#your-records), one line per topic.
 
 | Good | Weak |
 |---|---|
@@ -75,4 +75,4 @@ No problem space from Module 00? Pitch one from your own life or work. Still alo
 
 ## Bring and use
 
-More questions are in the [Co-Founder Matchmaking Assessment](../../resources/Co-Founder_Matchmaking_Assessment.xlsx). The [lecture](M01_Lecture_Team-Foundations.pdf) is background.
+More questions are in the [Co-Founder Assessment](../../frameworks/09_Co-Founder_Assessment.xlsx). The [lecture](M01_Lecture_Team-Foundations.pdf) is background.

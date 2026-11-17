@@ -1,6 +1,6 @@
 # Module 00 — Kickoff — No-Bullshit Entrepreneurship
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 > **Core question:** What kills startups — and what will this course demand from you?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-26.
 
 **This week's goal.** By the start of Module 01, you have written problem hypotheses and know from named people what those problems cost them today, and those people are your first sales leads.
 
-**This week's bar:** Write 3 problem hypotheses and hold 15 problem conversations with named people, learning what the problem costs each of them today, and come back with 3 people who agreed to a next step. The learning floor is 3 hypotheses and 5 conversations with 1 next step. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Write 3 problem hypotheses and hold 15 problem conversations with named people, learning what the problem costs each of them today, and come back with 3 people who agreed to a next step. The learning floor is 3 hypotheses and 5 conversations with 1 next step.
 
 ## Materials
 

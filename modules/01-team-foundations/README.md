@@ -1,6 +1,6 @@
 # Module 01 — Team & Foundations
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 > **Core question:** Why do the best teams beat the best ideas?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-30.
 
 **This week's goal.** By the start of Module 02, your team has a written agreement on roles, time, money, ambition and one shared problem space, tested in a week of conversations, so selling has an owner and the team survives its first fight.
 
-**This week's bar:** Hold 10 conversations per student in your team's shared problem space, each with a named person and one verbatim quote, and end the week with a team agreement every founder confirmed after your end-of-week feedback round. The learning floor is 5 conversations per student and the confirmed agreement. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Hold 10 conversations per student in your team's shared problem space, each with a named person and one verbatim quote, and end the week with a team agreement every founder confirmed after your end-of-week feedback round. The learning floor is 5 conversations per student and the confirmed agreement.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-30.
 
 **The case in one line:** In autumn 2018 the founders of a fast-growing Munich start-up have to decide who should run their company next.
 
-**Bring these frameworks:** [Co-Founder Matchmaking Assessment](../../resources/Co-Founder_Matchmaking_Assessment.xlsx) · [Student Toolkit](../../resources/Student_Toolkit.xlsx), its Team sheet and Interview Log · [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.md) for the week's conversations · [Accountability Group Tracker](../../resources/Accountability_Group_Tracker.xlsx) for the group you start with other teams
+**Bring these frameworks:** [Co-Founder Assessment](../../frameworks/09_Co-Founder_Assessment.xlsx) · your [Team sheet](../../frameworks/09_Co-Founder_Fit.md#your-records) and [Interview Log](../../frameworks/01_Mom_Test.md#your-records) · [The Mom Test](../../frameworks/01_Mom_Test.md) for the week's conversations · [Accountability Group Tracker](../../frameworks/10_Accountability_Group_Tracker.xlsx) for the group you start with other teams
 
 ---
 

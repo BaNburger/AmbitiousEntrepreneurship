@@ -1,6 +1,6 @@
 # Module 04 — Validating Problems
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > **Core question:** What evidence would change your mind?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-19.
 
 **This week's goal.** By the start of Module 05, your team knows whether people in your segment act on a promise to fix their problem, measured against a line drawn in advance, and holds their sign-ups, your first testers and buyers.
 
-**This week's bar:** Publish one landing page per team, log its pass or fail line before the first visitor arrives, and bring 100 visitors per student from your segment to it. The learning floor is the live page, the logged line and 30 visitors per student from your segment. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Publish one landing page per team, log its pass or fail line before the first visitor arrives, and bring 100 visitors per student from your segment to it. The learning floor is the live page, the logged line and 30 visitors per student from your segment.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-19.
 
 **The case in one line:** Before a single phone exists, a team decides whether to sell 5,000 of them first
 
-**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Student Toolkit](../../resources/Student_Toolkit.xlsx) (Experiment Tracker, Traffic Sources, Kill Criteria Log) · [Exemplar landing-page test](../../resources/exemplars/Exemplar_Landing_Page_Test.md)
+**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · your [Traffic Sources](../../frameworks/02_Validation_Hierarchy.md#your-records) and [Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records) · [Example landing-page test](../../frameworks/02_Validation_Hierarchy.md#example-a-landing-page-test)
 
 ---
 

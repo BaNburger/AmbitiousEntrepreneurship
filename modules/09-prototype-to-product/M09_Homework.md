@@ -1,6 +1,6 @@
 # Homework 09: From Prototype to Product
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 **Run your price test, let customers pay inside your live product without a founder in the sale, and reach €1,000 cumulative revenue from outside your social graph, with the same offer bought by more than one customer.** The learning floor is €500 cumulative, with at least one payment made inside your product.
 
@@ -52,7 +52,7 @@ Count across the team. Under 10 sent counts as none paid.
 4. **Let follow-ups run without you.**
 5. **Hand one chore to an AI agent,** tested on 10 of your own cases first.
 6. **Say no to custom work,** or price it apart.
-7. **Set up the plumbing.** Register the trade, file the tax questionnaire within a month, tax number on invoices above €250, team bank account, receipts folder, code rights granted to the team in writing. Not legal advice ([Legal Basics](../../resources/LEGAL_BASICS.md)).
+7. **Set up the plumbing.** Register the trade, file the tax questionnaire within a month, tax number on invoices above €250, team bank account, receipts folder, code rights granted to the team in writing. Not legal advice.
     - Watch out. GbR founders are liable with private money. Signing what your savings can't cover? A UG and a lawyer.
 8. **Get a blind second opinion.** Give an AI your raw records, no names or hypothesis. Note where it disagrees.
 
@@ -62,17 +62,16 @@ Behind your euros? Read your line, change the structure first. Paid by hand? Fin
 
 ## Keep your records
 
-In your [Student Toolkit](../../resources/Student_Toolkit.xlsx) and your product.
+In your records and your product.
 
-- **Experiment Tracker.** Method Pricing Test.
-- **Kill Criteria Log.** Line, date, result.
-- **Pipeline.** Module 08's, or add one. A row per person sent and per payment, with offer, amount, in product or not, proof number, objections.
-- **KPI Tracker.** "Paying Customers" and "Revenue (€)" under M09.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** Method Pricing Test. Line, date, result.
+- **[Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records).** Module 08's, or add one. A row per person sent and per payment, with offer, amount, in product or not, proof number, objections.
+- **[KPI Tracker](../../frameworks/06_PMF_Measurement_Engine.md#your-records).** "Paying Customers" and "Revenue (€)" under M09.
 - **Read-out.** Facts, Numbers, Quotes, Images from these records.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Test annual against monthly. |
 | Marketplace | Let your provider split payments. Only your cut counts. |

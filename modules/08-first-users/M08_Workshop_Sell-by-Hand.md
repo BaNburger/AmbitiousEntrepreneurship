@@ -1,6 +1,6 @@
 # Workshop 08: Sell by Hand
 
-Updated: 2026-10-20.
+Updated: 2026-11-17.
 
 > Module 08 · Finding First Users · Workshop · [Goals M08-LG1 to LG4](README.md)
 
@@ -10,7 +10,7 @@ Updated: 2026-10-20.
 
 By the start of Module 09, your team has asked named people from your segment to pay, holds your first customers from outside your social graph, and knows which channel and which ask bring the next ones. Today you ask for money. Examples are made up.
 
-**Bring.** Laptop and phone, your Toolkit with your Module 07 verdict, offer and names, and a payment link, or at least an invoice template ([Legal Basics](../../resources/LEGAL_BASICS.md), section 4).
+**Bring.** Laptop and phone, your records with your Module 07 verdict, offer and names, and a payment link, or at least an invoice template.
 
 ## The 90 minutes
 
@@ -72,4 +72,4 @@ No offer or names? Price a concierge offer, what you'd do by hand for one person
 
 ## Bring and use
 
-The [Objection Log exemplar](../../resources/exemplars/Exemplar_Objection_Log.md) (made up), [Team Stack](../../resources/TEAM_STACK.md), [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M08_Lecture_Finding-First-Users.pdf) is background.
+The [Objection Log example](../../frameworks/05_AI_Startup_Playbook.md#example-an-objection-log) (made up), [your stack](../../frameworks/05_AI_Startup_Playbook.md#your-stack), your records. The [lecture](M08_Lecture_Finding-First-Users.pdf) is background.

@@ -1,6 +1,6 @@
 # Module 02 — Finding Ideas
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > **Core question:** Where do startup ideas actually come from?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-19.
 
 **This week's goal.** By the start of Module 03, your team has picked one idea, knows why you are the team for its problem, and has heard named people describe the last time it hit them, the first names on your prospect list.
 
-**This week's bar:** Hold 15 problem conversations per student about the problem behind your chosen idea. The learning floor is 5 conversations per student. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Hold 15 problem conversations per student about the problem behind your chosen idea. The learning floor is 5 conversations per student.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-19.
 
 **The case in one line:** Germany plans to open its long-distance bus market, and three friends in Munich have to decide whether to jump
 
-**Bring these frameworks:** [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md)
+**Bring these frameworks:** [The Mom Test](../../frameworks/01_Mom_Test.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md)
 
 ---
 

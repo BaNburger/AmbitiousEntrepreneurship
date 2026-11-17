@@ -1,6 +1,6 @@
 # Homework 02: Finding Ideas
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 **Hold 15 problem conversations per student about the problem behind your chosen idea.** The learning floor is 5 conversations per student.
 
@@ -47,7 +47,7 @@ Count it across the team. New means they never discussed this problem with you. 
     - Watch out. Name the problem first, and it isn't unprompted.
 3. **Change the idea on what you hear.** Rescore every 3 talks, and switch the day your kill line is crossed.
 4. **End with an ask,** a second call or an intro. Each yes is a first prospect.
-5. **Record with the consent sentence** in [Legal Basics](../../resources/LEGAL_BASICS.md).
+5. **Record with the consent sentence** in [The Mom Test](../../frameworks/01_Mom_Test.md#how-to-run-one).
 6. **Get a blind second opinion.** Give an AI your raw notes, minus your idea and personal data. Ask what people raised on their own, and note where it disagrees.
     - Watch out. AI critics and personas are practice and never count.
 
@@ -57,16 +57,16 @@ Check your kill line first, then your pace. The full bar is about 3 talks a day.
 
 ## Keep your records
 
-It all lives in your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+It all lives in your team's own records.
 
-- **Interview Log.** One row per talk, recording linked, unprompted yes (quote their last time), no, or n/a if not new.
-- **Ideas.** Every idea, its scores heard or assumed, kept or dropped and why. Your pitch on top.
-- **Kill Criteria Log.** Your result next to your line.
+- **[Interview Log](../../frameworks/01_Mom_Test.md#your-records).** One row per talk, recording linked, unprompted yes (quote their last time), no, or n/a if not new.
+- **[Ideas](../../frameworks/05_AI_Startup_Playbook.md#your-records).** Every idea, its scores heard or assumed, kept or dropped and why. Your pitch on top.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** Your result next to your line.
 - **Read-out.** One slide from these, roles not names, doubling as your weekly update. Facts, Numbers, Quotes, Images, your verdict and pitch, then what you did, learned and need.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Named, quoted intercepts count, the Mensa queue too, so the bar is 10 and 30. |
 | Marketplace | Two sides. Talk to both, supply first, with a kill line per side. |

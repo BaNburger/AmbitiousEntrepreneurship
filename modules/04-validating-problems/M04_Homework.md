@@ -1,6 +1,6 @@
 # Homework 04: Validating Problems
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 **Publish one landing page per team, log its pass or fail line before the first visitor arrives, and bring 100 visitors per student from your segment to it.** The learning floor is the live page, the logged line and 30 visitors per student from your segment.
 
@@ -59,17 +59,16 @@ Behind your pace? Change the channel or message, not the volume. Few sign-ups? A
 
 ## Keep your records
 
-It lives in your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+It lives in your team's own records.
 
-- **Experiment Tracker.** One row, method "Landing Page", rung quantitative.
-- **Kill Criteria Log.** Your dated line and the result next to it.
-- **Traffic Sources.** One row per source and student, as in the [exemplar](../../resources/exemplars/Exemplar_Landing_Page_Test.md).
-- **Sign-ups.** They stay in your form tool, under the rules of [Legal Basics](../../resources/LEGAL_BASICS.md).
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** One row, method "Landing Page", rung quantitative, your dated line and the result next to it.
+- **[Traffic Sources](../../frameworks/02_Validation_Hierarchy.md#your-records).** One row per source and student, as in the [example](../../frameworks/02_Validation_Hierarchy.md#example-a-landing-page-test).
+- **Sign-ups.** They stay in your form tool.
 - **Read-out.** One slide. Line next to your rate as a range, conversion per source, two quotes with roles, not names, screenshots. Then what you did, learned and need.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Put the line on waitlist sign-ups. |
 | Marketplace | One page per side, or one for supply. Supply commitments count. |

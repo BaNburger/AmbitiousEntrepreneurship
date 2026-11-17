@@ -1,6 +1,6 @@
 # Homework 00: Kickoff
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 **Write 3 problem hypotheses and hold 15 problem conversations with named people, learning what the problem costs each of them today, and come back with 3 people who agreed to a next step.** The learning floor is 3 hypotheses and 5 conversations with 1 next step.
 
@@ -35,7 +35,7 @@ A made-up example. Yours belongs in the left column.
 | Conversations held | 5 | 15 |
 | With an agreed next step | 1 | 3 |
 
-Give your riskiest hypothesis the first 10 conversations. One counts once held, with a [named person, one exact quote](../../resources/GRADING_RUBRIC.md) and the cost logged, even when it's zero. It counts for the student who led it, each person once. Friends, family and classmates don't count, but their intros do.
+Give your riskiest hypothesis the first 10 conversations. One counts once held, with a named person, one exact quote and the cost logged, even when it's zero. It counts for the student who led it, each person once. Friends, family and classmates don't count, but their intros do.
 
 ## Your kill line
 
@@ -52,10 +52,10 @@ Under 10 conversations by then? It stays open.
     - Be a fly on the wall in a shift or a support queue. Note what people curse at.
     - Read 1- to 3-star reviews of a product you like or want to change, on Trustpilot, G2 or Capterra. Repeated complaints are problems. On G2 and Capterra, the reviewer's role tells you whom to call.
     - Ask AI deep research where your "who" complains online.
-2. **Open on their day.** Let them raise the problem. If they don't, name it and log a no. Then ask about the [last time](../../frameworks/01_Mom_Test_Cheatsheet.md). "What did you do? What did it cost you?" Get hours or euros.
+2. **Open on their day.** Let them raise the problem. If they don't, name it and log a no. Then ask about the [last time](../../frameworks/01_Mom_Test.md). "What did you do? What did it cost you?" Get hours or euros.
     - Watch out. Pitch, or ask "Would you use it?", and you get a polite yes.
 3. **End with an ask,** like a second call or an intro.
-4. **Record with the consent sentence** in [Legal Basics](../../resources/LEGAL_BASICS.md).
+4. **Record with the consent sentence** in [The Mom Test](../../frameworks/01_Mom_Test.md#how-to-run-one).
 5. **Get a blind second opinion.** Give an AI your raw notes, minus hypothesis and personal data. Note where its reading differs from yours.
     - Watch out. AI personas are rehearsal and never count.
 
@@ -65,17 +65,16 @@ Under 10 conversations by then? It stays open.
 
 ## Keep your records
 
-In your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+In your team's own records.
 
-- **Interview Log.** One row per conversation, right after it. Quote, cost, raised unprompted, next step.
-- **Experiment Tracker.** Ranked hypotheses and their evidence.
-- **Kill Criteria Log.** Your line and result.
-- **Weekly Reflection.** Riskiest assumption, learnings, help you need.
+- **[Interview Log](../../frameworks/01_Mom_Test.md#your-records).** One row per conversation, right after it. Quote, cost, raised unprompted, next step.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** Ranked hypotheses, their evidence, your line and result.
+- **[Assumptions](../../frameworks/03_Build_Measure_Learn.md#your-records).** Your riskiest assumption first.
 - **Read-out.** One slide for Module 01, roles not names. Target against actual, Facts, Numbers, Quotes, Images, what you learned and need, who you'd build with.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Short named, quoted intercepts count. Floor 10, full bar 30. |
 | Marketplace | One hypothesis per side at least. The first 10 talks go to supply. |

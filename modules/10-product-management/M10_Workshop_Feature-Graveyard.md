@@ -1,6 +1,6 @@
 # Workshop 10: Feature Graveyard
 
-Updated: 2026-10-20.
+Updated: 2026-11-17.
 
 > Module 10 · Product Management & Growth · Workshop · [Goals M10-LG1 to LG4](README.md)
 
@@ -69,4 +69,4 @@ No paying customers yet? Use your activated users from the Use Log. No product r
 
 ## Bring and use
 
-[PMF Measurement Engine](../../frameworks/06_PMF_Measurement_Engine.md), [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M10_Lecture_Product-Management.pdf) is background.
+[PMF Measurement Engine](../../frameworks/06_PMF_Measurement_Engine.md), [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), and your [Use Log, KPI Tracker and Bets](../../frameworks/06_PMF_Measurement_Engine.md#your-records). The [lecture](M10_Lecture_Product-Management.pdf) is background.

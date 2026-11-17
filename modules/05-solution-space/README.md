@@ -1,6 +1,6 @@
 # Module 05 — The Solution Space
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > **Core question:** Of all the ways to solve this problem, why this one?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-19.
 
 **This week's goal.** By the start of Module 06, your team has seen people from your segment try your solution as a click dummy, knows it beats what they use today by far, and holds those who asked for it, your first buyers.
 
-**This week's bar:** Build one click dummy per founder and show the dummies in 15 guided demos per student with people from your segment, at least 7 per dummy, each ending in an ask that costs them something. The learning floor is one click dummy per team and 5 such demos per student. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Build one click dummy per founder and show the dummies in 15 guided demos per student with people from your segment, at least 7 per dummy, each ending in an ask that costs them something. The learning floor is one click dummy per team and 5 such demos per student.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-19.
 
 **The case in one line:** Three Munich founders run out of money and have to decide what to sell by Monday
 
-**Bring these frameworks:** [10x Value Prop Test](../../frameworks/07_10x_Value_Prop_Test.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md)
+**Bring these frameworks:** [10x Test](../../frameworks/07_10x_Test.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md)
 
 ---
 

@@ -1,6 +1,6 @@
 # Module 10 — Product Management & Growth
 
-Updated: 2026-10-26.
+Updated: 2026-11-17.
 
 > **Core question:** What do you build next — and what do you refuse to build?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-26.
 
 **This week's goal.** By the start of Module 11, your team knows which customers your product keeps and why, has built only what they need to stay and pay again, and runs each week on one number your records feed.
 
-**This week's bar:** Reach €3,000 cumulative revenue from outside your social graph, shown in your payment dashboard or on paid numbered invoices. The learning floor is €1,000 cumulative. Rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Reach €3,000 cumulative revenue from outside your social graph, shown in your payment dashboard or on paid numbered invoices. The learning floor is €1,000 cumulative.
 
 **The arc:** You arrive with paying customers, and this week you find out which of them stay. €10k by Demo Day is the ambition, €100k the road after.
 
@@ -30,7 +30,7 @@ Updated: 2026-10-26.
 
 **The case in one line:** A year in, the two founders of a free form builder read their first product-market-fit survey and its seven kinds of requests, and decide what to build next.
 
-**Bring these frameworks:** [PMF Measurement Engine](../../frameworks/06_PMF_Measurement_Engine.md) (the question as a compass, retention as the verdict) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) (the Kill Question) · [Student Toolkit](../../resources/Student_Toolkit.xlsx) (Pipeline, Bets, KPI Tracker, Kill Criteria Log)
+**Bring these frameworks:** [PMF Measurement Engine](../../frameworks/06_PMF_Measurement_Engine.md) (the question as a compass, retention as the verdict) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) (the Kill Question) · Your records: the [Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records), [Bets and KPI Tracker](../../frameworks/06_PMF_Measurement_Engine.md#your-records), the [Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records)
 
 ---
 

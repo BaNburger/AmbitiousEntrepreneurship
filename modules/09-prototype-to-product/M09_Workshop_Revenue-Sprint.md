@@ -1,6 +1,6 @@
 # Workshop 09: Revenue Sprint
 
-Updated: 2026-10-20.
+Updated: 2026-11-17.
 
 > Module 09 · From Prototype to Product · Workshop · [Goals M09-LG1 to LG4](README.md)
 
@@ -57,7 +57,7 @@ By the start of Module 10, your team sells one offer at a price you tested, cust
 
 **Goal.** Real people see your price.
 
-1. **Check the plumbing (4′).** Money lands on the team's account. Invoices carry a number and, under €25,000, the § 19 line ([Legal Basics](../../resources/LEGAL_BASICS.md)).
+1. **Check the plumbing (4′).** Money lands on the team's account. Invoices carry a number and, under €25,000, the § 19 line.
 2. **Switch to live (4′).** Not verified yet? Invoice meanwhile.
 3. **Send the first people (7′)** to the product, Module 08's "not now" first.
 4. **Commit to the bar (5′).** "Run your price test, let customers pay inside your live product without a founder in the sale, and reach €1,000 cumulative revenue from outside your social graph, with the same offer bought by more than one customer. The learning floor is €500 cumulative, with at least one payment made inside your product." Each founder names a count. Set your midweek euros.
@@ -76,4 +76,4 @@ By the start of Module 10, your team sells one offer at a price you tested, cust
 
 ## Bring and use
 
-The [Objection Log exemplar](../../resources/exemplars/Exemplar_Objection_Log.md) (made up) and the [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M09_Lecture_Prototype-to-Product.pdf) is background.
+The [Objection Log example](../../frameworks/05_AI_Startup_Playbook.md#example-an-objection-log) (made up) and your [Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records). The [lecture](M09_Lecture_Prototype-to-Product.pdf) is background.

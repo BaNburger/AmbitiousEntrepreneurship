@@ -1,6 +1,6 @@
 # Module 06 — Prototyping with AI
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 > **Core question:** What is the fastest thing you can build to learn?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-30.
 
 **This week's goal.** By the start of Module 07, your team has its MVP live, has watched people from your segment use it without your help, knows whether it solves their problem, and holds your first users, the ones you ask to pay.
 
-**This week's bar:** Put your MVP live, let 10 people per student from your segment use it without your help, and ship 2 fixes for what stopped them. The learning floor is a live MVP per team, 5 such users per student and 1 fix. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Put your MVP live, let 10 people per student from your segment use it without your help, and ship 2 fixes for what stopped them. The learning floor is a live MVP per team, 5 such users per student and 1 fix.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-30.
 
 **The case in one line:** Two engineers, a first working version with borrowed parts, and strangers about to arrive
 
-**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Best Practices: Coding with AI](../../resources/Best_Practices_Coding_with_AI.pdf)
+**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Playbook](../../frameworks/05_AI_Startup_Playbook.md)
 
 ---
 

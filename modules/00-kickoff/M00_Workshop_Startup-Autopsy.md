@@ -1,6 +1,6 @@
 # Workshop 00: Startup Autopsy
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > Module 00 · Kickoff · Workshop · [Goals M00-LG1 to LG4](README.md)
 
@@ -27,7 +27,7 @@ Today starts your week of problem conversations. You leave with the first messag
 3. **Turn each cause into a belief.** "We assumed [who] has [problem] and pays to fix it."
 4. **Circle the one** that kills you if it's wrong and that nobody has tested.
 5. **Defend it in pairs.** Your partner asks "How do you know?" until you hit an opinion.
-6. **Log it** in the Toolkit's Weekly Reflection.
+6. **Log it** in your [Assumptions](../../frameworks/03_Build_Measure_Learn.md#your-records).
 
 | Good | Weak |
 |---|---|
@@ -39,7 +39,7 @@ Today starts your week of problem conversations. You leave with the first messag
 
 **Goal.** Turn that assumption into problem hypotheses a stranger could prove wrong this week.
 
-1. **Write 3** in the Experiment Tracker. "[Who] struggles with [problem] when [situation]. Today they [workaround], which costs them [hours or euros]."
+1. **Write 3** in your [Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records). "[Who] struggles with [problem] when [situation]. Today they [workaround], which costs them [hours or euros]."
 2. **Rate the evidence** behind each. Opinion, anecdote, conversation or payment? Only a payment is proof.
 3. **Rank them,** riskiest first. Start AI deep research on where your "who" talks.
 4. **Log a kill line** in the Kill Criteria Log before you talk to anyone. [The homework](M00_Homework.md#your-kill-line) has one ready.
@@ -71,4 +71,4 @@ No idea, no technology, no team? You're right on time. Run the autopsy on a frus
 
 ## Bring and use
 
-The [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), the [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.md) and the [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M00_Lecture_No-Bullshit-Entrepreneurship.pdf) and the case are background.
+The [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), [The Mom Test](../../frameworks/01_Mom_Test.md) and [Build, measure, learn](../../frameworks/03_Build_Measure_Learn.md). The [lecture](M00_Lecture_No-Bullshit-Entrepreneurship.pdf) and the case are background.

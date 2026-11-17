@@ -1,6 +1,6 @@
 # Workshop 05: Click Dummy Sprint
 
-Updated: 2026-11-02.
+Updated: 2026-11-17.
 
 > Module 05 · The Solution Space · Workshop · [Goals M05-LG1 to LG4](README.md)
 
@@ -72,4 +72,4 @@ No sign-ups? Work from your interviews, proof assumed. Switched segment? Post yo
 
 ## Bring and use
 
-The [10x Value Prop Test](../../frameworks/07_10x_Value_Prop_Test.md), the [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), the [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M05_Lecture_Solution-Space.pdf) is background.
+The [10x Test](../../frameworks/07_10x_Test.md), the [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), your records. The [lecture](M05_Lecture_Solution-Space.pdf) is background.

@@ -1,6 +1,6 @@
 # Homework 03: The Problem Space
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 **Hold 15 problem conversations per student in your hair-on-fire segment and come back with 5 named people per student who agreed to a next step.** The learning floor is 5 conversations and 2 next steps per student.
 
@@ -42,7 +42,7 @@ A [kill line](../../frameworks/02_Validation_Hierarchy.md) is a result you count
 
 > If, by the start of Module 04, fewer than 3 in 10 people we had not asked about the problem before raise it before we name it, or nobody spends money on a workaround, we switch segment or problem.
 
-Count it per segment and team, from the workshop on. The [rubric](../../resources/GRADING_RUBRIC.md) rewards a well-argued switch.
+Count it per segment and team, from the workshop on. A well-argued switch is a result, not a failure.
 
 ## How to do it
 
@@ -52,7 +52,7 @@ Count it per segment and team, from the workshop on. The [rubric](../../resource
 3. **Never pitch.** They'd stop talking about their problem.
 4. **Follow the money.** Get the euros or hours.
 5. **End with an ask,** like a second call. Compliments don't count.
-6. **Record with the consent sentence** in [Legal Basics](../../resources/LEGAL_BASICS.md).
+6. **Record with the consent sentence** in [The Mom Test](../../frameworks/01_Mom_Test.md#how-to-run-one).
 7. **Get a blind second opinion.** Give an AI your raw notes, minus your hypothesis and personal data. Ask what people raised unprompted, and note where it disagrees.
     - Watch out. AI personas are rehearsal and never count.
 
@@ -62,14 +62,14 @@ Behind your pace? Change the channel, the segment or your first message, not jus
 
 ## Keep your records
 
-- **Interview Log** in your [Toolkit](../../resources/Student_Toolkit.xlsx). One row per talk, right after it, raw recording linked, n/a if you asked them before. Next-step rows are your prospects.
-- **Pain Map.** One row per segment, each cell heard or assumed, like the [exemplar](../../resources/exemplars/Exemplar_Pain_Map.md), with job sentence, quotes and verdict below.
-- **Kill Criteria Log.** Your result next to your line.
+- **[Interview Log](../../frameworks/01_Mom_Test.md#your-records).** One row per talk, right after it, raw recording linked, n/a if you asked them before. Next-step rows are your prospects.
+- **Pain Map.** One row per segment, each cell heard or assumed, like the [example](../../frameworks/01_Mom_Test.md#your-records), with job sentence, quotes and verdict below.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** Your result next to your line.
 - **Read-out.** One slide from these, roles not names. Facts, Numbers, Quotes, Images, Verdict, Hypothesis (three likely first payers), then what you did, learned and need. It's your weekly update.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Named, quoted intercepts count, so the bar is 10 and 30. Next steps stay. |
 | Marketplace | One Pain Map per side, supply first. The side that hurts most is your wedge. |

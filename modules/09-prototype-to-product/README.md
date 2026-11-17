@@ -1,6 +1,6 @@
 # Module 09 — From Prototype to Product
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 > **Core question:** How do you turn users into revenue?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-30.
 
 **This week's goal.** By the start of Module 10, your team sells one offer at a price you tested, customers pay for it inside your live product without a founder in the sale, and the same offer sells again without custom work.
 
-**This week's bar:** Run your price test, let customers pay inside your live product without a founder in the sale, and reach €1,000 cumulative revenue from outside your social graph, with the same offer bought by more than one customer. The learning floor is €500 cumulative, with at least one payment made inside your product. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Run your price test, let customers pay inside your live product without a founder in the sale, and reach €1,000 cumulative revenue from outside your social graph, with the same offer bought by more than one customer. The learning floor is €500 cumulative, with at least one payment made inside your product.
 
 **The arc:** You arrive with your first euros, and Modules 09 and 10 turn them into a repeatable engine. €10k by Demo Day is the ambition, €100k the road after.
 
@@ -30,7 +30,7 @@ Updated: 2026-10-30.
 
 **The case in one line:** Eight months after its launch, a Munich heating start-up weighs how a household should pay for a box whose automatic control runs on a paid service.
 
-**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Go/Pivot/Kill Framework](../../frameworks/03_GPK_Decision_Framework.md) (the line before the data) · [Student Toolkit](../../resources/Student_Toolkit.xlsx) (Experiment Tracker, Kill Criteria Log, Pipeline, KPI Tracker) · [Exemplar Objection Log](../../resources/exemplars/Exemplar_Objection_Log.md) · [Legal Basics](../../resources/LEGAL_BASICS.md) (section 4) · [Team Stack](../../resources/TEAM_STACK.md) (sections 2 and 2b)
+**Bring these frameworks:** [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Build, Measure, Learn](../../frameworks/03_Build_Measure_Learn.md) (the line before the data, the [Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records)) · [The playbook](../../frameworks/05_AI_Startup_Playbook.md) (the [Pipeline](../../frameworks/05_AI_Startup_Playbook.md#your-records), the [Objection Log example](../../frameworks/05_AI_Startup_Playbook.md#example-an-objection-log), [your stack](../../frameworks/05_AI_Startup_Playbook.md#your-stack)) · [Product-Market Fit](../../frameworks/06_PMF_Measurement_Engine.md#your-records) (KPI Tracker)
 
 ---
 

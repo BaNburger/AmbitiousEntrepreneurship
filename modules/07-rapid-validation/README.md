@@ -1,6 +1,6 @@
 # Module 07 — The Kill Decision
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 > **Core question:** Why should this startup die?
 
@@ -15,7 +15,7 @@ Updated: 2026-10-30.
 
 **This week's goal.** By the start of Module 08, your team has tested the riskiest assumption left in your venture, decided Go, Pivot or Kill on criteria committed in advance, and holds the offer you will sell next, even after a kill.
 
-**This week's bar:** Test your monkey with 10 people per student from your segment against a line logged first, decide Go, Pivot or Kill on your Kill Criteria Log and scorecard, and bring the verdict and your next offer to the Module 08 check-in. The learning floor is the scored verdict and the offer per team and 5 such people per student. Anti-fake rules: [Grading & Revenue Ladder](../../resources/GRADING_RUBRIC.md).
+**This week's bar:** Test your monkey with 10 people per student from your segment against a line logged first, decide Go, Pivot or Kill on your Kill Criteria Log and scorecard, and bring the verdict and your next offer to the Module 08 check-in. The learning floor is the scored verdict and the offer per team and 5 such people per student.
 
 ## Materials
 
@@ -28,7 +28,7 @@ Updated: 2026-10-30.
 
 **The case in one line:** Six months after launch, a Berlin team weighs the product it was founded to build against the to-do app that made its name.
 
-**Bring these frameworks:** [Go/Pivot/Kill Framework](../../frameworks/03_GPK_Decision_Framework.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Student Toolkit](../../resources/Student_Toolkit.xlsx) (Kill Criteria Log, Assumptions, Verdict) · [Exemplar GPK scorecard](../../resources/exemplars/Exemplar_GPK_Scorecard.md) · [Exemplar A-grade autopsy](../../resources/exemplars/Exemplar_A_Kill_Autopsy.md)
+**Bring these frameworks:** [Build, Measure, Learn](../../frameworks/03_Build_Measure_Learn.md) · [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) · [Your records](../../frameworks/03_Build_Measure_Learn.md#your-records) (Kill Criteria Log, Assumptions, Verdict) · [Example scored verdict](../../frameworks/03_Build_Measure_Learn.md#example-a-scored-verdict) · [Example kill page](../../frameworks/03_Build_Measure_Learn.md#example-a-kill-page)
 
 ---
 

@@ -1,6 +1,6 @@
 # Homework 01: Team & Foundations
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 **Hold 10 conversations per student in your team's shared problem space, each with a named person and one verbatim quote, and end the week with a team agreement every founder confirmed after your end-of-week feedback round.** The learning floor is 5 conversations per student and the confirmed agreement.
 
@@ -34,12 +34,12 @@ A talk counts once held, named and quoted in your log, for whoever led it, each 
 
 ## How to do it
 
-1. **Answer the full [Co-Founder Matchmaking Assessment](../../resources/Co-Founder_Matchmaking_Assessment.xlsx) alone,** then talk through every gap.
+1. **Answer the full [Co-Founder Assessment](../../frameworks/09_Co-Founder_Assessment.xlsx) alone,** then talk through every gap.
 2. **Use the week as your trial.** Fit shows under load, not over coffee. Hold at least two talks with a co-founder listening, then swap.
     - Watch out. Two builders and nobody selling? Give selling an owner by your midweek day, or recruit one.
 3. **Find your people.** Start with Module 00 contacts and their intros, people you see daily and where the work happens. Review sites and AI deep research show where they complain.
 4. **Stay in the problem.** Ask about the last time it happened and what it cost. Don't pitch. Log every problem, unranked.
-5. **Record with the consent sentence** in [Legal Basics](../../resources/LEGAL_BASICS.md).
+5. **Record with the consent sentence** in [The Mom Test](../../frameworks/01_Mom_Test.md#how-to-run-one).
 6. **Get a blind second opinion.** Give an AI your raw notes, minus personal data and your favourite idea. Ask which problems came up most. Note where it disagrees.
     - Watch out. AI personas are rehearsal and never count.
 7. **Hold your feedback round** at the end of the week. Situation, behaviour, impact, the change you ask for. Receive it without defending. Then update and confirm the agreement.
@@ -51,15 +51,15 @@ A talk counts once held, named and quoted in your log, for whoever led it, each 
 
 ## Keep your records
 
-It all lives in your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+It all lives in your team's own records.
 
-- **Team sheet.** Your skill bars and agreement, one line per topic, each founder's confirmation dated.
-- **Interview Log.** One row per talk, right after it, with who led it, an exact quote, today's cost and the recording.
+- **[Team sheet](../../frameworks/09_Co-Founder_Fit.md#your-records).** Your skill bars and agreement, one line per topic, each founder's confirmation dated.
+- **[Interview Log](../../frameworks/01_Mom_Test.md#your-records).** One row per talk, right after it, with who led it, an exact quote, today's cost and the recording.
 - **Read-out.** One slide from these, roles not names. Facts, Numbers, Quotes, Images, then what you did, learned and need.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Short, named, quoted intercepts count, so the bar is 10 and 20. |
 | Marketplace | Talk to both sides, supply first. |

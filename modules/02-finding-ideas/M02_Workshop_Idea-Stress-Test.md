@@ -1,6 +1,6 @@
 # Workshop 02: Idea Stress Test
 
-Updated: 2026-11-02.
+Updated: 2026-11-17.
 
 > Module 02 · Finding Ideas · Workshop · [Goals M02-LG1 to LG4](README.md)
 
@@ -75,4 +75,4 @@ No team? Join one for today. No talks? Start from your own sources. Assumed scor
 
 ## Bring and use
 
-Use the [Mom Test Cheatsheet](../../frameworks/01_Mom_Test_Cheatsheet.md) and your [Student Toolkit](../../resources/Student_Toolkit.xlsx), with the [lecture](M02_Lecture_Finding-Ideas.pdf) as background.
+Use [The Mom Test](../../frameworks/01_Mom_Test.md) and your [Ideas sheet](../../frameworks/05_AI_Startup_Playbook.md#your-records), with the [lecture](M02_Lecture_Finding-Ideas.pdf) as background.

@@ -1,6 +1,6 @@
 # Homework 06: Prototyping with AI
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 **Put your MVP live, let 10 people per student from your segment use it without your help, and ship 2 fixes for what stopped them.** The learning floor is a live MVP per team, 5 such users per student and 1 fix.
 
@@ -52,7 +52,7 @@ Per team. Unprompted means without your message. Under 10 users? Not passed.
     - Watch out. One hint makes it a guided demo.
 4. **Ask four questions before each build.** Does it match the problem? For whom is it 10x better? Can you build it in 4 hours? How does it reach them?
 5. **Fix what stopped them, cut what nobody used.** Two misses? Restart from your last version.
-6. **Keep their data.** Never wipe it. Collect only what you need, and say where it goes, AI included ([Legal Basics](../../resources/LEGAL_BASICS.md)).
+6. **Keep their data.** Never wipe it. Collect only what you need, and say where it goes, AI included.
 7. **Keep the ask.** Show your price. An early payment counts.
 8. **Get a blind second opinion.** Give an AI your raw records, minus hypothesis and names. Note where it disagrees.
 
@@ -62,12 +62,11 @@ Five users each? Read the line. Behind? Change where you find users, not how har
 
 ## Keep your records
 
-In your [Student Toolkit](../../resources/Student_Toolkit.xlsx) and your builder's history.
+In your records and your builder's history.
 
-- **Use Log.** One row per user: without help, outcome, came back, what stopped them.
-- **Experiment Tracker.** The MVP, method Prototype, rung Functional prototype.
-- **Kill Criteria Log.** Line and result.
-- **KPI Tracker.** "Prototype Users", "Activated users (reached the outcome)", "Users who came back unprompted".
+- **[Use Log](../../frameworks/06_PMF_Measurement_Engine.md#your-records).** One row per user: without help, outcome, came back, what stopped them.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** The MVP, method Prototype, rung Functional prototype, line and result.
+- **[KPI Tracker](../../frameworks/06_PMF_Measurement_Engine.md#your-records).** "Prototype Users", "Activated users (reached the outcome)", "Users who came back unprompted".
 - **Versions.** Your build log, each named by its change.
 - **Read-out.** Line next to outcomes and returns, two quotes, the outcome screen, a fix before and after.
 
@@ -75,7 +74,7 @@ Record only with consent covering the course staff.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | 20 users per student, floor 10. |
 | Marketplace | A sheet and WhatsApp, matched by hand, is your MVP. Supply first. |

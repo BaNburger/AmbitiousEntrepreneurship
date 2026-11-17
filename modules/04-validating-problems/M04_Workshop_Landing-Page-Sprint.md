@@ -1,6 +1,6 @@
 # Workshop 04: Landing Page Sprint
 
-Updated: 2026-10-19.
+Updated: 2026-11-17.
 
 > Module 04 · Validating Problems · Workshop · [Goals M04-LG2 to LG4](README.md)
 
@@ -24,7 +24,7 @@ By the start of Module 05, your team knows whether people in your segment act on
 
 **Goal.** Decide what result would change your mind, then write the page in their words.
 
-1. **Write the test (10′)** as one Experiment Tracker row. "We believe [segment] will [action] when we promise [outcome]." An email is the minimum action, a call or pre-order says more.
+1. **Write the test (10′)** as a [test card](../../frameworks/02_Validation_Hierarchy.md#your-records). "We believe [segment] will [action] when we promise [outcome]." An email is the minimum action, a call or pre-order says more.
 2. **Log the line** in the Kill Criteria Log, dated, before the page exists. A kill line is a result you count, a date, and what you do if you cross it, written down before the data comes in. The homework has a default.
 3. **Draft with AI (20′).** Give it your raw notes, names removed. Ask for five hero sections with headline, subheadline and button.
 4. **Pick the headline** closest to what someone said. Problem first, outcome promised, no features.
@@ -41,8 +41,8 @@ By the start of Module 05, your team knows whether people in your segment act on
 
 1. **Build top to bottom.** Their words, why it matters, what changes for them, one button.
 2. **Add a short form.** Email plus one question that shows whether they are in your segment, such as role.
-3. **Add an Impressum** and the privacy line from [Legal Basics](../../resources/LEGAL_BASICS.md). Without them the page stays offline.
-4. **Connect analytics** with visitors and sign-ups per source, minding the consent rule in Legal Basics. Publish.
+3. **Add an Impressum** and a privacy line. Without them the page stays offline.
+4. **Connect analytics** with visitors and sign-ups per source, minding cookie consent. Publish.
 5. **Swap links** with a team. After five seconds, can they say problem and action?
 
 | Good | Weak |
@@ -73,4 +73,4 @@ No interview notes? Copy exact sentences from forums where your segment complain
 
 ## Bring and use
 
-The [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), the [landing-page exemplar](../../resources/exemplars/Exemplar_Landing_Page_Test.md), [Legal Basics](../../resources/LEGAL_BASICS.md) and the [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M04_Lecture_Validating-Problems.pdf) and [case](M04_Case_Fairphone.md) are background.
+The [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md) with its [landing-page example](../../frameworks/02_Validation_Hierarchy.md#example-a-landing-page-test), and your [Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records). The [lecture](M04_Lecture_Validating-Problems.pdf) and [case](M04_Case_Fairphone.md) are background.

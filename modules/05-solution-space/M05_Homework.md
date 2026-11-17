@@ -1,6 +1,6 @@
 # Homework 05: The Solution Space
 
-Updated: 2026-10-20.
+Updated: 2026-11-17.
 
 **Build one click dummy per founder and show the dummies in 15 guided demos per student with people from your segment, at least 7 per dummy, each ending in an ask that costs them something.** The learning floor is one click dummy per team and 5 such demos per student.
 
@@ -60,17 +60,16 @@ Seven demos per dummy? Read the line, converge. Behind? Change channel first. A 
 
 ## Keep your records
 
-All in your [Student Toolkit](../../resources/Student_Toolkit.xlsx).
+In your records, with the columns each framework gives.
 
-- **Experiment Tracker.** One row per dummy, method Click dummy, rung Wireframe mockup, status quo and 10x in the hypothesis. The winner's next action holds your MVP.
-- **Interview Log.** One row per demo with name, quote and the ask's answer under "Agreed next step". Record only with consent that covers the course staff.
-- **Kill Criteria Log.** Line and result per dummy.
-- **KPI Tracker.** Demos under "Prototype Users".
+- **[Interview Log](../../frameworks/01_Mom_Test.md#your-records).** One row per demo with name, quote and the ask's answer under "Agreed next step". Record only with consent that covers the course staff.
+- **[Kill Criteria Log](../../frameworks/03_Build_Measure_Learn.md#your-records).** One row per dummy, method Click dummy, rung Wireframe mockup, status quo and 10x in the hypothesis, line and result. The winner's next action holds your MVP.
+- **[KPI Tracker](../../frameworks/06_PMF_Measurement_Engine.md#your-records).** Demos under "Prototype Users".
 - **Read-out.** Line next to asks accepted per dummy, the 10x with proof, two quotes, the winner's screens.
 
 ## By archetype
 
-| [Archetype](../../resources/archetypes/README.md) | What changes |
+| Archetype | What changes |
 |---|---|
 | B2C | Short demos, 30 per student, floor 10. Ask for a pre-order. |
 | Marketplace | Supply-side dummies first. Ask for a supply commitment. |

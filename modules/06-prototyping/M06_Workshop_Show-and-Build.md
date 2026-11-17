@@ -1,6 +1,6 @@
 # Workshop 06: Show & Build
 
-Updated: 2026-10-30.
+Updated: 2026-11-17.
 
 > Module 06 · Prototyping with AI · Workshop · [Goals M06-LG1 to LG4](README.md)
 
@@ -72,4 +72,4 @@ No winner? Build your best dummy's feature. Back at the problem? Build the small
 
 ## Bring and use
 
-The [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), [Best Practices: Coding with AI](../../resources/Best_Practices_Coding_with_AI.pdf), the [Student Toolkit](../../resources/Student_Toolkit.xlsx). The [lecture](M06_Lecture_Prototyping.pdf) is background.
+The [Validation Hierarchy](../../frameworks/02_Validation_Hierarchy.md), the agent skills in the [playbook](../../frameworks/05_AI_Startup_Playbook.md), your records. The [lecture](M06_Lecture_Prototyping.pdf) is background.
